@@ -1,0 +1,15 @@
+---
+proxmox:
+  children:
+    pve:
+      hosts:
+        pve-01:
+          ansible_host: pve-01.${SECRET_PUBLIC_DOMAIN}.com
+        pve-02:
+          ansible_host: pve-02.${SECRET_PUBLIC_DOMAIN}.com
+        pve-03:
+          ansible_host: pve-03.${SECRET_PUBLIC_DOMAIN}.com
+      vars:
+        ansible_user: root
+        ansible_port: 22
+        ansible_connection: ssh
