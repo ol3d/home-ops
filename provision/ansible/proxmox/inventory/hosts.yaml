@@ -4,11 +4,11 @@ proxmox:
     pve:
       hosts:
         pve-01:
-          ansible_host: pve-01.${SECRET_PUBLIC_DOMAIN}.com
+          ansible_host: pve-01.${SECRET_PUBLIC_DOMAIN}
         pve-02:
-          ansible_host: pve-02.${SECRET_PUBLIC_DOMAIN}.com
+          ansible_host: pve-02.${SECRET_PUBLIC_DOMAIN}
         pve-03:
-          ansible_host: pve-03.${SECRET_PUBLIC_DOMAIN}.com
+          ansible_host: pve-03.${SECRET_PUBLIC_DOMAIN}
       vars:
         ansible_user: root
         ansible_port: 22
