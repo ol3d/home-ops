@@ -1,0 +1,83 @@
+---
+- hosts:
+    - localhost
+  become: True
+  become_method: sudo
+  become_user: root
+  gather_facts: True
+  any_errors_fatal: False
+
+  pre_tasks:
+    - name: Pausing for 2 seconds...
+      ansible.builtin.pause:
+        seconds: 2
+
+  tasks:
+    - block:
+      - name: Update apt repository and cache
+        apt:
+          update_cache: yes
+          force_apt_get: yes
+          cache_valid_time: 3600
+      - name: Upgrade all packages
+        apt:
+          upgrade: dist
+          force_apt_get: yes
+      - name: Check if reboot is required
+        register: reboot_required_file
+        stat:
+          path: /var/run/reboot-required
+          get_md5: no
+      - name: Reboot server if kernel updated
+        reboot:
+          msg: "Reboot initiated by Ansible for kernel updates"
+          connect_timeout: 5
+          reboot_timeout: 300
+          pre_reboot_delay: 0
+          post_reboot_delay: 30
+          test_command: uptime
+        when: reboot_required_file.stat.exists
+
+    - block:
+      - name: Install the latest version of awscli
+        ansible.builtin.package:
+          name:
+            - awscli
+          state: latest
+      - name: Modify AWS Configuration File
+        blockinfile:
+          dest: /${HOME_DIRECTORY}/.aws/config
+          block: |
+            [default]
+            region = ${AWS_REGION}
+            output = json
+          backup: False
+      - name: Modify AWS Credentials File
+        blockinfile:
+          dest: /${HOME_DIRECTORY}/.aws/credentials
+          block: |
+            [default]
+            aws_access_key_id = ${AWS_ACCESS_KEY_ID}
+            aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}
+          backup: False
+      
+    - block:
+      - name: Install Mozilla SOPS and Modify Permissions
+        get_url:
+          url: "https://github.com/mozilla/sops/releases/download/v3.7.3/sops-v3.7.3.linux"
+          dest: /usr/local/bin/sops
+          mode: +x
+
+    - block:
+      - name: Modify Git Configuration File
+        blockinfile:
+          dest: /${HOME_DIRECTORY}/.gitconfig
+          block: |
+            [core]
+              editor = nano
+            [diff "sopsdiffer"]
+              textconv = sops -d --config /dev/null
+            [user]
+              email = ${SECRET_EMAIL}
+              name = ${SECRET_NAME}
+          backup: False
