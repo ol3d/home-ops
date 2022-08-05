@@ -29,12 +29,10 @@ For Ansible to work properly, OpenSSH needs to be installed on the system. Ubunt
 sudo apt install openssh-server
 ```
 
-After installing the needed packages, modify the sudoers list in /etc/sudoers to allow passwordless sudo.
-
-Modify to include:
+After installing the needed packages, update Ansible by installing all needed components and roles by running the following:
 
 ```text
-%admin ALL=(ALL) NOPASSWD:ALL
+ansible-galaxy install -r requirements.yaml
 ```
 
 ## Clone Git Repository

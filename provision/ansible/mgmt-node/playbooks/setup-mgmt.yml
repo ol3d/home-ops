@@ -3,7 +3,7 @@
     - mgmt
   become: True
   gather_facts: True
-  any_errors_fatal: False
+  any_errors_fatal: True
 
   pre_tasks:
     - block:
@@ -45,19 +45,19 @@
           state: latest
       - name: Modify AWS Configuration File
         blockinfile:
-          dest: /${HOME_DIRECTORY}/.aws/config
+          dest: /home/{{ ansible_user }}/.aws/config
           block: |
             [default]
-            region = ${AWS_REGION}
+            region = {{ AWS_REGION }}
             output = json
           backup: False
       - name: Modify AWS Credentials File
         blockinfile:
-          dest: /${HOME_DIRECTORY}/.aws/credentials
+          dest: /home/{{ ansible_user }}/.aws/credentials
           block: |
             [default]
-            aws_access_key_id = ${AWS_ACCESS_KEY_ID}
-            aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}
+            aws_access_key_id = {{ AWS_ACCESS_KEY_ID }}
+            aws_secret_access_key = {{ AWS_SECRET_ACCESS_KEY }}
           backup: False
 
     - block:
@@ -70,13 +70,13 @@
     - block:
       - name: Modify Git Configuration File
         blockinfile:
-          dest: /${HOME_DIRECTORY}/.gitconfig
+          dest: /home/{{ ansible_user }}/.gitconfig
           block: |
             [core]
               editor = nano
             [diff "sopsdiffer"]
               textconv = sops -d --config /dev/null
             [user]
-              email = ${SECRET_EMAIL}
-              name = ${SECRET_NAME}
+              email = {{ personal_email }}
+              name = {{ personal_name }}
           backup: False
