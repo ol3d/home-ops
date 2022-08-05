@@ -2,16 +2,12 @@
 
 ## Download and Install Ubuntu
 
----
 Download [Ubuntu Server 22.04 ISO](https://ubuntu.com/download/server) and flash it to a bootable drive using a tool such as [Rufus](https://rufus.ie/en/) or [Balena Etcher](https://www.balena.io/etcher/).
 
 On the management node, boot from the newly created boot drive, and install Ubuntu onto the system.
 
-</br>
-
 ## Update and Install Packages
 
----
 Once Ubuntu has been successfully installed on the machine, update and upgrade package repositories using the following:
 
 ```text
@@ -33,11 +29,16 @@ For Ansible to work properly, OpenSSH needs to be installed on the system. Ubunt
 sudo apt install openssh-server
 ```
 
-</br>
+After installing the needed packages, modify the sudoers list in /etc/sudoers to allow passwordless sudo.
+
+Modify to include:
+
+```text
+%admin ALL=(ALL) NOPASSWD:ALL
+```
 
 ## Clone Git Repository
 
----
 Once the Ansible and OpenSSH have been installed, the Git repository must be cloned to run the existing Ansible playbooks.
 
 ### Generate SSH Key
@@ -77,11 +78,7 @@ Run the following to clone the respository from Gitlab:
 sudo git clone git@gitlab.com:${REPOSITORY_NAME}.git
 ```
 
-</br>
-
 ## Run Management Server Setup Playbook
-
----
 
 Once the respository has been cloned, run the following to execute the Ansible Playbook command:
 

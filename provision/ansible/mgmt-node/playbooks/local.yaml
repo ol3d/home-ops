@@ -1,16 +1,15 @@
 ---
 - hosts:
-    - localhost
+    - mgmt
   become: True
-  become_method: sudo
-  become_user: root
   gather_facts: True
   any_errors_fatal: False
 
   pre_tasks:
-    - name: Pausing for 2 seconds...
-      ansible.builtin.pause:
-        seconds: 2
+    - block:
+      - name: Pausing for 2 seconds...
+        ansible.builtin.pause:
+          seconds: 2
 
   tasks:
     - block:
@@ -60,7 +59,7 @@
             aws_access_key_id = ${AWS_ACCESS_KEY_ID}
             aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}
           backup: False
-      
+
     - block:
       - name: Install Mozilla SOPS and Modify Permissions
         get_url:
