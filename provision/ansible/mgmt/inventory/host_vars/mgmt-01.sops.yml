@@ -1,0 +1,27 @@
+kind: Secret
+personal:
+    personal_email: ENC[AES256_GCM,data:McG33MPIogLZ9sTbz8I29yh0fg==,iv:mvfSjnOP6xTh4MqiUaK8ceBVO6+Q+G6naYsyzspqomg=,tag:AbJXvZg0TtyvG0oflat14Q==,type:str]
+    personal_name: ENC[AES256_GCM,data:vwmMVSdmF2WK,iv:tqiWJ/TJk1ANjzK3n+C9anFDwAlxepPx2vhi10/JV6c=,tag:csohCmtQpVzxQWnWzKp1sQ==,type:str]
+AWS:
+    AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:Hj1/5xmfEouSwz5udthVLQRMqMc=,iv:lU8LPhC0LR8yDEZ3aK0rV91xYiQgaS+rzPGve5E4mlM=,tag:UbFrfUAUdy3AKsER3AbGlA==,type:str]
+    AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:/VJfwNeaNWR8vWZUptsYM7GwCccm2mVzYDbBO7MrOfXDXzd/aomfrQ==,iv:12gov649c1Te22aORxdHgEq7vR9TQKPys97RKSGGMSs=,tag:Adco3pNx0lsMkW/ogy6Rag==,type:str]
+    AWS_REGION: ENC[AES256_GCM,data:BhVugzAqqItR,iv:Fn2nztCx2CCgt7W6dvVABmuhZoiZ0f4qhuHOqKqGjtw=,tag:OeMlCVwcTkx+Vj3oWpUIEQ==,type:str]
+sops:
+    kms:
+        - arn: arn:aws:kms:us-east-1:707904332389:key/a7f77b88-3d50-474a-a8a9-59aa09144204
+          created_at: "2022-08-05T16:36:27Z"
+          enc: AQICAHhHZwPv1OIZb1DNAdaRKOKtYkqWmSpD9UeJdPsAhZ3jAAEI7KAPsGzJ3/SAaC3wN5cQAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMD7ES+7XpKTIWNs0AAgEQgDvNRgjtiEFzps/hjbbFZiOyS/t23dTgPkOYtRIneaKUbcu7BhIhI8h47WtoyeLDhr1THa3K8ni+8uWJjw==
+          aws_profile: ""
+        - arn: arn:aws:kms:us-east-1:707904332389:key/1484f301-4df8-4a1f-83d3-f3deb55e2607
+          created_at: "2022-08-05T16:36:27Z"
+          enc: AQICAHhcehfqcrV6HneBNt5T8nzvzmkknNyHROLBmk5R2QYGsgFtRiz6bSKJUY18XtJzzdmiAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMEJTDucmLbGcE9GE9AgEQgDvnD4gTLFm4ipAAmjzqASlOt5jAuv/t6S45fZrn+LaPOpO3mDCks1HL7WFYbPkcIdXhVYF2KB8ihbL0Cg==
+          aws_profile: ""
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-08-08T17:08:45Z"
+    mac: ENC[AES256_GCM,data:W8vory7YVVhbacCHnh5JAvA6AOVa3+kWplj0tkBu1auQM0iluB9efo0GA2r7xgYuLX7/A8vYq9v5LEKqlmz3qw01Ri49CXuURYiUNr45l7pnJTpIXeL2PUdxCyeSIxKc9R4YXY5jR/hASN0/OnhGtrWdGH4pa4cuzfbj6CxwYtU=,iv:WpC7fWDg1Nk2VjBF+Rxi8i4Vdrd7bvH404xVSmZDUa4=,tag:W4nh4R6jk6ZNvAsLeLtdFA==,type:str]
+    pgp: []
+    unencrypted_regex: ^(kind)$
+    version: 3.7.3

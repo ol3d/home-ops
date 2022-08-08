@@ -1,9 +1,9 @@
 ---
 - hosts:
     - mgmt
-  become: True
-  gather_facts: True
-  any_errors_fatal: True
+  become: true
+  gather_facts: true
+  any_errors_fatal: true
 
   pre_tasks:
     - block:
@@ -38,6 +38,12 @@
         when: reboot_required_file.stat.exists
 
     - block:
+      - name: Install sshpass package using apt
+        ansible.builtin.apt:
+          name: sshpass
+          state: present
+
+    - block:
       - name: Install the latest version of awscli
         ansible.builtin.package:
           name:
@@ -48,17 +54,17 @@
           dest: /home/{{ ansible_user }}/.aws/config
           block: |
             [default]
-            region = {{ AWS_REGION }}
+            region = {{ AWS.AWS_REGION }}
             output = json
-          backup: False
+          backup: false
       - name: Modify AWS Credentials File
         blockinfile:
           dest: /home/{{ ansible_user }}/.aws/credentials
           block: |
             [default]
-            aws_access_key_id = {{ AWS_ACCESS_KEY_ID }}
-            aws_secret_access_key = {{ AWS_SECRET_ACCESS_KEY }}
-          backup: False
+            aws_access_key_id = {{ AWS.AWS_ACCESS_KEY_ID }}
+            aws_secret_access_key = {{ AWS.AWS_SECRET_ACCESS_KEY }}
+          backup: false
 
     - block:
       - name: Install Mozilla SOPS and Modify Permissions
@@ -77,9 +83,9 @@
             [diff "sopsdiffer"]
               textconv = sops -d --config /dev/null
             [user]
-              email = {{ personal_email }}
-              name = {{ personal_name }}
-          backup: False
+              email = {{ personal.personal_email }}
+              name = {{ personal.personal_name }}
+          backup: false
 
     - block:
       - name: Add Hashicorp GPG Key to trusted Keystore
