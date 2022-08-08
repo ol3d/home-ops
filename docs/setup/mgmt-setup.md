@@ -1,4 +1,4 @@
-# Management Node Server Setup
+# Management Server Setup
 
 ## Download and Install Ubuntu
 
@@ -15,29 +15,27 @@ sudo apt-get update
 sudo apt-get upgrade
 ```
 
-Once the existing packages for Ubuntu have been upgraded, it is now possible to install Ansible. Documentation for Ansible can be found [here](https://docs.ansible.com/).
-
-To install Ansible run the following:
+For Ansible to work properly, OpenSSH needs to be installed on the system. Ubuntu typically comes with OpenSSH pre-installed, to check if it is installed run the following:
 
 ```text
-sudo apt install ansible
+ssh -V
 ```
 
-For Ansible to work properly, OpenSSH needs to be installed on the system. Ubuntu typically comes with OpenSSH pre-installed, however if it is not installed run the following:
+This should output the current version of OpenSSH installed on the system. If a version is not displayed, then OpenSSH must be installed on the system by running the following:
 
 ```text
 sudo apt install openssh-server
 ```
 
-After installing the needed packages, update Ansible by installing all needed components and roles by running the following:
+Once confirmed that OpenSSH is installed on the system, it is now possible to install Ansible by running the following:
 
 ```text
-ansible-galaxy install -r requirements.yml
+sudo apt install ansible
 ```
 
 ## Clone Git Repository
 
-Once the Ansible and OpenSSH have been installed, the Git repository must be cloned to run the existing Ansible playbooks.
+Once the Ansible has been installed, the Git repository must be cloned to run the existing Ansible playbooks.
 
 ### Generate SSH Key
 
@@ -46,8 +44,11 @@ To clone the repository, first an SSH Key must be created. Per Gitlab's [documen
 Run the following to generate an SSH Key:
 
 ```text
-sudo ssh-keygen -t ed25519
+sudo mkdir -p ~/.ssh/gitlab_keystore
+ssh-keygen -t ed25519
 ```
+
+During the ssh-keygen command, enter the location as the new directory that was just created ~/.ssh/gitlab_keystore/gitlab. It is recommended to enter a passphrase for the new key.
 
 Once the key has been generated, modify the ssh configuration file by running the following:
 
@@ -61,7 +62,7 @@ Add the following to the file:
 # GitLab.com
 Host gitlab.com
   PreferredAuthentications publickey
-  IdentityFile ${KEY_LOCAITON}
+  IdentityFile ~/.ssh/gitlab_keystore/gitlab
 ```
 
 ### Add SSH Key to Gitlab
@@ -78,10 +79,16 @@ sudo git clone git@gitlab.com:${REPOSITORY_NAME}.git
 
 ## Run Management Server Setup Playbook
 
+Update Ansible by installing all needed components and roles by running the following:
+
+```text
+ansible-galaxy install -r requirements.yml
+```
+
 Once the respository has been cloned, run the following to execute the Ansible Playbook command:
 
 ```text
-sudo ansible-playbook ${REPOSITORY_PATH}/provision/ansible/mgmt-node/playbooks/setup-mgmt.yaml --ask-become-pass
+sudo ansible-playbook ${REPOSITORY_PATH}/provision/ansible/mgmt/playbooks/mgmt-setup.yml
 ```
 
-Let the Ansible playbook run until completion. Once completed, the given node should be entirely set up to perform all needed tasks as a management server.
+Let the Ansible playbook run until completion. Once completed, the current system should be set up to perform all needed tasks as a management server.
