@@ -32,7 +32,7 @@ sudo apt install openssh-server
 After installing the needed packages, update Ansible by installing all needed components and roles by running the following:
 
 ```text
-ansible-galaxy install -r requirements.yaml
+ansible-galaxy install -r requirements.yml
 ```
 
 ## Clone Git Repository
