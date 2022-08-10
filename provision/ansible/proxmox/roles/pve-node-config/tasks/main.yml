@@ -1,0 +1,108 @@
+---
+- block:
+    - name: Modify /etc/apt/sources.list to contain pve-no-subscription repository
+      ansible.builtin.template:
+        src: pve-sources-list.yaml.j2
+        dest: /etc/apt/sources.list
+        backup: no
+    - name: Comment out pve-enterprise repository list
+      ansible.builtin.template:
+        src: pve-enterprise-list.yaml.j2
+        dest: /etc/apt/sources.list.d/pve-enterprise.list
+        backup: no
+
+- block:
+  - name: Update apt repository and cache
+    apt:
+      update_cache: yes
+      force_apt_get: yes
+      cache_valid_time: 3600
+  - name: Upgrade all packages
+    apt:
+      upgrade: dist
+      force_apt_get: yes
+  - name: Check if reboot is required
+    register: reboot_required_file
+    stat:
+      path: /var/run/reboot-required
+      get_md5: no
+  - name: Reboot server if kernel updated
+    reboot:
+      msg: "Reboot initiated by Ansible for kernel updates"
+      connect_timeout: 5
+      reboot_timeout: 300
+      pre_reboot_delay: 0
+      post_reboot_delay: 30
+      test_command: uptime
+    when: reboot_required_file.stat.exists
+
+- block:
+  - name: Install openvswitch-switch packages
+    ansible.builtin.apt:
+      name: openvswitch-switch
+      state: present
+  - name: Modify network interface definitions on pve hosts
+    ansible.builtin.template:
+      src: pve-network.yaml.j2
+      dest: /etc/network/interfaces
+      backup: no
+  - name: Update /etc/hosts file to contain all valid ip addresses
+    ansible.builtin.template:
+      src: pve-hosts.yaml.j2
+      dest: /etc/hosts
+      backup: no
+
+- block:
+  - name: Update PIC Ids using update-pciids
+    ansible.builtin.command: 
+      cmd: "update-pciids"
+
+- block:
+  - name: Modify /etc/default/grub file to allow IOMMU passthrough
+    ansible.builtin.template:
+      src: pve-default-grub.yaml.j2
+      dest: /etc/default/grub
+      backup: no
+  - name: Modify /etc/modules file to allow IOMMU passthrough
+    ansible.builtin.template:
+      src: pve-modules.yaml.j2
+      dest: /etc/modules
+      backup: no
+  - name: Create /etc/modprobe.d/iommu_unsafe_interrupts.conf to allow unsafe interupts
+    ansible.builtin.template:
+      src: pve-iommu-unsafe-interrupts.yaml.j2
+      dest: /etc/modprobe.d/iommu_unsafe_interrupts.conf
+      backup: no
+
+- block:
+  - name: Install pip onto system
+    ansible.builtin.apt:
+      name: pip
+      state: present
+  - name: Install cryptography onto proxmox nodes
+    ansible.builtin.pip:
+      name: cryptography
+      state: present
+  - name: Install bcrypt onto proxmox nodes
+    ansible.builtin.pip:
+      name: bcrypt
+      state: present
+
+- block:
+  - name: Create SSH Key directory on each PVE node
+    file:
+      path: /{{ ansible_user }}/.ssh/{{ pve_hostname }}_keystore
+      state: directory
+  - name: Generate SSH Key for PVE Nodes
+    community.crypto.openssh_keypair:
+      path: "/{{ ansible_user }}/.ssh/{{ pve_hostname }}_keystore/{{ pve_hostname }}-ed25519"
+      type: ed25519
+      unsafe_writes: false
+      state: present
+      regenerate: partial_idempotence
+      passphrase: "{{ passphrase }}"
+      backend: cryptography
+
+# - block:
+#   - name: Reboot pve systems
+#     ansible.builtin.reboot:

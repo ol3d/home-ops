@@ -1,4 +1,5 @@
 kind: Secret
+pve_cluster_passphrase: ENC[AES256_GCM,data:yni9BbEyd2dN171L7FXP,iv:QNeMx8UpK64oYl9jma4iIN5F77ZnJvmNSF/0pI4WIUQ=,tag:RObM+D61mkIgmd0NDWtDIQ==,type:str]
 personal:
     personal_email: ENC[AES256_GCM,data:McG33MPIogLZ9sTbz8I29yh0fg==,iv:mvfSjnOP6xTh4MqiUaK8ceBVO6+Q+G6naYsyzspqomg=,tag:AbJXvZg0TtyvG0oflat14Q==,type:str]
     personal_name: ENC[AES256_GCM,data:vwmMVSdmF2WK,iv:tqiWJ/TJk1ANjzK3n+C9anFDwAlxepPx2vhi10/JV6c=,tag:csohCmtQpVzxQWnWzKp1sQ==,type:str]
@@ -20,8 +21,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2022-08-08T17:08:45Z"
-    mac: ENC[AES256_GCM,data:W8vory7YVVhbacCHnh5JAvA6AOVa3+kWplj0tkBu1auQM0iluB9efo0GA2r7xgYuLX7/A8vYq9v5LEKqlmz3qw01Ri49CXuURYiUNr45l7pnJTpIXeL2PUdxCyeSIxKc9R4YXY5jR/hASN0/OnhGtrWdGH4pa4cuzfbj6CxwYtU=,iv:WpC7fWDg1Nk2VjBF+Rxi8i4Vdrd7bvH404xVSmZDUa4=,tag:W4nh4R6jk6ZNvAsLeLtdFA==,type:str]
+    lastmodified: "2022-08-09T21:23:05Z"
+    mac: ENC[AES256_GCM,data:bdHQYeGiqKgeXFT43kY3dh+Nd8MzXN/QgxXl8WV4G9qSmun9FJOKdeXUtxOoMk1hzpXXBPWPXjkQi5EBOoq7FISyAUdjffoa4C9vUvxAfgqFhA4HbfSWxMgHfsqbcgjSs2o4cDGfFQx7USjNDbWAK5GQT4/EMs4k3Tfw/9n1vvk=,iv:ftm3ZMB0969lvJjL0VJvXjMYzYTeVljQWQ2lARSs8fU=,tag:A0eVK3uGRH4tzb4lVXAMDw==,type:str]
     pgp: []
     unencrypted_regex: ^(kind)$
     version: 3.7.3
