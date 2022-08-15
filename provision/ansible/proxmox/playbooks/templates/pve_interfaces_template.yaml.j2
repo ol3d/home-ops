@@ -8,32 +8,32 @@ iface eno1 inet manual
 
 auto vmbr0
 iface vmbr0 inet static
-        address {{ pve_ip }}
-        gateway {{ gateway }}
+        address {{ pve_ip }}/24
+        gateway {{ gateway_ip }}
         bridge-ports eno1
         bridge-stp off
         bridge-fd 0
         mtu 1500
 
 # Corosync Network
-auto {{ coro_val }}
-iface {{ coro_val }} inet dhcp
+auto {{ coro_iface }}
+iface {{ coro_iface }} inet dhcp
         mtu 1500
 
 # Ceph OVS-Bond Network
-auto {{ ceph_val_1 }}
-iface {{ ceph_val_1 }} inet manual
+auto {{ ceph_iface_1 }}
+iface {{ ceph_iface_1 }} inet manual
         ovs_mtu 9000
 
-auto {{ ceph_val_2 }}
-iface {{ ceph_val_2 }} inet manual
+auto {{ ceph_iface_2 }}
+iface {{ ceph_iface_2 }} inet manual
         ovs_mtu 9000
 
 auto bond0
 iface bond0 inet manual
         ovs_bridge vmbr1
         ovs_type OVSBond
-        ovs_bonds {{ ceph_val_1 }} {{ ceph_val_2 }}
+        ovs_bonds {{ ceph_iface_1 }} {{ ceph_iface_2 }}
         ovs_options bond_mode=balance-tcp lacp=active other_config:lacp-time=fast
         ovs_mtu 9000
 
@@ -49,5 +49,5 @@ auto ceph
 iface ceph inet static
         ovs_type OVSIntPort
         ovs_bridge vmbr1
-        address {{ ceph_ip }}
+        address {{ ceph_ip }}/24
         ovs_mtu 9000

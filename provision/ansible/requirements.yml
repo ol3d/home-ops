@@ -1,9 +1,15 @@
 ---
 collections:
-  - name: community.sops
-    version: 1.2.3
-  - name: community.crypto
-    version: 2.5.0
   - name: ansible.posix
     version: 1.4.0
+  - name: community.crypto
+    version: 2.5.0
+  - name: community.general
+    version: 5.4.0
+  - name: community.sops
+    version: 1.2.3
 roles:
+  - name: geerlingguy.ntp
+    version: 2.3.1
+  - name: lae.proxmox
+    version: v1.7.0

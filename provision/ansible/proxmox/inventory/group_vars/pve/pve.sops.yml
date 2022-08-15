@@ -1,0 +1,24 @@
+kind: Secret
+public_domain: ENC[AES256_GCM,data:znd/EPGQvnIWcz7YOA==,iv:QguqKR1g7gVPnkOzGBqEDvWJkEEuHVsZfpsQK+ebeoQ=,tag:oxmzHVnhxS9qBh9qvYh7ZQ==,type:str]
+ansible_become_method: ENC[AES256_GCM,data:sYGpuw==,iv:qHurjVZp3ra4XG3irRgv2Iapntd4KJ2Ey4bdpMXHUhI=,tag:IH3l/75hQLwZm1moV3BT9w==,type:str]
+ansible_become: ENC[AES256_GCM,data:QV7vMg==,iv:WHRl4TqDDXv9DlyziY9lbfHRhRbjHfGAC/Kpikl44AA=,tag:bM8cmLyhMPAVzJcNpJULLA==,type:bool]
+gateway_ip: ENC[AES256_GCM,data:uTQVCHMHuJV0,iv:pa4fhovirM/RHCiSc7Hx1TA8OThZy/65PLvR9g3FQyw=,tag:5IobuELB+T2Lqk13ApLKTA==,type:str]
+sops:
+    kms:
+        - arn: arn:aws:kms:us-east-1:707904332389:key/a7f77b88-3d50-474a-a8a9-59aa09144204
+          created_at: "2022-08-10T18:22:47Z"
+          enc: AQICAHhHZwPv1OIZb1DNAdaRKOKtYkqWmSpD9UeJdPsAhZ3jAAGMYhyU2Q6OC2Tvgxh8Ra8HAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMmGivvYChrf6FOF9/AgEQgDsL8HP2f3s/YJ4jvwInrlyaYhs3/rInujgw+8T53tN8SLwAO8TPBWlENndXGSNd40bNauEEvWLnLCEY0Q==
+          aws_profile: ""
+        - arn: arn:aws:kms:us-east-1:707904332389:key/1484f301-4df8-4a1f-83d3-f3deb55e2607
+          created_at: "2022-08-10T18:22:47Z"
+          enc: AQICAHhcehfqcrV6HneBNt5T8nzvzmkknNyHROLBmk5R2QYGsgEXTrkbDCzKUfS/RzprZrC7AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMcfiPxaM6COPmlrP2AgEQgDt9YJltyKrSiPVD24V1diO/zHVsRfJ5pg+Ag+kTPdYqBvOhl7B2WH03uZca11IRggQmTQlNW09O2ip/HA==
+          aws_profile: ""
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-08-15T13:24:03Z"
+    mac: ENC[AES256_GCM,data:rbVLuiPOGLQoFPptiOknvSwxf215BrwuV3RYkpxy7//aZzNEzUoQAL8a69M19jazFgLZDadrQORYJ2o6FjYvThWwYuXHRCz/3FyU7j22pe95Mb1CcNMB/LMaJ2Ed1dkat96dtMjPKBJxOeruNIh+0NBdBUMid0edDgoP+sjgtm4=,iv:Z5uGpmt6gn4C4OchwcvA3Cfjuj+XvzSUi8EZWojeBqs=,tag:Qkkt+WiQx6LDPb9Ltlpd1w==,type:str]
+    pgp: []
+    unencrypted_regex: ^(kind)$
+    version: 3.7.3
