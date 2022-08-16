@@ -12,4 +12,4 @@ roles:
   - name: geerlingguy.ntp
     version: 2.3.1
   - name: lae.proxmox
-    version: v1.7.0
+    version: v1.7.1

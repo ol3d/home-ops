@@ -42,14 +42,3 @@
 
   roles:
     - role: lae.proxmox
-
-- hosts: pve
-  gather_facts: true
-  any_errors_fatal: true
-
-  tasks:
-    - block:
-      - name: Set root user password
-        ansible.builtin.user:
-          name: root
-          password: "{{ root_pass | password_hash('sha512') }}"

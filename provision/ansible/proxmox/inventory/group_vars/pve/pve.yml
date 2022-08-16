@@ -46,8 +46,23 @@ pve_ceph_pools:
 # pve_ssl_private_key: ""
 # pve_ssl_certificate: ""
 # pve_roles: []
-# pve_groups: []
-# pve_users: []
+pve_acls:
+  - path: /
+    roles:
+      - Administrator
+    groups:
+      - Admin
+pve_groups:
+  - name: Admin
+    comment: Admin Group
+pve_users:
+  - name: "{{ username }}@pam"
+    email: "{{ personal_email }}"
+    firstname: "{{ firstname }}"
+    lastname: "{{ lastname }}"
+    groups:
+      - Admin
+    password: "{{ ansible_become_pass }}"
 # pve_storages: []
 pve_datacenter_cfg:
   keyboard: en-us
