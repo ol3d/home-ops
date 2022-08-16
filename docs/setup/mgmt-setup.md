@@ -92,3 +92,17 @@ sudo ansible-playbook ${REPOSITORY_PATH}/provision/ansible/mgmt/playbooks/mgmt-s
 ```
 
 Let the Ansible playbook run until completion. Once completed, the current system should be set up to perform all needed tasks as a management server.
+
+## Taskfile
+
+[Task](https://taskfile.dev/) is a tool written in Go and shoule be installed to make initialization easier. Install Task by using the following:
+
+```text
+sudo snap install task --classic
+```
+
+Once task has been installed, navigate to the base of the Git repository and run the following:
+
+```text
+task ansible:init
+```
