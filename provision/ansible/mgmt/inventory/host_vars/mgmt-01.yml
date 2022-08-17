@@ -9,7 +9,9 @@ apt_packages:
   - name: awscli
     state: latest
   - name: packer
-    state: latest
+    state: present
+  - name: terraform
+    state: present
 pip_packages:
   - name: virtualenv
     state: present
