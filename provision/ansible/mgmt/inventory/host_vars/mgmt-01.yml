@@ -1,0 +1,23 @@
+---
+apt_packages:
+  - name: sshpass
+    state: present
+  - name: python3-jmespath
+    state: present
+  - name: python3-pip
+    state: present
+  - name: awscli
+    state: latest
+  - name: packer
+    state: latest
+pip_packages:
+  - name: virtualenv
+    state: present
+  - name: pre-commit
+    state: present
+gitconfig:
+  core:
+    editor: vim
+  user:
+    name: "{{ personal.name }}"
+    email: "{{ personal.email }}"
