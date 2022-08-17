@@ -45,16 +45,40 @@ pve_ceph_pools:
 # pve_ceph_crush_rules: []
 # pve_ssl_private_key: ""
 # pve_ssl_certificate: ""
-# pve_roles: []
+pve_roles:
+  - name: Terraform
+    privileges:
+      - "VM.Allocate"
+      - "VM.Clone"
+      - "VM.Config.CDROM"
+      - "VM.Config.CPU"
+      - "VM.Config.Cloudinit"
+      - "VM.Config.Disk"
+      - "VM.Config.HWType"
+      - "VM.Config.Memory"
+      - "VM.Config.Network"
+      - "VM.Config.Options"
+      - "VM.Monitor"
+      - "VM.Audit"
+      - "VM.PowerMgmt"
+      - "Datastore.AllocateSpace"
+      - "Datastore.Audit"
 pve_acls:
   - path: /
     roles:
       - Administrator
     groups:
       - Admin
+  - path: /
+    roles:
+      - Terraform
+    groups:
+      - Terraform
 pve_groups:
   - name: Admin
     comment: Admin Group
+  - name: Terraform
+    comment: Terraform Group
 pve_users:
   - name: "{{ username }}@pam"
     email: "{{ personal_email }}"
@@ -63,6 +87,10 @@ pve_users:
     groups:
       - Admin
     password: "{{ ansible_become_pass }}"
+  - name: "terraform@pam"
+    password: "{{ ansible_become_pass }}"
+    groups:
+      - Terraform
 # pve_storages: []
 pve_datacenter_cfg:
   keyboard: en-us
