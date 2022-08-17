@@ -12,6 +12,8 @@ apt_packages:
     state: present
   - name: terraform
     state: present
+  - name: npm
+    state: latest
 pip_packages:
   - name: virtualenv
     state: present
