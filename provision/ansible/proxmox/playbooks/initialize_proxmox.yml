@@ -56,3 +56,20 @@
 
   roles:
     - role: lae.proxmox
+
+- hosts: pve
+  gather_facts: true
+  any_errors_fatal: true
+
+  tasks:
+    - block:
+        - name: Enable neofetch on SSH login
+          ansible.builtin.blockinfile:
+            path: /home/{{ ansible_user }}/.bashrc
+            block: |
+              # Run neofetch application on SSH login
+              neofetch
+        - name: Remove default SSH login message
+          ansible.builtin.file:
+            path: /etc/motd
+            state: absent
