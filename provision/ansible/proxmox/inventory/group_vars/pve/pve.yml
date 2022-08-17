@@ -17,7 +17,7 @@ pve_remove_old_kernels: true
 pve_watchdog: none
 # pve_watchdog_ipmi_action: power_cycle
 # pve_watchdog_ipmi_timeout: 10
-pve_zfs_enabled: no
+pve_zfs_enabled: false
 # pve_zfs_options: ""
 # pve_zfs_zed_email: ""
 # pve_zfs_create_volumes: []
@@ -99,6 +99,6 @@ pve_cluster_clustername: pve-cluster
 pve_cluster_enabled: true
 pve_cluster_addr0: "{{ coro_ip }}"
 # pve_cluster_addr1:
-pve_manage_hosts_enabled : no
+pve_manage_hosts_enabled: false
 # --interfaces_template: "./templates/pve_interfaces_template.yaml.j2"
 # pve_cluster_ha_groups: []
