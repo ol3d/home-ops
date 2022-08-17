@@ -1,1 +1,13 @@
-*.img
+# Binaries
+bin
+*.iso
+# Temp folders
+.temp*
+.private/
+.logs/
+.task/
+# Sops
+.decrypted~*
+# Extras
+config.xml
+*.pid
