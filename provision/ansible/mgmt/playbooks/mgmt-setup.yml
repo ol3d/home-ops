@@ -12,4 +12,4 @@
             seconds: 2
 
   roles:
-    - config.mgmt
+    - role: config.mgmt
