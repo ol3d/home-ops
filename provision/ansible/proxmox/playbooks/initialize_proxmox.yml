@@ -8,6 +8,22 @@
       ansible.builtin.pause:
         seconds: 2
 
+  tasks:
+    - block:
+      - name: Create Terraform User
+        ansible.builtin.user:
+          name: terraform
+          password: "{{ ansible_become_pass | password_hash('sha512') }}"
+
+- hosts: pve
+  gather_facts: true
+  any_errors_fatal: true
+
+  pre_tasks:
+    - name: Pausing for 2 seconds...
+      ansible.builtin.pause:
+        seconds: 2
+
   roles:
     - role: geerlingguy.ntp
       ntp_manage_config: true
