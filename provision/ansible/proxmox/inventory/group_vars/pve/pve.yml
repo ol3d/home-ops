@@ -8,6 +8,7 @@ pve_extra_packages:
   - ifupdown2
   - ifenslave
   - cloud-init
+  - neofetch
 pve_run_system_upgrades: false
 pve_run_proxmox_upgrades: true
 pve_check_for_kernel_update: true
