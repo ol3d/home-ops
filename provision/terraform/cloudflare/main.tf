@@ -1,10 +1,12 @@
 terraform {
 
-    backend "remote" {
-        organization = ""
-        workspaces {
-            name = ""
-        }
+    backend "s3" {
+        bucket = "homeops-tf-state"
+        key = "cloudflare/terraform.tfstate"
+        region = "us-east-1"
+        shared_credentials_file = "~/.aws/credentials"
+        profile = "terraform"
+        encrypt = true
     }
 
     required_providers {
@@ -27,13 +29,13 @@ data "sops_file" "cloudflare_secrets" {
     source_file = "secret.sops.yaml"
 }
 
-provider "cloudflare" {
-    email   = data.sops_file.cloudflare_secrets.data["cloudflare_email"]
-    api_key = data.sops_file.cloudflare_secrets.data["cloudflare_apikey"]
-}
-
 data "cloudflare_zones" "domain" {
     filter {
         name = data.sops_file.cloudflare_secrets.data["cloudflare_domain"]
     }
+}
+
+provider "cloudflare" {
+    email   = data.sops_file.cloudflare_secrets.data["cloudflare_email"]
+    api_key = data.sops_file.cloudflare_secrets.data["cloudflare_apikey"]
 }

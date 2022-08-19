@@ -12,4 +12,5 @@
             seconds: 2
 
   roles:
+    # - role: andrewrothstein.sops
     - role: config.mgmt
