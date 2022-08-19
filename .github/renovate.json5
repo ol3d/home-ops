@@ -72,10 +72,58 @@
         }
     ],
     "packageRules": [
+        // setup datasources
         {
-            "description": "Use loose versioning for certain dependencies",
-            "matchDatasources": ["docker", "github-releases"],
-            "versioning": "loose"
+            "matchDatasources": ["helm"],
+            "separateMinorPatch": true,
+            "ignoreDeprecated": true
+        },
+        // global docker datasource settings
+        {
+            "matchDatasources": ["docker"],
+            "enabled": true,
+            "commitMessageTopic": "container image {{depName}}",
+            "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
+            "matchUpdateTypes": ["major", "minor", "patch"]
+        },
+        {
+            "description": "Group Cert-Manager image (for CRDs) and chart",
+            "groupName": "Cert-Manager",
+            "matchPackagePatterns": ["cert-manager"],
+            "matchDatasources": ["docker", "helm"],
+            "group": { "commitMessageTopic": "{{{groupName}}} group" },
+            "separateMinorPatch": true
+        },
+        // add labels according to package and update types
+        {
+            "matchDatasources": ["docker"],
+            "matchUpdateTypes": ["major"],
+            "labels": ["renovate/image", "dep/major"]
+        },
+        {
+            "matchDatasources": ["docker"],
+            "matchUpdateTypes": ["minor"],
+            "labels": ["renovate/image", "dep/minor"]
+        },
+        {
+            "matchDatasources": ["docker"],
+            "matchUpdateTypes": ["patch"],
+            "labels": ["renovate/image", "dep/patch"]
+        },
+        {
+            "matchDatasources": ["helm"],
+            "matchUpdateTypes": ["major"],
+            "labels": ["renovate/helm", "dep/major"]
+        },
+        {
+            "matchDatasources": ["helm"],
+            "matchUpdateTypes": ["minor"],
+            "labels": ["renovate/helm", "dep/minor"]
+        },
+        {
+            "matchDatasources": ["helm"],
+            "matchUpdateTypes": ["patch"],
+            "labels": ["renovate/helm", "dep/patch"]
         }
     ]
 }
