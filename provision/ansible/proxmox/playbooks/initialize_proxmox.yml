@@ -8,6 +8,26 @@
       ansible.builtin.pause:
         seconds: 2
 
+  tasks:
+    - block:
+        - name: Create Terraform User
+          ansible.builtin.user:
+            name: terraform
+            password: "{{ ansible_become_pass | password_hash('sha512') }}"
+        - name: Create Packer User
+          ansible.builtin.user:
+            name: packer
+            password: "{{ ansible_become_pass | password_hash('sha512') }}"
+
+- hosts: pve
+  gather_facts: true
+  any_errors_fatal: true
+
+  pre_tasks:
+    - name: Pausing for 2 seconds...
+      ansible.builtin.pause:
+        seconds: 2
+
   roles:
     - role: geerlingguy.ntp
       ntp_manage_config: true
@@ -21,20 +41,18 @@
 
   tasks:
     - block:
-      - name: Install openvswitch-switch packages
-        ansible.builtin.apt:
-          name: openvswitch-switch
-          state: present
-      - name: Modify network interface definitions on pve hosts
-        ansible.builtin.template:
-          src: "pve_interfaces_template.yaml.j2"
-          dest: /etc/network/interfaces
-          backup: no
-      - name: Update /etc/hosts file to contain all valid ip addresses
-        ansible.builtin.template:
-          src: pve_hosts_template.yaml.j2
-          dest: /etc/hosts
-          backup: no
+        - name: Install openvswitch-switch packages
+          ansible.builtin.apt:
+            name: openvswitch-switch
+            state: present
+        - name: Modify network interface definitions on pve hosts
+          ansible.builtin.template:
+            src: "pve_interfaces_template.yaml.j2"
+            dest: /etc/network/interfaces
+        - name: Update /etc/hosts file to contain all valid ip addresses
+          ansible.builtin.template:
+            src: pve_hosts_template.yaml.j2
+            dest: /etc/hosts
 
 - hosts: pve
   gather_facts: true
@@ -42,3 +60,20 @@
 
   roles:
     - role: lae.proxmox
+
+- hosts: pve
+  gather_facts: true
+  any_errors_fatal: true
+
+  tasks:
+    - block:
+        - name: Enable neofetch on SSH login
+          ansible.builtin.blockinfile:
+            path: /home/{{ ansible_user }}/.bashrc
+            block: |
+              # Run neofetch application on SSH login
+              neofetch
+        - name: Remove default SSH login message
+          ansible.builtin.file:
+            path: /etc/motd
+            state: absent

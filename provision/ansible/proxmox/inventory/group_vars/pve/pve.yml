@@ -8,6 +8,7 @@ pve_extra_packages:
   - ifupdown2
   - ifenslave
   - cloud-init
+  - neofetch
 pve_run_system_upgrades: false
 pve_run_proxmox_upgrades: true
 pve_check_for_kernel_update: true
@@ -17,7 +18,7 @@ pve_remove_old_kernels: true
 pve_watchdog: none
 # pve_watchdog_ipmi_action: power_cycle
 # pve_watchdog_ipmi_timeout: 10
-pve_zfs_enabled: no
+pve_zfs_enabled: false
 # pve_zfs_options: ""
 # pve_zfs_zed_email: ""
 # pve_zfs_create_volumes: []
@@ -45,16 +46,40 @@ pve_ceph_pools:
 # pve_ceph_crush_rules: []
 # pve_ssl_private_key: ""
 # pve_ssl_certificate: ""
-# pve_roles: []
+pve_roles:
+  - name: Terraform
+    privileges:
+      - "VM.Allocate"
+      - "VM.Clone"
+      - "VM.Config.CDROM"
+      - "VM.Config.CPU"
+      - "VM.Config.Cloudinit"
+      - "VM.Config.Disk"
+      - "VM.Config.HWType"
+      - "VM.Config.Memory"
+      - "VM.Config.Network"
+      - "VM.Config.Options"
+      - "VM.Monitor"
+      - "VM.Audit"
+      - "VM.PowerMgmt"
+      - "Datastore.AllocateSpace"
+      - "Datastore.Audit"
 pve_acls:
   - path: /
     roles:
       - Administrator
     groups:
       - Admin
+  - path: /
+    roles:
+      - Terraform
+    groups:
+      - Terraform
 pve_groups:
   - name: Admin
     comment: Admin Group
+  - name: Terraform
+    comment: Terraform Group
 pve_users:
   - name: "{{ username }}@pam"
     email: "{{ personal_email }}"
@@ -63,6 +88,10 @@ pve_users:
     groups:
       - Admin
     password: "{{ ansible_become_pass }}"
+  - name: "terraform@pam"
+    password: "{{ ansible_become_pass }}"
+    groups:
+      - Terraform
 # pve_storages: []
 pve_datacenter_cfg:
   keyboard: en-us
@@ -71,6 +100,6 @@ pve_cluster_clustername: pve-cluster
 pve_cluster_enabled: true
 pve_cluster_addr0: "{{ coro_ip }}"
 # pve_cluster_addr1:
-pve_manage_hosts_enabled : no
+pve_manage_hosts_enabled: false
 # --interfaces_template: "./templates/pve_interfaces_template.yaml.j2"
 # pve_cluster_ha_groups: []

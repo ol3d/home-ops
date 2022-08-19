@@ -7,9 +7,10 @@
 
   pre_tasks:
     - block:
-      - name: Pausing for 2 seconds...
-        ansible.builtin.pause:
-          seconds: 2
+        - name: Pausing for 2 seconds...
+          ansible.builtin.pause:
+            seconds: 2
 
   roles:
-    - mgmt-node-config
+    # - role: andrewrothstein.sops
+    - role: config.mgmt

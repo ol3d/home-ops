@@ -1,7 +1,8 @@
 kind: Secret
+ansible_connection: ENC[AES256_GCM,data:ttLXugE=,iv:l+iUZM03TT4lT2A7GXdve2MYp5Op3/i0hi9J9sWqgGI=,tag:ypSHei3efdWuLh4Ns/qSEA==,type:str]
 personal:
-    personal_email: ENC[AES256_GCM,data:McG33MPIogLZ9sTbz8I29yh0fg==,iv:mvfSjnOP6xTh4MqiUaK8ceBVO6+Q+G6naYsyzspqomg=,tag:AbJXvZg0TtyvG0oflat14Q==,type:str]
-    personal_name: ENC[AES256_GCM,data:vwmMVSdmF2WK,iv:tqiWJ/TJk1ANjzK3n+C9anFDwAlxepPx2vhi10/JV6c=,tag:csohCmtQpVzxQWnWzKp1sQ==,type:str]
+    email: ENC[AES256_GCM,data:UwphqUdTwyXLQeo2F+AMGhomBQ==,iv:H4/EJSWDQ1QiiHaOT0NfTDzM+wYzBH34cf9dDrL1E2E=,tag:hNlDmPwCkJmpoBQQxDcClw==,type:str]
+    name: ENC[AES256_GCM,data:FQSF+T9lnawT,iv:Le/lHsVuTeleUc4tzx8TkO8xvXJL4eIroeRlQkI43qI=,tag:i3xZ0CJieH+aSlmyIoVMVQ==,type:str]
 AWS:
     AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:Hj1/5xmfEouSwz5udthVLQRMqMc=,iv:lU8LPhC0LR8yDEZ3aK0rV91xYiQgaS+rzPGve5E4mlM=,tag:UbFrfUAUdy3AKsER3AbGlA==,type:str]
     AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:/VJfwNeaNWR8vWZUptsYM7GwCccm2mVzYDbBO7MrOfXDXzd/aomfrQ==,iv:12gov649c1Te22aORxdHgEq7vR9TQKPys97RKSGGMSs=,tag:Adco3pNx0lsMkW/ogy6Rag==,type:str]
@@ -20,8 +21,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2022-08-10T18:58:29Z"
-    mac: ENC[AES256_GCM,data:JdMuxYebLHsTpugKYXfCYoebcDYuIXIBAuO35o5+G2FS55GjXT09M4x2iBayd1ah5/9BGgdN1cjXCMW69NwejN9+G0TjvUflV0OwvmVRvxQu/nRC2iEk5ii/0XDYbo9H7sJebcVhNHy7k/Xsfr4+cvbtT6Ij3o23Kh0345OKPog=,iv:EGi5uh5iQTPzlz4scKbRDtdYUXw8R3hHsmg+PjA6+Og=,tag:tRND0lH9Ro0UnIpsLWSAlg==,type:str]
+    lastmodified: "2022-08-17T15:55:40Z"
+    mac: ENC[AES256_GCM,data:D3Y1Usu1C8EaKxwRqbadjYMbnX+fdfqiBwC2kR3aXkgL0PAHX+S7hDEshoTK9sIYGqzjIifdjVGoDiCuyEfLC6rDqg4MEYMx1/aHnH9ZXWdaJp7a6Y2d42eOyAXfL+PZKqUsYF4KxBqK4sYANqY4p0AhYlewqnSUMvGW/xh7yAc=,iv:7wSZ/Q+tc9JlhTktX2Oq87JIlxiySJ+USZiPUk0yRTY=,tag:cbUhQ6XdPSlV4Ps2/543Qg==,type:str]
     pgp: []
     unencrypted_regex: ^(kind)$
     version: 3.7.3

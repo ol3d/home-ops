@@ -1,0 +1,16 @@
+---
+version: "3"
+
+vars:
+  PROJECT_DIR:
+    sh: "git rev-parse --show-toplevel"
+  ANSIBLE_DIR: "{{.PROJECT_DIR}}/provision/ansible"
+
+tasks:
+
+  init:
+    desc: Install/Upgrade Ansible Galaxy dependencies
+    dir: "{{.ANSIBLE_DIR}}"
+    cmds:
+      - "ansible-galaxy install -r requirements.yml --force"
+      - "ansible-galaxy collection install -r requirements.yml --force"
