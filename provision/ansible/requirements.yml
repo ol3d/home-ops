@@ -9,6 +9,8 @@ collections:
   - name: community.sops
     version: 1.2.3
 roles:
+  # - name: andrewrothstein.sops
+  #   version: v1.0.5
   - name: geerlingguy.ntp
     version: 2.3.1
   - name: lae.proxmox

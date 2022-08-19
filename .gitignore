@@ -1,1 +1,20 @@
-*.img
+# Binaries
+bin
+*.iso
+# Temp folders
+.temp*
+.private/
+.logs/
+.task/
+# Terraform
+.terraform
+*.tfstate*
+terraform.tfstate*
+# Sops
+.decrypted~*
+# Extras
+config.xml
+*.pid
+# Node
+node_modules
+package-lock.json

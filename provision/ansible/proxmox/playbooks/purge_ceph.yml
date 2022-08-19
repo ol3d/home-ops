@@ -10,16 +10,16 @@
 
   tasks:
     - block:
-      - name: Stop OSD's
-        ansible.builtin.command:
-          cmd: "ceph osd out {{ osd_id }}"
-      - name: Stop OSD Service
-        ansible.builtin.command:
-          cmd: "systemctl stop ceph-osd@{{ osd_id }}.service"
-      - name: Destroy OSD
-        ansible.builtin.command:
-          cmd: "pveceph osd destroy {{ osd_id }}"
-      - name: Remove disk lvm for ceph
-        ansible.builtin.command:
-          cmd: "ceph-volume lvm zap {{ item }} --destroy"
-        with_items: "{{ ceph_devices }}"
+        - name: Stop OSD's
+          ansible.builtin.command:
+            cmd: "ceph osd out {{ osd_id }}"
+        - name: Stop OSD Service
+          ansible.builtin.command:
+            cmd: "systemctl stop ceph-osd@{{ osd_id }}.service"
+        - name: Destroy OSD
+          ansible.builtin.command:
+            cmd: "pveceph osd destroy {{ osd_id }}"
+        - name: Remove disk lvm for ceph
+          ansible.builtin.command:
+            cmd: "ceph-volume lvm zap {{ item }} --destroy"
+          with_items: "{{ ceph_devices }}"
