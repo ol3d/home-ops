@@ -1,6 +1,0 @@
----
-gitconfig:
-  core:
-    editor: vim
-  user:
-    name: "{{ ansible_user }}"

@@ -6,6 +6,10 @@ bin
 .private/
 .logs/
 .task/
+# Terraform
+.terraform
+*.tfstate*
+terraform.tfstate*
 # Sops
 .decrypted~*
 # Extras
