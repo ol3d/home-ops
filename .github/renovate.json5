@@ -1,6 +1,7 @@
 {
     "enabled": true,
     "semanticCommits": "enabled",
+    "repositories": ["deloa6133/home-ops"],
     "dependencyDashboard": true,
     "dependencyDashboardTitle": "Renovate Dashboard Test",
     "suppressNotifications": ["prIgnoreNotification"],
