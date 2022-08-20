@@ -2,7 +2,7 @@
     "enabled": true,
     "semanticCommits": "enabled",
     "dependencyDashboard": true,
-    "dependencyDashboardTitle": "Renovate Dashboard",
+    "dependencyDashboardTitle": "Renovate Dashboard Test",
     "suppressNotifications": ["prIgnoreNotification"],
     "rebaseWhen": "conflicted",
     "pre-commit": {
