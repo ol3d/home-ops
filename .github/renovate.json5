@@ -8,6 +8,9 @@
     "pre-commit": {
         "enabled": true
     },
+    "terraform": {
+        "fileMatch": ["cluster/.+\\.tf$"]
+    },
     "flux": {
         "fileMatch": ["cluster/.+\\.ya?ml$"]
     },
