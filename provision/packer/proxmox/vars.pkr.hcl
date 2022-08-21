@@ -7,10 +7,12 @@ variable "pm_pass" {
     type        = string
     description = "Proxmox User Password"
     default     = "packer"
+    sensitive = true
 }
 variable "pm_token" {
     type        = string
     description = "Proxmox API Token"
+    sensitive = true
 }
 variable "ssh_user" {
     type        = string
@@ -21,6 +23,7 @@ variable "ssh_pass" {
     type        = string
     description = "SSH Password"
     default     = "packer"
+    sensitive = true
 }
 variable "vm_name" {
     type        = string
