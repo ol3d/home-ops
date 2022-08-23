@@ -1,0 +1,11 @@
+---
+area/ansible:
+  - "provision/ansible/**/*"
+area/terraform:
+  - "provision/terraform/**/*"
+area/packer:
+  - "provision/packer/**/*"
+area/github:
+  - ".github/**/*"
+area/cluster:
+  - "cluster/**/*"
