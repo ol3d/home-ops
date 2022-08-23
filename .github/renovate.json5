@@ -2,7 +2,8 @@
     "extends": [
         ":automergeDigest",
         ":automergeBranchPush",
-        "github>deloa6133/home-ops//.github/renovate/autoMerge.json5"
+        "github>deloa6133/home-ops//.github/renovate/autoMerge.json5",
+        "github>deloa6133/home-ops//.github/renovate/labels.json5"
     ],
     "enabled": true,
     "semanticCommits": "enabled",
