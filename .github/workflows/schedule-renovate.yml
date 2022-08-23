@@ -26,15 +26,9 @@ env:
   RENOVATE_CONFIG_FILE: .github/renovate.json5
 
 jobs:
-  print-token:
-    permissions: write-all
-    name: print-token
-    environment: dev
-    # needs: pre-pkr
-    runs-on: ubuntu-latest
-
   renovate:
     name: Renovate
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
