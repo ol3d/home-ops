@@ -26,12 +26,19 @@ env:
   RENOVATE_CONFIG_FILE: .github/renovate.json5
 
 jobs:
+  print-token:
+    permissions: write-all
+    name: print-token
+    environment: dev
+    # needs: pre-pkr
+    runs-on: ubuntu-latest
+
   renovate:
     name: Renovate
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3.0.2
+        uses: actions/checkout@v3
       - name: Generate Token
         uses: tibdex/github-app-token@v1
         id: generate-token
