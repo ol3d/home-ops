@@ -16,6 +16,8 @@
         "github>deloa6133/home-ops//.github/renovate/semanticCommits.json5"
     ],
     "platform": "github",
+    "username": "beelzebot[bot]",
+    "gitAuthor": "beelzebot <231120+beelzebot[bot]@users.noreply.github.com>",
     "enabled": true,
     "semanticCommits": "enabled",
     "repositories": ["deloa6133/home-ops"],
