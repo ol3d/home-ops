@@ -1,10 +1,21 @@
 {
     "extends": [
+        "config:base",
+        "docker:enableMajor",
+        ":disableRateLimiting",
+        ":dependencyDashboard",
+        ":semanticCommits",
+        ":enablePreCommit",
         ":automergeDigest",
         ":automergeBranchPush",
+        "github>deloa6133/home-ops//.github/renovate/allowedVersions.json5",
         "github>deloa6133/home-ops//.github/renovate/autoMerge.json5",
-        "github>deloa6133/home-ops//.github/renovate/labels.json5"
+        "github>deloa6133/home-ops//.github/renovate/commitMessage.json5",
+        "github>deloa6133/home-ops//.github/renovate/groups.json5",
+        "github>deloa6133/home-ops//.github/renovate/labels.json5",
+        "github>deloa6133/home-ops//.github/renovate/semanticCommits.json5"
     ],
+    "platform": "github",
     "enabled": true,
     "semanticCommits": "enabled",
     "repositories": ["deloa6133/home-ops"],
