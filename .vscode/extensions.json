@@ -14,6 +14,7 @@
         "ms-vscode-remote.remote-ssh-edit",
         "DavidAnson.vscode-markdownlint",
         "redhat.vscode-yaml",
-        "4ops.packer"
+        "4ops.packer",
+        "Gruntfuggly.todo-tree"
     ]
 }
