@@ -16,6 +16,7 @@
         "github>deloa6133/home-ops//.github/renovate/semanticCommits.json5"
     ],
     "platform": "github",
+    "hosttype": "github",
     "username": "beelze[bot]",
     "repositories": ["deloa6133/home-ops"],
     "onboarding": false,
