@@ -21,7 +21,7 @@
     "onboarding": false,
     "requireConfig": false,
     "gitAuthor": "beelze[bot] <231120+beelze[bot]@users.noreply.github.com>",
-    "dependencyDashboard": true,
+    "dependencyDashboard": false,
     "dependencyDashboardTitle": "---Renovate Dashboard---",
     "suppressNotifications": ["prIgnoreNotification"],
     "rebaseWhen": "conflicted",
