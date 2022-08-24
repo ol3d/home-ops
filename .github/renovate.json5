@@ -22,7 +22,7 @@
     "requireConfig": false,
     "gitAuthor": "beelze[bot] <231120+beelze[bot]@users.noreply.github.com>",
     "dependencyDashboard": true,
-    "dependencyDashboardTitle": "Renovate Dashboard",
+    "dependencyDashboardTitle": "---Renovate Dashboard---",
     "suppressNotifications": ["prIgnoreNotification"],
     "rebaseWhen": "conflicted",
     "commitBodyTable": true,
