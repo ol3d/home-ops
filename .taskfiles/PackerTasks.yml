@@ -1,0 +1,21 @@
+---
+version: "3"
+
+vars:
+  PROJECT_DIR:
+    sh: "git rev-parse --show-toplevel"
+  PACKER_DIR: "{{.PROJECT_DIR}}/provision/packer"
+
+tasks:
+
+  init:
+    desc: Format packer files
+    dir: "{{.TERRAFORM_DIR}}"
+    cmds:
+      - "packer fmt ."
+
+  update:
+    desc: Validate packer files
+    dir: "{{.TERRAFORM_DIR}}"
+    cmds:
+      - "packer validate ."

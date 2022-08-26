@@ -4,3 +4,4 @@ version: "3"
 includes:
   ansible: .taskfiles/AnsibleTasks.yml
   precommit: .taskfiles/PreCommitTasks.yml
+  terraform: .taskfiles/TerraformTasks.yml
