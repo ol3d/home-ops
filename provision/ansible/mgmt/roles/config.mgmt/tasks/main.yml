@@ -48,24 +48,6 @@
         cmd: pre-commit install
 
 - block:
-    - name: Modify AWS Configuration File
-      blockinfile:
-        dest: /home/{{ ansible_user }}/.aws/config
-        block: |
-          [default]
-          region = {{ AWS.AWS_REGION }}
-          output = json
-        backup: false
-    - name: Modify AWS Credentials File
-      blockinfile:
-        dest: /home/{{ ansible_user }}/.aws/credentials
-        block: |
-          [default]
-          aws_access_key_id = {{ AWS.AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key = {{ AWS.AWS_SECRET_ACCESS_KEY }}
-        backup: false
-
-- block:
     - name: Install Mozilla SOPS and Modify Permissions
       get_url:
         url: "https://github.com/mozilla/sops/releases/download/v3.7.3/sops-v3.7.3.linux"

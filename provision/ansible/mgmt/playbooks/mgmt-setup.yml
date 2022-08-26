@@ -13,4 +13,6 @@
 
   roles:
     # - role: andrewrothstein.sops
-    - role: config.mgmt
+    # - role: config.mgmt
+    # - role: christiangda.awscli
+    - role: christiangda.awscli_configure
