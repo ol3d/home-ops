@@ -1,12 +1,28 @@
 kind: Secret
+ansible_user: ENC[AES256_GCM,data:Jr+20gao1FeD,iv:B2w2hcJDfJh02h01Z86zFE9b1nWVBFyY02zq3rfRTkI=,tag:u6Oj4yc6iyGAkhPqxnntiw==,type:str]
+ansible_become_pass: ENC[AES256_GCM,data:Co/YGR5ZNPX67uRz4cw/,iv:f7JYZNH4gZj+RBHc7SXC25whrDPruCO9HBwpOLeDxis=,tag:Sz8+mgFsHv9M47w2hnCW0g==,type:str]
 ansible_connection: ENC[AES256_GCM,data:ttLXugE=,iv:l+iUZM03TT4lT2A7GXdve2MYp5Op3/i0hi9J9sWqgGI=,tag:ypSHei3efdWuLh4Ns/qSEA==,type:str]
 personal:
     email: ENC[AES256_GCM,data:UwphqUdTwyXLQeo2F+AMGhomBQ==,iv:H4/EJSWDQ1QiiHaOT0NfTDzM+wYzBH34cf9dDrL1E2E=,tag:hNlDmPwCkJmpoBQQxDcClw==,type:str]
     name: ENC[AES256_GCM,data:FQSF+T9lnawT,iv:Le/lHsVuTeleUc4tzx8TkO8xvXJL4eIroeRlQkI43qI=,tag:i3xZ0CJieH+aSlmyIoVMVQ==,type:str]
-AWS:
-    AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:Hj1/5xmfEouSwz5udthVLQRMqMc=,iv:lU8LPhC0LR8yDEZ3aK0rV91xYiQgaS+rzPGve5E4mlM=,tag:UbFrfUAUdy3AKsER3AbGlA==,type:str]
-    AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:/VJfwNeaNWR8vWZUptsYM7GwCccm2mVzYDbBO7MrOfXDXzd/aomfrQ==,iv:12gov649c1Te22aORxdHgEq7vR9TQKPys97RKSGGMSs=,tag:Adco3pNx0lsMkW/ogy6Rag==,type:str]
-    AWS_REGION: ENC[AES256_GCM,data:BhVugzAqqItR,iv:Fn2nztCx2CCgt7W6dvVABmuhZoiZ0f4qhuHOqKqGjtw=,tag:OeMlCVwcTkx+Vj3oWpUIEQ==,type:str]
+aws:
+    credentials:
+        default:
+            access_key_id: ENC[AES256_GCM,data:EERfJM3DDt/1tzoRrHzisbmM7RY=,iv:YAlhKENQw+vr8Pa/NiGmLOe24e9n4Sbmzcr50zg9Rlc=,tag:qylLRQzrbMK9i7AB8QCEUw==,type:str]
+            secret_access_key: ENC[AES256_GCM,data:4ijsKV5xXV0IDWLzt1S4CyueYcB01NXDbd07+QX9qKyOZ7dDpSib7w==,iv:23VqT5KbglsLlJYcNSS7zuCYgPTeBOq8+sLNSTcyzKQ=,tag:lC75WX3VyQ5hqjCa1f3Kkw==,type:str]
+        terraform:
+            access_key_id: ENC[AES256_GCM,data:J2RVEgQ1xVnMz9P7SuhOxuv2fUM=,iv:QBY3y8BHQYxFasN7qbzYXjHwP12SqvxXsnFViRvW38w=,tag:pK0YLhKDhuS39Xr57n9Z1w==,type:str]
+            secret_access_key: ENC[AES256_GCM,data:zqvYHI5HgeKDYt9FZjVLIzfZ53hX6to0IrwzG4ugtEV8G6r7uic07A==,iv:q/WsjQHBqwaZFLuwBcC3Gs3XOr3//TEEvhAM/c2ftO4=,tag:FFbRQG8tLRZctTzPeJobCw==,type:str]
+        packer:
+            access_key_id: ENC[AES256_GCM,data:EWbFNhebw/adIOnTvTdKGbzcFa4=,iv:jMYzPF6VL53x471tayoH/7WAKVZtYI2/o5BvSpRbvV0=,tag:PiLuNXlYCTtel+jbH0HrSQ==,type:str]
+            secret_access_key: ENC[AES256_GCM,data:T2P1tUk6F7Q6h8SJ88BiCLr+iePkRL4CHp4Ohts+ByM429QYuySq4A==,iv:oJRw5H6Ytd4ZXI6HxoDON+Ky/bcDPH4neMygrhkUAds=,tag:wvw0QjvILWsSOJEGKAvQAg==,type:str]
+    config:
+        default:
+            region: ENC[AES256_GCM,data:VZOe2UcpqY/4,iv:SciiiPhYvR7M9uVPeBdc9C8paZTSTd1liysKRprFTEs=,tag:X3GCmDz4X0RgNKVpnJsY2w==,type:str]
+        terraform:
+            region: ENC[AES256_GCM,data:efvX7aF91rgX,iv:N1F00XebOLvmW/6/1ziNaXSYW3UniRwhcJYfFPcOHNA=,tag:ybrOuvf6wklzuvOt4mLtWQ==,type:str]
+        packer:
+            region: ENC[AES256_GCM,data:ZMmkcjp4wEIq,iv:epBWJDrr6dYK7gRBpNzBuSKikUYg+maixcpAN4oYrCk=,tag:RqvEijAFWy75LqlDjDbjKg==,type:str]
 sops:
     kms:
         - arn: arn:aws:kms:us-east-1:707904332389:key/a7f77b88-3d50-474a-a8a9-59aa09144204
@@ -21,8 +37,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2022-08-17T15:55:40Z"
-    mac: ENC[AES256_GCM,data:D3Y1Usu1C8EaKxwRqbadjYMbnX+fdfqiBwC2kR3aXkgL0PAHX+S7hDEshoTK9sIYGqzjIifdjVGoDiCuyEfLC6rDqg4MEYMx1/aHnH9ZXWdaJp7a6Y2d42eOyAXfL+PZKqUsYF4KxBqK4sYANqY4p0AhYlewqnSUMvGW/xh7yAc=,iv:7wSZ/Q+tc9JlhTktX2Oq87JIlxiySJ+USZiPUk0yRTY=,tag:cbUhQ6XdPSlV4Ps2/543Qg==,type:str]
+    lastmodified: "2022-08-26T15:31:46Z"
+    mac: ENC[AES256_GCM,data:fZI1TLqX+JJUPJnQzfIz3HNu0mrGeH+QCUFIaCLF01rlJixFhwRlMRLa8wZrUlIkE4Scddz29hacKsupONWh/lPG4O8U5l1JVx2tbf/1KGL2lHpgqYjUtYj7rmcqu4Nc5UwzqQKuhtHTzXetxdnD5LEYRbCO2jwV8wCRwDI6EeI=,iv:FzCywr/64h/z3h0hSjOl+BrvBf9ROHF+e9RGDEZoDPQ=,tag:0J7z2qPZh6e1LZrZgqpNbg==,type:str]
     pgp: []
     unencrypted_regex: ^(kind)$
     version: 3.7.3

@@ -1,4 +1,5 @@
 ---
+# config.mgmt
 apt_packages:
   - name: sshpass
     state: present
@@ -25,3 +26,30 @@ gitconfig:
   user:
     name: "{{ personal.name }}"
     email: "{{ personal.email }}"
+
+# christiangda.awscli_configure
+awscliconf_path: "/home/{{ ansible_user }}"
+awscliconf_recursive_path_creation: false
+awscliconf_files_owner: "{{ ansible_user }}"
+awscliconf_files_group: "{{ ansible_user }}"
+awscliconf_files:
+  credentials:
+    - default:
+        aws_access_key_id: "{{ aws.credentials.default.access_key_id }}"
+        aws_secret_access_key: "{{ aws.credentials.default.secret_access_key }}"
+    - terraform:
+        aws_access_key_id: "{{ aws.credentials.terraform.access_key_id }}"
+        aws_secret_access_key: "{{ aws.credentials.terraform.secret_access_key }}"
+    - packer:
+        aws_access_key_id: "{{ aws.credentials.packer.access_key_id }}"
+        aws_secret_access_key: "{{ aws.credentials.packer.secret_access_key }}"
+  config:
+    - default:
+        region: "{{ aws.config.default.region }}"
+        output: json
+    - terraform:
+        region: "{{ aws.config.terraform.region }}"
+        output: json
+    - packer:
+        region: "{{ aws.config.packer.region }}"
+        output: json
