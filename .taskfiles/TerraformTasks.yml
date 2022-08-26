@@ -1,0 +1,28 @@
+---
+version: "3"
+
+vars:
+  PROJECT_DIR:
+    sh: "git rev-parse --show-toplevel"
+  TERRAFORM_DIR: "{{.PROJECT_DIR}}/provision/terraform"
+
+tasks:
+
+  init:
+    desc: Initialize terraform dependencies
+    dir: "{{.TERRAFORM_DIR}}"
+    cmds:
+      - find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && terraform init {{.CLI_ARGS}}" \;
+
+  plan:
+    desc: Show the terraform plan
+    dir: "{{.TERRAFORM_DIR}}"
+    cmds:
+      - find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && terraform plan {{.CLI_ARGS}}" \;
+
+  apply:
+    desc: Apply the terraform changes
+    dir: "{{.TERRAFORM_DIR}}"
+    interactive: true
+    cmds:
+      - find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && terraform apply {{.CLI_ARGS}}" \;

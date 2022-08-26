@@ -30,6 +30,6 @@ data "sops_file" "backblaze_secrets" {
 }
 
 provider "b2" {
-    application_key = ""
-    application_key_id = ""
+    application_key = data.sops_file.backblaze_secrets.data["b2.application_key"]
+    application_key_id = data.sops_file.backblaze_secrets.data["b2.application_key_id"]
 }
