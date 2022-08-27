@@ -11,6 +11,8 @@ collections:
 roles:
   # - name: andrewrothstein.sops
   #   version: v1.0.5
+  - name: buluma.hashicorp
+    version: 1.0.7
   - name: christiangda.awscli
     version: 1.0.2
   - name: christiangda.awscli_configure

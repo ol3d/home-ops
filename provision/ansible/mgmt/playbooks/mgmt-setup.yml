@@ -12,7 +12,55 @@
             seconds: 2
 
   roles:
+    # TODO Uncomment role andrewrothstein.sops and christiangda.awscli after switching to Debain 11 for mgmt node OS
     # - role: andrewrothstein.sops
-    # - role: config.mgmt
+    - role: buluma.hashicorp
     # - role: christiangda.awscli
     - role: christiangda.awscli_configure
+    - role: kosssi.gitconfig
+
+  tasks:
+    - block:
+        - name: Update apt repository and cache
+          apt:
+            update_cache: true
+            force_apt_get: true
+            cache_valid_time: 3600
+        - name: Upgrade all packages
+          apt:
+            upgrade: dist
+            force_apt_get: true
+        - name: Check if reboot is required
+          register: reboot_required_file
+          stat:
+            path: /var/run/reboot-required
+            get_md5: false
+        - name: Output reboot request if reboot is required
+          ansible.builtin.debug:
+            msg: "Reboot is required. Please restart the Management Node(s)."
+          when: reboot_required_file.stat.exists
+
+    - block:
+        - name: Install apt packages
+          ansible.builtin.apt:
+            name: "{{ item.name }}"
+            state: "{{ item.state }}"
+          with_items: "{{ apt_packages }}"
+        - name: Install pip packages
+          ansible.builtin.pip:
+            name: "{{ item.name }}"
+            state: "{{ item.state }}"
+          with_items: "{{ pip_packages }}"
+
+  #   - block:
+  #       - name: Install Mozilla SOPS and Modify Permissions
+  #         get_url:
+  #           url: "https://github.com/mozilla/sops/releases/download/v3.7.3/sops-v3.7.3.linux"
+  #           dest: /usr/local/bin/sops
+  #           mode: +x
+
+  #   - block:
+  #       - name: Modify gitconfig
+  #         ansible.builtin.template:
+  #           dest: /home/{{ ansible_user }}/.gitconfig
+  #           src: .gitconfig.j2
