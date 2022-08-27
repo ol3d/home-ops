@@ -1,6 +1,7 @@
 ---
-# config.mgmt
 apt_packages:
+  - name: git
+    state: present
   - name: sshpass
     state: present
   - name: python3-jmespath
@@ -9,23 +10,21 @@ apt_packages:
     state: present
   - name: awscli
     state: latest
-  - name: packer
-    state: present
-  - name: terraform
-    state: present
-  - name: npm
-    state: latest
 pip_packages:
-  - name: virtualenv
-    state: present
   - name: pre-commit
     state: present
-gitconfig:
-  core:
-    editor: vim
-  user:
-    name: "{{ personal.name }}"
-    email: "{{ personal.email }}"
+# gitconfig:
+#   core:
+#     editor: vim
+#   user:
+#     name: "{{ personal.name }}"
+#     email: "{{ personal.email }}"
+
+# buluma.hashicorp
+hashicorp_installation_method: package
+hashicorp_products:
+  - name: packer
+  - name: terraform
 
 # christiangda.awscli_configure
 awscliconf_path: "/home/{{ ansible_user }}"
