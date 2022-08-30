@@ -17,7 +17,7 @@
     - role: buluma.hashicorp
     # - role: christiangda.awscli
     - role: christiangda.awscli_configure
-    - role: kosssi.gitconfig
+    - role: ol3d.git
 
   tasks:
     - block:
@@ -58,9 +58,3 @@
   #           url: "https://github.com/mozilla/sops/releases/download/v3.7.3/sops-v3.7.3.linux"
   #           dest: /usr/local/bin/sops
   #           mode: +x
-
-  #   - block:
-  #       - name: Modify gitconfig
-  #         ansible.builtin.template:
-  #           dest: /home/{{ ansible_user }}/.gitconfig
-  #           src: .gitconfig.j2

@@ -21,3 +21,5 @@ roles:
     version: 2.3.1
   - name: lae.proxmox
     version: v1.7.1
+  - name: ol3d.git
+    version: 1.0.0
