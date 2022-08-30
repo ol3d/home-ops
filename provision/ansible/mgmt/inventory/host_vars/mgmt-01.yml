@@ -1,7 +1,5 @@
 ---
 apt_packages:
-  - name: git
-    state: present
   - name: sshpass
     state: present
   - name: python3-jmespath
@@ -13,12 +11,6 @@ apt_packages:
 pip_packages:
   - name: pre-commit
     state: present
-# gitconfig:
-#   core:
-#     editor: vim
-#   user:
-#     name: "{{ personal.name }}"
-#     email: "{{ personal.email }}"
 
 # buluma.hashicorp
 hashicorp_installation_method: package
@@ -52,3 +44,14 @@ awscliconf_files:
     - packer:
         region: "{{ aws.config.packer.region }}"
         output: json
+
+# ol3d.git
+git_username: "{{ ansible_user }}"
+git_config:
+  user:
+    name: "{{ personal.name }}"
+    email: "{{ personal.email }}"
+  core:
+    editor: vim
+  diff "sopsdiffer":
+    textconv: sops -d --config /dev/null
