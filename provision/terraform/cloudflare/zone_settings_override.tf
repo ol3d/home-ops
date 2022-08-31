@@ -1,4 +1,4 @@
-resource "cloudflare_zone_settings_override" "cloudflare_settings" {
+resource "cloudflare_zone_settings_override" "zone_settings_override" {
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
     settings {
         # /ssl-tls

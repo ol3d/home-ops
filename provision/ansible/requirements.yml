@@ -9,10 +9,12 @@ collections:
   - name: community.sops
     version: 1.3.0
 roles:
-  # - name: andrewrothstein.sops
-  #   version: v1.0.5
+  - name: andrewrothstein.sops
+    version: v1.0.5
   - name: buluma.hashicorp
     version: 1.0.7
+  - name: buluma.git
+    version: v3.0.11
   - name: christiangda.awscli
     version: 1.0.2
   - name: christiangda.awscli_configure
@@ -21,5 +23,3 @@ roles:
     version: 2.3.1
   - name: lae.proxmox
     version: v1.7.1
-  - name: ol3d.git
-    version: 1.0.0

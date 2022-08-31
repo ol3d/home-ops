@@ -11,6 +11,18 @@ apt_packages:
 pip_packages:
   - name: pre-commit
     state: present
+gitconfig:
+  core:
+    editor: vim
+  user:
+    name: "{{ personal.name }}"
+    email: "{{ personal.email }}"
+
+# buluma.git
+git_username: "{{ ansible_user }}"
+git_groupname: "{{ git_username }}"
+git_repository_destination: /home/{{ git_username }}/buildworkspace
+git_force: no
 
 # buluma.hashicorp
 hashicorp_installation_method: package
@@ -44,14 +56,3 @@ awscliconf_files:
     - packer:
         region: "{{ aws.config.packer.region }}"
         output: json
-
-# ol3d.git
-git_username: "{{ ansible_user }}"
-git_config:
-  user:
-    name: "{{ personal.name }}"
-    email: "{{ personal.email }}"
-  core:
-    editor: vim
-  diff "sopsdiffer":
-    textconv: sops -d --config /dev/null
