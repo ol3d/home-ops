@@ -14,10 +14,10 @@
   roles:
     # TODO Uncomment role andrewrothstein.sops and christiangda.awscli after switching to Debain 11 for mgmt node OS
     # - role: andrewrothstein.sops
+    - role: buluma.git
     - role: buluma.hashicorp
     # - role: christiangda.awscli
     - role: christiangda.awscli_configure
-    - role: ol3d.git
 
   tasks:
     - block:
@@ -51,6 +51,13 @@
             name: "{{ item.name }}"
             state: "{{ item.state }}"
           with_items: "{{ pip_packages }}"
+
+    - block:
+        - name: Modify gitconfig
+          ansible.builtin.template:
+            dest: /home/{{ ansible_user }}/.gitconfig
+            src: .gitconfig.j2
+            mode: "0644"
 
   #   - block:
   #       - name: Install Mozilla SOPS and Modify Permissions

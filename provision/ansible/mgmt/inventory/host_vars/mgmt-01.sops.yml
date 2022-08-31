@@ -23,6 +23,15 @@ aws:
             region: ENC[AES256_GCM,data:efvX7aF91rgX,iv:N1F00XebOLvmW/6/1ziNaXSYW3UniRwhcJYfFPcOHNA=,tag:ybrOuvf6wklzuvOt4mLtWQ==,type:str]
         packer:
             region: ENC[AES256_GCM,data:ZMmkcjp4wEIq,iv:epBWJDrr6dYK7gRBpNzBuSKikUYg+maixcpAN4oYrCk=,tag:RqvEijAFWy75LqlDjDbjKg==,type:str]
+git_repositories:
+    - repo: ENC[AES256_GCM,data:1zS3zd9mTnUgQMLtzt9Z4JsCgNDGHSgSR67M+5K57cet23Mm,iv:F/Iuof6GPswMaja1IrfW4ZtAxlGbY/6d1ytClK+D4TA=,tag:dWAL5aCyhXTF/zZhrXGY4A==,type:str]
+      dest: ENC[AES256_GCM,data:ThlTqFMI5AQ=,iv:XTZ9AsLM5GWaXUs/+RLQLo9BycbtF07Qi/dFwT0Dzm8=,tag:0RCjwis0AIi+BhSXR3c8qQ==,type:str]
+    - repo: ENC[AES256_GCM,data:9sb5iGbRJxUQmTPnwhKnIo0oGA2GqfZqNJVkB5hss/s=,iv:C0ai8USjbAc47FaPwK5/g1z17Gco/+DCOrxCK4B+G7o=,tag:dwkzSTxiiXeMRHM5+KN4Bw==,type:str]
+      dest: ENC[AES256_GCM,data:5S4/Mw==,iv:mZG0XfC/4xWzcNl0vVtS198cq4QXshFQQpj+aM824DY=,tag:Ziyq0meaJMzdv7skVGM4dg==,type:str]
+    - repo: ENC[AES256_GCM,data:Ds7fMtBcKHI6RUzhy8z78m2n8iYVrGsf7ggDn6Gt6OY/mAr8iJ24K1eN,iv:ekOSOGjvq8nIhPDSiDjDsvaPF6lfouQxOROpMc70nNM=,tag:nGtTxQnMUnNKGY+PqnlEUA==,type:str]
+      dest: ENC[AES256_GCM,data:HJCVJuZ4RE5VAhliK/I=,iv:wE7ph1s70Ubf7kRLm9UXF7Pnv5wUXujZkpXum3z2Yok=,tag:51ZY6yMWvQhXwKzPQMaq9w==,type:str]
+    - repo: ENC[AES256_GCM,data:EAH+4NyvrKrVYw//IsSwZ5c6IaGGNY6tJzrN4TNRPLoLpEA=,iv:e7u4EONy27I9fST6TMaISuh45hyqXz7fEZ//CM7qyZg=,tag:mKxmmPIXEZYLsJIWlZx9bg==,type:str]
+      dest: ENC[AES256_GCM,data:EuSzpTSfjw==,iv:tvnSU822UPSU8SUbLN4mzU97KFmX4yZIfQbyHfevEzM=,tag:HXvjYW47umpGKFSx2Q+cCw==,type:str]
 sops:
     kms:
         - arn: arn:aws:kms:us-east-1:707904332389:key/a7f77b88-3d50-474a-a8a9-59aa09144204
@@ -37,8 +46,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2022-08-26T15:31:46Z"
-    mac: ENC[AES256_GCM,data:fZI1TLqX+JJUPJnQzfIz3HNu0mrGeH+QCUFIaCLF01rlJixFhwRlMRLa8wZrUlIkE4Scddz29hacKsupONWh/lPG4O8U5l1JVx2tbf/1KGL2lHpgqYjUtYj7rmcqu4Nc5UwzqQKuhtHTzXetxdnD5LEYRbCO2jwV8wCRwDI6EeI=,iv:FzCywr/64h/z3h0hSjOl+BrvBf9ROHF+e9RGDEZoDPQ=,tag:0J7z2qPZh6e1LZrZgqpNbg==,type:str]
+    lastmodified: "2022-08-31T14:12:50Z"
+    mac: ENC[AES256_GCM,data:zSjYoc6bBj3cqe8B8BgiyI3WD6sjRa4AgK6D9GHc/L/NIdziMABOXUZVTwTCUqHNYnch2Ch0F8pytjzMhQuKn9sYn3UmMEzXdDqBoYKHfkbCZ4OovLRqLVhcrh9r0Ua1ovXLVa3bcX+zgnXhYveYoXOJDimNQGQImyPrmcSL3g0=,iv:ax0y4zowUjhpXj5GhNXkIDL6+QSAvHRtil+JWFtFjQU=,tag:6vBXr8HN6ZF5qfqrLiku6w==,type:str]
     pgp: []
     unencrypted_regex: ^(kind)$
     version: 3.7.3
