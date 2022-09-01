@@ -20,7 +20,7 @@
     "repositories": ["ol3d/home-ops"],
     "onboarding": false,
     "requireConfig": false,
-    "gitAuthor": "beelze-bot <231120+beelze-bot[bot]@users.noreply.github.com>",
+    "gitAuthor": "beelze-bot <28781164+beelze-bot[bot]@users.noreply.github.com>",
     "dependencyDashboardTitle": "Renovate Dashboard",
     "suppressNotifications": ["prIgnoreNotification"],
     "rebaseWhen": "conflicted",
