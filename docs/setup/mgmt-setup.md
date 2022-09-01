@@ -1,18 +1,23 @@
-# Management Server Setup
+# [Management Server Setup](#management-server-setup)
 
-## Download and Install Ubuntu
+## [Download and Install Debian](#download-and-install-debian)
 
-Download [Ubuntu Server 22.04 ISO](https://ubuntu.com/download/server) and flash it to a bootable drive using a tool such as [Rufus](https://rufus.ie/en/) or [Balena Etcher](https://www.balena.io/etcher/).
+Download [Debian 11](https://www.debian.org/distrib/netinst) and flash it to a bootable drive using a tool such as [Rufus](https://rufus.ie/en/) or [Balena Etcher](https://www.balena.io/etcher/).
 
-On the management node, boot from the newly created boot drive, and install Ubuntu onto the system.
+On the management node, boot from the newly created boot drive, and install Debain onto the system.
 
-## Update and Install Packages
+## [Update and Install Packages](#update-and-install-packages)
 
-Once Ubuntu has been successfully installed on the machine, update and upgrade package repositories using the following:
+To start the setup, run the [Task](https://taskfile.dev/) installation script from `hack/install-task.sh`:
 
 ```text
-sudo apt-get update
-sudo apt-get upgrade
+sudo bash hack/install-task.sh
+```
+
+Once Task has been installed run the management node initialization task:
+
+```text
+sudo task mgmt:init
 ```
 
 For Ansible to work properly, OpenSSH needs to be installed on the system. Ubuntu typically comes with OpenSSH pre-installed, to check if it is installed run the following:
