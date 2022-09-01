@@ -1,0 +1,19 @@
+---
+version: "3"
+
+vars:
+  PROJECT_DIR:
+    sh: "git rev-parse --show-toplevel"
+  ANSIBLE_DIR: "{{.PROJECT_DIR}}/provision/ansible"
+  MGMT_DIR: "{{.PROJECT_DIR}}/provision/ansible/mgmt"
+
+tasks:
+
+  init:
+    desc: Initialize local management server node
+    dir: "{{.ANSIBLE_DIR}}"
+    cmds:
+      - "apt install ansible"
+      - "ansible-galaxy install -r requirements.yml --force"
+      - "ansible-galaxy collection install -r requirements.yml --force"
+      # - "cd {{.MGMT_DIR}} && ansible-playbook playbooks/mgmt-init.yml"
