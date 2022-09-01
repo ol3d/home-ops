@@ -8,7 +8,6 @@ vars:
   MGMT_DIR: "{{.PROJECT_DIR}}/provision/ansible/mgmt"
 
 tasks:
-
   init:
     desc: Initialize local management server node
     dir: "{{.ANSIBLE_DIR}}"

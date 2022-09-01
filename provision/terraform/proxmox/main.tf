@@ -13,20 +13,16 @@ terraform {
     }
 }
 
-data "sops_file" "global_secrets" {
+data "sops_file" "proxmox_secrets" {
     source_file = "secret.sops.yaml"
 }
 
-provider "sops" {}
-
 provider "proxmox" {
     pm_tls_insecure = true
-    pm_api_url = ""
-    pm_parallel = 2
-    #pm_api_token_id     = data.sops_file.global_secrets.data["proxmox.pm_api_token_id"]
-    #pm_api_token_secret = data.sops_file.global_secrets.data["proxmox.pm_api_token_secret"]
-    pm_user = data.sops_file.global_secrets.data["proxmox.pm_user"]
-    pm_password = data.sops_file.global_secrets.data["proxmox.pm_password"]
+    pm_api_url = data.sops_file.proxmox_secrets.data["proxmox.pm_api_url"]
+    pm_parallel = 4
+    pm_user = data.sops_file.proxmox_secrets.data["proxmox.pm_user"]
+    pm_password = data.sops_file.proxmox_secrets.data["proxmox.pm_password"]
     pm_log_enable = true
     pm_log_file = "terraform-plugin-proxmox.log"
     pm_debug = true

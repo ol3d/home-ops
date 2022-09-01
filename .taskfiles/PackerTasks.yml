@@ -7,7 +7,6 @@ vars:
   PACKER_DIR: "{{.PROJECT_DIR}}/provision/packer"
 
 tasks:
-
   init:
     desc: Format packer files
     dir: "{{.TERRAFORM_DIR}}"

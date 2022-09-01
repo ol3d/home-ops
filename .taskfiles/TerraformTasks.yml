@@ -7,7 +7,6 @@ vars:
   TERRAFORM_DIR: "{{.PROJECT_DIR}}/provision/terraform"
 
 tasks:
-
   init:
     desc: Initialize terraform dependencies
     dir: "{{.TERRAFORM_DIR}}"

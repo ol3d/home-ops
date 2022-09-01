@@ -7,7 +7,6 @@ vars:
   ANSIBLE_DIR: "{{.PROJECT_DIR}}/provision/ansible"
 
 tasks:
-
   init:
     desc: Install/Upgrade Ansible Galaxy dependencies
     dir: "{{.ANSIBLE_DIR}}"
