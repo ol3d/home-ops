@@ -4,5 +4,5 @@ If you wish to launch a manually managed workload into your cluster that you wan
 
 ```yaml
 annotations:
-    fluxcd.io/ignore: "true"
+  fluxcd.io/ignore: "true"
 ```
