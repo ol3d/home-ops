@@ -23,5 +23,3 @@ roles:
     version: 2.3.1
   - name: lae.proxmox
     version: v1.7.1
-  - name: singleplatform-eng.users
-    version: v1.2.6

@@ -4,17 +4,6 @@ ntp_manage_config: true
 npm_servers:
   - 2.pfsense.pool.ntp.org
 
-# singleplatform-eng.users
-users:
-  - username: terraform
-    name: terraform
-    uid: 2000
-    password: "{{ users.terraform_password }}"
-  - username: packer
-    name: packer
-    uid: 2001
-    password: "{{ users.packer_password }}"
-
 # lae.proxmox
 pve_group: pve
 pve_repository_line: "deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription"
@@ -24,6 +13,7 @@ pve_extra_packages:
   - ifupdown2
   - ifenslave
   - cloud-init
+  - openvswitch-switch
 pve_run_system_upgrades: false
 pve_run_proxmox_upgrades: true
 pve_check_for_kernel_update: true
@@ -79,6 +69,23 @@ pve_roles:
       - "VM.PowerMgmt"
       - "Datastore.AllocateSpace"
       - "Datastore.Audit"
+  - name: Packer
+    privileges:
+      - "VM.Allocate"
+      - "VM.Clone"
+      - "VM.Config.CDROM"
+      - "VM.Config.CPU"
+      - "VM.Config.Cloudinit"
+      - "VM.Config.Disk"
+      - "VM.Config.HWType"
+      - "VM.Config.Memory"
+      - "VM.Config.Network"
+      - "VM.Config.Options"
+      - "VM.Monitor"
+      - "VM.Audit"
+      - "VM.PowerMgmt"
+      - "Datastore.AllocateSpace"
+      - "Datastore.Audit"
 pve_acls:
   - path: /
     roles:
@@ -90,11 +97,18 @@ pve_acls:
       - Terraform
     groups:
       - Terraform
+  - path: /
+    roles:
+      - Packer
+    groups:
+      - Packer
 pve_groups:
   - name: Admin
     comment: Admin Group
   - name: Terraform
     comment: Terraform Group
+  - name: Packer
+    comment: Packer Group
 pve_users:
   - name: "{{ username }}@pam"
     email: "{{ personal_email }}"
@@ -103,10 +117,16 @@ pve_users:
     groups:
       - Admin
     password: "{{ ansible_become_pass }}"
-  - name: "terraform@pam"
+  - name: "terraform@pve"
     password: "{{ ansible_become_pass }}"
     groups:
       - Terraform
+    comment: "Terraform management user"
+  - name: "packer@pve"
+    password: "{{ ansible_become_pass }}"
+    groups:
+      - Packer
+    comment: "Packer management user"
 # pve_storages: []
 pve_datacenter_cfg:
   keyboard: en-us
