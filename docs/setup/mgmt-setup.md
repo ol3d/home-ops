@@ -14,33 +14,11 @@ To start the setup, run the [Task](https://taskfile.dev/) installation script fr
 sudo bash hack/install-task.sh
 ```
 
-Once Task has been installed run the management node initialization task:
+Once Task has been installed run the management node initialization task from the base directory:
 
 ```text
 sudo task mgmt:init
 ```
-
-For Ansible to work properly, OpenSSH needs to be installed on the system. Ubuntu typically comes with OpenSSH pre-installed, to check if it is installed run the following:
-
-```text
-ssh -V
-```
-
-This should output the current version of OpenSSH installed on the system. If a version is not displayed, then OpenSSH must be installed on the system by running the following:
-
-```text
-sudo apt install openssh-server
-```
-
-Once confirmed that OpenSSH is installed on the system, it is now possible to install Ansible by running the following:
-
-```text
-sudo apt install ansible
-```
-
-## Clone Git Repository
-
-Once the Ansible has been installed, the Git repository must be cloned to run the existing Ansible playbooks.
 
 ### Generate SSH Key
 
@@ -68,46 +46,4 @@ Add the following to the file:
 Host gitlab.com
   PreferredAuthentications publickey
   IdentityFile ~/.ssh/gitlab_keystore/gitlab
-```
-
-### Add SSH Key to Gitlab
-
-Select the user icon in the top right of the screen and select 'Edit profile' from the dropdown menu. On the left hand side of the screen, select SSH Keys and insert the public key generated previously.
-
-Now that the key has been inserted into Gitlab, the repository can be cloned.
-
-Run the following to clone the respository from Gitlab:
-
-```text
-sudo git clone git@gitlab.com:${REPOSITORY_NAME}.git
-```
-
-## Run Management Server Setup Playbook
-
-Update Ansible by installing all needed components and roles by running the following:
-
-```text
-ansible-galaxy install -r requirements.yml
-```
-
-Once the respository has been cloned, run the following to execute the Ansible Playbook command:
-
-```text
-sudo ansible-playbook ${REPOSITORY_PATH}/provision/ansible/mgmt/playbooks/mgmt-setup.yml
-```
-
-Let the Ansible playbook run until completion. Once completed, the current system should be set up to perform all needed tasks as a management server.
-
-## Taskfile
-
-[Task](https://taskfile.dev/) is a tool written in Go and shoule be installed to make initialization easier. Install Task by using the following:
-
-```text
-sudo snap install task --classic
-```
-
-Once task has been installed, navigate to the base of the Git repository and run the following:
-
-```text
-task ansible:init
 ```

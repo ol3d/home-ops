@@ -15,6 +15,7 @@
     "DavidAnson.vscode-markdownlint",
     "redhat.vscode-yaml",
     "4ops.packer",
-    "Gruntfuggly.todo-tree"
+    "Gruntfuggly.todo-tree",
+    "rangav.vscode-thunder-client"
   ]
 }

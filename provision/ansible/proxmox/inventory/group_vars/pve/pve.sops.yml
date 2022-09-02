@@ -7,6 +7,9 @@ personal_email: ENC[AES256_GCM,data:jX4F9/Cx9y0PkQmrXug8nBeK1w==,iv:69Pug53QeDnB
 firstname: ENC[AES256_GCM,data:4ByHXw==,iv:9w4NwWUFWJeSvbKNWBHePZhpqXH2hRAVv3hrozhjMaY=,tag:z/Gt6uv9OJlDHpRkKso1Qg==,type:str]
 lastname: ENC[AES256_GCM,data:OSHRdA==,iv:ChmEGT7VIqRzHw574f3VPIJNDdKjRMYNyAUweEe6qeI=,tag:Cc8pUzzAgCcf8No6pmaxCA==,type:str]
 username: ENC[AES256_GCM,data:tA3uBjrTRF+c,iv:nk8WXflACn5m8R461hV4XU07z40avoOLXfpY78rALGE=,tag:p8y6MRMnMFmO1teSVtbc9Q==,type:str]
+users:
+    terraform_password: ENC[AES256_GCM,data:8loWGsaan5Xm3dcjvWIy,iv:eih9fdhqxTxBbPRFIg3Wust0WghRFH4REEjY0yl2G1I=,tag:dfWILkIT3GRa7LSzENaaHQ==,type:str]
+    packer_password: ENC[AES256_GCM,data:hIZ1U0tP6JMumornfwed,iv:olvn5WpekRpY1XSr2Wq2QTY6Acm50DqGPGFahhwS5VE=,tag:v3RkpBGSPiCYojsCC3h+aQ==,type:str]
 sops:
     kms:
         - arn: arn:aws:kms:us-east-1:707904332389:key/a7f77b88-3d50-474a-a8a9-59aa09144204
@@ -21,8 +24,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2022-08-16T15:00:20Z"
-    mac: ENC[AES256_GCM,data:izdp/PNvEyjb21WBptQls34kZ3XefO2USn3h3n+GbsZGzWtECSubUTpjJ0GT79ZfxrgQRblPuPF3eiHTMRuexhMr3NtiWM30ApaoQooYuiMeLBDJ6UT4xxZWaWL5YDmPYENqf8vULilhR6yuyxYX4DlkGcZ3klttL902QedBVO4=,iv:sIWV1ESaHN+LYIZ82d7yLmjw1Zfsl9CGEOlMpf7gRgM=,tag:BPx/UPJEyR96ZqN3n/3EtQ==,type:str]
+    lastmodified: "2022-09-02T15:27:50Z"
+    mac: ENC[AES256_GCM,data:kABi9pkoXv5DuQdZQaAZgw8HlKgbIowKTnM2nyyBBD2NWIh/uKCf1wAaRMYGf4M4qP2I2xbri7/1JN7lr75g4YfCJFATAaf4BNbZWFXUXdglIsagvQx4JYp5kVkTwIOxP4e1l4x8a5YHkVjFRMbBazYJSHiZbtrzUTglz1+FkJs=,iv:g7f3B0O5nXBEd4aTxQdBmtf+jCJoOQgspwn8CYXfbJQ=,tag:09kyaD36M1GrMeIa8d/wFA==,type:str]
     pgp: []
     unencrypted_regex: ^(kind)$
     version: 3.7.3
