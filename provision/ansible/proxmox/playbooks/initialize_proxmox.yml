@@ -10,14 +10,10 @@
 
   roles:
     - role: geerlingguy.ntp
-    - role: singleplatform-eng.users
+    - role: lae.proxmox
 
   tasks:
     - block:
-        - name: Install openvswitch-switch packages
-          ansible.builtin.apt:
-            name: openvswitch-switch
-            state: present
         - name: Modify network interface definitions on pve hosts
           ansible.builtin.template:
             src: "pve_interfaces_template.yaml.j2"
@@ -28,10 +24,3 @@
             src: pve_hosts_template.yaml.j2
             dest: /etc/hosts
             mode: "0644"
-
-- hosts: pve
-  gather_facts: true
-  any_errors_fatal: true
-
-  roles:
-    - role: lae.proxmox
