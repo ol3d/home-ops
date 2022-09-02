@@ -16,11 +16,11 @@
         "github>ol3d/home-ops//.github/renovate/semanticCommits.json5"
     ],
     "platform": "github",
-    "username": "beelze-bot[bot]",
+    "username": "beelze-bot",
     "repositories": ["ol3d/home-ops"],
     "onboarding": false,
     "requireConfig": false,
-    "gitAuthor": "beelze-bot <28781164+beelze-bot[bot]@users.noreply.github.com>",
+    "gitAuthor": "beelze-bot <28781164+beelze-bot@users.noreply.github.com>",
     "dependencyDashboardTitle": "Renovate Dashboard",
     "suppressNotifications": ["prIgnoreNotification"],
     "rebaseWhen": "conflicted",
