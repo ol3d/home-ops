@@ -6,6 +6,7 @@ apt_packages:
     state: present
   - name: python3-pip
     state: present
+  # TODO remove awscli package installation
   - name: awscli
     state: latest
 pip_packages:

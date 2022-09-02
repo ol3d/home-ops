@@ -10,20 +10,9 @@
 
   roles:
     - role: geerlingguy.ntp
-      ntp_manage_config: true
-      npm_servers:
-        - 2.pfsense.pool.ntp.org
+    - role: singleplatform-eng.users
 
   tasks:
-    - block:
-        - name: Create Terraform User
-          ansible.builtin.user:
-            name: terraform
-            password: "{{ ansible_become_pass | password_hash('sha512') }}"
-        - name: Create Packer User
-          ansible.builtin.user:
-            name: packer
-            password: "{{ ansible_become_pass | password_hash('sha512') }}"
     - block:
         - name: Install openvswitch-switch packages
           ansible.builtin.apt:

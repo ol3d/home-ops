@@ -4,15 +4,31 @@ version: "3"
 vars:
   PROJECT_DIR:
     sh: "git rev-parse --show-toplevel"
-  ANSIBLE_DIR: "{{.PROJECT_DIR}}/provision/ansible"
-  MGMT_DIR: "{{.PROJECT_DIR}}/provision/ansible/mgmt"
+  ANSIBLE_MGMT_DIR: "{{.PROJECT_DIR}}/provision/ansible/mgmt"
+
+includes:
+  ansible: AnsibleTasks.yml
 
 tasks:
   init:
     desc: Initialize local management server node
-    dir: "{{.ANSIBLE_DIR}}"
+    dir: "{{.ANSIBLE_MGMT_DIR}}"
+    cmds:
+      - task: install-ansible
+      - task: install-openssh
+      - task: ansible:init
+      - "ansible-playbook playbooks/mgmt-setup.yml"
+
+  install-openssh:
+    desk: Install OpenSSH onto the system
+    cmds:
+      - "apt install openssh-server"
+    status:
+      - command -v "ssh" &> /dev/null
+
+  install-ansible:
+    desc: Install ansible onto the system
     cmds:
       - "apt install ansible"
-      - "ansible-galaxy install -r requirements.yml --force"
-      - "ansible-galaxy collection install -r requirements.yml --force"
-      # - "cd {{.MGMT_DIR}} && ansible-playbook playbooks/mgmt-init.yml"
+    status:
+      - command -v "ansible" &> /dev/null
