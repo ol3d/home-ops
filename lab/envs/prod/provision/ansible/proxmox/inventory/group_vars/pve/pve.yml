@@ -111,9 +111,9 @@ pve_groups:
     comment: Packer Group
 pve_users:
   - name: "{{ username }}@pam"
-    email: "{{ personal_email }}"
-    firstname: "{{ firstname }}"
-    lastname: "{{ lastname }}"
+    email: "{{ personal.email }}"
+    firstname: "{{ personal.firstname }}"
+    lastname: "{{ personal.lastname }}"
     groups:
       - Admin
     password: "{{ ansible_become_pass }}"

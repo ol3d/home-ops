@@ -1,15 +1,16 @@
 kind: Secret
-public_domain: ENC[AES256_GCM,data:znd/EPGQvnIWcz7YOA==,iv:QguqKR1g7gVPnkOzGBqEDvWJkEEuHVsZfpsQK+ebeoQ=,tag:oxmzHVnhxS9qBh9qvYh7ZQ==,type:str]
-ansible_become_method: ENC[AES256_GCM,data:sYGpuw==,iv:qHurjVZp3ra4XG3irRgv2Iapntd4KJ2Ey4bdpMXHUhI=,tag:IH3l/75hQLwZm1moV3BT9w==,type:str]
-ansible_become: ENC[AES256_GCM,data:QV7vMg==,iv:WHRl4TqDDXv9DlyziY9lbfHRhRbjHfGAC/Kpikl44AA=,tag:bM8cmLyhMPAVzJcNpJULLA==,type:bool]
-gateway_ip: ENC[AES256_GCM,data:uTQVCHMHuJV0,iv:pa4fhovirM/RHCiSc7Hx1TA8OThZy/65PLvR9g3FQyw=,tag:5IobuELB+T2Lqk13ApLKTA==,type:str]
-personal_email: ENC[AES256_GCM,data:jX4F9/Cx9y0PkQmrXug8nBeK1w==,iv:69Pug53QeDnB0dNtQYFEklCCGsQmLwAI1UOot3ZufeQ=,tag:pUHEXhXxArJrLPUF+DyWog==,type:str]
-firstname: ENC[AES256_GCM,data:4ByHXw==,iv:9w4NwWUFWJeSvbKNWBHePZhpqXH2hRAVv3hrozhjMaY=,tag:z/Gt6uv9OJlDHpRkKso1Qg==,type:str]
-lastname: ENC[AES256_GCM,data:OSHRdA==,iv:ChmEGT7VIqRzHw574f3VPIJNDdKjRMYNyAUweEe6qeI=,tag:Cc8pUzzAgCcf8No6pmaxCA==,type:str]
 username: ENC[AES256_GCM,data:tA3uBjrTRF+c,iv:nk8WXflACn5m8R461hV4XU07z40avoOLXfpY78rALGE=,tag:p8y6MRMnMFmO1teSVtbc9Q==,type:str]
+gateway: ENC[AES256_GCM,data:0ZLKvRyGQqKc,iv:wlsphwlAMiL+GV0y5UgzpOm359Gh1hL8IjEpG3hXQP8=,tag:94t7zqkEXyKdiGgcS2Y51A==,type:str]
 users:
     terraform_password: ENC[AES256_GCM,data:8loWGsaan5Xm3dcjvWIy,iv:eih9fdhqxTxBbPRFIg3Wust0WghRFH4REEjY0yl2G1I=,tag:dfWILkIT3GRa7LSzENaaHQ==,type:str]
     packer_password: ENC[AES256_GCM,data:hIZ1U0tP6JMumornfwed,iv:olvn5WpekRpY1XSr2Wq2QTY6Acm50DqGPGFahhwS5VE=,tag:v3RkpBGSPiCYojsCC3h+aQ==,type:str]
+public_domain: ENC[AES256_GCM,data:xh1kmRvD3Hg/zl+Jng==,iv:3Y9bGrww6fqv/R2FXrazPxZHRa+EL/wMXZ2O9toWEdI=,tag:K9HU8t7pr0Lr2JE4MDg6vQ==,type:str]
+personal:
+    email: ENC[AES256_GCM,data:68vnQ+cvY9UriK8RfUvYM/YcQA==,iv:hXckTdY9kYyssxEjqoeBi7lxhutIp+LtBOs2dVATv34=,tag:Zkf0d8BpTkGBO+mmaX6yeA==,type:str]
+    firstname: ENC[AES256_GCM,data:0krokg==,iv:KzNyw0+tawychly7o0ddif9wdQuSofjSG1cu/utbIbw=,tag:poLmEV72OiT5jNTXCV1Jkg==,type:str]
+    lastname: ENC[AES256_GCM,data:Hb90dw==,iv:86o5lyFZGdq2dDu95mZSixu0sIcnai/IEWAQckLmME0=,tag:DpebbRNtPZWuJDC5mMHHcQ==,type:str]
+ansible_become: ENC[AES256_GCM,data:Prli1A==,iv:NSeWNyPNdXUHUkXc2dVOAbkfVhS7SUenKK5RS1qo2nI=,tag:+W3zon6K8gQhh3QBTmUI3Q==,type:bool]
+ansible_become_method: ENC[AES256_GCM,data:Bk//sQ==,iv:9NCN5/BKwXh96qM8wtMPpfZlW/Ev2y7DEXReYvTGmVI=,tag:GNLrTbLEqA1hnubbrJxhtQ==,type:str]
 sops:
     kms:
         - arn: arn:aws:kms:us-east-1:707904332389:key/a7f77b88-3d50-474a-a8a9-59aa09144204
@@ -24,8 +25,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2022-09-02T15:27:50Z"
-    mac: ENC[AES256_GCM,data:kABi9pkoXv5DuQdZQaAZgw8HlKgbIowKTnM2nyyBBD2NWIh/uKCf1wAaRMYGf4M4qP2I2xbri7/1JN7lr75g4YfCJFATAaf4BNbZWFXUXdglIsagvQx4JYp5kVkTwIOxP4e1l4x8a5YHkVjFRMbBazYJSHiZbtrzUTglz1+FkJs=,iv:g7f3B0O5nXBEd4aTxQdBmtf+jCJoOQgspwn8CYXfbJQ=,tag:09kyaD36M1GrMeIa8d/wFA==,type:str]
+    lastmodified: "2022-09-10T18:59:23Z"
+    mac: ENC[AES256_GCM,data:r/SxsO+SWtTVBB5Be2IjuoWLt8A4jnwCJCRG7WXL6msnD0BmxxgErBPOl7JAMWAxJkEN/nOd3/1BzjlgtSwXM/gwsT39O7Us4TBUiy72OoKw5bl+9gvFg8Uyf68fDeVcaOrrQvAF21w8vWuoUkIOrebApb4p7wQkPc4lG2lmruU=,iv:EM7+8iKgbrUsZq6C3FeFosuzdO4l1tKpnSJPYbkneTk=,tag:Hygxjs5nG1pEMpcHfpPSaA==,type:str]
     pgp: []
     unencrypted_regex: ^(kind)$
     version: 3.7.3
