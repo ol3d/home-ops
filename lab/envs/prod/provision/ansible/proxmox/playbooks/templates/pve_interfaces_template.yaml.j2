@@ -9,7 +9,7 @@ iface eno1 inet manual
 auto vmbr0
 iface vmbr0 inet static
         address {{ pve_ip }}/24
-        gateway {{ gateway_ip }}
+        gateway {{ gateway }}
         bridge-ports eno1
         bridge-stp off
         bridge-fd 0
