@@ -1,22 +1,17 @@
-kind: Secret
-public_domain: ENC[AES256_GCM,data:xQW4n/fTQo+KeWKVxw==,iv:kiNFyooeWJpaKQmGvSoNWCJd4bjeBfQbns7DHbjpVCQ=,tag:6JBM6BclcakWZwBHGioiOQ==,type:str]
-ansible_become_method: ENC[AES256_GCM,data:YbacGg==,iv:XUFpQ49VrXTJablDmlx8rMJuV9VdgqHxywl7NDxQkYk=,tag:WQaAQLZd98AfLyU8ruqEiQ==,type:str]
+kind: ENC[AES256_GCM,data:A74K5DWc,iv:jACiTROVvBGe3DkMCxL5P9J79//pz/13a/RrqJ7xCJs=,tag:asw+V2w3cozAr4JAnlSg0w==,type:str]
+public_domain: ENC[AES256_GCM,data:C7orio13eKie9nqBOA==,iv:/VfbtBwSsc5AzUcuGTRgeLNtpJ19Eu8Z8vjLhQm1qdQ=,tag:tI7Huh40hR1KH2Ep1cfxSA==,type:str]
+ansible_become_method: ENC[AES256_GCM,data:XaGtYA==,iv:4ojcoHMZSEimXcsx+HpFRgsrte5WDDmeZs0Y/CQDgNI=,tag:+1ZhO7N6ACMfExLSmFkiAQ==,type:str]
 sops:
+    attention: This section contains key material that should only be modified with
+        extra care. See `sops -h`.
+    version: '1.18'
+    unencrypted_suffix: _unencrypted
     kms:
-        - arn: arn:aws:kms:us-east-1:707904332389:key/a7f77b88-3d50-474a-a8a9-59aa09144204
-          created_at: "2022-09-10T12:44:04Z"
-          enc: AQICAHhHZwPv1OIZb1DNAdaRKOKtYkqWmSpD9UeJdPsAhZ3jAAEcYoyXIdl0R9nFyuDEBUQjAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMV4EyOgi0uAgFzSiEAgEQgDv1kG49YQkUU8iDXLMafm3CS+idTI8E7BXWDAq5YGrLmulhHEBlgtziuBszU8HheOKBmKnAm4EcgJC3cQ==
-          aws_profile: ""
-        - arn: arn:aws:kms:us-east-1:707904332389:key/1484f301-4df8-4a1f-83d3-f3deb55e2607
-          created_at: "2022-09-10T12:44:04Z"
-          enc: AQICAHhcehfqcrV6HneBNt5T8nzvzmkknNyHROLBmk5R2QYGsgF33PHzHll6esjzk4fnOk1KAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMfrKm/94vvrJb69m3AgEQgDsZ6ufkrtogFRbZh1Z70Fw6yw4E6xxk0GYDbyjAwppXZFrY1GEqtw+BK400r7aFS73HYtrb0ZNq4ek8Bw==
-          aws_profile: ""
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
-    age: []
-    lastmodified: "2022-09-10T12:50:16Z"
-    mac: ENC[AES256_GCM,data:s/kWThMn3hEhJGDOojbzjH1yaBVzFXssZYTxUCJGCBpY+ZhISI1m9LLjhVfmqs/2Bv6n0G4YY3AcL4U7jmNHdn++Yw7pqVZe8ELDbPTnEacK9VBIvpLMucdkvJNKGH5JN0dvswn9nBL4yoJnstXDZORKgSEgqBedpyln0gB40QM=,iv:EJ+JoGSfAD8cLuPR8jTQ0+2yS4bodNpOJZ3sRNZjLMI=,tag:vpM1AW2CR6eYEg16y0GoaQ==,type:str]
-    pgp: []
-    unencrypted_regex: ^(kind)$
-    version: 3.7.3
+    -   arn: arn:aws:kms:us-east-1:707904332389:key/a7f77b88-3d50-474a-a8a9-59aa09144204
+        enc: AQICAHhHZwPv1OIZb1DNAdaRKOKtYkqWmSpD9UeJdPsAhZ3jAAFvvwAXVl0zJP6pVvGfDRYHAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMzoExcOuzNDG3WUhEAgEQgDsZXkd4FaGvTnsdc2QC2+jjN9XOPnksxxzgDLGRC6cJG/InTNOH4ycIy+/bcG19+BPmqXKtAidr2YkSrg==
+        created_at: '2022-09-10T15:06:05Z'
+    -   arn: arn:aws:kms:us-east-1:707904332389:key/1484f301-4df8-4a1f-83d3-f3deb55e2607
+        enc: AQICAHhcehfqcrV6HneBNt5T8nzvzmkknNyHROLBmk5R2QYGsgGlaeQYYqqQUdLE9XqA1stbAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMyQWH+QoPCdTJQLTTAgEQgDtw/AatEzQqqv/ZQnfcNW7tA7YQCYKiBhhAah2ghKCKoVZaJzMhkGiIP1tdHxqUnaZJdI2xDGy7kOKKsg==
+        created_at: '2022-09-10T15:06:05Z'
+    lastmodified: '2022-09-10T15:06:05Z'
+    mac: ENC[AES256_GCM,data:SC9wHSxLjs2j/mYOXAcaTXCP7jaOKPhYWylIRyt5433Zg/R9++S81sLMV3xWdJ39Hlus0bJ6s85+wn5c7meaoX2MzEAFoRS0JC2n09+zIalpoBkIpwSpC9yGIiBYNz7j8hsGjpeH6hXg7zKUp7ERyBRh4tEprAAFc0CxTaPpcGw=,iv:dEAHcYy0XfhZKobsH7Vv50BabZVvxFmUf6RprDMnzM4=,tag:HoovAUpuJElcwqdYiwofVQ==,type:str]
