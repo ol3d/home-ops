@@ -6,3 +6,5 @@
 [user]
 {% if gitconfig.user.email is defined %}    email = {{ gitconfig.user.email }}{% endif %}
     name = {{ gitconfig.user.name }}
+[diff "nodiff"]
+    command = /bin/true

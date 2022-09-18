@@ -1,0 +1,14 @@
+---
+version: "3"
+
+vars:
+  PROJECT_DIR:
+    sh: "git rev-parse --show-toplevel"
+
+tasks:
+  envs:
+    desc: git diff prod and stage environments
+    dir: "{{.PROJECT_DIR}}"
+    cmds:
+      - git diff --no-index lab/envs/prod/ lab/envs/stage/
+    ignore_error: true

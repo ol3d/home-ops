@@ -6,3 +6,4 @@ includes:
   precommit: .taskfiles/PreCommitTasks.yml
   terraform: .taskfiles/TerraformTasks.yml
   mgmt: .taskfiles/MgmtTasks.yml
+  diff: .taskfiles/DiffTasks.yml
