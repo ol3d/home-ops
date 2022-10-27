@@ -2,7 +2,6 @@ kind: Secret
 ansible_user: ENC[AES256_GCM,data:Uo9sqAMTmGCX,iv:2Xpcn48bhlXj4YbJV+C+h8x5iABO4ej6ShUYjWUVWLQ=,tag:S9kzc5YFkCSmCy481q3K6Q==,type:str]
 ansible_ssh_pass: ENC[AES256_GCM,data:psJpI6aXPCdhXcrGJV3D,iv:nFde3HZwzSQlS4AyxWEM+jptdO42mgQG8B+hMNuvKJM=,tag:ykEXr0s/LrOtTBTJoR4vZw==,type:str]
 ansible_become_pass: ENC[AES256_GCM,data:KtaxeFynnqZbe5tmwSKS,iv:s38ve1e1hDMpffWmvZJ3+ePltukz4TucJ4fKLOR0sdI=,tag:/irhwu1uipwheY1bzAupFA==,type:str]
-root_pass: ENC[AES256_GCM,data:onZyR4jwgkzj6/3vR0Il,iv:l6wNwncLAZXR7MZQpcaczG45uRlYTV8MJTDguUqrPK4=,tag:u1ffs45X/xrBAZ29xdlwFQ==,type:str]
 pve_ip: ENC[AES256_GCM,data:OYRzWFdf8bKPTHU=,iv:P9zTggnWl8HluhNjNI5hqTWUl2Wk337OQSyCXDXZW8A=,tag:kdd4b4Mljp40/CPEvhCN8A==,type:str]
 osd_id: ENC[AES256_GCM,data:pA==,iv:d7tKFJpG1LCgklZepoXL/x6b6M1R3SjSZLy3JuGhgUM=,tag:mGA799w24ILxzjcwzUt/Gw==,type:int]
 hostname: ENC[AES256_GCM,data:XfMy8V7Iw80=,iv:Ae0FM1nVMfbgqDyfLawircL2PsFbHZ/aQLh2ZpifDxo=,tag:LaNIXkc6ocUeKYB2Ntf4Mw==,type:str]
@@ -20,8 +19,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2022-09-19T03:12:29Z"
-    mac: ENC[AES256_GCM,data:PWcjzh5GuTmZb85/uK3JPp1IpRZzQ/2GxuUJIxzTDuUgNT4ikMngm3WZj4L8l3R36liAhCAAMkKfSTKMnJ7PJVzflM0paXyEMw8jWOf2YmITAxg6PHEnHKK6BvzY3n8PUU30tYIQBobgbM06CpsEusNKKbTkH7Ils7BT9F4lE+c=,iv:JfAXkfHvAsxwwNQOphelnPnr/SNLPiVaq5tk9MzHCYQ=,tag:bNObwhnhdt06bFddNUOmQQ==,type:str]
+    lastmodified: "2022-10-17T14:58:26Z"
+    mac: ENC[AES256_GCM,data:H4rJLixtj5e9bjTpvZ/0BmeHWjfmxGneqlhID0Y9GipNMt6qzw3XRQF72FQkyEm6s1WULm4Uvn1x9hupVtxov9IlTR/TkSvv+BHTnOjid5rxJWtd/WtZnLX79UKH1K/pDJ+Qg/d+XHwykatC/XozBGnhSZijqAaHvuSn/zwp5GI=,iv:aKnn5dI5+MGViKBLsqysjLdrWJkFbJkqxIPfg2JPE38=,tag:XW0npCZh9L31RTxMHB4wtg==,type:str]
     pgp: []
     unencrypted_regex: ^(kind)$
     version: 3.7.3
