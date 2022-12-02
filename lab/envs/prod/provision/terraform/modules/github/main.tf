@@ -12,7 +12,7 @@ terraform {
     required_providers {
         github = {
             source  = "integrations/github"
-            version = "5.9.2"
+            version = "5.10.0"
         }
         http = {
             source  = "hashicorp/http"
