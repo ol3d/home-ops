@@ -12,7 +12,7 @@ terraform {
     required_providers {
         backblaze = {
             source  = "Backblaze/b2"
-            version = "0.8.2"
+            version = "0.8.3"
         }
         http = {
             source  = "hashicorp/http"
