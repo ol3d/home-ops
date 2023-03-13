@@ -1,0 +1,26 @@
+---
+- hosts:
+    - mgmt
+  become: true
+  gather_facts: true
+  any_errors_fatal: true
+
+  pre_tasks:
+    - block:
+        - name: Pausing for 2 seconds...
+          ansible.builtin.pause:
+            seconds: 2
+
+  tasks:
+    - block:
+        - name: Create SSH keys
+          community.crypto.openssh_keypair:
+            path: "{{ item. }}"
+            type: "{{ item. }}"
+            passphrase: "{{ item. }}"
+            force: "{{ item. }}"
+          with_items: "{{ ssh_keys }}"
+        - name: Copy SSH keys to hosts
+          ansible.posix.authorized_key:
+            exclusive: false
+            key:

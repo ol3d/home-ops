@@ -1,0 +1,31 @@
+kind: Secret
+ansible_user: ENC[AES256_GCM,data:OXMK+g==,iv:5MLn/qU47mD6dwWy2FzeZii7YC7T0yi9iXewQOsXZvw=,tag:ct2FKCznrQu+xUwtmLbdGQ==,type:str]
+ansible_ssh_pass: ENC[AES256_GCM,data:psJpI6aXPCdhXcrGJV3D,iv:nFde3HZwzSQlS4AyxWEM+jptdO42mgQG8B+hMNuvKJM=,tag:ykEXr0s/LrOtTBTJoR4vZw==,type:str]
+ansible_become_pass: ENC[AES256_GCM,data:KtaxeFynnqZbe5tmwSKS,iv:s38ve1e1hDMpffWmvZJ3+ePltukz4TucJ4fKLOR0sdI=,tag:/irhwu1uipwheY1bzAupFA==,type:str]
+pve_ip: ENC[AES256_GCM,data:uzQhynytfGjqVQ==,iv:YIZtUKcN8MLs26WYiKdTwqwGRdSjk5WehHlEO89+l+Y=,tag:a4Xiqnc/cqWJ60MoS/KCgA==,type:str]
+ceph_ip: ENC[AES256_GCM,data:k4tyYj6ZJCBIkRI=,iv:4EVltb+8b+R84Uyu3Vb3HXZ8FeW5PKWA8MJPVfTGWgc=,tag:l0NW4FrvCi8QT9kHYMCKhA==,type:str]
+coro_ip: ENC[AES256_GCM,data:5fYwDog9F2siDcI=,iv:fanoGVCpzXAlAMUeFwUwS1ITLVl3qOfabnLQEcKsvVk=,tag:HFH4Hb1868xa4ZahIDwR/Q==,type:str]
+osd_id: ENC[AES256_GCM,data:pA==,iv:d7tKFJpG1LCgklZepoXL/x6b6M1R3SjSZLy3JuGhgUM=,tag:mGA799w24ILxzjcwzUt/Gw==,type:int]
+coro_iface: ENC[AES256_GCM,data:UKd/+onW3vjVH/Ia44v1,iv:+JnM8H5VXy3CoXgAKim2Mrc4JWrcP81z53CNvBBWpks=,tag:poalGcZO9roLoOvzaQZRuw==,type:str]
+ceph_iface_1: ENC[AES256_GCM,data:CHHRwCstQtHjsXz4QpCQ,iv:Lf5n8FZpCnFHscpSCIOJ+n0qj2WIZCiSjW+bYj0PprA=,tag:ikfbCzvbdGhT5M6QM6v8Vw==,type:str]
+ceph_iface_2: ENC[AES256_GCM,data:wfBtVaztj4bpqjCMOxUE,iv:JTfuoy1rjiFhTcgPSka5FlUmQ6JWYEznEhl5v+W4+qs=,tag:GyPwGbcJpbV3cfAes9xlWg==,type:str]
+hostname: ENC[AES256_GCM,data:60j0wcTb,iv:aZhXkIynTn3zjNUw23R3XFG0lChnJqnGNC7v21OE3YY=,tag:mHUbcTsnBqfA6d4CqI/Fcg==,type:str]
+sops:
+    kms:
+        - arn: arn:aws:kms:us-east-1:707904332389:key/a7f77b88-3d50-474a-a8a9-59aa09144204
+          created_at: "2022-08-09T01:35:15Z"
+          enc: AQICAHhHZwPv1OIZb1DNAdaRKOKtYkqWmSpD9UeJdPsAhZ3jAAGNdEthWJM5syvx3cQMyOoRAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMZ1BJ77OCCiS+nPYzAgEQgDsfNzLt9TFf/U4egljeRATljHcgYn+gutXcgi+Csz4FHFNjQL7zwsLn4QzSMxa/OXwUffWQphkTgfpybQ==
+          aws_profile: ""
+        - arn: arn:aws:kms:us-east-1:707904332389:key/1484f301-4df8-4a1f-83d3-f3deb55e2607
+          created_at: "2022-08-09T01:35:15Z"
+          enc: AQICAHhcehfqcrV6HneBNt5T8nzvzmkknNyHROLBmk5R2QYGsgGaDnLe/2BJzbi//g36XvASAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMzuiIsZo6gwF6QYTSAgEQgDvi/bIX4an2QIryKvdDJoSGdfGObbMTtPNi91WEfIJnHoAvcVVwfTXQSH8zc/7nDrBcw5YcR4Mgf8EcIA==
+          aws_profile: ""
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-10-17T14:57:55Z"
+    mac: ENC[AES256_GCM,data:kaIVHCx87qQgaz8flvvs8uoBi6P1uwC7pSI3iEj5pobri7PQsXEcdOyrZ8Co/JpBZDrOOC52lp4/a0xKQcky7EZH3b0czhY+++HE97SvlFZibamKxFy4EZ4aBt0MKmVUCD8EAAvMPHHNRTYq8RzOCyFWzh/qGy92e6elwxUMMDM=,iv:wtfG6KtAfrIOL2kYZs/RCXctwufdZXoc/FNGJcyB57Q=,tag:vjOCEiisXGt95OwMjsWvpA==,type:str]
+    pgp: []
+    unencrypted_regex: ^(kind)$
+    version: 3.7.3
