@@ -1,0 +1,10 @@
+#jinja2: trim_blocks:False
+[core]
+    editor = {{ gitconfig.core.editor }}
+[diff "sopsdiffer"]
+    textconv = sops -d --config /dev/null
+[user]
+{% if gitconfig.user.email is defined %}    email = {{ gitconfig.user.email }}{% endif %}
+    name = {{ gitconfig.user.name }}
+[diff "nodiff"]
+    command = /bin/true
