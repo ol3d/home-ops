@@ -5,7 +5,6 @@ vars:
   PROJECT_DIR:
     sh: "git rev-parse --show-toplevel"
   PROD_DIR: lab/envs/prod
-  STAGE_DIR: lab/envs/stage
   HACK_DIR: "{{.PROJECT_DIR}}/hack"
 
 tasks:
@@ -13,7 +12,7 @@ tasks:
     desc: diff prod and stage environments
     dir: "{{.PROJECT_DIR}}"
     cmds:
-      - git diff -no-index -- {{.PROD_DIR}} {{.STAGE_DIR}} ':(exclude)*.sops.*' ':(exclude)**/hosts.yml'
+      - git diff -no-index -- {{.PROD_DIR}} ':(exclude)*.sops.*' ':(exclude)**/hosts.yml'
     ignore_error: true
   test:
     desc: diff prod and stage environments

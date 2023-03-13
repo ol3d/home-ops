@@ -3,5 +3,4 @@
 
 # git diff NODIFF
 # lab/envs/prod/provision/ansible/proxmox/inventory/hosts.yml diff=nodiff
-# lab/envs/stage/provision/ansible/proxmox/inventory/hosts.yml diff=nodiff
 # **/*.sops.* diff=nodiff
