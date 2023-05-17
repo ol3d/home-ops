@@ -1,5 +1,5 @@
 ---
-- hosts: pve
+- hosts: pve-cluster
   gather_facts: true
   any_errors_fatal: true
 
@@ -10,15 +10,34 @@
 
   tasks:
     - block:
-        - name: Stop OSD's
+        # - name: Stop OSD's
+        #   ansible.builtin.command:
+        #     cmd: "ceph osd out {{ osd_id }}"
+
+        # - name: Stop OSD Service
+        #   ansible.builtin.command:
+        #     cmd: "systemctl stop ceph-osd@{{ osd_id }}.service"
+
+        # - name: Destroy OSD
+        #   ansible.builtin.command:
+        #     cmd: "pveceph osd destroy {{ osd_id }}"
+
+        - name: Unmount disk to prevent use
+          ansible.posix.mount:
+            path: "{{ item }}"
+            state: unmounted
+          with_items: "{{ ceph_devices }}"
+
+        - name: Wipe all partitions from disk
           ansible.builtin.command:
-            cmd: "ceph osd out {{ osd_id }}"
-        - name: Stop OSD Service
-          ansible.builtin.command:
-            cmd: "systemctl stop ceph-osd@{{ osd_id }}.service"
-        - name: Destroy OSD
-          ansible.builtin.command:
-            cmd: "pveceph osd destroy {{ osd_id }}"
+            cmd: "wipefs -af {{ item }}"
+          with_items: "{{ ceph_devices }}"
+
+        # - name:
+        #   ansible.builtin.command:
+        #     cmd: "wipefs -af {{ item }}"
+        #   with_items: "{{ ceph_devices }}"
+
         - name: Remove disk lvm for ceph
           ansible.builtin.command:
             cmd: "ceph-volume lvm zap {{ item }} --destroy"

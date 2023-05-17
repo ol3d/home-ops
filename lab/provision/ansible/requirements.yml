@@ -23,3 +23,7 @@ roles:
     version: 2.3.1
   - name: lae.proxmox
     version: v1.7.1
+  - name: proxmox
+    src: git+https://github.com/ol3d/ansible-role-proxmox.git
+    type: git
+    version: feature/home-ops
