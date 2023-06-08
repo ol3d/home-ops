@@ -8,6 +8,9 @@ packer {
 }
 
 source "proxmox" "ubuntu-server-jammy" {
+
+    # Proxmox connection settings
+    # proxmox_url              = "https://xx.xx.xx.xx:8006/api2/json"
     username                 = "${var.pm_user}"
     password                 = "${var.pm_pass}"
     token                    = "${var.pm_token}"
@@ -15,9 +18,9 @@ source "proxmox" "ubuntu-server-jammy" {
 
     # VM General Settings
     node                 = "pve-01"
-    vm_id                = "2000"
+    vm_id                = "2010"
     vm_name              = "ubuntu-server-jammy"
-    template_description = "Ubuntu Server 22.04 LTS Image"
+    template_description = "Ubuntu Server 22.04.2 (Jammy Jellyfish)"
 
     iso_url          = "https://releases.ubuntu.com/22.04/ubuntu-22.04.1-live-server-amd64.iso"
     iso_checksum     = "10f19c5b2b8d6db711582e0e27f5116296c34fe4b313ba45f9b201a5007056cb"
@@ -28,14 +31,16 @@ source "proxmox" "ubuntu-server-jammy" {
     qemu_agent = true
 
     # VM Hard Disk Settings
-    scsi_controller = "virtio-scsi-pci"
+    scsi_controller = "virtio-scsi-single"
 
     disks {
-        disk_size         = "20G"
-        format            = "qcow2"
-        storage_pool      = "local-lvm"
-        storage_pool_type = "lvm"
-        type              = "virtio"
+        disk_size    = "128G"
+        format       = "raw"
+        storage_pool = "pve-ceph"
+        type         = "scsi"
+        # https://github.com/Telmate/terraform-provider-proxmox/blob/master/docs/resources/vm_qemu.md#disk-block
+        # ssd          = true
+        # discard      = true
     }
 
     # VM CPU Settings
@@ -43,18 +48,19 @@ source "proxmox" "ubuntu-server-jammy" {
     sockets = "1"
 
     # VM Memory Settings
-    memory = "4096"
+    memory = "8192"
 
     # VM Network Settings
     network_adapters {
         model    = "virtio"
         bridge   = "vmbr0"
+        vlan_tag = "30"
         firewall = "false"
     }
 
     # VM Cloud-Init Settings
     cloud_init              = true
-    cloud_init_storage_pool = "local-lvm"
+    cloud_init_storage_pool = "pve-ceph"
 
     # PACKER Boot Commands
     boot_command = [
@@ -108,12 +114,12 @@ build {
 
     # Provisioning the VM Template for Cloud-Init Integration in Proxmox #2
     provisioner "file" {
-        source      = "files/99-pve.cfg"
-        destination = "/tmp/99-pve.cfg"
+        source      = "files/2010-pve.cfg"
+        destination = "/tmp/2010-pve.cfg"
     }
 
     # Provisioning the VM Template for Cloud-Init Integration in Proxmox #3
     provisioner "shell" {
-        inline = ["sudo cp /tmp/99-pve.cfg /etc/cloud/cloud.cfg.d/99-pve.cfg"]
+        inline = ["sudo cp /tmp/2010-pve.cfg /etc/cloud/cloud.cfg.d/2010-pve.cfg"]
     }
 }

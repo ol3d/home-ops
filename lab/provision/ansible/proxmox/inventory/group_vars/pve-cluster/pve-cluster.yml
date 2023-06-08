@@ -18,7 +18,7 @@ pve_extra_packages:
 pve_run_system_upgrades: false
 pve_run_proxmox_upgrades: true
 pve_check_for_kernel_update: true
-pve_reboot_on_kernel_update: false
+pve_reboot_on_kernel_update: true
 pve_reboot_on_kernel_update_delay: 60
 pve_remove_old_kernels: true
 pve_watchdog: none
@@ -149,9 +149,10 @@ pve_manage_ssh: true
 pve_pcie_passthrough_enabled: true
 pve_iommu_unsafe_interrupts: true
 pve_mediated_devices_enabled: false
-pve_pcie_ovmf_enabled: false
+pve_pcie_ovmf_enabled: true
 # pve_pcie_ignore_msrs: true
 # pve_pcie_report_msrs: false
 pve_pci_device_ids:
   - id: "8086:3ea5"
-# pve_vfio_drivers: []
+pve_vfio_drivers:
+  - name: "i915"

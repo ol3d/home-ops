@@ -10,10 +10,8 @@
 
 ## Creating a Proxmox Cluster
 
-### - [Installing Proxmox VE Using ISO image](proxmox/proxmox-node-setup.md)
+### - [Installing Debian Using ISO image](proxmox/debian-setup.md)
 
-### - [Preparing the Proxmox Cluster](proxmox/proxmox-cluster-setup.md)
-
-### - [Installing Proxmox on top of Debian](proxmox/proxmox-setup.md)
+### - [Installing Proxmox on top of Debian](proxmox/proxmox-cluster-setup.md)
 
 ## Creating a Kubernetes Cluster

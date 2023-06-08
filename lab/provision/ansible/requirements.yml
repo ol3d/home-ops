@@ -27,3 +27,5 @@ roles:
     src: git+https://github.com/ol3d/ansible-role-proxmox.git
     type: git
     version: feature/home-ops
+  - name: xanmanning.k3s
+    version: v3.3.1

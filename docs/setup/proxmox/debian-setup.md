@@ -1,4 +1,4 @@
-# Creating a Debian System
+# Installing Debian Using ISO image
 
 The goal of this guide is to provide step-by-step instructions on how to install [Debian](https://www.debian.org/intro/about), as well as how to prepare the system to be integrated into a Proxmox Cluster.
 
