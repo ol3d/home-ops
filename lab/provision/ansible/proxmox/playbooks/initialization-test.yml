@@ -1,0 +1,9 @@
+---
+- hosts: pve-cluster
+  gather_facts: false
+  any_errors_fatal: true
+
+  tasks:
+    - block:
+        - name: Ping each host
+          ansible.builtin.ping:

@@ -33,11 +33,6 @@
             cmd: "wipefs -af {{ item }}"
           with_items: "{{ ceph_devices }}"
 
-        # - name:
-        #   ansible.builtin.command:
-        #     cmd: "wipefs -af {{ item }}"
-        #   with_items: "{{ ceph_devices }}"
-
         - name: Remove disk lvm for ceph
           ansible.builtin.command:
             cmd: "ceph-volume lvm zap {{ item }} --destroy"
