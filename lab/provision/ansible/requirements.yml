@@ -28,4 +28,4 @@ roles:
     type: git
     version: feature/home-ops
   - name: xanmanning.k3s
-    version: v3.3.1
+    version: v3.4.1
