@@ -1,0 +1,42 @@
+---
+- hosts: pve-cluster
+  gather_facts: true
+  any_errors_fatal: true
+
+  pre_tasks:
+    - name: Pausing for 2 seconds...
+      ansible.builtin.pause:
+        seconds: 2
+
+  tasks:
+    - block:
+        - name: Get a list of all Ceph OSD's
+          ansible.builtin.command:
+            cmd: "ceph osd ls"
+          register: osd_list_string
+
+        - name: Convert stringVar to intVar
+          ansible.builtin.set_fact:
+            key_value: "{{ item }}"
+          with_items: "{{ osd_list_string }}"
+          register: osd_list_int
+
+        - name: Output list of osd's
+          ansible.builtin.debug:
+            msg: "{{ item }}"
+          with_items: "{{ osd_list_int.results }}"
+
+
+        # - name: Stop OSD's
+        #   ansible.builtin.command:
+        #     cmd: "ceph osd out {{ item }}"
+        #   when: (osd_list | length > 0)
+        #   with_items: "{{ osd_list }}"
+
+        # - name: Stop OSD Service
+        #   ansible.builtin.command:
+        #     cmd: "systemctl stop ceph-osd@{{ osd_id }}.service"
+
+        # - name: Destroy OSD
+        #   ansible.builtin.command:
+        #     cmd: "pveceph osd destroy {{ osd_id }}"

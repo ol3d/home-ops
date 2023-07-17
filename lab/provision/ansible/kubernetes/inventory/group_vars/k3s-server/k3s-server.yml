@@ -1,0 +1,38 @@
+---
+# xanmanning.k3s
+k3s_control_node: true
+
+# k3s settings for all server nodes
+k3s_server:
+  node-ip: "{{ ansible_host }}"
+  tls-san:
+    # haproxy
+    - "{{ k3s_registration_address }}"
+  docker: false
+  # flannel-backend: "none" # This needs to be in quotes
+  # egress-selector-mode: disabled
+  disable:
+    # - flannel
+    - traefik
+    - servicelb
+  # disable-network-policy: true
+  # disable-cloud-controller: true
+  # # Network CIDR to use for pod IPs
+  # cluster-cidr: "10.42.0.0/16"
+  # # Network CIDR to use for service IPs
+  # service-cidr: "10.43.0.0/16"
+  # kubelet-arg:
+  #   # Allow pods to be rescheduled quicker in the case of a node failure
+  #   # https://github.com/k3s-io/k3s/issues/1264
+  #   - "node-status-update-frequency=4s"
+  # kube-controller-manager-arg:
+  #   # Allow pods to be rescheduled quicker in the case of a node failure
+  #   # https://github.com/k3s-io/k3s/issues/1264
+  #   - "node-monitor-period=4s"
+  #   - "node-monitor-grace-period=16s"
+  #   - "pod-eviction-timeout=20s"
+  # kube-apiserver-arg:
+  #   # Allow pods to be rescheduled quicker in the case of a node failure
+  #   # https://github.com/k3s-io/k3s/issues/1264
+  #   - "default-not-ready-toleration-seconds=20"
+  #   - "default-unreachable-toleration-seconds=20"

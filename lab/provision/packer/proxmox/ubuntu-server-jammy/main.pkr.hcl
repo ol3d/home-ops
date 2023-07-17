@@ -1,101 +1,105 @@
 packer {
     required_plugins {
         proxmox = {
-            version = "1.0.8"
+            version = "1.1.3"
             source  = "github.com/hashicorp/proxmox"
         }
     }
 }
 
-source "proxmox" "ubuntu-server-jammy" {
+source "proxmox-iso" "ubuntu-server-jammy" {
 
     # Proxmox connection settings
-    # proxmox_url              = "https://xx.xx.xx.xx:8006/api2/json"
+    proxmox_url              = "${var.pm_url}"
     username                 = "${var.pm_user}"
     password                 = "${var.pm_pass}"
-    token                    = "${var.pm_token}"
     insecure_skip_tls_verify = true
 
     # VM General Settings
     node                 = "pve-01"
-    vm_id                = "2010"
+    vm_id                = "1000"
     vm_name              = "ubuntu-server-jammy"
     template_description = "Ubuntu Server 22.04.2 (Jammy Jellyfish)"
 
-    iso_url          = "https://releases.ubuntu.com/22.04/ubuntu-22.04.1-live-server-amd64.iso"
-    iso_checksum     = "10f19c5b2b8d6db711582e0e27f5116296c34fe4b313ba45f9b201a5007056cb"
+    iso_url          = "https://releases.ubuntu.com/jammy/ubuntu-22.04.2-live-server-amd64.iso"
+    iso_checksum     = "5e38b55d57d94ff029719342357325ed3bda38fa80054f9330dc789cd2d43931"
     iso_storage_pool = "local"
     unmount_iso      = true
 
     # VM System Settings
-    qemu_agent = true
+    qemu_agent  = true
+    onboot      = false
+    disable_kvm = false
+
+    bios        = "seabios"
 
     # VM Hard Disk Settings
     scsi_controller = "virtio-scsi-single"
 
     disks {
-        disk_size    = "128G"
+        disk_size    = "32G"
         format       = "raw"
         storage_pool = "pve-ceph"
         type         = "scsi"
-        # https://github.com/Telmate/terraform-provider-proxmox/blob/master/docs/resources/vm_qemu.md#disk-block
-        # ssd          = true
-        # discard      = true
+        cache_mode   = "none"
+        io_thread    = true
+        # TODO toggle on once release has been cut to include
+        # ssd = true
+        # discard = "on"
     }
 
     # VM CPU Settings
-    cores   = "2"
-    sockets = "1"
+    cores    = "2"
+    sockets  = "1"
+    cpu_type = "kvm64"
+    os = "l26"
 
     # VM Memory Settings
-    memory = "8192"
+    memory = "4096"
 
     # VM Network Settings
     network_adapters {
         model    = "virtio"
         bridge   = "vmbr0"
-        vlan_tag = "30"
-        firewall = "false"
+        # vlan_tag = "30"
+        # firewall = "true"
+        # mtu      = 1
     }
 
     # VM Cloud-Init Settings
-    cloud_init              = true
-    cloud_init_storage_pool = "pve-ceph"
+    cloud_init              = false
+    # cloud_init_storage_pool = "pve-ceph"
 
     # PACKER Boot Commands
     boot_command = [
-        "<esc><wait><esc><wait>",
-        "<f6><wait><esc><wait>",
-        "<bs><bs><bs><bs><bs>",
-        "autoinstall ds=nocloud-net;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ ",
-        "--- <enter>"
+        "<esc><wait>",
+        "e<down><down><down><end>",
+        "<bs><bs><bs><bs><wait>",
+        "autoinstall ds=nocloud-net\\;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ ---<wait>",
+        "<f10><wait>"
     ]
-    boot      = "c"
+    # boot      = "c"
     boot_wait = "5s"
+
+    vga {
+        type = "qxl"
+        memory = 16
+    }
 
     # PACKER Autoinstall Settings
     http_directory = "http"
-    # (Optional) Bind IP Address and Port
-    # http_bind_address = "0.0.0.0"
-    # http_port_min = 8802
-    # http_port_max = 8802
 
-    ssh_username = "your-user-name"
-
-    # (Option 1) Add your Password here
-    # ssh_password = "your-password"
-    # - or -
-    # (Option 2) Add your Private SSH KEY file here
-    # ssh_private_key_file = "~/.ssh/id_rsa"
-
-    # Raise the timeout, when installation takes longer
-    ssh_timeout = "20m"
+    # SSH Communicator Settings
+    ssh_username = "${var.ssh_user}"
+    ssh_password = "${var.ssh_pass}"
+    ssh_timeout = "15m"
+    ssh_port = 22
+    ssh_pty = false
 }
 
 build {
-
     name    = "ubuntu-server-jammy"
-    sources = ["source.proxmox.ubuntu-server-jammy"]
+    sources = ["source.proxmox-iso.ubuntu-server-jammy"]
 
     # Provisioning the VM Template for Cloud-Init Integration in Proxmox #1
     provisioner "shell" {
@@ -114,12 +118,12 @@ build {
 
     # Provisioning the VM Template for Cloud-Init Integration in Proxmox #2
     provisioner "file" {
-        source      = "files/2010-pve.cfg"
-        destination = "/tmp/2010-pve.cfg"
+        source      = "files/ubuntu-server-jammy.cfg"
+        destination = "/tmp/ubuntu-server-jammy.cfg"
     }
 
     # Provisioning the VM Template for Cloud-Init Integration in Proxmox #3
     provisioner "shell" {
-        inline = ["sudo cp /tmp/2010-pve.cfg /etc/cloud/cloud.cfg.d/2010-pve.cfg"]
+        inline = ["sudo cp /tmp/ubuntu-server-jammy.cfg /etc/cloud/cloud.cfg.d/ubuntu-server-jammy.cfg"]
     }
 }
