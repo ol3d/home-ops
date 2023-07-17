@@ -55,21 +55,26 @@ pve_ceph_pools:
 pve_roles:
   - name: Terraform
     privileges:
+      - "Datastore.AllocateSpace"
+      - "Datastore.Audit"
+      - "Pool.Allocate"
+      - "Sys.Audit"
+      - "Sys.Console"
+      - "Sys.Modify"
       - "VM.Allocate"
+      - "VM.Audit"
       - "VM.Clone"
       - "VM.Config.CDROM"
-      - "VM.Config.CPU"
       - "VM.Config.Cloudinit"
+      - "VM.Config.CPU"
       - "VM.Config.Disk"
       - "VM.Config.HWType"
       - "VM.Config.Memory"
       - "VM.Config.Network"
       - "VM.Config.Options"
+      - "VM.Migrate"
       - "VM.Monitor"
-      - "VM.Audit"
       - "VM.PowerMgmt"
-      - "Datastore.AllocateSpace"
-      - "Datastore.Audit"
   - name: Packer
     privileges:
       - "VM.Allocate"
@@ -86,7 +91,12 @@ pve_roles:
       - "VM.Audit"
       - "VM.PowerMgmt"
       - "Datastore.AllocateSpace"
+      - "Datastore.Allocate"
+      - "Datastore.AllocateSpace"
+      - "Datastore.AllocateTemplate"
       - "Datastore.Audit"
+      - "Sys.Audit"
+      - "VM.Console"
 pve_acls:
   - path: /
     roles:
@@ -137,6 +147,9 @@ pve_users:
 pve_datacenter_cfg:
   keyboard: en-us
   language: en
+  tag-style:
+    ordering: alphabetical
+    shape: full
 pve_cluster_clustername: "{{ pve_group }}"
 pve_cluster_enabled: true
 pve_cluster_addr0: "{{ coro_hostname }}"
@@ -150,8 +163,8 @@ pve_pcie_passthrough_enabled: true
 pve_iommu_unsafe_interrupts: true
 pve_mediated_devices_enabled: false
 pve_pcie_ovmf_enabled: true
-# pve_pcie_ignore_msrs: true
-# pve_pcie_report_msrs: false
+pve_pcie_ignore_msrs: false
+pve_pcie_report_msrs: true
 pve_pci_device_ids:
   - id: "8086:3ea5"
 pve_vfio_drivers:

@@ -10,6 +10,7 @@ bin
 .terraform
 *.tfstate*
 terraform.tfstate*
+terraform-plugin-proxmox.log
 # Sops
 .decrypted~*
 # Extras

@@ -3,8 +3,7 @@ autoinstall:
   version: 1
   locale: en_US.UTF-8
   keyboard:
-    layout: en
-    variant: us
+    layout: us
   ssh:
     install-server: true
     allow-pw: true
@@ -14,7 +13,6 @@ autoinstall:
   packages:
     - qemu-guest-agent
     - sudo
-    - nfs-common
   storage:
     layout:
       name: direct
@@ -24,12 +22,10 @@ autoinstall:
     package_upgrade: true
     timezone: America/Chicago
     users:
-      - name: your-user-name
+      - name: ol3d
         groups: [adm, sudo]
         lock-passwd: false
         sudo: ALL=(ALL) NOPASSWD:ALL
         shell: /bin/bash
-        # passwd: your-password
-        # - or -
-        # ssh_authorized_keys:
-        #   - your-ssh-key
+        # OpenSSL SHA-512 Encrypted Default Password
+        passwd: $6$rNiTflwh3k5kJ79H$pimha0veFLU8lFM.pc2NAAREQmyZd0vMLBvfpFapeWdnFuAhKoN2g/cw0DrV3QIQvoOdy1V2PasKvK0veGsSc0

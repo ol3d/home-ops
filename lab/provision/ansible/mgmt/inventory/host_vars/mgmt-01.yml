@@ -9,6 +9,12 @@ apt_packages:
   # TODO remove awscli package installation
   - name: awscli
     state: latest
+  - name: curl
+    state: latest
+  - name: vim
+    state: latest
+  - name: git
+    state: latest
 pip_packages:
   - name: pre-commit
     state: present

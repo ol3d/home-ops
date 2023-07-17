@@ -1,0 +1,15 @@
+---
+- hosts: pve-cluster
+  gather_facts: true
+  any_errors_fatal: true
+
+  tasks:
+    - block:
+        - name: Register BIOS Information Var
+          ansible.builtin.command:
+            cmd: dmidecode -s bios-version
+          register: bios
+
+        - name: Output BIOS Information
+          ansible.builtin.debug:
+            msg: "{{ bios }}"

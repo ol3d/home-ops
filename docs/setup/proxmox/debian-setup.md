@@ -1,4 +1,4 @@
-# Installing Debian Using ISO image
+# Creating Debian Nodes
 
 The goal of this guide is to provide step-by-step instructions on how to install [Debian](https://www.debian.org/intro/about), as well as how to prepare the system to be integrated into a Proxmox Cluster.
 
@@ -56,4 +56,4 @@ After downloading the ISO image, a bootable drive must be created. There are man
 
 1. When prompted *Installation complete*, remove the USB drive and select `Continue` to reboot the system and complete the installation process.
 
-The Debian operating system should now be installed and configured on the system. The next step is [Preparing for Proxmox](ansible-setup.md).
+The Debian operating system should now be installed and configured on the system. The next step is [Installing Proxmox on top of Debian](proxmox-cluster-setup.md).

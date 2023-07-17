@@ -1,0 +1,25 @@
+kind: Secret
+ansible_user: ENC[AES256_GCM,data:YNTAcQ==,iv:eEjP2fUEQd2BqiiuNjX3hAGq1BSoxgr2+n6Oqyam0gk=,tag:ztR5h6O2lrD7HA9HVK1w/Q==,type:str]
+ansible_ssh_pass: ENC[AES256_GCM,data:Fc/1zxFcrOqN1gpwo13v,iv:KBPQLT4Q9AqI+r5smYmK9AMcRR3YHJWnBDvUbudc3rU=,tag:5Gul/OOD4dFG/Y1qH1WrJA==,type:str]
+ansible_become_pass: ENC[AES256_GCM,data:xRKMH/2aHlWJs6bMwzWm,iv:gq8mKobb1rbcAl9/54+Y0eamffkZERaK/87LfawL1kk=,tag:21Wxj8aMHHh090enaj1E0Q==,type:str]
+hostname: ENC[AES256_GCM,data:iO05jwRkW5O8ibdjnA==,iv:8HzkXRAZYllGj8zPKDuCE4dUSs1+Iit66UUtEjxF5bk=,tag:ea26zPHaDAjf3zidg1kAzw==,type:str]
+k3s_ip: ENC[AES256_GCM,data:cH2917LCnYs4UBA=,iv:+pmMayQ7Nw13k41umjGkw8oQ0yfZ1nZdKAWlfn2RTpo=,tag:96DjVnrsSm+TVeKJ1W7cGw==,type:str]
+sops:
+    kms:
+        - arn: arn:aws:kms:us-east-1:707904332389:key/a7f77b88-3d50-474a-a8a9-59aa09144204
+          created_at: "2023-05-17T17:09:44Z"
+          enc: AQICAHhHZwPv1OIZb1DNAdaRKOKtYkqWmSpD9UeJdPsAhZ3jAAEuGeVc+P0l8M/2frqfX3L3AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMD1HsWlYDwraFgs0dAgEQgDtPvA+MGq/kdsyuw9pLgj0E4HrKkHcxfwvEqreJCtgMFNq84TveIi5sBRayBFqI3zpnzhPEeeEOk/vwEQ==
+          aws_profile: ""
+        - arn: arn:aws:kms:us-east-1:707904332389:key/1484f301-4df8-4a1f-83d3-f3deb55e2607
+          created_at: "2023-05-17T17:09:44Z"
+          enc: AQICAHhcehfqcrV6HneBNt5T8nzvzmkknNyHROLBmk5R2QYGsgGPdllFyIEvaByviXQOd/UsAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMiyJXwV3++NSPafqYAgEQgDuV9lbZsD0kGyY+DusjWmx4M+4ORmhVVnuwXraqIC+hMJXbbTlvFV8jLWH4RUbn6kVPje4ln3z8uPmcEw==
+          aws_profile: ""
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-05-17T17:10:07Z"
+    mac: ENC[AES256_GCM,data:IG0SB2YR0y10cZFLtP0aNu925pmFvrW9qQCy7m14SOJi0FblGLMvlOofKD19b67DuvIWR5b62p2bfdmMhzI+/OKSg2Lp/7AW0z/ypGYuW3GWSTqybeV+kubHIuCFwz3KdG5+FUrg3sexF1sNMFMBdBIILCy521Uby9EHAFEOV/w=,iv:yLuyvDlu5w6qCsUwq+5lLHBdfASGKRqYV9T+UREcVsQ=,tag:usG58Wk4FbdOD5VjbQot4Q==,type:str]
+    pgp: []
+    unencrypted_regex: ^(kind)$
+    version: 3.7.3

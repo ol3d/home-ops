@@ -1,4 +1,4 @@
-# Home-Ops
+# Home-Ops Setup
 
 ## Creating a Management Server
 
@@ -10,7 +10,7 @@
 
 ## Creating a Proxmox Cluster
 
-### - [Installing Debian Using ISO image](proxmox/debian-setup.md)
+### - [Creating Debian Nodes](proxmox/debian-setup.md)
 
 ### - [Installing Proxmox on top of Debian](proxmox/proxmox-cluster-setup.md)
 

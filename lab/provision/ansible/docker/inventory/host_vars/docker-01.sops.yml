@@ -1,0 +1,26 @@
+kind: Secret
+ansible_user: ENC[AES256_GCM,data:QWF3/A==,iv:0KmPLKhQzlKlVedCRBgkfndkIQeqWIJScB++X/QlFA8=,tag:/CGuCWI/5o8vwkbyLfz5Og==,type:str]
+ansible_ssh_pass: ENC[AES256_GCM,data:BVu7HyrqPn2gRQrqkagT,iv:IUqJsiQeyfo/Ox5HY8qdpybriyooyuUX/AWWRfNdUVw=,tag:fNG0L7qQR+d/7GQg4pX+Zg==,type:str]
+ansible_become_pass: ENC[AES256_GCM,data:tpYBszLastLTfFgvoB8R,iv:8pLnvsrtfJZYXVP4/G4jiTS1eSYBw4S3RwaH7BA5Pak=,tag:1rEJ7Cq6fzmOMBzefXikgA==,type:str]
+hostname: ENC[AES256_GCM,data:ctvnhf3CyiVV,iv:eMAToIaTjxK2RPT7dInPExq6GqpaB5/o32mbXw9HE/w=,tag:eS5PmuT5V/dEIMN0FoBoaw==,type:str]
+root_user: ENC[AES256_GCM,data:dRMm7A==,iv:9bIhCw1cYDBEbt5doKSpjnt2esF7S60t7/MQqiV71hM=,tag:rjFROQ40ivPt55thznGryw==,type:str]
+root_pass: ENC[AES256_GCM,data:1CqgG/M81Ud2QG9mZKgL,iv:7A5RzzEusy9D0dYfJTiNJrcpKuMiMUU52g4rSxrBZXk=,tag:VhOnw8fA4W9dbzOQyoeWCw==,type:str]
+sops:
+    kms:
+        - arn: arn:aws:kms:us-east-1:707904332389:key/a7f77b88-3d50-474a-a8a9-59aa09144204
+          created_at: "2023-07-17T20:54:06Z"
+          enc: AQICAHhHZwPv1OIZb1DNAdaRKOKtYkqWmSpD9UeJdPsAhZ3jAAECB/Zfzu2+/yBAGUzP7UT1AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMINDa0f2rZWPi2KihAgEQgDuGmuLbQLQGDWsFPBqlaRicp92uuoHxJTGpedraKD3JvXhlUhxDKb32zYTkJPzwUkfIkgrg+O92aIObHg==
+          aws_profile: ""
+        - arn: arn:aws:kms:us-east-1:707904332389:key/1484f301-4df8-4a1f-83d3-f3deb55e2607
+          created_at: "2023-07-17T20:54:06Z"
+          enc: AQICAHhcehfqcrV6HneBNt5T8nzvzmkknNyHROLBmk5R2QYGsgFnx43SWtIyWFRnYF2sC/2DAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM5K3TmHO0rrazMKXRAgEQgDtpZxHP4mHGCh9KkVLnmdO86jXHYI7lQZ+jE86B4z3DA91hbY0HKXlhMCqeJ7ZWbid/p9B72QC9z8QRIQ==
+          aws_profile: ""
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-07-17T20:54:53Z"
+    mac: ENC[AES256_GCM,data:dTIoMfjrJaqALjAaSnaw1Za92TWN/LiDCA3vONRWhNzfFL+/QUCWTqJXZz1hwKqWbsLTlXwSb6pCr+Azj9L6oiP1QQ29vsVo0IxjU5pRSheANV6hnyEBF2D2p7hTVnd2Vc8wqNO0M4o0yLCzpsS+W5f9bcLDA42+8KY9y5jPFU8=,iv:cu2Ftu5PEpizZGCUTU3hG4qDhmHD5KBiVBx0fwn8500=,tag:PNOrEhPZXL60hHbvBAOp/g==,type:str]
+    pgp: []
+    unencrypted_regex: ^(kind)$
+    version: 3.7.3
