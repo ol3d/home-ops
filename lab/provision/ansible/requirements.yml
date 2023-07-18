@@ -7,7 +7,7 @@ collections:
   - name: community.general
     version: 7.0.1
   - name: community.sops
-    version: 1.6.0
+    version: 1.6.4
 roles:
   - name: andrewrothstein.sops
     version: v1.0.7
