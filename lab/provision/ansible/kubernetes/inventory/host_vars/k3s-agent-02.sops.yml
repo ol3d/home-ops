@@ -1,0 +1,25 @@
+kind: Secret
+ansible_user: ENC[AES256_GCM,data:mkaDsA==,iv:JR5ahVrdrF6pVEudLBXDvetFcRngsXTJlTlzjEPFktc=,tag:P4arza9soDaDmkgH2x1TEg==,type:str]
+ansible_ssh_pass: ENC[AES256_GCM,data:uWwk+wWwJBNlH6WrwpOO,iv:tdoAcK13laARt/glgdFfkaySgcZvcvNYQN2Qjxfpnnw=,tag:X/kkHmrkjBW03xxHpVWSUA==,type:str]
+ansible_become_pass: ENC[AES256_GCM,data:LrMFPXVDKinARsKh4LQh,iv:r1iqh+bBX0N0SsCRbOwR0lX2fgB8hoxh3YdZu1B8QR8=,tag:WP1OmnY4lWm4pKB7ynHUZg==,type:str]
+hostname: ENC[AES256_GCM,data:spAkYr58/lgcUJPw,iv:vABu65J9YkQ/0Mh9Sd6wqh+EbJrFqyESaLTXw4200/Y=,tag:Bj/Uw6O1j78rOUPEddeO3g==,type:str]
+k3s_ip: ENC[AES256_GCM,data:Smu8+19v+o9eN9o=,iv:3Ss+ip3ycBhR0ejwqEtDMMGrKO7Tu/W6NB0H19hc1E4=,tag:Uxk08r+kIB3cqHm2nc4cHQ==,type:str]
+sops:
+    kms:
+        - arn: arn:aws:kms:us-east-1:707904332389:key/a7f77b88-3d50-474a-a8a9-59aa09144204
+          created_at: "2023-08-16T01:38:20Z"
+          enc: AQICAHhHZwPv1OIZb1DNAdaRKOKtYkqWmSpD9UeJdPsAhZ3jAAF1c7RTsy8EsEIL9/7ycV7MAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM1fdIc6eJrPCBb3fcAgEQgDuKGOCHnSRuJAL+5cabRUVV0oes4X+17y54fRr8c8AfmUv117x6a67z1R+xW3LUJqgeGA0q1rktfAX/EQ==
+          aws_profile: ""
+        - arn: arn:aws:kms:us-east-1:707904332389:key/1484f301-4df8-4a1f-83d3-f3deb55e2607
+          created_at: "2023-08-16T01:38:20Z"
+          enc: AQICAHhcehfqcrV6HneBNt5T8nzvzmkknNyHROLBmk5R2QYGsgH6v+8owW3yvi0ruaxQlGf7AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMaUlSbp+nSq5L7JhZAgEQgDtKus9lrONgy7mgpHhxNa2SofSGuu1oaN4gLwKw82gqgEqhmBLMVUhxlyQqm1YOG+fOWISv4NMqYeD/rg==
+          aws_profile: ""
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-08-16T01:38:46Z"
+    mac: ENC[AES256_GCM,data:MW2+0y6eXkTzvqpRAyeY4gQ3Xi3Fna8fIsOMAFt//w+XMg+hUB9mKP67urJgbkkM/BrXdUoj0uhaMfmDZRnfE5FB1oTi+C89X9lxhPJOHXaxBRpsq+UueAjo7LCbpNCnZkfWiSMlbUhs9CnJiCSOcqp7vq/3sWqHqLEzJLKmiMc=,iv:QVNcO1pGe2awZZ30EJGB3SrYIYsSBumV3u9cOM7qHh0=,tag:T/JnBKvqVXTHDNGIdaZmzg==,type:str]
+    pgp: []
+    unencrypted_regex: ^(kind)$
+    version: 3.7.3

@@ -19,31 +19,41 @@ resource "proxmox_virtual_environment_vm" "k3s-agents" {
     bios        = "seabios"
 
     clone {
-        datastore_id = "pve-ceph"
-        node_name = "pve-01"
+        datastore_id = each.value.datastore_id
+        node_name = each.value.node_name
         retries = 3
-        vm_id = 1000
+        vm_id = each.value.clone_vmid
+    }
+
+    initialization {
+        datastore_id = each.value.datastore_id
+        ip_config {
+            ipv4 {
+                address = "dhcp"
+            }
+        }
     }
 
     cpu {
         architecture = "x86_64"
-        cores = 4
+        sockets = each.value.sockets
+        cores = each.value.cores
         numa = false
         type = "kvm64"
     }
 
     disk {
-        datastore_id = "pve-ceph"
+        datastore_id = each.value.datastore_id
         file_format = "raw"
         interface = "scsi0"
         iothread = true
-        size = 128
+        size = 256
         # discard = "on"
         # ssd = true
     }
 
     memory {
-        dedicated = 16384
+        dedicated = each.value.memory
     }
 
     network_device {

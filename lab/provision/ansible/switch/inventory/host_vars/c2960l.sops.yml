@@ -1,0 +1,28 @@
+kind: Secret
+ansible_user: ENC[AES256_GCM,data:4txsPQ==,iv:+R3tAcbY/yo6bv+JJxBiCG8mBsaA1Pg1nYGHB1VjpM4=,tag:wPR4Qr9GfPsH46CHJ0kdIA==,type:str]
+ansible_ssh_pass: ENC[AES256_GCM,data:H686uH/DOCnsQ7iiRdFY,iv:0lvKsxYQoUqTGTOKJ4ccGmeJg6KDyESfgasBbsDJVik=,tag:c2l71R0Ckh/mKVh8UNHjbw==,type:str]
+public_domain: ENC[AES256_GCM,data:+dsldpwIwNQ=,iv:xsel+bEl1cLyFXBHm5xYroh8C2K2IQnzTQpjiCfN/k0=,tag:015apDJLCRvenQyqOezQuQ==,type:str]
+ansible_connection: ENC[AES256_GCM,data:AevfrACwUoJLIqxUt6kU08pKp0V0AzsICpBB33g=,iv:67Ia+yuPWuqvg7f9XIS/d3kD+PnH2pdTOMraKt0xCew=,tag:eMMZac8rqmUYnYs1Wm4Txg==,type:str]
+ansible_network_os: ENC[AES256_GCM,data:Wmt6gPGeBxu9a+K/2Q==,iv:LnidDQYHi4CNSiFC+2FXUJyveIfL3kFRvTd8cBidoa4=,tag:XuTVCP2qGNKYQ95ZtdAatw==,type:str]
+ansible_become: ENC[AES256_GCM,data:4GydNg==,iv:+/RZ5nMXoqe3l/wiGMspPQFFrw2Q4QHFT7xKHV7JQrk=,tag:XgUzgtb6tLts2G+zMAriGw==,type:bool]
+ansible_become_method: ENC[AES256_GCM,data:Ra80Wuy1,iv:byQkQRjypFKs9N8lCQqermzKM/ujMHl9QCdfHZe28W4=,tag:u8N/DODQdJCznasj+9/y7g==,type:str]
+ansible_become_password: ENC[AES256_GCM,data:9xS2mkKh0gKJnNqS+1eD,iv:8855vWQuhrFC63DDsBVAv5lfiW2UpsP8LLkf+enK9uk=,tag:lU2Tg6hOYw4eArjom/T2BA==,type:str]
+sops:
+    kms:
+        - arn: arn:aws:kms:us-east-1:707904332389:key/a7f77b88-3d50-474a-a8a9-59aa09144204
+          created_at: "2023-07-27T20:51:44Z"
+          enc: AQICAHhHZwPv1OIZb1DNAdaRKOKtYkqWmSpD9UeJdPsAhZ3jAAEdVQJmK7DJQgJ6ji9VPFDDAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMRN4SVMatV2NNbVJOAgEQgDtJf4C++VVIkpe5dx0AsDX/DGFd9qUhRSTE2sy9KfF+UHM2UEIXZxxn5OmYe/XkWAbSJgWmUR362ESrpg==
+          aws_profile: ""
+        - arn: arn:aws:kms:us-east-1:707904332389:key/1484f301-4df8-4a1f-83d3-f3deb55e2607
+          created_at: "2023-07-27T20:51:44Z"
+          enc: AQICAHhcehfqcrV6HneBNt5T8nzvzmkknNyHROLBmk5R2QYGsgF9XvFG/6y6P7z90zM9wykpAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMOj0gzgu1gGSFsMfMAgEQgDu80eiWHQBRJAzKHwg7XUEaq3pKife9LeWJ/DLELBtj6tJod+NFxI+/WHh52aEc6iYRwYWOKkmdl5Nxew==
+          aws_profile: ""
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-07-27T21:00:04Z"
+    mac: ENC[AES256_GCM,data:UAUz0h6aEfaJCcowuhTcoA7IPzHl7++NQu2wfNLQtork79JBL1VUNhG1IJpoFXgXmjJqqnm1mUmcjFDxhQerbxCbFZ52PgzjAbu6n+DNB8k0mu5i25eJtpJln/kUZSUndeJ2C11+CIDviNOsO7aQwuIvn1q9oolEVFyl9O2YKoQ=,iv:YSNZ8utbYxEyLXYaiKDrMYdILF6M+7t0hzLlWuLiwr0=,tag:3Ww1Ujh3wgzRV49eQuY3eg==,type:str]
+    pgp: []
+    unencrypted_regex: ^(kind)$
+    version: 3.7.3

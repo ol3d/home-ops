@@ -19,6 +19,20 @@ provider "registry.terraform.io/bpg/proxmox" {
     "h1:cMt9VAP+wROMkk2DQf4OKitlmUW2wMz4DfWuT7fbSTs=",
     "h1:fFY96wxPHXDEVxwL8bbYkkThnTCMRE1KtKLjv7AunkY=",
     "h1:zt0tAex+0a0eVok2SyibT4p2Zt0lNtxTc1wZ3W0E8yQ=",
+    "zh:009690fd8b2311d8f0cff7bff3c1fac2caf33c7df3726d680c143ffcbd9b81f2",
+    "zh:0333a892e5411e88108f2e9ad69c23182f65f30a10986c2f5490b1f8b85a63dc",
+    "zh:288f2e7d0e0215a2abbe8e13e16f7d6af5328a789c4062e0eaa6617d0f5c1002",
+    "zh:548c080d6cba43586c5dbc9403b56bcfef34db2bcf619f788fcc97f544d4bd89",
+    "zh:65d7649e7a399cf0972877bbba4ab814aa4dd83dd07ec80f42246d340d60d3bb",
+    "zh:78baa1e6d1085c9de3b7ad34284979146e30cec6a269f47e8c8e1b7e755d1ed5",
+    "zh:807e2e8528728167f00bafb1e8c86f50fd138e45ee29e2f805a520b33ce2dbb4",
+    "zh:90e32092bec6cd40ac52abf6dcbbc700c03720c5cf61cbbe6b3ab2d97fae9094",
+    "zh:a16926c4f7d8f8644527c4fff292d4b825a82806b27120607c6f43abb825ad2f",
+    "zh:b34bfdfcc3f96b000eea83d47a73949ff4aa7e68a27cd701d7b424d912999e20",
+    "zh:b360485b2825b1c5e8f8bd89cbb2a0f9580798b2519d0794bcd34f75623e3d7d",
+    "zh:c44db0198dcb16ab7f68c8c10056c0ed4f08972e1d999ccc0f6026bff20dcd90",
+    "zh:d4d87a7740b09ab8dbba5c518950d9e386b3c293ed7874b389af5cf708737810",
+    "zh:f4f9945f232cc7bc221c955705d8160c701a3b6a95c41054ef9613d0cb594e0b",
   ]
 }
 

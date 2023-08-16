@@ -1,0 +1,13 @@
+---
+# atosatto.docker-swarm
+docker_package_name: "docker-ce"
+docker_package_state: present
+docker_dependencies: "{{ default_docker_dependencies }}"
+docker_service_state: "started"
+docker_service_enabled: "yes"
+docker_group_name: "docker-swarm"
+docker_group_users:
+  - "{{ ansible_user }}"
+docker_swarm_interface: "{{ ansible_default_ipv4['interface'] }}"
+docker_swarm_addr: "{{ hostvars[inventory_hostname]['ansible_' + docker_swarm_interface]['ipv4']['address'] }}"
+docker_swarm_port: 2377

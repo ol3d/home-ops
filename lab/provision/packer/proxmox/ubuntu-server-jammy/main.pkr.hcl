@@ -8,16 +8,12 @@ packer {
 }
 
 source "proxmox-iso" "ubuntu-server-jammy" {
-
     # Proxmox connection settings
-    proxmox_url              = "${var.pm_url}"
     username                 = "${var.pm_user}"
     password                 = "${var.pm_pass}"
     insecure_skip_tls_verify = true
 
     # VM General Settings
-    node                 = "pve-01"
-    vm_id                = "1000"
     vm_name              = "ubuntu-server-jammy"
     template_description = "Ubuntu Server 22.04.2 (Jammy Jellyfish)"
 
@@ -43,13 +39,13 @@ source "proxmox-iso" "ubuntu-server-jammy" {
         type         = "scsi"
         cache_mode   = "none"
         io_thread    = true
-        # TODO toggle on once release has been cut to include
+        # TODO toggle on once release has been cut to include these settings
         # ssd = true
         # discard = "on"
     }
 
     # VM CPU Settings
-    cores    = "2"
+    cores    = "1"
     sockets  = "1"
     cpu_type = "kvm64"
     os = "l26"
@@ -61,14 +57,12 @@ source "proxmox-iso" "ubuntu-server-jammy" {
     network_adapters {
         model    = "virtio"
         bridge   = "vmbr0"
-        # vlan_tag = "30"
-        # firewall = "true"
-        # mtu      = 1
+        firewall = "true"
+        mtu      = 1
     }
 
     # VM Cloud-Init Settings
-    cloud_init              = false
-    # cloud_init_storage_pool = "pve-ceph"
+    cloud_init = false
 
     # PACKER Boot Commands
     boot_command = [
@@ -83,7 +77,7 @@ source "proxmox-iso" "ubuntu-server-jammy" {
 
     vga {
         type = "qxl"
-        memory = 16
+        memory = 4
     }
 
     # PACKER Autoinstall Settings
@@ -98,8 +92,15 @@ source "proxmox-iso" "ubuntu-server-jammy" {
 }
 
 build {
-    name    = "ubuntu-server-jammy"
-    sources = ["source.proxmox-iso.ubuntu-server-jammy"]
+    dynamic "source" {
+        for_each = "${var.nodes}"
+        labels   = ["proxmox-iso.ubuntu-server-jammy"]
+        content {
+            node = source.key
+            vm_id = source.value.vm_id
+            proxmox_url = source.value.pm_url
+        }
+    }
 
     # Provisioning the VM Template for Cloud-Init Integration in Proxmox #1
     provisioner "shell" {

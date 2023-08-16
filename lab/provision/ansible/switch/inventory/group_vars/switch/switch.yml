@@ -1,0 +1,46 @@
+# cisco.ios
+vlans:
+  - name: VLAN_10
+    vlan_id: 10
+    state: active
+    shutdown: disabled
+    remote_span: false
+  - name: VLAN_20
+    vlan_id: 20
+    state: active
+    shutdown: disabled
+    remote_span: false
+  - name: VLAN_30
+    vlan_id: 30
+    state: active
+    shutdown: disabled
+    remote_span: false
+  - name: VLAN_40
+    vlan_id: 40
+    state: active
+    shutdown: disabled
+    remote_span: false
+  - name: VLAN_50
+    vlan_id: 50
+    state: active
+    shutdown: disabled
+    remote_span: false
+  - name: VLAN_60
+    vlan_id: 60
+    state: active
+    shutdown: disabled
+    remote_span: false
+  - name: VLAN_70
+    vlan_id: 70
+    state: active
+    shutdown: disabled
+    remote_span: false
+access_interfaces:
+  - name: "GigabitEthernet0/3"
+    mode: "access"
+    access:
+      vlan: 40
+  - name: "GigabitEthernet0/4"
+    mode: "access"
+    access:
+      vlan: 40
