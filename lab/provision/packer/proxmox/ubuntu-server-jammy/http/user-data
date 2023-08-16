@@ -4,6 +4,8 @@ autoinstall:
   locale: en_US.UTF-8
   keyboard:
     layout: us
+  refresh_installer:
+    update: false
   ssh:
     install-server: true
     allow-pw: true

@@ -3,6 +3,8 @@ username: ENC[AES256_GCM,data:WEzHSQ==,iv:3Gxu/V85PeF8z0YFM0/CSeWW+wnFam4XNJcy5u
 public_domain: ENC[AES256_GCM,data:YEIZWCQNmn4=,iv:Na9jCj30pNXJ6/QXzn2g7WeySlAsL7krC4fI5Rs5a0A=,tag:hF0PIBh7hgzqUMw0s/re8Q==,type:str]
 ansible_become: ENC[AES256_GCM,data:pqhHOQ==,iv:lRxl5KWxDCsiwGyWeffAHScu8s4T+N19j+bK0FAAa34=,tag:afmAQBjFqd663Fk+yPTMXQ==,type:bool]
 ansible_become_method: ENC[AES256_GCM,data:D1v/Hg==,iv:8gdCmenmVR6KZtDIBtb+Zza99FTTO/2yPHbfRIe9SnU=,tag:tSfOPxRA/CFq27ZRQ6uX6A==,type:str]
+ansible_ssh_pass: ENC[AES256_GCM,data:Xuap1LOnq+9Ob1OR5EwS,iv:yYpxrMdrD/As/QQk739jRC0UJJZz15Vc2k4S09r4D/o=,tag:WX8pzR1qaBHMI8GHDUvcvA==,type:str]
+ansible_become_pass: ENC[AES256_GCM,data:wyGldgYAy1wijykq4hT7,iv:A6GHOlX5zp17u6i/oAgNnIk6GYoLBjsXoD+KFkmwWS8=,tag:ekObq7hMWxgQgyAHdk5J2Q==,type:str]
 sops:
     kms:
         - arn: arn:aws:kms:us-east-1:707904332389:key/a7f77b88-3d50-474a-a8a9-59aa09144204
@@ -17,8 +19,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-07-17T20:53:21Z"
-    mac: ENC[AES256_GCM,data:52CeXpDXrHrJi4aanZdYYFI5Fm/morXwuvIVHAMLhaCTC/IrzSf8Uinom9X4ZY40PDmNtQTX2iz0YtG8sE8cz3g0NxSx1sl4H9g0a6RZyob8QBOwOI4teTG0MVBDTfeUP3LUxKQe/VPfIE5n/UqLozpoK0g7tVUHRpkgSGXaKIA=,iv:ZpJx1gCXsYHq5/gZfnIOp5Ot4P4eZOc9KtwbG5XdRlQ=,tag:iWjs7zptwZYOngqzhoSLZQ==,type:str]
+    lastmodified: "2023-07-18T02:24:37Z"
+    mac: ENC[AES256_GCM,data:Abkb4xCaRhRCMUqZgovEnrkJntSJggzWTIw0hSr27wGJQuu4QVEFJlkVf1uadkDByFOlyEktyVW43FrNVYZGXqD/3CUFPXx9ykSvrbgf0nwfYW4LHfj8HbHoo5XGv5E9B75iyzurI0tB8NgzP+A164ISNZ0YhdYrl/DXzC2SKTQ=,iv:CW8lEb0nSbDC1x3Cp4m/7faBcp7/Pqb1J7O0N75VL70=,tag:3aGNq6HYQCFq9hJAe4TbPQ==,type:str]
     pgp: []
     unencrypted_regex: ^(kind)$
     version: 3.7.3

@@ -1,0 +1,20 @@
+kind: Secret
+sops:
+    kms:
+        - arn: arn:aws:kms:us-east-1:707904332389:key/a7f77b88-3d50-474a-a8a9-59aa09144204
+          created_at: "2023-07-29T22:50:59Z"
+          enc: AQICAHhHZwPv1OIZb1DNAdaRKOKtYkqWmSpD9UeJdPsAhZ3jAAGoR0elK892yZ3SYi+/VjvdAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMobiXX0ztf3rLthUVAgEQgDvScMy91SFbJ8jG5kzfhPVRxhJp5ciOdlpl4sl896TOOcETUJ7tptABIwWnTkzDEMkHFGBft5/3BYg1rg==
+          aws_profile: ""
+        - arn: arn:aws:kms:us-east-1:707904332389:key/1484f301-4df8-4a1f-83d3-f3deb55e2607
+          created_at: "2023-07-29T22:50:59Z"
+          enc: AQICAHhcehfqcrV6HneBNt5T8nzvzmkknNyHROLBmk5R2QYGsgEnDHfhd0ttjXBXXGfzvI89AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM0MHvg0NISm7hLErQAgEQgDv/fS/Xpx9nydDCvh9bmBDUi/Kf2TSfsgxMpZW55Hr4MB49kYcMGWgh+KWJP2mhvmAxfh3WcZULqqhvIQ==
+          aws_profile: ""
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-07-29T22:51:24Z"
+    mac: ENC[AES256_GCM,data:xGdXDbkcL9RfWn7YIcSUQXZTjuU/VMPLaUaA1p0x/pToXbYRvUUeWmcPrJ+5hI/dv7YAKhD3OKyIBFclirePtml/FIF97ycAxkKhqls7f31H/0ajRtugHCE8LTw8F/1sBRo5qwLbPB4zdD2gth+IIH9E9kfseoGXr3QwgGIYH6s=,iv:QKWN6e3MluSBikomYfe3wliqgzxyOwMn1+/d1N+lsIU=,tag:fvaPexiDSRDjA/nEbvNihQ==,type:str]
+    pgp: []
+    unencrypted_regex: ^(kind)$
+    version: 3.7.3

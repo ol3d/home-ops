@@ -1,5 +1,5 @@
 ---
-- hosts: k3s-server
+- hosts: k3s-cluster
   gather_facts: true
   any_errors_fatal: true
 
@@ -8,25 +8,24 @@
       ansible.builtin.pause:
         seconds: 2
 
-  roles:
-    - role: geerlingguy.ntp
+  # roles:
+  #   - role: geerlingguy.ntp
 
   tasks:
     - block:
-        - name: Modify node hostnames
-          ansible.builtin.hostname:
-            name: "{{ hostname }}"
+        - name: Ping all hosts
+          ansible.builtin.ping:
 
-        - name: Modify node hosts file to use correct hostname
-          ansible.builtin.template:
-            src: "hosts.yaml.j2"
-            dest: /etc/hosts
-            mode: "0644"
+    #     - name: Modify node hosts file to use correct hostname
+    #       ansible.builtin.template:
+    #         src: "hosts.yaml.j2"
+    #         dest: /etc/hosts
+    #         mode: "0644"
 
-        - name: Reboot all hosts after renaming
-          ansible.builtin.reboot:
+    #     - name: Reboot all hosts after renaming
+    #       ansible.builtin.reboot:
 
-    - block:
-        - name: Run proxmox role
-          ansible.builtin.include_role:
-            name: xanmanning.k3s
+    # - block:
+    #     - name: Run proxmox role
+    #       ansible.builtin.include_role:
+    #         name: xanmanning.k3s

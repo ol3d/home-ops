@@ -18,6 +18,8 @@ apt_packages:
 pip_packages:
   - name: pre-commit
     state: present
+  - name: ansible-pylibssh
+    state: present
 gitconfig:
   core:
     editor: vim

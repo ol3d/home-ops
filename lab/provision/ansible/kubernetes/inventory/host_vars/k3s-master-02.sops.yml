@@ -2,7 +2,7 @@ kind: Secret
 ansible_user: ENC[AES256_GCM,data:w+VrhA==,iv:hBPEBKWYyIR696FaqabKGrPYEym+EgdWdqsdww5xW8w=,tag:A9TiAShCRoOmiuMUOyUWjA==,type:str]
 ansible_ssh_pass: ENC[AES256_GCM,data:rndDIfzFHbCd/R1FEs0t,iv:g4kQnZ/kpjWG/1PGxAq1CYXH8JGKC46Fmz6JNRKYAQE=,tag:xTDt3APxv78SDsU2NRcJqw==,type:str]
 ansible_become_pass: ENC[AES256_GCM,data:QMLaB4BNCs9kp5T6o2Fq,iv:JgFLpb1puaQodfM7q5jYvRAlWfB9oarWQrh7DgDr9U0=,tag:zuK45xHnTHwZG/x4B7zxZg==,type:str]
-hostname: ENC[AES256_GCM,data:m66ydM4pLlKEqbsgPg==,iv:78EKSh4ufCivfn00qnDSl96x8e93BB93e37sZJI4y0w=,tag:njA4JTpsPHl0UdbEIQqMeA==,type:str]
+hostname: ENC[AES256_GCM,data:551Ugm9jG8fzWUJycA==,iv:wqYnBdmQnet1XTdtkGMtABX2FSCCFeYFzeVKN9mbrW8=,tag:8QUa21nYAC7N07IbR29nBQ==,type:str]
 k3s_ip: ENC[AES256_GCM,data:p322E7b7fYd8M3k=,iv:4nCRunBFqmAzHi6Qy/tJxEFPzMZMBfLBXfl23Wnnw4g=,tag:cv0JZCgCRtt4OF1yuoOgdA==,type:str]
 sops:
     kms:
@@ -18,8 +18,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-05-17T17:09:36Z"
-    mac: ENC[AES256_GCM,data:8W+abZTKGjzEGn21lr0NqwMGp2oGfeIL+gOYDTOuc8WtmJgecLiXeWuvbNKIJuBBhWHmryAjKDfCJqVQvNBvFp17GtSLE/cX0WQZv8u0aOOEXTAw9EwPDwdWnXiem8F7127igYH3toMaxuWw4X3R5CR0Xwm67ZSZTqsEx8pGHL8=,iv:rc2wizQZ2InDNJIFRkfHikLHwJlHmF+KRZSWLigC188=,tag:913ScJZYHlleZi10Mq4LZw==,type:str]
+    lastmodified: "2023-08-16T01:37:20Z"
+    mac: ENC[AES256_GCM,data:eE60RilbERbgYWXpJUrqsSSOje39TtCOv+BLg974LX5A7d2kmnxEGReDNBMlgKU3qICWJth8GnIWh5dEbSDNpQLhTLwAv1OiJDPAqwLgguj1fkCxZQ16MjkfVA0wVOLo41c5Y/PayBT8QLozGRomUo1bRuazyCPhDE7PlNKua9c=,iv:vivo/8nelK9/8E+74xX7W+1/NZyBOCl/tryiiTeV/+k=,tag:CxnJkrWAbZNkqMd4XFzApA==,type:str]
     pgp: []
     unencrypted_regex: ^(kind)$
     version: 3.7.3

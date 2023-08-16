@@ -8,9 +8,13 @@ collections:
     version: 7.2.0
   - name: community.sops
     version: 1.6.4
+  - name: cisco.ios
+    version: 4.6.1
 roles:
   - name: andrewrothstein.sops
     version: v1.0.7
+  - name: atosatto.docker-swarm
+    version: v2.3.0
   - name: buluma.hashicorp
     version: 1.0.9
   - name: buluma.git

@@ -1,0 +1,47 @@
+---
+- hosts: switch
+  gather_facts: false
+  any_errors_fatal: true
+
+  pre_tasks:
+    - name: Pausing for 2 seconds...
+      ansible.builtin.pause:
+        seconds: 2
+
+  tasks:
+    - block:
+        - name: run show version on the routers
+          ios_command:
+            commands: show version | incl Version
+          register: output
+
+        - name: print output
+          debug:
+            var: output.stdout_lines
+
+    - block:
+        - name: Configure VLANs
+          cisco.ios.ios_vlans:
+            config:
+              - name: "{{ item.name }}"
+                vlan_id: "{{ item.vlan_id }}"
+                state: "{{ item.state }}"
+                shutdown: "{{ item.shutdown }}"
+                remote_span: "{{ item.remote_span }}"
+            state: merged
+          with_items: "{{ vlans }}"
+
+        - name: Configure Interfaces
+          cisco.ios.l2_interfaces:
+            config:
+              - access:
+                  vlan: "{{ item.access.vlan }}"
+                mode: "{{ item.mode }}"
+                name: "{{ item.name }}"
+            state: "merged"
+          with_items: "{{ access_interfaces }}"
+
+    - block:
+        - name: Save configuration to memory
+          ios_command:
+            commands: write memory

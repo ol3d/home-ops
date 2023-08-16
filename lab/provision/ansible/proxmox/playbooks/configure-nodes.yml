@@ -30,3 +30,6 @@
         - name: Run proxmox role
           ansible.builtin.include_role:
             name: proxmox
+
+    - block:
+        - name: Configure Postfix on pve nodes
