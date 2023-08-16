@@ -9,7 +9,7 @@ collections:
   - name: community.sops
     version: 1.6.4
   - name: cisco.ios
-    version: 4.6.1
+    version: 5.0.0
 roles:
   - name: andrewrothstein.sops
     version: v1.0.7
