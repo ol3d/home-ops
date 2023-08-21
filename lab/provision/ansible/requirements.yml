@@ -12,7 +12,7 @@ collections:
     version: 5.0.0
 roles:
   - name: andrewrothstein.sops
-    version: v1.0.7
+    version: v1.0.8
   - name: atosatto.docker-swarm
     version: v2.3.0
   - name: buluma.hashicorp
