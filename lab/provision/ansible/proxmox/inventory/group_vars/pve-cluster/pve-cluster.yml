@@ -143,7 +143,12 @@ pve_users:
     groups:
       - Packer
     comment: "Packer management user"
-# pve_storages: []
+pve_storages:
+  - name: backups
+    type: nfs
+    content: ["images", "backup"]
+    server: "{{ truenas_ip }}"
+    export: /mnt/tank-01/backups/proxmox
 pve_datacenter_cfg:
   keyboard: en-us
   language: en
