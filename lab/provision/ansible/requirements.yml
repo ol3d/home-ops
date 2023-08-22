@@ -24,7 +24,7 @@ roles:
   - name: christiangda.awscli_configure
     version: 0.0.5
   - name: geerlingguy.ntp
-    version: 2.3.2
+    version: 2.3.3
   - name: lae.proxmox
     version: v1.7.1
   - name: proxmox
