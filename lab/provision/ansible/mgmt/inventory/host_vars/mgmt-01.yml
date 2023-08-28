@@ -15,6 +15,8 @@ apt_packages:
     state: latest
   - name: git
     state: latest
+  - name: age
+    state: latest
 pip_packages:
   - name: pre-commit
     state: present
