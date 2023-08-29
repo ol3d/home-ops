@@ -1,24 +1,25 @@
 kind: Secret
-public_domain: ENC[AES256_GCM,data:OshX3OjqzQI=,iv:f8buBwCZjBxwQIoqsw2RGHbO9SEPVdgCsbQWS0MUASo=,tag:63dKWepGY4QP8yK7mNI7hw==,type:str]
-ansible_become: ENC[AES256_GCM,data:CFDwaQ==,iv:0GB29tz/PiJjI0/W/okpNRZQmF7wDtB2vcsjsoXDzL8=,tag:54B33tRlzqB8OOUvoy1aZA==,type:bool]
-ansible_become_method: ENC[AES256_GCM,data:VZP1Iw==,iv:j/gPGna72eHw7RS388+7lk27B4SRziZRdEr7Tup9iuk=,tag:tOSzD9lTwwbWLSZj4usY3A==,type:str]
-registration_address: ENC[AES256_GCM,data:G8hqGL5ZDODCOoopyuxCJHoGKQg=,iv:QqTYW1gHSXlVHws8WXjCRveEi+yg7qdSrh98CJSPKqc=,tag:ouNH+oBuaFz6uIPeIirBgA==,type:str]
+public_domain: ol3d.dev
+ansible_become: true
+ansible_become_method: sudo
+registration_address: k3s-csluter.ol3d.dev
 sops:
-    kms:
-        - arn: arn:aws:kms:us-east-1:707904332389:key/a7f77b88-3d50-474a-a8a9-59aa09144204
-          created_at: "2023-05-17T17:07:46Z"
-          enc: AQICAHhHZwPv1OIZb1DNAdaRKOKtYkqWmSpD9UeJdPsAhZ3jAAFJSjGQnlA3CGxCEUbPMbSIAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMJUXMiEXIadtgboyfAgEQgDv0SQGdN5plbdKarPOelx9cZfnozPRCth1AASCul51m07n8Q5/BAMHab+TguKWG7dBgikJnrqkWrGlmnA==
-          aws_profile: ""
-        - arn: arn:aws:kms:us-east-1:707904332389:key/1484f301-4df8-4a1f-83d3-f3deb55e2607
-          created_at: "2023-05-17T17:07:46Z"
-          enc: AQICAHhcehfqcrV6HneBNt5T8nzvzmkknNyHROLBmk5R2QYGsgG/4cH/l5CsvmxIvPmwnf21AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMyNU82sYoiGKS71xyAgEQgDu+EjH80OkQyTNmS0eCVScy2Aho5uIuP9mIAswmobsTDU0sNzwBKNU05mUlaRsdLXbdC28QDjcovyW5Yw==
-          aws_profile: ""
+    kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    age: []
-    lastmodified: "2023-05-17T17:40:38Z"
-    mac: ENC[AES256_GCM,data:ZmeIcXkL+qO9EmOU3eDCjsMDs28DeEswIsZMSVpq+XPPSJpX/ANl353LPzPWBsqHRIF+j+9BTZoBldtwz3G+so2pcxTM7sFutnIfqL641cfxxcD/L0XvPAPXG7PR7HG0r6Bal+xPYY7ZGGdV6oaep8pTYuiSAY/1XuNGQNLZrR0=,iv:dpYZdakmZht5BiBUtd8dUUmZNzb0Ht4ecKy7Mt2wQQM=,tag:cJRJMvyeNIkgUfMZYnFY0Q==,type:str]
+    age:
+        - recipient: age1k6wldgwdcte6aq4cljv3rn5zdxwft4h6pksky0uwhf2z52d7cvtszhs0cv
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBnSG1qamtaNG5XVGVrSFBx
+            Z2kvRUphcXVVcjdPWm1iM3dmaUlkcGdMS0JrCjJXR3VmTmtBMFdsbDNOS1pyT29S
+            SFlDMkptOUVTNzI2ZTkvdlVlYmxWOGsKLS0tIE42ZDVSclkwa1JhUDdseVRTY0E2
+            VFZ0dUZjOStob0U2VWVKSEtybXJZWDAKr0l/qBd+uiXM5vwcg/sGDus9E28y8zjk
+            o06xZNyroin61NkIcOuFCCC8QEMRt75MCKnrDCA+pCA3R29OwQxlqw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-08-29T00:08:02Z"
+    mac: ENC[AES256_GCM,data:NteQUb7UBCMVB9UBJ1/D1wcG2BBlDkGpbFS/5ryss4Y6b9oXkQEmqeGeMueZEadxv0Z110iGiKhgGlTIhf1DeNXWgkD0xMGMFzmeJIM/rsSBF7IAa/TsJYSKh7gX1kH1gFjXcpyJdgL/8YjmG4SPpUffUy/06xa0bwBHrU85MAU=,iv:rtrctxYXjtwulhG3Ev3UP96PBwRi5vaxGCRFycpiUs4=,tag:fHNyHuxFZNz/ktzGvaROiQ==,type:str]
     pgp: []
-    unencrypted_regex: ^(kind)$
+    encrypted_regex: ^(data|stringData)$
     version: 3.7.3
