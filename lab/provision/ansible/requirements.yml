@@ -19,10 +19,6 @@ roles:
     version: 1.0.9
   - name: buluma.git
     version: 4.0.1
-  - name: christiangda.awscli
-    version: 1.0.2
-  - name: christiangda.awscli_configure
-    version: 0.0.5
   - name: geerlingguy.ntp
     version: 2.3.3
   - name: lae.proxmox

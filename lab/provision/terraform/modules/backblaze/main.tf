@@ -1,14 +1,5 @@
 terraform {
 
-    backend "s3" {
-        bucket = "homeops-tf-state"
-        key = "backblaze/terraform.tfstate"
-        region = "us-east-1"
-        shared_credentials_file = "~/.aws/credentials"
-        profile = "terraform"
-        encrypt = true
-    }
-
     required_providers {
         backblaze = {
             source  = "Backblaze/b2"

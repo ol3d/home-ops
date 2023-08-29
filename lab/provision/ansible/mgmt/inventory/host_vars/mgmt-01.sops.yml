@@ -5,24 +5,6 @@ ansible_connection: ENC[AES256_GCM,data:IPftlnk=,iv:hoZixPzXVb3vxqvoOzxf3a+Mdgv1
 personal:
     email: ENC[AES256_GCM,data:M+kUywGmLL0ulLssHPTNS1X4YA==,iv:x/wnYjJiSRP7bwmxeyG12wiXwJCk5nS2ln0qWUDM494=,tag:GCkh7lauhDCyWxBjD0cKwg==,type:str]
     name: ENC[AES256_GCM,data:sOmBwZswhpvQ,iv:S1VlGg+Xc/NbwOQqm83f69xQUwbymSd2aBjrGmYfrJo=,tag:F5de/czyxPFrClKVvLeEvg==,type:str]
-aws:
-    credentials:
-        default:
-            access_key_id: ENC[AES256_GCM,data:bIIp7lZGc4o2OoFyfb+wK2WPlL8=,iv:EBO8ONIjFLUTFjKQ+Gpy651KWpechFw8EyVJNPBVgh4=,tag:AQ0IUGmKw7LR20OQbIPCpw==,type:str]
-            secret_access_key: ENC[AES256_GCM,data:/0Ba5M65fQ7IMsXVxtoZA+svtB7R0+e9c3e6GfqATfFqoeaKXOeq6A==,iv:0FEHND51pQ4Y1i1LzKHlSILas+9zouGZhh8xMyUS/6E=,tag:bJb/jPOIawNiLyh6LznK/g==,type:str]
-        terraform:
-            access_key_id: ENC[AES256_GCM,data:EsE2IUqvXMu9QWNp9S6wPbSK0uc=,iv:W6Qzf4T7WDI8o5NfPA9tYr4IDJwXA362S9WpwNZSKK4=,tag:jMOanjRWDY2kifu/PjRbDg==,type:str]
-            secret_access_key: ENC[AES256_GCM,data:SM0DXcDBe8RmyS6uKhPeAXp0IWfjMNLyJWT00bfnqJqICX71fRa8Ng==,iv:jCKoAzREN6muYhrGhJAfIXF7d4p3oUkn8yqzsM9ce7c=,tag:uAHcn71F/T4U9t9s2gqTDA==,type:str]
-        packer:
-            access_key_id: ENC[AES256_GCM,data:nckkqOKsm7LPPKMivwynyTCq6/0=,iv:KUDfy88aica0+9vhkYdcs/Gk4hJ/C8fBMr/7PAMsT+U=,tag:U8mKJsrciLokvDKbSmO9eQ==,type:str]
-            secret_access_key: ENC[AES256_GCM,data:ReCKrdMZ447oF0Oo9UD/vmyyIDP3ifz7ZCfwI3pomr19HxxDixBwxg==,iv:YiTl0IDpO6v0XP362j5yHovbagw9wlj1h9hhcXBKcd0=,tag:NW1NdkPnYqJ42AC+1v5svQ==,type:str]
-    config:
-        default:
-            region: ENC[AES256_GCM,data:zzh2PEKrovbO,iv:sP1+xX94r/wCY5XgRJvQ7dYtjof4eyV0TabwkMDghqg=,tag:oKc3WpH1bpSSqwAlFNKkYw==,type:str]
-        terraform:
-            region: ENC[AES256_GCM,data:Z6TsRdExKvfg,iv:aPUkrUCHmucDTIKgAH1o+NbHtJ5Rn+QpUUe3upfkFlU=,tag:Y9oX0Ymf4+Z5V6pRVJH39w==,type:str]
-        packer:
-            region: ENC[AES256_GCM,data:HJooTstEq6F6,iv:ZnGdJk3nYZ0/39iOECdoFMXW5JaAdDc2l0H/i5LYyGw=,tag:LJpTj/jL/GTIQZRZpXLGsg==,type:str]
 git_repositories:
     - repo: ENC[AES256_GCM,data:M22isDavFmry0MhuGFsv2zLVaMRClXYqdljaZXGTCbdIH7fA,iv:OZoCw3AvvK5vICsUJ4ovNvv4q3y4EJWJ+CJJyu0XOA0=,tag:R0CzNVzUal2Tun43Ox7q5w==,type:str]
       dest: ENC[AES256_GCM,data:zU+3gs01ocs=,iv:LO3oS3GmpFzZH4qSaPeFkpsjfPn9JbQm8wr9CTjg+as=,tag:YCqP1PuNhiuqkJxv77Fz/Q==,type:str]
@@ -47,8 +29,8 @@ sops:
             MFd4L3RYRWNvL253UDMyblJ4dzRidDQKRw+otwqPojYzjv0C6Y7LDDRMEWdbyf8m
             izIgT9xfLxn9mPASHjhzjIniHZSb3eyr/bvBYnE7/nSFpbzMyylTfQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-08-29T00:08:00Z"
-    mac: ENC[AES256_GCM,data:v05HN+IyBs1SoOBoFbzngDNo2WlYpWf8IoXXcLhf07fikjTJ6FJY9ztJRBain6ZkvdwTUmc1FcAtnt28XH9RpZ+UYnWyfLwSSx4sJbUrHAV5vJKx+pff7fnQaMqN0BXTGIqEeZ1YGdX704jKo/SG+giJtrgHfX8i2j07bT2WlsM=,iv:n7PbTFErvT601A5XuRAxjv0rJE6j8Ys8Suh+55wOz9o=,tag:H31lhRqgyPMe7rUHqdeG6A==,type:str]
+    lastmodified: "2023-08-29T01:22:39Z"
+    mac: ENC[AES256_GCM,data:il/Gqbziy3aNNlLp0GQHPy18hT+7/tWrKR+gg36fMn+rPQclfOflTyuvwo9suf9wvdoxMarUR88OZenAYuEKA6VYdWIwaGsxeB2wJoSRk8XU+xr5mdOJ/Yisey9fA3w+KKxk4ZVVRYRFaMCZrBQbc1sCq4LL56iLrVSYSSkKESY=,iv:OLYNQ90WqXj5HcHd0f32HEp18x7H1A1PqmPcogVIHUY=,tag:rSysjvPcFK4gZB9c46/frw==,type:str]
     pgp: []
     unencrypted_regex: ^(kind)$
     version: 3.7.3
