@@ -1,34 +1,35 @@
 kind: Secret
-ansible_user: ENC[AES256_GCM,data:19G0yw==,iv:Gg4/0mndMflr0Z4O+8TLbNdbElSMmXboIK0O647gzD4=,tag:V9lrWbV+jfSt8ClK18P7mQ==,type:str]
-ansible_ssh_pass: ENC[AES256_GCM,data:MltPJeI1CsH92VFxYGmu,iv:2zcf/Tp1nbRER/uzm2sV9h3C/SKMA9X/qZnU3exl1w4=,tag:xrUcfhMpvAhKxA3BnJUQlA==,type:str]
-ansible_become_pass: ENC[AES256_GCM,data:NwG+85RTLUxGYWn8zwT2,iv:tRFuaAeQ7JStcmvtvaUa6gJizC5sW+GYa9Dq17NOATE=,tag:H15ebSpkgUn1qoIIQ66qEA==,type:str]
-pve_ip: ENC[AES256_GCM,data:0PQXDddBEAPkkd4=,iv:6+ucqnwSSUGB/iaTXT7Kn8onlcwhh7IHSWzepA1paeM=,tag:GqBr+zMjgU6fyCT9UMxRcA==,type:str]
-ceph_ip: ENC[AES256_GCM,data:clFIWhZZZGWYSP8=,iv:l5kHCr/bb/do4MQ917hsrYc4SNDMN4JoEen4pCEK2lM=,tag:KTU6WW18Z6KSJkj6zGLzyg==,type:str]
-coro_ip: ENC[AES256_GCM,data:seY00OMMXEtf/vc=,iv:ONjvCRvWyR9zEbUonr78/Ky0gmwTic92knLvsfKI55s=,tag:O2rqWwVv8DI55m0VuO1oBw==,type:str]
-coro_hostname: ENC[AES256_GCM,data:nXUwcCeIEw==,iv:rVreWQFODM4eYvaPQkAs+invlt0RfNFSboHJpBtSCd4=,tag:yPbdq/zd27N/EqQr+JFYNg==,type:str]
-osd_id: ENC[AES256_GCM,data:pA==,iv:mdN1HvYsqYiW+kutOU8cdFVTHPjNYUiQh5icW9e0/W0=,tag:9p3H1zDmaBLb9z4VgRa3nA==,type:int]
-coro_iface: ENC[AES256_GCM,data:L5wMnLRmY7sV/s3VHH0d,iv:XH93RukBET6SF1AhWedGao0hagLz3XSjMlAqFEhKQjA=,tag:3djBWchIT0jj4u7zN7Gd8w==,type:str]
-ceph_iface_1: ENC[AES256_GCM,data:ervfd3JXUYX/S43MqjXk,iv:71jbmy9B4l6l/Gm7VB8e6RH/pi0i4Pqhaz07t/bxx74=,tag:aDUSrWUlpi6wm52VN6Oe3A==,type:str]
-ceph_iface_2: ENC[AES256_GCM,data:Rt0aToLL3TxR7W9KKUh6,iv:pwk33UQ4RMW5HHahK7WNM4zuLANsqIFp5ma3ZzmVUBs=,tag:0agT26IXuH6DpYRZuv1gCA==,type:str]
-hostname: ENC[AES256_GCM,data:b1NvkKQ0,iv:Wmwg1gfFpGi10DGPUBpgPn4QnE0uNUQrpJ1igu8+Yms=,tag:R4CvPOuLE+Z58OXbpviQ3g==,type:str]
-root_user: ENC[AES256_GCM,data:LC2HpA==,iv:PMVs3lLERnH4df1zRsNAgd2qsu6deOrE5jmjo3XK1jI=,tag:suAJvgnzyZEAl1adKRhOQQ==,type:str]
-root_pass: ENC[AES256_GCM,data:pnxB+J3xfY8QCWZDt6PA,iv:S8mEfETQsPqvGSQH4c+chHIapvJsSOdYlOu2u0TEMt0=,tag:7HvB0nJ5fyo2sKWrQfmLHg==,type:str]
+ansible_user: ENC[AES256_GCM,data:Jp0qzA==,iv:n2HQlNWA1P2Z35KEM+bbde8NkUbvHXJ0eijR0PT8NE0=,tag:SrwJ3Tf3hkCr1Ku1uVeYbw==,type:str]
+ansible_ssh_pass: ENC[AES256_GCM,data:rrQJnOTmRhbV41/ibNqS,iv:aMvh4pQEfouItux29QlmUqqkihvMH/4TU891dNBEiTM=,tag:Yl60UKbUNbzL9dupD7Mhaw==,type:str]
+ansible_become_pass: ENC[AES256_GCM,data:RC9g99EentZTHOkQRuZE,iv:Yv0FBzj73gJpt7qM+rJ5OUl9V807bOk1jgou9i5aeCg=,tag:t1v3us0ijYkK4fKHd4auvA==,type:str]
+pve_ip: ENC[AES256_GCM,data:UGF3soTTebMpJZM=,iv:/cCOnnYyPrLVSMDMXxYb7Q93w07OwLIfDp8JuhvM13g=,tag:eBLa7nv+MD0/eioa1ECQ9A==,type:str]
+ceph_ip: ENC[AES256_GCM,data:pjSIsg/BWdJlOk8=,iv:2FJ28aYjiey0o54ZeKNOt6k1oF4nkWChmM4P6ZhBq9E=,tag:qXtc5HTp9SUUO+B3NCGttw==,type:str]
+coro_ip: ENC[AES256_GCM,data:hJa0neqRYH0RRJY=,iv:qke6SEej1qWTSzlJcfRKX2/cveXBT1EfWk4cimtyx6c=,tag:K2aJEIRVJIFJuF3yjOBsGA==,type:str]
+coro_hostname: ENC[AES256_GCM,data:Brvatxi4rA==,iv:J+mCjhgxBIH9tYLy5c5SIq68Ctz/05B58HWuIn6bu4w=,tag:iLzZ+wvVRFxzOwAjs7Ia8A==,type:str]
+osd_id: ENC[AES256_GCM,data:8g==,iv:Ice16uMho77g/01GSInuORy8KNltwM3Oj8nINzp5QTY=,tag:DG1bcz1AOSlrt+W+p7vF1A==,type:int]
+coro_iface: ENC[AES256_GCM,data:NvIeCQt83cS+EKZe/zib,iv:0xPgEHjgI4vKnPnodzPpUPtLZX+gHP/S0uxP+C/5j00=,tag:LUHgOnDZ6S5FonXopFU5mw==,type:str]
+ceph_iface_1: ENC[AES256_GCM,data:uNNhtAwV3bS6yGYgCm/S,iv:W0HjmgTQeJOc0pInLY3hxzz7swgtfGBLZgAvvoSQp9s=,tag:uiqYC6GGpH7GaOQ2Z83jFw==,type:str]
+ceph_iface_2: ENC[AES256_GCM,data:v/LbqDWx1WzGyS7THuqa,iv:5zq3Z1utosxaexX1avsNDz5nRd7H9wxnFG+0GxqlrcQ=,tag:qk/fi8KFGvlz9VDZaJBIuw==,type:str]
+hostname: ENC[AES256_GCM,data:1K0k+s+L,iv:D3Ruygg4gGU52u4tcUWmorb1Rozahzazu/7yMC3F7bI=,tag:CE34uWyqBMtgjhTIiwvZIA==,type:str]
+root_user: ENC[AES256_GCM,data:5ePcFw==,iv:Pp4Do6s8bsZlOI6FIWyOQmG/gDZKdKObTA86pOqBTJg=,tag:rnhbp1/XtbxS7SsgzH3jXw==,type:str]
+root_pass: ENC[AES256_GCM,data:XZgQ1WgZbrRLv5JWctGA,iv:F+E1ddM5KpxdK/74ig1laIXES/GIAyCFfCCqjjsyuF4=,tag:Vfqp5/N+OOY3k0irMtFU1w==,type:str]
 sops:
-    kms:
-        - arn: arn:aws:kms:us-east-1:707904332389:key/a7f77b88-3d50-474a-a8a9-59aa09144204
-          created_at: "2022-08-09T01:34:47Z"
-          enc: AQICAHhHZwPv1OIZb1DNAdaRKOKtYkqWmSpD9UeJdPsAhZ3jAAE/QdgjauJ/Y8WbyvrqWIOVAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMEQs95nxqaycAI/0EAgEQgDsE8LB+9Bmcj09CtnsBo52IauzpWdYU0FSxBk7p3MUr5hSkkdFpXUUe/yd6UdJsKwagL/P7LzDmffa04Q==
-          aws_profile: ""
-        - arn: arn:aws:kms:us-east-1:707904332389:key/1484f301-4df8-4a1f-83d3-f3deb55e2607
-          created_at: "2022-08-09T01:34:47Z"
-          enc: AQICAHhcehfqcrV6HneBNt5T8nzvzmkknNyHROLBmk5R2QYGsgEhhELHVfUwzi5Ubl3Zx1uKAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMH2w9+BqvSamkz4ntAgEQgDvHHHZ6pR/tMRjlxELDqndT6pQ6/iixsXqdHlFJW6wlR7sxrTFPq/fobe2w9ac2IEtsh/ca8v41JQoT2w==
-          aws_profile: ""
+    kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    age: []
-    lastmodified: "2023-05-19T16:16:17Z"
-    mac: ENC[AES256_GCM,data:hJsEnNTGMIPtBA2KelWwbiqDHSluRDIHNvxR5ezgxudm649jgopEzGz5fY2mEuIEdLRajmiVh8Rkqktt3kHdCkrqoPAcQkgD4/QiJTXZnhK4GckITHk674+APiuSZtx6+HYojoyPJppyBNRsuRTE7BGoeFrRW2aOXaniBA3dHvQ=,iv:DCF7R6+WaNBYCLQEMSBHpCDOEBwGH6cXKg/Fv/I+EQw=,tag:BLjgYyr7+CKde6c9DAumkA==,type:str]
+    age:
+        - recipient: age1k6wldgwdcte6aq4cljv3rn5zdxwft4h6pksky0uwhf2z52d7cvtszhs0cv
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB1Z29oYUJrbUZIZm55TnYv
+            YitwTTRMNlprMFRxeTNYMlhWeW5KSEZrS3d3CnIvdCtneVpzNXhmdkdVdVZBNkVC
+            ZTMwaFEvanJ6bnBkN2ZJRFJHSUNhUTQKLS0tIEE0NGZPSFBtSFpGRlA3eW9nWDJG
+            MThvQzlOeTlBOUVVclVzbWZBelpudjAK1ypVxsHCgc1dHGGV3C0Y6cQ7207px7Pp
+            fkK5M1ZUfnu1abSW+dFifAq+XgY0jdZzhn5tFBsttryCAyDxsTUgyw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-08-29T00:07:57Z"
+    mac: ENC[AES256_GCM,data:ggMfP4D3kzJXk1TCpjo+g2v+LasF6Gl64MGA6Q859MLXPiCV8oi1PECrp2twdluQ23tDd25mdUlvgwwhagLjwF5c40FkXN9Rz3poplSvPg0YNi45wv05ebLopNHt/gYUAiNmv52A5drcKqbCmBjIfJj6Z00atS36/FO1SGAXdyk=,iv:2m3Tiots7mmDVC8pQ7pZSxQAPXmTj1PBTJqtJ+q9ka8=,tag:F8ZRuJ1eWvds6Vu8HvVzYg==,type:str]
     pgp: []
     unencrypted_regex: ^(kind)$
     version: 3.7.3
