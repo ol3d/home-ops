@@ -72,33 +72,6 @@ resource "cloudflare_record" "cname_domain-connect" {
     ttl     = 1
 }
 
-resource "cloudflare_record" "cname_aws-1" {
-    name    = data.sops_file.cloudflare_secrets.data["cname_aws-1.name"]
-    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = data.sops_file.cloudflare_secrets.data["cname_aws-1.value"]
-    proxied = false
-    type    = "CNAME"
-    ttl     = 1
-}
-
-resource "cloudflare_record" "cname_aws-2" {
-    name    = data.sops_file.cloudflare_secrets.data["cname_aws-2.name"]
-    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = data.sops_file.cloudflare_secrets.data["cname_aws-2.value"]
-    proxied = false
-    type    = "CNAME"
-    ttl     = 1
-}
-
-resource "cloudflare_record" "cname_aws-3" {
-    name    = data.sops_file.cloudflare_secrets.data["cname_aws-3.name"]
-    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = data.sops_file.cloudflare_secrets.data["cname_aws-3.value"]
-    proxied = false
-    type    = "CNAME"
-    ttl     = 1
-}
-
 resource "cloudflare_record" "mx_service" {
     name    = "service"
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")

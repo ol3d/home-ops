@@ -12,12 +12,9 @@
             seconds: 2
 
   roles:
-    # TODO Uncomment role andrewrothstein.sops and christiangda.awscli after switching to Debain 11 for mgmt node OS
     # - role: andrewrothstein.sops
     - role: buluma.git
     - role: buluma.hashicorp
-    # - role: christiangda.awscli
-    - role: christiangda.awscli_configure
 
   tasks:
     - block:
