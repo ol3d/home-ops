@@ -36,6 +36,10 @@ vlans:
     shutdown: disabled
     remote_span: false
 access_interfaces:
+  - name: "GigabitEthernet0/1"
+    mode: "access"
+    access:
+      vlan: 10
   - name: "GigabitEthernet0/3"
     mode: "access"
     access:
@@ -44,3 +48,15 @@ access_interfaces:
     mode: "access"
     access:
       vlan: 40
+trunk_interfaces:
+  - name: "GigabitEthernet0/43"
+    mode: "trunk"
+    trunk:
+      allowed_vlans: 10,20,30,40,50,60,70
+# lag_interfaces:
+#   - name: Port-channel10
+#     members:
+#       - member: GigabitEthernet0/45
+#         mode: auto
+#       - member: GigabitEthernet0/47
+#         mode: auto
