@@ -1,7 +1,7 @@
 terraform {
 
     required_providers {
-        backblaze = {
+        b2 = {
             source  = "Backblaze/b2"
             version = "0.8.4"
         }
@@ -21,6 +21,6 @@ data "sops_file" "backblaze_secrets" {
 }
 
 provider "b2" {
-    # application_key = data.sops_file.backblaze_secrets.data["b2.application_key"]
-    # application_key_id = data.sops_file.backblaze_secrets.data["b2.application_key_id"]
+    application_key = data.sops_file.backblaze_secrets.data["b2.application_keys.master-key.application_key"]
+    application_key_id = data.sops_file.backblaze_secrets.data["b2.application_keys.master-key.application_key_id"]
 }
