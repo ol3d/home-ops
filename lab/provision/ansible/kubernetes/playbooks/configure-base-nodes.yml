@@ -8,8 +8,10 @@
       ansible.builtin.pause:
         seconds: 2
 
-  # roles:
-  #   - role: geerlingguy.ntp
+  roles:
+    - role: geerlingguy.ntp
+    # - role: hifis.unattended_upgrades
+    # - role: xanmanning.k3s
 
   tasks:
     - block:

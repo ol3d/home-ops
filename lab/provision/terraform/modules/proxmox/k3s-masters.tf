@@ -48,8 +48,8 @@ resource "proxmox_virtual_environment_vm" "k3s-masters" {
         interface = "scsi0"
         iothread = true
         size = 128
-        # discard = "on"
-        # ssd = true
+        discard = "on"
+        ssd = true
     }
 
     memory {
@@ -72,9 +72,12 @@ resource "proxmox_virtual_environment_vm" "k3s-masters" {
         type = "l26"
     }
 
-    reboot = false
+    reboot = true
+    timeout_reboot = 1800
     scsi_hardware = "virtio-scsi-single"
-    started = false
+    started = true
+    migrate = false
+    timeout_migrate = 1800
 
     tablet_device = true
     vga {

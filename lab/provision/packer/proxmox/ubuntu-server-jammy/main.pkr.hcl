@@ -1,7 +1,7 @@
 packer {
     required_plugins {
         proxmox = {
-            version = "1.1.3"
+            version = "1.1.5"
             source  = "github.com/hashicorp/proxmox"
         }
     }
@@ -39,9 +39,8 @@ source "proxmox-iso" "ubuntu-server-jammy" {
         type         = "scsi"
         cache_mode   = "none"
         io_thread    = true
-        # TODO toggle on once release has been cut to include these settings
-        # ssd = true
-        # discard = "on"
+        ssd = true
+        discard = true
     }
 
     # VM CPU Settings
@@ -52,6 +51,7 @@ source "proxmox-iso" "ubuntu-server-jammy" {
 
     # VM Memory Settings
     memory = "4096"
+    numa = false
 
     # VM Network Settings
     network_adapters {

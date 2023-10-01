@@ -1,31 +1,78 @@
 ---
 # geerlingguy.ntp
+ntp_enabled: true
+ntp_timezone: America/Chicago
+ntp_package: ntp
 ntp_manage_config: true
-npm_servers:
-  - 2.pfsense.pool.ntp.org
+ntp_config_file: /etc/ntp.conf
+ntp_servers:
+  - "0{{ '.' + ntp_area if ntp_area else '' }}.pool.ntp.org iburst"
+  - "1{{ '.' + ntp_area if ntp_area else '' }}.pool.ntp.org iburst"
+  - "2{{ '.' + ntp_area if ntp_area else '' }}.pool.ntp.org iburst"
+  - "3{{ '.' + ntp_area if ntp_area else '' }}.pool.ntp.org iburst"
+ntp_tinker_panic: true
+ntp_cron_handler_enabled: false
+
+# hifis.unattended_upgrades
+unattended_cache_valid_time: 3600
+unattended_origins_patterns: [
+  'origin=Ubuntu,archive=${distro_codename}-security,label=Ubuntu'
+]
+unattended_package_blacklist: []
+unattended_autofix_interrupted_dpkg: true
+unattended_minimal_steps: true
+unattended_install_on_shutdown: false
+unattended_mail: "{{ unattended_upgrades_email_to }}"
+unattended_mail_sender: "unattended-upgrades"
+unattended_mail_only_on_error: false
+unattended_mail_report: false
+unattended_remove_unused_dependencies: false
+unattended_remove_new_unused_dependencies: true
+unattended_remove_unused_kernel_packages: false
+unattended_automatic_reboot: false
+unattended_automatic_reboot_time: false
+unattended_update_days: None
+unattended_ignore_apps_require_restart: false
+unattended_syslog_enable: false
+unattended_update_package_list: 1
+unattended_download_upgradeable: 0
+unattended_autoclean_interval: 7
+unattended_clean_interval: 0
+unattended_random_sleep: 1800
+unattended_dpkg_options: []
+unattended_dl_limit: None
+unattended_only_on_ac_power: false
+unattended_systemd_timer_override: false
+unattended_apt_daily_oncalendar: "*-*-* 6,18:00"
+unattended_apt_daily_randomizeddelaysec: "12h"
+unattended_apt_daily_upgrade_oncalendar: "*-*-* 6:00"
+unattended_apt_daily_upgrade_randomizeddelaysec: "60m"
 
 # xanmanning.k3s
 k3s_state: installed
-k3s_release_version: "v1.27.1+k3s1"
-# -- Control Plane registration address
-# this is set to my haproxy address running on my router.
-k3s_registration_address: "{{ kubevip_address }}"
+k3s_release_version: "v1.28.2+k3s1"
+k3s_airgap: false
+k3s_config_file:
 k3s_build_cluster: true
-# -- Install using hard links rather than symbolic links.
-# ...if you are using the system-upgrade-controller you will need to
-# use hard links rather than symbolic links as the controller will
-# not be able to follow symbolic links.
-k3s_install_hard_links: true
-k3s_etcd_datastore: true
-k3s_become: true
-k3s_debug: false
-k3s_use_unsupported_config: true
+k3s_registration_address: "{{ kubevip_address }}"
+k3s_github_url: https://github.com/k3s-io/k3s
+k3s_api_url: https://update.k3s.io
+k3s_install_dir: /usr/local/bin
+k3s_install_hard_links: false
+k3s_server_config_yaml_d_files: []
+k3s_agent_config_yaml_d_files: []
 k3s_server_manifests_urls:
   # Kube-vip
   - url: https://raw.githubusercontent.com/kube-vip/kube-vip/main/docs/manifests/rbac.yaml
     filename: custom-kube-vip-rbac.yaml
-
-# (list) A flat list of templates to deploy on the primary control plane
-# /var/lib/rancher/k3s/server/manifests
-k3s_server_manifests_templates:
+k3s_server_pod_manifests_templates:
   - custom-kube-vip-daemonset.yaml.j2
+k3s_server_pod_manifests_urls: []
+k3s_use_experimental: false
+k3s_use_unsupported_config: true
+k3s_etcd_datastore: true
+# k3s_become: true
+k3s_debug: false
+# k3s_registries: { mirrors: {}, configs:{} }
+
+k3s_start_on_boot: true

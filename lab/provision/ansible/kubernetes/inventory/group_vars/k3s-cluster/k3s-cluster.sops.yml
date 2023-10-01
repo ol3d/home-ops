@@ -2,7 +2,9 @@ kind: Secret
 public_domain: ol3d.dev
 ansible_become: true
 ansible_become_method: sudo
-registration_address: k3s-csluter.ol3d.dev
+registration_address: k3s-cluster.ol3d.dev
+kubevip_address: 10.23.30.10
+unattended_upgrades_email_to: deloa6133@gmail.com
 sops:
     kms: []
     gcp_kms: []
@@ -18,8 +20,8 @@ sops:
             VFZ0dUZjOStob0U2VWVKSEtybXJZWDAKr0l/qBd+uiXM5vwcg/sGDus9E28y8zjk
             o06xZNyroin61NkIcOuFCCC8QEMRt75MCKnrDCA+pCA3R29OwQxlqw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-08-29T00:08:02Z"
-    mac: ENC[AES256_GCM,data:NteQUb7UBCMVB9UBJ1/D1wcG2BBlDkGpbFS/5ryss4Y6b9oXkQEmqeGeMueZEadxv0Z110iGiKhgGlTIhf1DeNXWgkD0xMGMFzmeJIM/rsSBF7IAa/TsJYSKh7gX1kH1gFjXcpyJdgL/8YjmG4SPpUffUy/06xa0bwBHrU85MAU=,iv:rtrctxYXjtwulhG3Ev3UP96PBwRi5vaxGCRFycpiUs4=,tag:fHNyHuxFZNz/ktzGvaROiQ==,type:str]
+    lastmodified: "2023-09-27T18:51:56Z"
+    mac: ENC[AES256_GCM,data:z7PXL3N/enmHeYVsfxBc9MC3bsDr9vtQIcxFZ8+/T0+MFqreIAoNzWIXFPHVM0ZpQWXB7YEvRnkOcXLvvs04bdlMhorsP14BPcqwBZEuk0iyV+er+m0j6WqlIz/lEhHQV3Fd+6EBV7o3aJT54I7wJMPk5YD4Zp680nbwwwmb/6g=,iv:oGqBLOVzwx6bm6Xa7l5k9t3eJVYr5L6AcQZyczBfPbo=,tag:FBY+V7am9t7Bo4a3fpH9Rw==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.7.3

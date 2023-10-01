@@ -48,8 +48,8 @@ resource "proxmox_virtual_environment_vm" "k3s-agents" {
         interface = "scsi0"
         iothread = true
         size = 256
-        # discard = "on"
-        # ssd = true
+        discard = "on"
+        ssd = true
     }
 
     memory {
@@ -72,9 +72,18 @@ resource "proxmox_virtual_environment_vm" "k3s-agents" {
         type = "l26"
     }
 
-    reboot = false
+    reboot = true
+    timeout_reboot = 1800
     scsi_hardware = "virtio-scsi-single"
-    started = false
+    started = true
+    migrate = false
+    timeout_migrate = 1800
+
+    # startup {
+    #     order = 0
+    #     up = 60
+    #     down = 60
+    # }
 
     tablet_device = true
     vga {
@@ -82,4 +91,12 @@ resource "proxmox_virtual_environment_vm" "k3s-agents" {
         memory = 16
         enabled = true
     }
+
+    # hostpci {
+    #     device = "hostpci0"
+    #     id = "0000:00:02.0"
+    #     pcie = false
+    #     rombar = true
+    #     xvga = false
+    # }
 }

@@ -47,23 +47,23 @@
               - trunk:
                   allowed_vlans: "{{ item.trunk.allowed_vlans }}"
                   # Default vlan is 1
-                  # native_vlan: "{{ item.trunk.native_vlan }}"
+                  native_vlan: "{{ item.trunk.native_vlan }}"
                 mode: "{{ item.mode }}"
                 name: "{{ item.name }}"
             state: merged
           with_items: "{{ trunk_interfaces }}"
 
-        # - name: Configure LAG Interfaces
-        #   cisco.ios.ios_lag_interfaces:
-        #     config:
-        #       - name: LAG_1
-        #         members:
-        #           - member: GigabitEthernet0/45
-        #             mode: auto
-        #           - member: GigabitEthernet0/47
-        #             mode: auto
-        #     state: merged
-          # with_items: "{{ lag_interfaces }}"
+        - name: Configure LAG Interfaces
+          cisco.ios.ios_lag_interfaces:
+            config:
+              - name: "{{ item.name }}"
+                members:
+                  - member: GigabitEthernet0/45
+                    mode: auto
+                  - member: GigabitEthernet0/47
+                    mode: auto
+            state: merged
+          with_items: "{{ lag_interfaces }}"
 
     - block:
         - name: Save configuration to memory
