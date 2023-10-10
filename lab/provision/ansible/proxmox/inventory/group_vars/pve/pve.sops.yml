@@ -3,7 +3,6 @@ username: ENC[AES256_GCM,data:+MB3iw==,iv:b5Zyn4vUNobBVLuzJmMxX8Blx4gACPi6Ja7OCM
 management_gateway: ENC[AES256_GCM,data:DsONSbFHs/MnsQ==,iv:guPCWBKgbc9+7vF6NSQsMPR8blIJPYoiFTWi6WdjwKg=,tag:oVX1UeCXMvOdP2yG04cX0A==,type:str]
 ceph_network: ENC[AES256_GCM,data:Qls+E8C7p0wFA0NEBg==,iv:X48bGmc6D5dnwy3yf/mPACr+zfXj9Ci/pL6gvVwbz1I=,tag:qWRl4i36v0Gxr/4OAQPXgA==,type:str]
 users:
-    terraform_password: ENC[AES256_GCM,data:65AP0U5+RBOBQ3e6d4Du,iv:qc+DM4o7ryaJitKA05I5qmSZwmhyvA29NIBfHA1Xn/0=,tag:OKL8YJVqZ3XEt3mnAdCWsQ==,type:str]
     packer_password: ENC[AES256_GCM,data:TPPLXvBa3JDQeYpGpBRl,iv:9Dpn33/JjEjg031z+EwSeagHPjsTqLgGw2yQu72JbPw=,tag:EWNAueffFFTScZR4SCNKhw==,type:str]
 public_domain: ENC[AES256_GCM,data:G9vHC/SsY08=,iv:7n8kGpgq0bVCeupkTO4vQtPF6qSS8olMtww+8G9Uurk=,tag:hS4zP9iX43YxpFd6FdOPdA==,type:str]
 personal:
@@ -28,8 +27,8 @@ sops:
             SWNnekxqQWV1ZGowQ1FyY2pFM0J5TkUKmC7NKKlfdGT2AoQtMA25S7O9PD/YQNrK
             vlGGjbhNkO3oGBYgYMkdzjCYP/Ie5Tpx35sUxtYQzjBQv+Q7zJoykQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-08-29T16:37:09Z"
-    mac: ENC[AES256_GCM,data:r7hy1rjEMHPdeJG1hGkhNs1LtpGQKHpBycapxjt5kWCU60zdR7ryZzd5DM+v0Wm1EHKGHAzJlDQYYlUOIMjymNJDCraKWyDHffm3Q974YmMh08Msj2nCYZOJtwPtiu0dnPbQCJwYYtRGEx14ts2sSS51UbiLrdgHK4k/0zhMXhs=,iv:4fcOW4qY7eeRfwttI/6CCObt5TpudwNi+26HrTfw4us=,tag:x2Qqp0ESW/79mzyKGMb3/w==,type:str]
+    lastmodified: "2023-10-07T17:54:15Z"
+    mac: ENC[AES256_GCM,data:lbz2hk4MpZAP8jQ+SacdCSNCR8ckpaCG0h15TMiJjXHLYxMPXjy/9S6Wp1VxBmMP5hQOgEOErbuGNn7sS7AuW5xqm/FdmAHDpeyseRIYaKUfSuR1xpr3mU5v9f1t4TYcVUSmIenKvR2wV9xWWgE39qK9jPcs8ZmjMLmkZPFYvHM=,iv:Ti9ZxFFy67WONB7EzIuFdyzpijRRxjWG3PRWVSL4gJs=,tag:+9vg1BJJGeRepVWUGV1kkg==,type:str]
     pgp: []
     unencrypted_regex: ^(kind)$
     version: 3.7.3

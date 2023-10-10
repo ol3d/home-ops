@@ -53,28 +53,6 @@ pve_ceph_pools:
 # pve_ssl_private_key: ""
 # pve_ssl_certificate: ""
 pve_roles:
-  - name: Terraform
-    privileges:
-      - "Datastore.AllocateSpace"
-      - "Datastore.Audit"
-      - "Pool.Allocate"
-      - "Sys.Audit"
-      - "Sys.Console"
-      - "Sys.Modify"
-      - "VM.Allocate"
-      - "VM.Audit"
-      - "VM.Clone"
-      - "VM.Config.CDROM"
-      - "VM.Config.Cloudinit"
-      - "VM.Config.CPU"
-      - "VM.Config.Disk"
-      - "VM.Config.HWType"
-      - "VM.Config.Memory"
-      - "VM.Config.Network"
-      - "VM.Config.Options"
-      - "VM.Migrate"
-      - "VM.Monitor"
-      - "VM.PowerMgmt"
   - name: Packer
     privileges:
       - "VM.Allocate"
@@ -105,19 +83,12 @@ pve_acls:
       - Admin
   - path: /
     roles:
-      - Terraform
-    groups:
-      - Terraform
-  - path: /
-    roles:
       - Packer
     groups:
       - Packer
 pve_groups:
   - name: Admin
     comment: Admin Group
-  - name: Terraform
-    comment: Terraform Group
   - name: Packer
     comment: Packer Group
 pve_users:
@@ -133,11 +104,6 @@ pve_users:
     groups:
       - Admin
     password: "{{ ansible_become_pass }}"
-  - name: "terraform@pve"
-    password: "{{ ansible_become_pass }}"
-    groups:
-      - Terraform
-    comment: "Terraform management user"
   - name: "packer@pve"
     password: "{{ ansible_become_pass }}"
     groups:
