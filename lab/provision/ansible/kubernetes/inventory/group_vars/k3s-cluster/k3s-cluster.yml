@@ -1,4 +1,10 @@
 ---
+# Oefenweb.fail2ban
+fail2ban_loglevel: INFO
+fail2ban_bantime: 600
+fail2ban_maxretry: 3
+fail2ban_findtime: 600
+
 # geerlingguy.ntp
 ntp_enabled: true
 ntp_timezone: America/Chicago
@@ -22,8 +28,8 @@ unattended_package_blacklist: []
 unattended_autofix_interrupted_dpkg: true
 unattended_minimal_steps: true
 unattended_install_on_shutdown: false
-unattended_mail: "{{ unattended_upgrades_email_to }}"
-unattended_mail_sender: "unattended-upgrades"
+# unattended_mail: "{{ unattended_upgrades_email_to }}"
+# unattended_mail_sender: "unattended-upgrades"
 unattended_mail_only_on_error: false
 unattended_mail_report: false
 unattended_remove_unused_dependencies: false
@@ -34,19 +40,9 @@ unattended_automatic_reboot_time: false
 unattended_update_days: None
 unattended_ignore_apps_require_restart: false
 unattended_syslog_enable: false
-unattended_update_package_list: 1
-unattended_download_upgradeable: 0
-unattended_autoclean_interval: 7
-unattended_clean_interval: 0
-unattended_random_sleep: 1800
-unattended_dpkg_options: []
 unattended_dl_limit: None
 unattended_only_on_ac_power: false
 unattended_systemd_timer_override: false
-unattended_apt_daily_oncalendar: "*-*-* 6,18:00"
-unattended_apt_daily_randomizeddelaysec: "12h"
-unattended_apt_daily_upgrade_oncalendar: "*-*-* 6:00"
-unattended_apt_daily_upgrade_randomizeddelaysec: "60m"
 
 # xanmanning.k3s
 k3s_state: installed

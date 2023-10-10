@@ -29,5 +29,11 @@ roles:
     version: feature/home-ops
   - name: xanmanning.k3s
     version: v3.4.2
+  # - name: hifis.unattended_upgrades
+  #   version: v3.2.0
   - name: hifis.unattended_upgrades
+    src: https://github.com/hifis-net/ansible-role-unattended-upgrades.git
+    type: git
     version: v3.2.0
+  - name: Oefenweb.fail2ban
+    version: v4.0.2

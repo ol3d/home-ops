@@ -72,10 +72,10 @@ resource "proxmox_virtual_environment_vm" "k3s-masters" {
         type = "l26"
     }
 
-    reboot = true
+    reboot = false
     timeout_reboot = 1800
     scsi_hardware = "virtio-scsi-single"
-    started = true
+    started = false
     migrate = false
     timeout_migrate = 1800
 
@@ -84,5 +84,14 @@ resource "proxmox_virtual_environment_vm" "k3s-masters" {
         type = "qxl"
         memory = 16
         enabled = true
+    }
+
+    # provisioner "local-exec" {
+    #     command = "cd ~/buildworkspace/home-ops/lab/provision/ansible/kubernetes/ && ansible-playbook playbooks/check-status.yml"
+    # }
+
+    # Prevents recreate
+    lifecycle {
+        ignore_changes = [started]
     }
 }

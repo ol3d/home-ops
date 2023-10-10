@@ -10,7 +10,8 @@
 
   roles:
     - role: geerlingguy.ntp
-    # - role: hifis.unattended_upgrades
+    - role: hifis.unattended_upgrades
+    # - role: Oefenweb.fail2ban
     # - role: xanmanning.k3s
 
   tasks:

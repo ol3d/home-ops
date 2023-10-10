@@ -1,17 +1,23 @@
 resource "b2_bucket" "b2_bucket" {
-    for_each = var.b2_buckets
+    # for_each = var.b2_buckets
 
-    bucket_name = each.key
-    bucket_type = each.value.bucket_type
+    bucket_name = data.sops_file.backblaze_secrets.data["b2.bucket_name"]
+    bucket_type = "allPrivate"
 
     file_lock_configuration {
         default_retention {
-            mode = each.value.bucket_type.file_lock_configuration.default_retention.mode
+            mode = "governance"
             period {
-                duration = each.value.bucket_type.file_lock_configuration.default_retention.period.duration
-                unit = each.value.bucket_type.file_lock_configuration.default_retention.period.unit
+                duration = 7
+                unit = "days"
             }
         }
+        is_file_lock_enabled = true
+    }
+
+    lifecycle_rules {
+        file_name_prefix = ""
+        days_from_hiding_to_deleting = 28
     }
 
     lifecycle {

@@ -1,16 +1,16 @@
 variable "k3s-master" {
     type = map(map(string))
     default = {
-        k3s-master-01 = {
-            node_name   = "pve-01"
-            vm_id       = 2011
-            sockets     = 1
-            cores       = 2
-            memory      = 4096
-            macaddr     = "8A:E5:9E:A5:BB:B4"
-            clone_vmid  = 1001
-            datastore_id = "pve-ceph"
-        }
+        # k3s-master-01 = {
+        #     node_name   = "pve-01"
+        #     vm_id       = 2011
+        #     sockets     = 1
+        #     cores       = 2
+        #     memory      = 4096
+        #     macaddr     = "8A:E5:9E:A5:BB:B4"
+        #     clone_vmid  = 1001
+        #     datastore_id = "pve-ceph"
+        # }
         k3s-master-02 = {
             node_name   = "pve-02"
             vm_id       = 2012
@@ -37,16 +37,18 @@ variable "k3s-master" {
 variable "k3s-agent" {
     type = map(map(string))
     default = {
-        k3s-agent-01 = {
-            node_name   = "pve-01"
-            vm_id       = 2021
-            sockets     = 1
-            cores       = 4
-            memory      = 16384
-            macaddr     = "92:C0:F5:CA:85:26"
-            clone_vmid  = 1001
-            datastore_id = "pve-ceph"
-        }
+        # k3s-agent-01 = {
+        #     node_name   = "pve-01"
+        #     vm_id       = 2021
+        #     sockets     = 1
+        #     cores       = 4
+        #     memory      = 16384
+        #     macaddr     = "92:C0:F5:CA:85:26"
+        #     clone_vmid  = 1001
+        #     datastore_id = "pve-ceph"
+        #     hostpci_device = "hostpci0"
+        #     hostpci_id = "0000:00:02.0"
+        # }
         k3s-agent-02 = {
             node_name   = "pve-02"
             vm_id       = 2022
@@ -56,6 +58,8 @@ variable "k3s-agent" {
             macaddr     = "02:EE:4A:15:B5:AF"
             clone_vmid  = 1002
             datastore_id = "pve-ceph"
+            hostpci_device = "hostpci0"
+            hostpci_id = "0000:00:02.0"
         }
         k3s-agent-03 = {
             node_name   = "pve-03"
@@ -66,6 +70,8 @@ variable "k3s-agent" {
             macaddr     = "F2:88:DD:49:28:2C"
             clone_vmid  = 1003
             datastore_id = "pve-ceph"
+            hostpci_device = "hostpci0"
+            hostpci_id = "0000:00:02.0"
         }
     }
 }
