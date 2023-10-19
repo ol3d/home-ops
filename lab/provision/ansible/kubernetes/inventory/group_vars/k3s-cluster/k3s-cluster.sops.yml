@@ -5,6 +5,10 @@ ansible_become_method: sudo
 registration_address: k3s-cluster.ol3d.dev
 kubevip_address: 10.23.30.10
 unattended_upgrades_email_to: deloa6133@gmail.com
+proxmox:
+    api_host: https://10.23.20.11:8006/
+    api_password: ChuvoBit@123xyz
+    api_user: root
 sops:
     kms: []
     gcp_kms: []
@@ -20,8 +24,8 @@ sops:
             VFZ0dUZjOStob0U2VWVKSEtybXJZWDAKr0l/qBd+uiXM5vwcg/sGDus9E28y8zjk
             o06xZNyroin61NkIcOuFCCC8QEMRt75MCKnrDCA+pCA3R29OwQxlqw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-09-27T18:51:56Z"
-    mac: ENC[AES256_GCM,data:z7PXL3N/enmHeYVsfxBc9MC3bsDr9vtQIcxFZ8+/T0+MFqreIAoNzWIXFPHVM0ZpQWXB7YEvRnkOcXLvvs04bdlMhorsP14BPcqwBZEuk0iyV+er+m0j6WqlIz/lEhHQV3Fd+6EBV7o3aJT54I7wJMPk5YD4Zp680nbwwwmb/6g=,iv:oGqBLOVzwx6bm6Xa7l5k9t3eJVYr5L6AcQZyczBfPbo=,tag:FBY+V7am9t7Bo4a3fpH9Rw==,type:str]
+    lastmodified: "2023-10-10T16:21:05Z"
+    mac: ENC[AES256_GCM,data:+lTLOcYVeXuRBY8gBUM/l8lR2BX2wa5KhfssPF354U48op0B87Yv4XWZLAgI5NSHkfmJ9+2lVi94kIpqqv85Hc1YDO/KHOl7i2D0i4CtEbNpW3BYs+PpuR3DTws9eibq0ZzjhkPlnb3s3ASG3p/DYmtKMoNZW6gK8ziMA9+0Tj0=,iv:aqMlZXuiJ5bWJ+biyfbHOF5bgCiS3SbgWL6qXNP4fbk=,tag:ej5Qq/von2sT/NBzzF8kAg==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.7.3

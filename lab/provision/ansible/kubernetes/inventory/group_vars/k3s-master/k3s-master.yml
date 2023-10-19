@@ -6,33 +6,37 @@ k3s_control_node: true
 k3s_server:
   node-ip: "{{ ansible_host }}"
   tls-san:
+    # kube-vip
+    - "{{ kubevip_address }}"
+    # haproxy
     - "{{ k3s_registration_address }}"
   https-listen-port: 6443
-  # docker: false
-  # flannel-backend: "none" # This needs to be in quotes
+  docker: false
+  flannel-backend: "none" # This needs to be in quotes
   # egress-selector-mode: disabled
   disable:
-    # - flannel
+    - flannel
     - traefik
     - servicelb
-  # disable-network-policy: true
-  # disable-cloud-controller: true
-  # # Network CIDR to use for pod IPs
-  # cluster-cidr: "10.42.0.0/16"
-  # # Network CIDR to use for service IPs
-  # service-cidr: "10.43.0.0/16"
+    - local-storage
+    - coredns
+    - metrics-server
+  disable-network-policy: true
+  disable-cloud-controller: true
+  disable-kube-proxy: true
+  write-kubeconfig-mode: "0644"
+  etcd-expose-metrics: true
+  cluster-cidr: 10.32.0.0/16
+  service-cidr: 10.33.0.0/16
   # kubelet-arg:
   #   # Allow pods to be rescheduled quicker in the case of a node failure
   #   # https://github.com/k3s-io/k3s/issues/1264
   #   - "node-status-update-frequency=4s"
-  # kube-controller-manager-arg:
-  #   # Allow pods to be rescheduled quicker in the case of a node failure
-  #   # https://github.com/k3s-io/k3s/issues/1264
-  #   - "node-monitor-period=4s"
-  #   - "node-monitor-grace-period=16s"
-  #   - "pod-eviction-timeout=20s"
-  # kube-apiserver-arg:
-  #   # Allow pods to be rescheduled quicker in the case of a node failure
-  #   # https://github.com/k3s-io/k3s/issues/1264
-  #   - "default-not-ready-toleration-seconds=20"
-  #   - "default-unreachable-toleration-seconds=20"
+  kube-controller-manager-arg:
+    - bind-address=0.0.0.0
+  kube-scheduler-arg:
+    - bind-address=0.0.0.0
+  node-label:
+    - "master=yes"
+  kube-apiserver-arg:
+    - anonymous-auth=true

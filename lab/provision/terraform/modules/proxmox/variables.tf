@@ -1,16 +1,16 @@
 variable "k3s-master" {
     type = map(map(string))
     default = {
-        # k3s-master-01 = {
-        #     node_name   = "pve-01"
-        #     vm_id       = 2011
-        #     sockets     = 1
-        #     cores       = 2
-        #     memory      = 4096
-        #     macaddr     = "8A:E5:9E:A5:BB:B4"
-        #     clone_vmid  = 1001
-        #     datastore_id = "pve-ceph"
-        # }
+        k3s-master-01 = {
+            node_name   = "pve-01"
+            vm_id       = 2011
+            sockets     = 1
+            cores       = 2
+            memory      = 4096
+            macaddr     = "8A:E5:9E:A5:BB:B4"
+            clone_vmid  = 1001
+            datastore_id = "pve-ceph"
+        }
         k3s-master-02 = {
             node_name   = "pve-02"
             vm_id       = 2012

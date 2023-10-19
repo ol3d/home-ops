@@ -1,6 +1,7 @@
 #cloud-config
 autoinstall:
   version: 1
+  manage_etc_hosts: true
   locale: en_US.UTF-8
   keyboard:
     layout: us
@@ -27,7 +28,11 @@ autoinstall:
       - name: ol3d
         groups: [adm, sudo]
         lock-passwd: false
-        sudo: ALL=(ALL) NOPASSWD:ALL
+        sudo: ["ALL=(ALL) NOPASSWD:ALL"]
         shell: /bin/bash
         # OpenSSL SHA-512 Encrypted Default Password
         passwd: $6$rNiTflwh3k5kJ79H$pimha0veFLU8lFM.pc2NAAREQmyZd0vMLBvfpFapeWdnFuAhKoN2g/cw0DrV3QIQvoOdy1V2PasKvK0veGsSc0
+        # ssh_authorized_keys:
+        #   -
+        # TODO switch lock_passwd to True to disable password authentication
+        lock_passwd: False
