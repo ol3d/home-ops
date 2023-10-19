@@ -1,2 +1,17 @@
 ---
-# https://docs.pikvm.org/first_steps/#getting-access-to-pikvm
+- hosts:
+    - kvm
+  become: true
+  gather_facts: true
+  any_errors_fatal: true
+
+  pre_tasks:
+    - block:
+        - name: Pausing for 2 seconds...
+          ansible.builtin.pause:
+            seconds: 2
+
+  tasks:
+    - block:
+        - name: Ping host
+          ansible.builtin.ping:

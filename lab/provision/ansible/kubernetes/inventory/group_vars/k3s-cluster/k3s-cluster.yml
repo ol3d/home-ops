@@ -46,9 +46,9 @@ unattended_systemd_timer_override: false
 
 # xanmanning.k3s
 k3s_state: installed
-k3s_release_version: "v1.28.2+k3s1"
+k3s_release_version: "v1.26.9+k3s1"
 k3s_airgap: false
-k3s_config_file:
+k3s_config_file: /etc/rancher/k3s/config.yaml
 k3s_build_cluster: true
 k3s_registration_address: "{{ kubevip_address }}"
 k3s_github_url: https://github.com/k3s-io/k3s
@@ -58,17 +58,33 @@ k3s_install_hard_links: false
 k3s_server_config_yaml_d_files: []
 k3s_agent_config_yaml_d_files: []
 k3s_server_manifests_urls:
-  # Kube-vip
+  # Kube-vip RBAC
   - url: https://raw.githubusercontent.com/kube-vip/kube-vip/main/docs/manifests/rbac.yaml
-    filename: custom-kube-vip-rbac.yaml
-k3s_server_pod_manifests_templates:
-  - custom-kube-vip-daemonset.yaml.j2
+    filename: kube-vip-rbac.yaml
+k3s_server_manifests_templates:
+  - custom-cilium-helmchart.yaml.j2
+  - custom-cilium-l2.yaml.j2
 k3s_server_pod_manifests_urls: []
+k3s_server_pod_manifests_templates:
+  - kube-vip-static-pod.yaml.j2
 k3s_use_experimental: false
-k3s_use_unsupported_config: true
+k3s_use_unsupported_config: false
 k3s_etcd_datastore: true
 # k3s_become: true
 k3s_debug: false
 # k3s_registries: { mirrors: {}, configs:{} }
-
 k3s_start_on_boot: true
+
+# geerlingguy.helm
+helm_version: 'v3.13.1'
+helm_platform: linux
+helm_arch: amd64
+
+# APT packages
+apt_packages:
+  - name: nfs-common
+    state: present
+  - name: apt-transport-https
+    state: present
+  - name: curl
+    state: present
