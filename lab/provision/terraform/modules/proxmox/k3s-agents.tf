@@ -75,7 +75,7 @@ resource "proxmox_virtual_environment_vm" "k3s-agents" {
     reboot = false
     timeout_reboot = 1800
     scsi_hardware = "virtio-scsi-single"
-    started = false
+    started = true
     migrate = false
     timeout_migrate = 1800
 
@@ -103,6 +103,20 @@ resource "proxmox_virtual_environment_vm" "k3s-agents" {
     # provisioner "local-exec" {
     #     command = "cd ~/buildworkspace/home-ops/lab/provision/ansible/kubernetes/ && ansible-playbook playbooks/check-status.yml"
     # }
+
+    provisioner "remote-exec" {
+        connection {
+            type     = "ssh"
+            user     = data.sops_file.proxmox_secrets.data["ssh.username"]
+            host     = "${each.key}.${data.sops_file.proxmox_secrets.data["public_domain"]}"
+            port     = 22
+            password = data.sops_file.proxmox_secrets.data["ssh.password"]
+        }
+        # Waits for cloud-init to finish initializing and prevent output
+        inline = [
+            "cloud-init status --wait > /dev/null 2>&1"
+        ]
+    }
 
     # Prevents recreate
     lifecycle {
