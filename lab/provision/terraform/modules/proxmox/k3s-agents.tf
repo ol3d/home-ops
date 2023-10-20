@@ -1,5 +1,5 @@
-resource "proxmox_virtual_environment_vm" "k3s-agents" {
-    for_each    = var.k3s-agent
+resource "proxmox_virtual_environment_vm" "k3s-agent" {
+    for_each    = var.k3s-agents
 
     name        = each.key
     tags        = ["k3s", "agent"]

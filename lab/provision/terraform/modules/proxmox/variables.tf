@@ -1,5 +1,14 @@
-variable "k3s-master" {
-    type = map(map(string))
+variable "k3s-masters" {
+    type = map(object({
+        node_name    = string
+        vm_id        = number
+        sockets      = number
+        cores        = number
+        memory       = number
+        macaddr      = string
+        clone_vmid   = number
+        datastore_id = string
+    }))
     default = {
         k3s-master-01 = {
             node_name   = "pve-01"
@@ -34,8 +43,19 @@ variable "k3s-master" {
     }
 }
 
-variable "k3s-agent" {
-    type = map(map(string))
+variable "k3s-agents" {
+    type = map(object({
+        node_name      = string
+        vm_id          = number
+        sockets        = number
+        cores          = number
+        memory         = number
+        macaddr        = string
+        clone_vmid     = number
+        datastore_id   = string
+        hostpci_device = string
+        hostpci_id     = string
+    }))
     default = {
         # k3s-agent-01 = {
         #     node_name   = "pve-01"
