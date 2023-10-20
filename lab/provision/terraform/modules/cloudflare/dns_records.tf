@@ -1,19 +1,53 @@
-# Obtain current home IP address
-data "http" "ipv4" {
-    url = "http://ipv4.icanhazip.com"
+# # # Obtain current home IP address
+# # data "http" "ipv4" {
+# #     url = "http://ipv4.icanhazip.com"
+# # }
+
+# # #
+# # # Base records
+# # #
+
+# # # Record which will be updated by DDNS
+# # resource "cloudflare_record" "apex_ipv4" {
+# #     name    = data.sops_file.cloudflare_secrets.data["public_domain"]
+# #     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+# #     value   = chomp(data.http.ipv4.response_body)
+# #     proxied = true
+# #     type    = "A"
+# #     ttl     = 1
+# # }
+
+resource "cloudflare_record" "dns_record" {
+    for_each = var.dns_records
+
+    # Required values
+    name    = each.value.name
+    type    = each.value.type
+    zone_id = data.sops_file.cloudflare_secrets.data["zone_id"]
+
+    # Optional values
+    value   = each.value.value
+    proxied = each.value.proxied
+    ttl     = each.value.ttl
+    comment = each.value.comment
 }
 
-#
-# Base records
-#
-
-# Record which will be updated by DDNS
-resource "cloudflare_record" "apex_ipv4" {
-    name    = data.sops_file.cloudflare_secrets.data["public_domain"]
+resource "cloudflare_record" "cname_email-mailgun" {
+    name    = "email.mailgun"
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = chomp(data.http.ipv4.response_body)
+    value   = "mailgun.org"
+    proxied = false
+    type    = "CNAME"
+    ttl     = 1
+    comment = "Required by Mailgun to track opens, clicks, and unsubscribes"
+}
+
+resource "cloudflare_record" "cname_mailgun" {
+    name    = "mailgun"
+    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+    value   = "${data.sops_file.cloudflare_secrets.data["cloudflare_domain"]}"
     proxied = true
-    type    = "A"
+    type    = "CNAME"
     ttl     = 1
 }
 
@@ -26,94 +60,44 @@ resource "cloudflare_record" "cname_www" {
     ttl     = 1
 }
 
-resource "cloudflare_record" "cname_wireguard" {
-    name    = "wireguard"
+resource "cloudflare_record" "mx_mxa" {
+    name    = "mailgun"
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = "${data.sops_file.cloudflare_secrets.data["cloudflare_domain"]}"
-    proxied = false
-    type    = "CNAME"
-    ttl     = 1
-}
-
-resource "cloudflare_record" "cname_jellyfin" {
-    name    = "jellyfin"
-    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = "${data.sops_file.cloudflare_secrets.data["cloudflare_domain"]}"
-    proxied = true
-    type    = "CNAME"
-    ttl     = 1
-}
-
-resource "cloudflare_record" "cname_bitwarden" {
-    name    = "bitwarden"
-    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = "${data.sops_file.cloudflare_secrets.data["cloudflare_domain"]}"
-    proxied = true
-    type    = "CNAME"
-    ttl     = 1
-}
-
-resource "cloudflare_record" "cname_monitor" {
-    name    = "monitor"
-    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = "${data.sops_file.cloudflare_secrets.data["cloudflare_domain"]}"
-    proxied = true
-    type    = "CNAME"
-    ttl     = 1
-}
-
-
-resource "cloudflare_record" "cname_domain-connect" {
-    name    = "_domainconnect"
-    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = "connect.domains.google.com"
-    proxied = true
-    type    = "CNAME"
-    ttl     = 1
-}
-
-resource "cloudflare_record" "mx_service" {
-    name    = "service"
-    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = "feedback-smtp.us-east-2.amazonses.com"
+    value   = data.sops_file.cloudflare_secrets.data["dns_records.mx_mxa"]
     proxied = false
     type    = "MX"
     ttl     = 1
     priority = 10
+    comment = "Recommended by Mailgun for all domains"
 }
 
-resource "cloudflare_record" "txt_public-domain" {
-    name    = data.sops_file.cloudflare_secrets.data["txt_public-domain.name"]
+resource "cloudflare_record" "mx_mxb" {
+    name    = "mailgun"
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = data.sops_file.cloudflare_secrets.data["txt_public-domain.value"]
+    value   = data.sops_file.cloudflare_secrets.data["dns_records.mx_mxb"]
     proxied = false
-    type    = "TXT"
+    type    = "MX"
     ttl     = 1
-}
-
-resource "cloudflare_record" "txt_dmarc" {
-    name    = data.sops_file.cloudflare_secrets.data["txt_dmarc.name"]
-    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = data.sops_file.cloudflare_secrets.data["txt_dmarc.value"]
-    proxied = false
-    type    = "TXT"
-    ttl     = 1
+    priority = 10
+    comment = "Recommended by Mailgun for all domains"
 }
 
 resource "cloudflare_record" "txt_domainkey" {
-    name    = data.sops_file.cloudflare_secrets.data["txt_domainkey.name"]
+    name    = "krs._domainkey.mailgun"
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = data.sops_file.cloudflare_secrets.data["txt_domainkey.value"]
+    value   = data.sops_file.cloudflare_secrets.data["dns_records.txt_mg-key"]
     proxied = false
     type    = "TXT"
     ttl     = 1
+    comment = "Required by Mailgun to send and receive emails"
 }
 
-resource "cloudflare_record" "txt_service" {
-    name    = data.sops_file.cloudflare_secrets.data["txt_service.name"]
+resource "cloudflare_record" "txt_mailgun" {
+    name    = "mailgun"
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = data.sops_file.cloudflare_secrets.data["txt_service.value"]
+    value   = data.sops_file.cloudflare_secrets.data["dns_records.txt_mg"]
     proxied = false
     type    = "TXT"
     ttl     = 1
+    comment = "Required by Mailgun to send and receive emails"
 }
