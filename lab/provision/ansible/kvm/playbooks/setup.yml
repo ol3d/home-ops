@@ -1,6 +1,6 @@
 ---
 - hosts:
-    - kvm
+    - pikvm
   become: true
   gather_facts: true
   any_errors_fatal: true
@@ -13,5 +13,35 @@
 
   tasks:
     - block:
-        - name: Ping host
-          ansible.builtin.ping:
+        - name: Enable kvmd OLED screen and fan
+          ansible.builtin.systemd:
+            daemon_reexec: false
+            daemon_reload: false
+            enabled: true
+            force: true
+            masked: false
+            name: "{{ item.name }}"
+            no_block: false
+            scope: "{{ item.scope }}"
+            state: "{{ item.state }}"
+          with_items: "{{ systemd_processes }}"
+
+        # - name: Unlock files for write
+        #   ansible.builtin.command:
+        #     cmd: "mount -o remount,rw /"
+
+        # - name: Modify ssh default user and access accounts
+        #   ansible.builtin.user:
+        #     name: "{{ item.name }}"
+        #     password: "{{ item.updated_password }}"
+        #   with_items: "{{ ssh_users }}"
+
+        # - name: Modify web gui default user and access accounts
+        #   ansible.builtin.user:
+        #     name: "{{ item.name }}"
+        #     password: "{{ item.updated_password }}"
+        #   with_items: "{{ web_users }}"
+
+        # - name: Lock files for read only
+        #   ansible.builtin.command:
+        #     cmd: "mount -o remount,ro /"

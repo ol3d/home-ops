@@ -1,0 +1,13 @@
+site_name: home-ops
+
+repo_url: https://github.com/ol3d/home-ops
+
+theme:
+  name: material
+  palette:
+    primary: black
+  features:
+    - navigation.indexes
+    - navigation.sections
+    - search.highlight
+    - search.share

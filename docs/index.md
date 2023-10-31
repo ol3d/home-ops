@@ -1,6 +1,6 @@
 # Home-Ops
 
-## Introduction
+## Home
 
 ## Getting Started
 
@@ -8,4 +8,6 @@
 
 ## Reference
 
-## Troubleshooting
+## [Setup](setup/)
+
+### [Proxmox](setup/proxmox/proxmox-cluster-setup.md)

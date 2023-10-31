@@ -1,4 +1,4 @@
-# Testing and Verifying New Hard Drives for Your NAS
+# Testing and Verifying New Hard Drives
 
 ## Introduction
 

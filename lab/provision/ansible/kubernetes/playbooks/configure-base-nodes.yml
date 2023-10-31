@@ -1,6 +1,7 @@
 ---
 - hosts:
-    - k3s-cluster
+    - k3s-master
+    - k3s-agent
   gather_facts: true
   any_errors_fatal: true
 
@@ -13,7 +14,7 @@
     - role: geerlingguy.ntp
     - role: hifis.unattended_upgrades
     # - role: Oefenweb.fail2ban
-    - role: xanmanning.k3s
+    # - role: xanmanning.k3s
     - role: geerlingguy.helm
 
   tasks:
@@ -29,44 +30,98 @@
             force_apt_get: true
 
     - block:
+        # - name: Network Configuration | Set hostname
+        #   ansible.builtin.hostname:
+        #     name: "{{ inventory_hostname }}"
+        - name: Network Configuration | Update hosts
+          ansible.builtin.copy:
+            dest: /etc/hosts
+            content: |
+              127.0.0.1 localhost
+              127.0.1.1 {{ inventory_hostname }}
+
+              # The following lines are desirable for IPv6 capable hosts
+              ::1     localhost ip6-localhost ip6-loopback
+              ff02::1 ip6-allnodes
+              ff02::2 ip6-allrouters
+            mode: preserve
         - name: Install apt packages
           ansible.builtin.apt:
             name: "{{ item.name }}"
             state: "{{ item.state }}"
           with_items: "{{ apt_packages }}"
+        - name: Install pip packages
+          ansible.builtin.pip:
+            name: "{{ item.name }}"
+            state: "{{ item.state }}"
+          with_items: "{{ pip_packages }}"
+        # https://github.com/cilium/cilium/issues/18706
+        - name: Network Configuration | Cilium (1)
+          ansible.builtin.lineinfile:
+            dest: /etc/systemd/networkd.conf
+            regexp: ManageForeignRoutingPolicyRules
+            line: ManageForeignRoutingPolicyRules=no
+        - name: Network Configuration | Cilium (2)
+          ansible.builtin.lineinfile:
+            dest: /etc/systemd/networkd.conf
+            regexp: ManageForeignRoutes
+            line: ManageForeignRoutes=no
 
-        # https://docs.crowdsec.net/docs/v1.2/getting_started/install_crowdsec/
-        # https://packagecloud.io/crowdsec/crowdsec/install#manual-deb
-        # - name: Install dependencies
-        #   apt:
-        #     name:
-        #       - apt-transport-https
-        #       - gnupg
+        - name: System Configuration | Disable apparmor
+          ansible.builtin.systemd:
+            name: apparmor
+            state: stopped
+            masked: true
+        - name: System Configuration | Disable swap
+          ansible.posix.mount:
+            name: "{{ item }}"
+            fstype: swap
+            state: absent
+          loop: ["none", "swap"]
 
-        # - name: Add an apt signing key
-        #   apt_key:
-        #     url: https://packagecloud.io/crowdsec/crowdsec/gpgkey
+        - name: Check if cluster is installed
+          check_mode: false
+          ansible.builtin.stat:
+            path: /etc/rancher/k3s/config.yaml
+          register: k3s_installed
 
-        # - name: Add apt repo
-        #   apt_repository:
-        #     repo: deb https://packagecloud.io/crowdsec/crowdsec/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release|lower }} main
-        #     update_cache: true
+        - name: Ignore manifests templates and urls if the cluster is already installed
+          when: k3s_installed.stat.exists
+          ansible.builtin.set_fact:
+            k3s_server_manifests_templates: []
+            k3s_server_manifests_urls: []
 
-        # - name: Install package
-        #   apt:
-        #     name:
-        #       - crowdsec
+        - name: Install Kubernetes
+          ansible.builtin.include_role:
+            name: xanmanning.k3s
+            public: true
+          # vars:
+          #   k3s_state: installed
 
-    #     - name: Modify node hosts file to use correct hostname
-    #       ansible.builtin.template:
-    #         src: "hosts.yaml.j2"
-    #         dest: /etc/hosts
-    #         mode: "0644"
+        - name: Wait for custom manifests to rollout
+          when:
+            - k3s_primary_control_node
+            - (k3s_server_manifests_templates | length > 0
+                or k3s_server_manifests_urls | length > 0)
+          kubernetes.core.k8s_info:
+            kubeconfig: /etc/rancher/k3s/k3s.yaml
+            kind: "{{ item.kind }}"
+            name: "{{ item.name }}"
+            namespace: "{{ item.namespace | default('') }}"
+            wait: true
+            wait_sleep: 10
+            wait_timeout: 360
+          loop:
+            - { name: cilium, kind: HelmChart, namespace: kube-system }
+            # - { name: coredns, kind: HelmChart, namespace: kube-system }
+            - { name: policy, kind: CiliumL2AnnouncementPolicy }
+            - { name: pool, kind: CiliumLoadBalancerIPPool }
+            # - { name: podmonitors.monitoring.coreos.com, kind: CustomResourceDefinition }
+            # - { name: prometheusrules.monitoring.coreos.com, kind: CustomResourceDefinition }
+            # - { name: scrapeconfigs.monitoring.coreos.com, kind: CustomResourceDefinition }
+            # - { name: servicemonitors.monitoring.coreos.com, kind: CustomResourceDefinition }
 
-    #     - name: Reboot all hosts after renaming
-    #       ansible.builtin.reboot:
-
-    # - block:
-    #     - name: Run proxmox role
-    #       ansible.builtin.include_role:
-    #         name: xanmanning.k3s
+    - block:
+        - name: Cilium
+          when: k3s_primary_control_node
+          ansible.builtin.include_tasks: tasks/cilium.yml
