@@ -25,15 +25,6 @@ gitconfig:
   user:
     name: "{{ personal.name }}"
     email: "{{ personal.email }}"
-ssh_keys:
-  - name: ansible
-    type:
-    comment:
-    user: ansible
-  - name: default
-    type:
-    comment:
-    user: ol3d
 
 # buluma.git
 git_username: "{{ ansible_user }}"

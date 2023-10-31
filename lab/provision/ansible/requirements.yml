@@ -10,11 +10,11 @@ collections:
     version: 1.6.6
   - name: cisco.ios
     version: 5.0.0
+  - name: kubernetes.core
+    version: 2.4.0
 roles:
   - name: andrewrothstein.sops
     version: v2.0.0
-  - name: atosatto.docker-swarm
-    version: v2.3.0
   - name: buluma.hashicorp
     version: 1.0.9
   - name: buluma.git
@@ -39,3 +39,5 @@ roles:
     version: v4.0.2
   - name: geerlingguy.helm
     version: 1.0.1
+  - name: geerlingguy.docker
+    version: 7.0.1

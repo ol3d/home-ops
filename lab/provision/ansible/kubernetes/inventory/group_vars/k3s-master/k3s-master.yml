@@ -5,9 +5,10 @@ k3s_control_node: true
 # k3s settings for all server nodes
 k3s_server:
   node-ip: "{{ ansible_host }}"
+  # datastore-endpoint:
   tls-san:
     # kube-vip
-    - "{{ kubevip_address }}"
+    # - "{{ kubevip_address }}"
     # haproxy
     - "{{ k3s_registration_address }}"
   https-listen-port: 6443
@@ -19,7 +20,7 @@ k3s_server:
     - traefik
     - servicelb
     - local-storage
-    - coredns
+    # - coredns
     - metrics-server
   disable-network-policy: true
   disable-cloud-controller: true

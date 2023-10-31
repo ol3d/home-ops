@@ -15,12 +15,8 @@
     - block:
         - name: Create SSH keys
           community.crypto.openssh_keypair:
-            path: "{{ item. }}"
-            type: "{{ item. }}"
-            passphrase: "{{ item. }}"
-            force: "{{ item. }}"
-          with_items: "{{ ssh_keys }}"
-        - name: Copy SSH keys to hosts
-          ansible.posix.authorized_key:
-            exclusive: false
-            key:
+            path: "/home/deloa6133/.ssh/ca_key"
+            type: "ed25519"
+            force: false
+            comment: "SSH Certificate Authority"
+            state: present
