@@ -19,6 +19,20 @@ provider "registry.terraform.io/bpg/proxmox" {
     "h1:oZu9MT5IhPNb2czKskdm6tjBWwI+jDEb9XZzacetLwc=",
     "h1:rQxmt1pFPIllhD6jhrpMHDMedGVyUfIS4nvP6RUiv/4=",
     "h1:t+pF4UmKb+eK3zDcNvgN055LrhdXkwRoeR5HmbbSnnw=",
+    "zh:025e8f1c1249ebfa6d40887270f9003fde3cac96bc30650bed3dfb47856c2429",
+    "zh:103333af0c6a30b860837a31fdc16201149caa3e1c45ec8bb76cdca517ac92e0",
+    "zh:120aa677b36d8cf826928fb5e6bb17934a1c2dd53775f85cb8af4b32cbb8430a",
+    "zh:4c7020c8ab61d33cb51bb2c5431a1bf73023c6ea656ae79b7107cf56d17518c0",
+    "zh:4e73cfe800caf70d271956c020eacbe37a35be23e6356ed26ee5739f9ce0694a",
+    "zh:639ef29077497e7353230fa1f9129d2216ccda69ea49635ccdebfc868716ad67",
+    "zh:6a057539f34368b3a7aa3418c2c6774dbdfd2c1558e4d7e7ed89b91d17d0e272",
+    "zh:772015f9d0411e81268c8d32a51fc1c828b07c54e7e05001a8e56297d5539c9b",
+    "zh:7980e684efa7e89e7d3e570a1ebb3599d9607c89e637593a031a7cafde150efe",
+    "zh:7f88a3b2ddb30d6efa1fa7e9ab5228e0029105026b3f7ce379b88a810d3c2c4f",
+    "zh:8a29e65d4763056ec5173479a68ebb2579d316d85b7e523325a8c9a16358fdbe",
+    "zh:8bd07e90a57509dd880b9ce589a50fbde21c1d69aef9f5cc13ed78095ebf0a12",
+    "zh:af30babf27041ffd093fc5b1d61a67d3e91cde64d9d911ede509f1b7f2804653",
+    "zh:bbc87afd18b76329fd2963a105d695062efc90321c6f2cdef88b627b5ce5967e",
   ]
 }
 
