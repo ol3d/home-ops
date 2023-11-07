@@ -9,6 +9,7 @@ proxmox:
     api_host: https://10.23.20.11:8006/
     api_password: ChuvoBit@123xyz
     api_user: root
+github_username: ol3d
 sops:
     kms: []
     gcp_kms: []
@@ -24,8 +25,8 @@ sops:
             VFZ0dUZjOStob0U2VWVKSEtybXJZWDAKr0l/qBd+uiXM5vwcg/sGDus9E28y8zjk
             o06xZNyroin61NkIcOuFCCC8QEMRt75MCKnrDCA+pCA3R29OwQxlqw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-10-10T16:21:05Z"
-    mac: ENC[AES256_GCM,data:+lTLOcYVeXuRBY8gBUM/l8lR2BX2wa5KhfssPF354U48op0B87Yv4XWZLAgI5NSHkfmJ9+2lVi94kIpqqv85Hc1YDO/KHOl7i2D0i4CtEbNpW3BYs+PpuR3DTws9eibq0ZzjhkPlnb3s3ASG3p/DYmtKMoNZW6gK8ziMA9+0Tj0=,iv:aqMlZXuiJ5bWJ+biyfbHOF5bgCiS3SbgWL6qXNP4fbk=,tag:ej5Qq/von2sT/NBzzF8kAg==,type:str]
+    lastmodified: "2023-10-27T15:31:33Z"
+    mac: ENC[AES256_GCM,data:hzJWXYqjo2Az8v6X7Ni7YVgUWA68y85I0eKgXuj38cB83Y8gz6YCduWINcT0FMskIv/xvyVHIX9F8r6v/oq22G510mZru6SXzWHYYy42AbfwaFvbWqTXMeAsf3LEyJ6IsnFv652rK37cqgmylRi59u7JOkqoFClJvZVl08Hne3U=,iv:MLYRGSCdp6OmVV+VTPOuLaPaPFNkQs4Iuh5iNP1Lkis=,tag:d8uFx2h0sBxWksm/vAzP+Q==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.7.3

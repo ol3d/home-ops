@@ -54,7 +54,7 @@ k3s_registration_address: "{{ kubevip_address }}"
 k3s_github_url: https://github.com/k3s-io/k3s
 k3s_api_url: https://update.k3s.io
 k3s_install_dir: /usr/local/bin
-k3s_install_hard_links: false
+k3s_install_hard_links: true
 k3s_server_config_yaml_d_files: []
 k3s_agent_config_yaml_d_files: []
 k3s_server_manifests_urls:
@@ -88,3 +88,24 @@ apt_packages:
     state: present
   - name: curl
     state: present
+  - name: ipvsadm
+    state: present
+  - name: iptables
+    state: present
+  - name: python3
+    state: present
+  - name: python3-apt
+    state: present
+  - name: python3-pip
+    state: present
+pip_packages:
+  - name: openshift
+    state: present
+  - name: kubernetes
+    state: present
+  - name: pyyaml
+    state: present
+  # - name: arptables
+  #   state: present
+  # - name: ca-certificates
+  #   state: present

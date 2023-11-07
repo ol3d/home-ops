@@ -1,0 +1,50 @@
+---
+# geerlingguy.ntp
+ntp_enabled: true
+ntp_timezone: America/Chicago
+ntp_package: ntp
+ntp_manage_config: true
+ntp_config_file: /etc/ntp.conf
+ntp_servers:
+  - "0{{ '.' + ntp_area if ntp_area else '' }}.pool.ntp.org iburst"
+  - "1{{ '.' + ntp_area if ntp_area else '' }}.pool.ntp.org iburst"
+  - "2{{ '.' + ntp_area if ntp_area else '' }}.pool.ntp.org iburst"
+  - "3{{ '.' + ntp_area if ntp_area else '' }}.pool.ntp.org iburst"
+ntp_tinker_panic: true
+ntp_cron_handler_enabled: false
+
+# hifis.unattended_upgrades
+unattended_cache_valid_time: 3600
+unattended_origins_patterns: [
+  'origin=Ubuntu,archive=${distro_codename}-security,label=Ubuntu'
+]
+unattended_package_blacklist: []
+unattended_autofix_interrupted_dpkg: true
+unattended_minimal_steps: true
+unattended_install_on_shutdown: false
+# unattended_mail: "{{ unattended_upgrades_email_to }}"
+# unattended_mail_sender: "unattended-upgrades"
+unattended_mail_only_on_error: false
+unattended_mail_report: false
+unattended_remove_unused_dependencies: false
+unattended_remove_new_unused_dependencies: true
+unattended_remove_unused_kernel_packages: false
+unattended_automatic_reboot: false
+unattended_automatic_reboot_time: false
+unattended_update_days: None
+unattended_ignore_apps_require_restart: false
+unattended_syslog_enable: false
+unattended_dl_limit: None
+unattended_only_on_ac_power: false
+unattended_systemd_timer_override: false
+
+# geerlingguy.docker
+docker_edition: 'ce'
+docker_packages_state: present
+docker_service_manage: true
+docker_service_state: started
+docker_service_enabled: true
+docker_restart_handler_state: restarted
+docker_install_compose_plugin: false
+docker_compose_package: docker-compose-plugin
+docker_compose_package_state: present

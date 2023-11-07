@@ -1,35 +1,42 @@
 # cisco.ios
 vlans:
+  # Trust VLAN
   - name: VLAN_10
     vlan_id: 10
     state: active
     shutdown: disabled
     remote_span: false
+  # Management VLAN
   - name: VLAN_20
     vlan_id: 20
     state: active
     shutdown: disabled
     remote_span: false
+  # Service VLAN
   - name: VLAN_30
     vlan_id: 30
     state: active
     shutdown: disabled
     remote_span: false
+  # Work VLAN
   - name: VLAN_40
     vlan_id: 40
     state: active
     shutdown: disabled
     remote_span: false
+  # IoT VLAN
   - name: VLAN_50
     vlan_id: 50
     state: active
     shutdown: disabled
     remote_span: false
+  # Ceph VLAN
   - name: VLAN_60
     vlan_id: 60
     state: active
     shutdown: disabled
     remote_span: false
+  # Corosync VLAN
   - name: VLAN_70
     vlan_id: 70
     state: active
