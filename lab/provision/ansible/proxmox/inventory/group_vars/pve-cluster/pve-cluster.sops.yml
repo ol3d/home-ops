@@ -1,0 +1,29 @@
+kind: Secret
+username: ENC[AES256_GCM,data:+MB3iw==,iv:b5Zyn4vUNobBVLuzJmMxX8Blx4gACPi6Ja7OCM8dJcE=,tag:Qyjxfh+PQh1WGgKVF80Jtg==,type:str]
+management_gateway: ENC[AES256_GCM,data:DsONSbFHs/MnsQ==,iv:guPCWBKgbc9+7vF6NSQsMPR8blIJPYoiFTWi6WdjwKg=,tag:oVX1UeCXMvOdP2yG04cX0A==,type:str]
+ceph_network: ENC[AES256_GCM,data:Qls+E8C7p0wFA0NEBg==,iv:X48bGmc6D5dnwy3yf/mPACr+zfXj9Ci/pL6gvVwbz1I=,tag:qWRl4i36v0Gxr/4OAQPXgA==,type:str]
+users:
+    packer_password: ENC[AES256_GCM,data:TPPLXvBa3JDQeYpGpBRl,iv:9Dpn33/JjEjg031z+EwSeagHPjsTqLgGw2yQu72JbPw=,tag:EWNAueffFFTScZR4SCNKhw==,type:str]
+ansible_become: ENC[AES256_GCM,data:2+Ie9A==,iv:BrpnWYlATg6WGZOqiOlhycvB++aIpufYozOjWUrWg4M=,tag:0/z039BGr8pou2Qn/lPtPw==,type:bool]
+ansible_become_method: ENC[AES256_GCM,data:nQX/EA==,iv:4PKF5HyxjHOQ7T/sG9zAWrf2kD6vrh2M3CRzRWnrjTA=,tag:0kUDaLAvyQM4OI/uz2H9cg==,type:str]
+truenas_ip: ENC[AES256_GCM,data:LWxTl43L1jle2sY=,iv:DieBwqreTP5lQ6WFDbwlcL/DPfuWpq0EGqsOJWm/rjs=,tag:edvMec4p+egg2qXmE0bVIA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1k6wldgwdcte6aq4cljv3rn5zdxwft4h6pksky0uwhf2z52d7cvtszhs0cv
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBqaFVIN2Q4c2FmUHpXc2U1
+            WmhHaHFNVWI4RnJwTHVRejJOYldtZTBhaG5BCnE5dEl4UGJXQnZ6Q21VQzlYYmVj
+            S3lHejJVWS8rN0U3RWkxUlJvaEJrUHcKLS0tIEdiT256OXpDVmYwZzY2MWNpb2RY
+            SWNnekxqQWV1ZGowQ1FyY2pFM0J5TkUKmC7NKKlfdGT2AoQtMA25S7O9PD/YQNrK
+            vlGGjbhNkO3oGBYgYMkdzjCYP/Ie5Tpx35sUxtYQzjBQv+Q7zJoykQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-12-04T18:24:12Z"
+    mac: ENC[AES256_GCM,data:DiXubzT5W1oQkblB+9l+e75PxVFYsNROAxrB7jKcyTPT+otZBhpBdUZ729SEOs5SgTdj5OiZ4eyDLVvHDTfgF5GK9iUPC1y26POZKUYJu76qxAZhKCe4P2k76+qJ2Vbk14Pj1xN8jVWv4BpZlyEt0lF8497aoTz1gGIScRx3oCM=,iv:8ztrFkTitqph+khPsRR/hN7xXfp9cjH58+E9dVyU9WY=,tag:+IvW9DHTwWpnYjrOT76wKA==,type:str]
+    pgp: []
+    unencrypted_regex: ^(kind)$
+    version: 3.7.3
