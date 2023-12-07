@@ -26,7 +26,7 @@ roles:
   - name: proxmox
     src: git+https://github.com/ol3d/ansible-role-proxmox.git
     type: git
-    version: feature/home-ops
+    version: feature/vfio-support
   - name: xanmanning.k3s
     version: v3.4.2
   # - name: hifis.unattended_upgrades
