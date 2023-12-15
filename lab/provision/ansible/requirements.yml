@@ -28,7 +28,7 @@ roles:
     type: git
     version: feature/vfio-support
   - name: xanmanning.k3s
-    version: v3.4.2
+    version: v3.4.3
   # - name: hifis.unattended_upgrades
   #   version: v3.2.0
   - name: hifis.unattended_upgrades
