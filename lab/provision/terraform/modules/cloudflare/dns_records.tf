@@ -1,21 +1,21 @@
-# # # Obtain current home IP address
-# # data "http" "ipv4" {
-# #     url = "http://ipv4.icanhazip.com"
-# # }
+# Obtain current home IP address
+data "http" "ipv4" {
+    url = "http://ipv4.icanhazip.com"
+}
 
 # # #
 # # # Base records
 # # #
 
-# # # Record which will be updated by DDNS
-# # resource "cloudflare_record" "apex_ipv4" {
-# #     name    = data.sops_file.cloudflare_secrets.data["public_domain"]
-# #     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-# #     value   = chomp(data.http.ipv4.response_body)
-# #     proxied = true
-# #     type    = "A"
-# #     ttl     = 1
-# # }
+# Record which will be updated by DDNS
+resource "cloudflare_record" "apex_ipv4" {
+    name    = data.sops_file.cloudflare_secrets.data["public_domain"]
+    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+    value   = chomp(data.http.ipv4.response_body)
+    proxied = true
+    type    = "A"
+    ttl     = 1
+}
 
 resource "cloudflare_record" "dns_record" {
     for_each = var.dns_records
