@@ -3,10 +3,10 @@ public_domain: ol3d.dev
 ansible_become: true
 ansible_become_method: sudo
 registration_address: k3s-cluster.ol3d.dev
-kubevip_address: 10.23.30.10
+kubevip_address: 10.10.30.10
 unattended_upgrades_email_to: deloa6133@gmail.com
 proxmox:
-    api_host: https://10.23.20.11:8006/
+    api_host: https://10.10.20.11:8006/
     api_password: ChuvoBit@123xyz
     api_user: root
 github_username: ol3d
@@ -25,8 +25,8 @@ sops:
             VFZ0dUZjOStob0U2VWVKSEtybXJZWDAKr0l/qBd+uiXM5vwcg/sGDus9E28y8zjk
             o06xZNyroin61NkIcOuFCCC8QEMRt75MCKnrDCA+pCA3R29OwQxlqw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-10-27T15:31:33Z"
-    mac: ENC[AES256_GCM,data:hzJWXYqjo2Az8v6X7Ni7YVgUWA68y85I0eKgXuj38cB83Y8gz6YCduWINcT0FMskIv/xvyVHIX9F8r6v/oq22G510mZru6SXzWHYYy42AbfwaFvbWqTXMeAsf3LEyJ6IsnFv652rK37cqgmylRi59u7JOkqoFClJvZVl08Hne3U=,iv:MLYRGSCdp6OmVV+VTPOuLaPaPFNkQs4Iuh5iNP1Lkis=,tag:d8uFx2h0sBxWksm/vAzP+Q==,type:str]
+    lastmodified: "2024-01-17T01:32:31Z"
+    mac: ENC[AES256_GCM,data:YYSr+g3dNIKt0wLv0vfshAJ2B6m4V8jR3LfrPzUC+dKP/BeTzzs1a6dva9P+KrElAqf/IHXzG/9fZyfrrFrMFGNFk1Qmhvh9P7NkuM16Ypi8djptFO+ZFyGLFxfUpihxIP8zttwOMovUGtkFPqydjalxV46PrLoB5mAfd8IpTTE=,iv:MG/5k+x+fHtdbS+7cRvUJ9AUdXwhYFxC4XC6h0sf9Kw=,tag:LWrt3aTUzjMW5wmncaSCZg==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.7.3
