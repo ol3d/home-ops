@@ -25,15 +25,15 @@ variable "nodes" {
     default = {
         "pve-01" = {
             vm_id  = 1001
-            pm_url = "https://10.23.20.11:8006/api2/json"
+            pm_url = "https://10.10.20.11:8006/api2/json"
         }
         "pve-02" = {
             vm_id = 1002
-            pm_url = "https://10.23.20.12:8006/api2/json"
+            pm_url = "https://10.10.20.12:8006/api2/json"
         }
         "pve-03" = {
             vm_id = 1003
-            pm_url = "https://10.23.20.13:8006/api2/json"
+            pm_url = "https://10.10.20.13:8006/api2/json"
         }
     }
 }
