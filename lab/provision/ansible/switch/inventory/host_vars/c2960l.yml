@@ -1,0 +1,131 @@
+# cisco.ios
+access_interfaces:
+  # desktop
+  - name: GigabitEthernet0/1
+    mode: access
+    access:
+      vlan: 10
+  # truenas
+  - name: GigabitEthernet0/25
+    mode: access
+    access:
+      vlan: 20
+  # truenas
+  - name: GigabitEthernet0/27
+    mode: access
+    access:
+      vlan: 20
+  # truenas-ipmi
+  - name: GigabitEthernet0/29
+    mode: access
+    access:
+      vlan: 20
+  # proxmox coro-01
+  - name: GigabitEthernet0/6
+    mode: access
+    access:
+      vlan: 70
+  # proxmox coro-02
+  - name: GigabitEthernet0/12
+    mode: access
+    access:
+      vlan: 70
+  # proxmox coro-03
+  - name: GigabitEthernet0/18
+    mode: access
+    access:
+      vlan: 70
+  # proxmox pve-01
+  - name: GigabitEthernet0/20
+    mode: access
+    access:
+      vlan: 20
+  # proxmox pve-02
+  - name: GigabitEthernet0/22
+    mode: access
+    access:
+      vlan: 20
+  # proxmox pve-03
+  - name: GigabitEthernet0/24
+    mode: access
+    access:
+      vlan: 20
+  # proxmox pve-s
+  - name: GigabitEthernet0/26
+    mode: access
+    access:
+      vlan: 20
+  # cyberpower pdu-01
+  - name: GigabitEthernet0/41
+    mode: access
+    access:
+      vlan: 20
+  # eaton ups-01
+  - name: GigabitEthernet0/43
+    mode: access
+    access:
+      vlan: 20
+  # kvm
+  - name: GigabitEthernet0/40
+    mode: access
+    access:
+      vlan: 20
+  # pikvm
+  - name: GigabitEthernet0/42
+    mode: access
+    access:
+      vlan: 20
+  # mgmt
+  - name: GigabitEthernet0/44
+    mode: access
+    access:
+      vlan: 20
+trunk_interfaces:
+  # OPNSense router
+  - name: Port-channel1
+    mode: trunk
+    trunk:
+      native_vlan: 1
+      allowed_vlans: 10,20,30,40,50,60,70
+  # Cisco c2960lp
+  - name: Port-channel2
+    mode: trunk
+    trunk:
+      native_vlan: 1
+      allowed_vlans: 10,20,30,40,50,60,70
+lag_interfaces:
+  # OPNSense router
+  - name: 1
+    members:
+      - member: GigabitEthernet0/46
+        mode: active
+      - member: GigabitEthernet0/48
+        mode: active
+  # Cisco c2960lp
+  - name: 2
+    members:
+      - member: GigabitEthernet0/45
+        mode: active
+      - member: GigabitEthernet0/47
+        mode: active
+  # proxmox ceph-01
+  - name: 3
+    members:
+      - member: GigabitEthernet0/2
+        mode: active
+      - member: GigabitEthernet0/4
+        mode: active
+  # proxmox ceph-02
+  - name: 4
+    members:
+      - member: GigabitEthernet0/8
+        mode: active
+      - member: GigabitEthernet0/10
+        mode: active
+  # proxmox ceph-03
+  - name: 5
+    members:
+      - member: GigabitEthernet0/14
+        mode: active
+      - member: GigabitEthernet0/16
+        mode: active
