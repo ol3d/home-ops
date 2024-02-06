@@ -1,0 +1,34 @@
+# cisco.ios
+access_interfaces:
+  # Home Assistant Raspberry Pi 4 (4GB)
+  - name: GigabitEthernet0/3
+    mode: access
+    access:
+      vlan: 20
+trunk_interfaces:
+  # Ruckus R550
+  - name: GigabitEthernet0/1
+    mode: trunk
+    trunk:
+      native_vlan: 1
+      allowed_vlans: 10,20,50
+  # UAP-AC-PRO
+  - name: GigabitEthernet0/5
+    mode: trunk
+    trunk:
+      native_vlan: 1
+      allowed_vlans: 10,20,50
+  # Cisco c2960l
+  - name: Port-channel1
+    mode: trunk
+    trunk:
+      native_vlan: 1
+      allowed_vlans: 10,20,30,40,50,60,70
+lag_interfaces:
+  # Cisco c2960l
+  - name: 1
+    members:
+      - member: GigabitEthernet0/22
+        mode: active
+      - member: GigabitEthernet0/24
+        mode: active

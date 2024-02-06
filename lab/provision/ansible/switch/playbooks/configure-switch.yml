@@ -1,6 +1,7 @@
 ---
 - hosts:
     - c2960l
+    - c2960lp
   gather_facts: false
   any_errors_fatal: true
 
@@ -19,6 +20,19 @@
         - name: print output
           debug:
             var: output.stdout_lines
+
+    - block:
+        - name: Configure Hostname
+          cisco.ios.ios_hostname:
+            config:
+              hostname: "{{ hostname }}"
+            state: merged
+
+    # - block:
+    #     - name: Configure System
+    #       cisco.ios.ios_system:
+    #         hostname: "{{ hostname }}"
+    #         domain_name: "{{ public_domain }}"
 
     - block:
         - name: Configure VLANs
@@ -42,53 +56,28 @@
             state: merged
           with_items: "{{ access_interfaces }}"
 
+        - name: Configure LAG Interfaces
+          cisco.ios.ios_lag_interfaces:
+            config:
+              - name: "{{ item.0.name }}"
+                members:
+                  - member: "{{ item.1.member }}"
+                    mode: "{{ item.1.mode }}"
+            state: merged
+          loop: "{{ lag_interfaces | subelements('members') }}"
+
         - name: Configure Trunk Interfaces
           cisco.ios.ios_l2_interfaces:
             config:
               - trunk:
                   allowed_vlans: "{{ item.trunk.allowed_vlans }}"
-                  # Default vlan is 1
-                  native_vlan: "{{ item.trunk.native_vlan }}"
+                  native_vlan: "{{ omit if item.trunk.native_vlan == 1 else item.trunk.native_vlan }}"
                 mode: "{{ item.mode }}"
                 name: "{{ item.name }}"
             state: merged
           with_items: "{{ trunk_interfaces }}"
 
-        - name: Configure LAG Interfaces
-          cisco.ios.ios_lag_interfaces:
-            config:
-              - name: "{{ item.name }}"
-                members:
-                  - member: GigabitEthernet0/45
-                    mode: auto
-                  - member: GigabitEthernet0/47
-                    mode: auto
-            state: merged
-          with_items: "{{ lag_interfaces }}"
-
     - block:
         - name: Save configuration to memory
           ios_command:
             commands: write memory
-
-# ---
-# - hosts:
-#     - c2960lp
-#   gather_facts: false
-#   any_errors_fatal: true
-
-#   pre_tasks:
-#     - name: Pausing for 2 seconds...
-#       ansible.builtin.pause:
-#         seconds: 2
-
-#   tasks:
-#     - block:
-#         - name: run show version on the routers
-#           ios_command:
-#             commands: show version | incl Version
-#           register: output
-
-#         - name: print output
-#           debug:
-#             var: output.stdout_lines
