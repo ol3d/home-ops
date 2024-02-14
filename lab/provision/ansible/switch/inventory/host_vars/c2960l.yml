@@ -5,6 +5,11 @@ access_interfaces:
     mode: access
     access:
       vlan: 10
+  # Work Laptop
+  - name: GigabitEthernet0/3
+    mode: access
+    access:
+      vlan: 10
   # truenas
   - name: GigabitEthernet0/25
     mode: access
