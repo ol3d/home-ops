@@ -4,7 +4,7 @@ terraform {
     required_providers {
         proxmox = {
             source = "bpg/proxmox"
-            version = "0.46.3"
+            version = "0.47.0"
         }
         sops = {
             source = "carlpett/sops"
