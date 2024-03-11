@@ -36,7 +36,7 @@ roles:
     type: git
     version: v3.2.0
   - name: Oefenweb.fail2ban
-    version: v4.0.8
+    version: v4.0.9
   - name: geerlingguy.helm
     version: 1.0.1
   - name: geerlingguy.docker
