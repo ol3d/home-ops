@@ -5,6 +5,11 @@ access_interfaces:
     mode: access
     access:
       vlan: 20
+  # PiKVM Raspberry Pi 4 (4GB)
+  - name: GigabitEthernet0/7
+    mode: access
+    access:
+      vlan: 20
 trunk_interfaces:
   # Ruckus R550
   - name: GigabitEthernet0/1

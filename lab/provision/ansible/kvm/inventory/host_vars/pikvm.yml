@@ -1,15 +1,6 @@
 ---
 # Systemd processes
 systemd_processes:
-  - name: kvmd-oled
-    scope: system
-    state: started
-  # - name: kvmd-oled-reboot
-  #   scope: system
-  #   state: started
-  # - name: kvmd-oled-shutdown
-  #   scope: system
-  #   state: started
   - name: kvmd-fan
     scope: system
     state: started

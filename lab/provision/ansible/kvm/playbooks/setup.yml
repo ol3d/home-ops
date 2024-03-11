@@ -13,7 +13,7 @@
 
   tasks:
     - block:
-        - name: Enable kvmd OLED screen and fan
+        - name: Enable kvmd fan
           ansible.builtin.systemd:
             daemon_reexec: false
             daemon_reload: false
