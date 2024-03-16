@@ -1,7 +1,7 @@
 ---
 - hosts:
     - pikvm
-  become: true
+  become: false
   gather_facts: true
   any_errors_fatal: true
 
@@ -13,22 +13,15 @@
 
   tasks:
     - block:
-        - name: Enable kvmd fan
-          ansible.builtin.systemd:
-            daemon_reexec: false
-            daemon_reload: false
-            enabled: true
-            force: true
-            masked: false
-            name: "{{ item.name }}"
-            no_block: false
-            scope: "{{ item.scope }}"
-            state: "{{ item.state }}"
-          with_items: "{{ systemd_processes }}"
+        - name: Unlock files for write
+          ansible.builtin.command:
+            cmd: "mount -o remount,rw /"
 
-        # - name: Unlock files for write
-        #   ansible.builtin.command:
-        #     cmd: "mount -o remount,rw /"
+        - name: Update /etc/kvmd/tc358743-edid.hex file for Intel NUC Compatibility
+          ansible.builtin.template:
+            src: "tc358743-edid.hex.yaml.j2"
+            dest: /etc/kvmd/tc358743-edid.hex
+            mode: "0644"
 
         # - name: Modify ssh default user and access accounts
         #   ansible.builtin.user:
@@ -42,6 +35,6 @@
         #     password: "{{ item.updated_password }}"
         #   with_items: "{{ web_users }}"
 
-        # - name: Lock files for read only
-        #   ansible.builtin.command:
-        #     cmd: "mount -o remount,ro /"
+        - name: Lock files for read only
+          ansible.builtin.command:
+            cmd: "mount -o remount,ro /"

@@ -3,7 +3,7 @@
 The goal of this guide is to provide step-by-step instructions on how to install [Debian](https://www.debian.org/intro/about), as well as how to prepare the system to be integrated into a Proxmox Cluster.
 
 To install Debian first download an **.iso** image from the Debian [download](https://www.debian.org/distrib/netinst) page.
-*(Version debian-11.7.0-amd64-netist.iso as of this documentation)*
+*(Version debian-12.5.0-amd64-netist.iso as of this documentation)*
 
 After downloading the ISO image, a bootable drive must be created. There are many tools available such as [Rufus](https://rufus.ie/en/), [balenaEtcher](https://www.balena.io/etcher), and [Ventoy](https://www.ventoy.net/en/index.html). Once a bootable drive has been created, the installation process can begin.
 
@@ -16,7 +16,7 @@ After downloading the ISO image, a bootable drive must be created. There are man
 ## Step 2: Start Basic System Configuration
 
 1. On the next few screens, select the language, location, and keyboard configuration.
-2. Depending on the current system, there may be more settings to configure before the next steps can begin. *([Installation Guide](https://www.debian.org/releases/bullseye/installmanual) as of this documentation)*
+2. Depending on the current system, there may be more settings to configure before the next steps can begin. *([Installation Guide](https://www.debian.org/releases/bookworm/installmanual) as of this documentation)*
 
 ## Step 3: Set up the Network Connection
 
