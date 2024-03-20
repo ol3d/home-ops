@@ -8,6 +8,6 @@
 
 ## Reference
 
-## [Setup](setup/)
+## [Setup](setup/index.md)
 
 ### [Proxmox](setup/proxmox/proxmox-cluster-setup.md)
