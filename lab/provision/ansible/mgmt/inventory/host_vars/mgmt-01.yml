@@ -14,10 +14,16 @@ apt_packages:
     state: latest
   - name: age
     state: latest
+  - name: mkdocs
+    state: latest
+  - name: markdown
+    state: latest
 pip_packages:
   - name: pre-commit
     state: present
   - name: ansible-pylibssh
+    state: present
+  - name: mkdocs-material
     state: present
 gitconfig:
   core:
