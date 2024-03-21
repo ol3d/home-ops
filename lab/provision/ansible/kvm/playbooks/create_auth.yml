@@ -1,0 +1,39 @@
+---
+- hosts:
+    - pikvm
+  become: false
+  gather_facts: true
+  any_errors_fatal: true
+
+  pre_tasks:
+    - block:
+        - name: Pausing for 2 seconds...
+          ansible.builtin.pause:
+            seconds: 2
+
+  tasks:
+    - block:
+        - name: Unlock files for write
+          ansible.builtin.command:
+            cmd: "mount -o remount,rw /"
+
+        - name: Determine if user exists
+          ansible.builtin.getent:
+            database: passwd
+            key: ol3d
+
+        # - name: Modify ssh default user and access accounts
+        #   ansible.builtin.user:
+        #     name: "{{ item.name }}"
+        #     password: "{{ item.updated_password }}"
+        #   with_items: "{{ ssh_users }}"
+
+        # - name: Modify web gui default user and access accounts
+        #   ansible.builtin.user:
+        #     name: "{{ item.name }}"
+        #     password: "{{ item.updated_password }}"
+        #   with_items: "{{ web_users }}"
+
+        - name: Lock files for read only
+          ansible.builtin.command:
+            cmd: "mount -o remount,ro /"

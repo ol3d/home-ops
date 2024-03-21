@@ -1,4 +1,4 @@
-# [Management Server Setup](#management-server-setup)
+# Management Node Setup
 
 ## [Download and Install Debian](#download-and-install-debian)
 

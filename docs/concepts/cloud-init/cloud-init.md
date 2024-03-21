@@ -1,4 +1,4 @@
-# Introduction to cloud-init: Simplifying Server Initialization in Homelabs
+# Introduction to cloud-init: Simplifying Server Initialization
 
 ## What is cloud-init?
 
