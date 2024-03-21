@@ -1,17 +1,15 @@
-# Home-Ops Setup
+# Setup
 
-## Creating a Management Server
+## Management Node Setup
 
-### - [Initial Setup](mgmt)
+### - [Management Node Setup](mgmt/mgmt-setup.md)
 
-### - [SSH Key Management](mgmt)
+## PiKVM Setup
 
-### - [Management Server Setup](mgmt/mgmt-setup.md)
+### - [Setting Up PiKVM](pikvm/pikvm-setup.md)
 
-## Creating a Proxmox Cluster
+## Proxmox Cluster Setup
 
 ### - [Creating Debian Nodes](proxmox/debian-setup.md)
 
 ### - [Installing Proxmox on top of Debian](proxmox/proxmox-cluster-setup.md)
-
-## Creating a Kubernetes Cluster

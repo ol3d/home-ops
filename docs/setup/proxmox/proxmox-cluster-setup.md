@@ -2,7 +2,7 @@
 
 The goal of this guide is to install Proxmox VE (PVE) on top of the Debian nodes created in the previous step ([Creating Debian Nodes](debian-setup.md)). Each of the nodes will be configured using [Ansible](https://www.ansible.com/).
 
-Before using Ansible, we first need to test that the management server is able to ssh into each node. If a successful connection is established, the Ansible environment can be set up.
+Before configuring and running our Ansible Playbook, we first need to test that the management server is able to ssh into each Debian node. If a successful connection is established, the Ansible environment can be set up.
 
 Since Ansible is being used, it is required that the group_vars and host_vars within the inventory directory are set before running the playbook.
 

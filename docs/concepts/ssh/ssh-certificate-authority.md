@@ -1,4 +1,4 @@
-# SSH Certificate Authority (SSH CA) for Homelab Security
+# SSH Certificate Authority
 
 ## Introduction
 

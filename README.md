@@ -1,9 +1,11 @@
 # Home-Ops
 
-A homelab is an area where people can create and explore new things. It is an area where people can learn and grow as individuals. It is an area where communities and connections are formed, and friendships are made.
+The goal of this repository is to be a source of truth and to automate as much of my homelab as possible. This project utilizes [Infrastructure as Code](https://en.wikipedia.org/wiki/Infrastructure_as_code) and [GitOps](https://codefresh.io/learn/gitops/) to simplify provisioning, operating, and updating self-hosted services in my homelab. The effort put into the various automation flows makes the ease of teardown and setup worth it.
 
-It's a space where servers hum, devices connect, and vibrant LEDs light up, inviting tinkering, experimentation, and continuous progress.
+## Overview
 
-Beyond the machinery, homelabs foster a vibrant community that shares knowledge
+## Hardware
 
-Along with the many good things, there are comes bad, just like everything in life. This helps build essential skills for work environments and helps develop healthier understandings and coping with stressful situations. People are able to learn and adapt to issues and overcome them.
+## Cloud Services
+
+---

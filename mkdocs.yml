@@ -11,3 +11,32 @@ theme:
     - navigation.sections
     - search.highlight
     - search.share
+
+markdown_extensions:
+  - pymdownx.snippets:
+      check_paths: true
+
+nav:
+  - Home:
+      - index.md
+  - Setup:
+      - setup/index.md
+      - Management Node:
+          - setup/mgmt/mgmt-setup.md
+      - PiKVM:
+          - setup/pikvm/pikvm-setup.md
+      - Proxmox:
+          - setup/proxmox/debian-setup.md
+          - setup/proxmox/proxmox-cluster-setup.md
+  - Concepts:
+      - concepts/index.md
+      - Cloud-init:
+          - concepts/cloud-init/cloud-init.md
+      - SSH Certificate Authority:
+          - concepts/ssh/ssh-certificate-authority.md
+  - Considerations:
+      - considerations/index.md
+      - NAS:
+          - considerations/nas/drive-health.md
+      - Visual Studio Code:
+          - considerations/.vscode/extensions.md
