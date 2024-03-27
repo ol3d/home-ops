@@ -3,6 +3,7 @@ ignore: |
   docs/
   .vscode/
   *.sops.*
+  mkdocs.yml
 extends: default
 rules:
   truthy:
