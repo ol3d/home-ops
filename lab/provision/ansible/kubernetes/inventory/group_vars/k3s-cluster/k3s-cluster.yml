@@ -105,7 +105,7 @@ pip_packages:
     state: present
   - name: pyyaml
     state: present
-  # - name: arptables
-  #   state: present
-  # - name: ca-certificates
-  #   state: present
+# - name: arptables
+#   state: present
+# - name: ca-certificates
+#   state: present
