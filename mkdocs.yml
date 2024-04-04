@@ -48,6 +48,9 @@ nav:
         - how-to/index.md
         - Documentation:
             - how-to/documentation/creating-documentation.md
+        - Storage:
+            - Backups:
+                - how-to/storage/backups/duplicacy-backups.md
     - Reference:
         - reference/index.md
         - Documentation:
@@ -55,3 +58,6 @@ nav:
             - reference/documentation/documentation-alternatives.md
         - Network:
             - reference/network/network-reference.md
+        - Supermicro:
+            - reference/supermicro/fan-control.md
+            - reference/supermicro/X11SCL-iF.md
