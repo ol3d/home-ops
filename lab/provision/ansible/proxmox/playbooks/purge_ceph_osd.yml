@@ -28,16 +28,16 @@
           with_items: "{{ osd_list_int.results }}"
 
 
-        # - name: Stop OSD's
-        #   ansible.builtin.command:
-        #     cmd: "ceph osd out {{ item }}"
-        #   when: (osd_list | length > 0)
-        #   with_items: "{{ osd_list }}"
+        - name: Stop OSD's
+          ansible.builtin.command:
+            cmd: "ceph osd out {{ item }}"
+          when: (osd_list | length > 0)
+          with_items: "{{ osd_list }}"
 
-        # - name: Stop OSD Service
-        #   ansible.builtin.command:
-        #     cmd: "systemctl stop ceph-osd@{{ osd_id }}.service"
+        - name: Stop OSD Service
+          ansible.builtin.command:
+            cmd: "systemctl stop ceph-osd@{{ osd_id }}.service"
 
-        # - name: Destroy OSD
-        #   ansible.builtin.command:
-        #     cmd: "pveceph osd destroy {{ osd_id }}"
+        - name: Destroy OSD
+          ansible.builtin.command:
+            cmd: "pveceph osd destroy {{ osd_id }}"

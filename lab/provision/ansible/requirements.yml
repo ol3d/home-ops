@@ -26,18 +26,25 @@ roles:
   - name: proxmox
     src: git+https://github.com/ol3d/ansible-role-proxmox.git
     type: git
-    version: feature/vfio-support
+    version: homelab
+    # version: feature/vfio-support
   - name: xanmanning.k3s
     version: v3.4.4
   # - name: hifis.unattended_upgrades
   #   version: v3.2.0
-  - name: hifis.unattended_upgrades
-    src: https://github.com/hifis-net/ansible-role-unattended-upgrades.git
-    type: git
-    version: v3.2.0
+  # - name: hifis.unattended_upgrades
+  #   src: https://github.com/hifis-net/ansible-role-unattended-upgrades.git
+  #   type: git
+  #   version: v3.2.0
   - name: Oefenweb.fail2ban
     version: v4.0.9
   - name: geerlingguy.helm
     version: 1.0.1
   - name: geerlingguy.docker
     version: 7.1.0
+  - name: jnv.unattended-upgrades
+    version: v1.12.2
+  # - name: ceph-ansible.ceph-dashboard
+  #   src: https://github.com/ceph/ceph-ansible.git
+  #   type: git
+  #   version: v6.0.28

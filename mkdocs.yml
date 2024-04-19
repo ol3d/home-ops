@@ -61,3 +61,5 @@ nav:
         - Supermicro:
             - reference/supermicro/fan-control.md
             - reference/supermicro/X11SCL-iF.md
+        - Cisco:
+            - reference/cisco/cisco-ws-2960l-48ts-ll.md

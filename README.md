@@ -22,6 +22,8 @@ This is a mono respository for my home infrastructure and other self hosted serv
 
 My homelab network is divided into different VLANS to separate certain devices from one another. This is mainly used for security purposes but can sometimes be for convenience as well.
 
+![Network Setup](src/assets/network/homelab_v2024-02-13.png)
+
 ---
 
 ### Hardware

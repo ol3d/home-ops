@@ -4,7 +4,7 @@ ntp_manage_config: true
 npm_servers:
   - 2.pfsense.pool.ntp.org
 
-# lae.proxmox
+# lae.proxmox / proxmox
 pve_group: pve-cluster
 pve_repository_line: "deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription"
 pve_remove_subscription_warning: true
@@ -15,6 +15,7 @@ pve_extra_packages:
   - cloud-init
   - openvswitch-switch
   - python3-jmespath
+  - bsd-mailx
 pve_run_system_upgrades: false
 pve_run_proxmox_upgrades: true
 pve_check_for_kernel_update: true
@@ -29,7 +30,7 @@ pve_zfs_enabled: false
 # pve_zfs_zed_email: ""
 # pve_zfs_create_volumes: []
 pve_ceph_enabled: true
-pve_ceph_repository_line: "deb http://download.proxmox.com/debian/ceph-quincy bookworm main"
+pve_ceph_repository_line: "deb http://download.proxmox.com/debian/ceph-reef bookworm no-subscription"
 pve_ceph_network: "{{ ceph_network }}"
 # pve_ceph_cluster_network: ""
 pve_ceph_nodes: "{{ pve_group }}"
@@ -140,3 +141,31 @@ pve_pci_device_ids:
   - id: "8086:3ea5"
 pve_vfio_drivers:
   - name: "i915"
+
+
+# jnv.unattended-upgrades
+unattended_cache_valid_time: 3600
+unattended_origins_patterns: ['origin=Debian,codename=${distro_codename},label=Debian-Security']
+unattended_package_blacklist: []
+unattended_autofix_interrupted_dpkg: true
+unattended_minimal_steps: true
+unattended_install_on_shutdown: false
+unattended_mail: false
+unattended_mail_only_on_error: false
+unattended_remove_unused_dependencies: false
+unattended_remove_new_unused_dependencies: true
+unattended_automatic_reboot: false
+unattended_automatic_reboot_time: false
+# unattended_update_days:
+unattended_ignore_apps_require_restart: false
+unattended_syslog_enable: false
+unattended_syslog_facility: daemon
+unattended_verbose: 0
+unattended_update_package_list: 1
+unattended_download_upgradeable: 0
+unattended_autoclean_interval: 7
+unattended_clean_interval: 0
+unattended_random_sleep: 1800
+unattended_dpkg_options: []
+# unattended_dl_limit:
+unattended_only_on_ac_power: false

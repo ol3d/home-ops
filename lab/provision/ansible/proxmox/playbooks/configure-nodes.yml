@@ -11,7 +11,6 @@
 
   roles:
     - role: geerlingguy.ntp
-    # - role: proxmox
 
   tasks:
     - block:
@@ -31,6 +30,29 @@
         - name: Run proxmox role
           ansible.builtin.include_role:
             name: proxmox
+
+        - name: Run proxmox role
+          ansible.builtin.include_role:
+            name: jnv.unattended-upgrades
+
+    # - block:
+    #     - name: Run ceph-dashboard
+    #       ansible.builtin.include_role:
+    #         name: ceph-ansible.ceph-dashboard
+
+    # - block:
+    #     - name: Install apt package for Ceph Dashboard
+    #       ansible.builtin.apt:
+    #         name: ceph-mgr-dashboard
+    #         state: present
+
+    #     - name: Enable ceph dashboard
+    #       ansible.builtin.command:
+    #         cmd: ceph mgr module enable dashboard
+
+    #     - name: Disable SSL for ceph dashboard
+    #       ansible.builtin.command:
+    #         cmd: ceph config set mgr mgr/dashboard/ssl false
 
     # - block:
     #     - name: Configure Postfix on pve nodes
