@@ -9,12 +9,12 @@ vars:
 tasks:
   init:
     desc: Format packer files
-    dir: "{{.TERRAFORM_DIR}}"
+    dir: "{{.PACKER_DIR}}"
     cmds:
       - "packer fmt ."
 
   update:
     desc: Validate packer files
-    dir: "{{.TERRAFORM_DIR}}"
+    dir: "{{.PACKER_DIR}}"
     cmds:
       - "packer validate ."

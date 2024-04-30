@@ -7,3 +7,4 @@ includes:
   terraform: .taskfiles/TerraformTasks.yml
   mgmt: .taskfiles/MgmtTasks.yml
   diff: .taskfiles/DiffTasks.yml
+  packer: .taskfiles/PackerTasks.yml

@@ -71,7 +71,6 @@ pve_roles:
       - "VM.PowerMgmt"
       - "Datastore.AllocateSpace"
       - "Datastore.Allocate"
-      - "Datastore.AllocateSpace"
       - "Datastore.AllocateTemplate"
       - "Datastore.Audit"
       - "Sys.Audit"
@@ -133,6 +132,7 @@ pve_manage_ssh: true
 
 pve_pcie_passthrough_enabled: true
 pve_iommu_unsafe_interrupts: true
+# pve_iommu_passthrough_mode: true
 pve_mediated_devices_enabled: false
 pve_pcie_ovmf_enabled: true
 pve_pcie_ignore_msrs: false
@@ -169,3 +169,8 @@ unattended_random_sleep: 1800
 unattended_dpkg_options: []
 # unattended_dl_limit:
 unattended_only_on_ac_power: false
+
+
+# # ceph-ansible.ceph-dashboard
+# mds_group_name: "{{ pve_ceph_mds_group }}"
+# rolling_update: false
