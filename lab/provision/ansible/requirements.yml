@@ -20,7 +20,7 @@ roles:
   - name: buluma.git
     version: 24.3.31
   - name: geerlingguy.ntp
-    version: 2.4.0
+    version: 2.5.0
   - name: lae.proxmox
     version: v1.8.0
   - name: proxmox
