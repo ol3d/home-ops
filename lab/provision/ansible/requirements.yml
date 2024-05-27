@@ -41,7 +41,7 @@ roles:
   - name: geerlingguy.helm
     version: 1.0.1
   - name: geerlingguy.docker
-    version: 7.1.0
+    version: 7.2.0
   - name: jnv.unattended-upgrades
     version: v1.12.2
   # - name: ceph-ansible.ceph-dashboard
