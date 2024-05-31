@@ -22,7 +22,7 @@ roles:
   - name: geerlingguy.ntp
     version: 2.4.0
   - name: lae.proxmox
-    version: v1.8.0
+    version: v1.8.1
   - name: proxmox
     src: git+https://github.com/ol3d/ansible-role-proxmox.git
     type: git
