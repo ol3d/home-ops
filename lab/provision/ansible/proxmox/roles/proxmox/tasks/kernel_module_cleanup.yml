@@ -41,13 +41,20 @@
   when: "pve_watchdog != 'ipmi'"
 
 - block:
+    - name: Check if IOMMU Interrupt Remapping is supported
+      ansible.builtin.command:
+        cmd: "dmesg | grep 'remapping'"
+      register: iommu_interrupt_remapping_supported
+
     - name: Disable declaring IOMMU unsafe interrupts on init
       ansible.builtin.file:
         dest: /etc/modprobe.d/iommu_unsafe_interrupts.conf
         state: absent
       when: >
         (not pve_pcie_passthrough_enabled | bool) or
-        (not pve_iommu_unsafe_interrupts | bool)
+        (not pve_iommu_unsafe_interrupts | bool) or
+        (not iommu_interrupt_remapping_supported | search("AMD-Vi: Interrupt remapping enabled")) or
+        (not iommu_interrupt_remapping_supported | search("DMAR-IR: Enabled IRQ remapping"))
 
     - block:
         - name: Remove modules list for PCIe Passthrough
@@ -57,13 +64,22 @@
             marker: "# {mark}: Modules required for PCI passthrough (managed by ansible)."
           notify: update-initramfs
 
-        - name: Remove CPU IOMMU in default grub
+        - name: Remove either Intel or AMD CPU IOMMU in default grub
           ansible.builtin.lineinfile:
             path: /etc/default/grub
-            regexp: ^GRUB_CMDLINE_LINUX="iommu=pt
+            regexp: ^GRUB_CMDLINE_LINUX=".+?_iommu=on"
             state: absent
           notify: update-grub
-      when: "not pve_pcie_passthrough_enabled | bool"
+
+        - name: Remove IOMMU passthrough mode in default grub
+          ansible.builtin.lineinfile:
+            path: /etc/default/grub
+            regexp: ^GRUB_CMDLINE_LINUX="iommu=pt"
+            state: absent
+          notify: update-grub
+      when: >
+        (not pve_pcie_passthrough_enabled | bool) or
+        (not pve_iommu_passthrough_mode | bool)
 
     - block:
         - name: Remove modules list for GVT-g

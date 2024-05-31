@@ -3,10 +3,16 @@
     - name: Enable CPU IOMMU in default grub
       ansible.builtin.lineinfile:
         path: /etc/default/grub
-        line:
-          "GRUB_CMDLINE_LINUX=\"iommu=pt\
-          {% if '\"GenuineIntel\" in ansible_processor | unique' %} intel_iommu=on{% else %} amd_iommu=on{% endif %}\""
+        line: "{% if '\"GenuineIntel\" in ansible_processor | unique' %} intel_iommu=on{% endif %}\""
         insertafter: '^GRUB_CMDLINE_LINUX="'
+      notify: update-grub
+
+    - name: Enable IOMMU passthrough mode in default grub
+      ansible.builtin.lineinfile:
+        path: /etc/default/grub
+        line: "GRUB_CMDLINE_LINUX=\"iommu=pt\""
+        insertafter: '^GRUB_CMDLINE_LINUX="'
+      when: "pve_iommu_passthrough_mode | bool"
       notify: update-grub
 
     - name: Enable Mediated Devices (gvt-g) in default grub
@@ -53,12 +59,21 @@
         (pve_pcie_ignore_msrs | bool) or
         (not pve_pcie_report_msrs | bool)
 
-- name: Enable IOMMU unsafe interrupts
-  ansible.builtin.copy:
-    content: "options vfio_iommu_type1 allow_unsafe_interrupts=1"
-    dest: /etc/modprobe.d/iommu_unsafe_interrupts.conf
-    mode: 0640
-  when: "pve_iommu_unsafe_interrupts | bool"
+- block:
+    - name: Check if IOMMU Interrupt Remapping is supported
+      ansible.builtin.command:
+        cmd: "dmesg | grep 'remapping'"
+      register: iommu_interrupt_remapping_supported
+
+    - name: Enable IOMMU unsafe interrupts
+      ansible.builtin.copy:
+        content: "options vfio_iommu_type1 allow_unsafe_interrupts=1"
+        dest: /etc/modprobe.d/iommu_unsafe_interrupts.conf
+        mode: 0640
+      when: >
+        (pve_iommu_unsafe_interrupts | bool) or
+        (iommu_interrupt_remapping_supported | search("AMD-Vi: Interrupt remapping enabled")) or
+        (iommu_interrupt_remapping_supported | search("DMAR-IR: Enabled IRQ remapping"))
 
 - block:
     - name: Modify modules list for PCIe Passthrough
