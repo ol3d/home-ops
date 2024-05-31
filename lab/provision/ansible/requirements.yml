@@ -3,9 +3,9 @@ collections:
   - name: ansible.posix
     version: 1.5.4
   - name: community.crypto
-    version: 2.19.0
+    version: 2.20.0
   - name: community.general
-    version: 8.6.0
+    version: 9.0.1
   - name: community.sops
     version: 1.6.7
   - name: cisco.ios
@@ -20,9 +20,9 @@ roles:
   - name: buluma.git
     version: 24.3.31
   - name: geerlingguy.ntp
-    version: 2.4.0
+    version: 2.5.0
   - name: lae.proxmox
-    version: v1.8.0
+    version: v1.8.1
   - name: proxmox
     src: git+https://github.com/ol3d/ansible-role-proxmox.git
     type: git
@@ -41,7 +41,7 @@ roles:
   - name: geerlingguy.helm
     version: 1.0.1
   - name: geerlingguy.docker
-    version: 7.1.0
+    version: 7.2.0
   - name: jnv.unattended-upgrades
     version: v1.12.2
   # - name: ceph-ansible.ceph-dashboard
