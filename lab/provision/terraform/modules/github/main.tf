@@ -3,11 +3,11 @@ terraform {
     required_providers {
         github = {
             source  = "integrations/github"
-            version = "6.2.1"
+            version = "6.2.2"
         }
         http = {
             source  = "hashicorp/http"
-            version = "3.4.2"
+            version = "3.4.3"
         }
         sops = {
             source  = "carlpett/sops"

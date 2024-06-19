@@ -31,9 +31,9 @@
           ansible.builtin.include_role:
             name: proxmox
 
-        - name: Run jnv.unattended-upgrades role
-          ansible.builtin.include_role:
-            name: jnv.unattended-upgrades
+        # - name: Run hifis.toolkit.unattended-upgrades role
+        #   ansible.builtin.include_role:
+        #     name: hifis.toolkit.unattended-upgrades
 
     # - block:
     #     - name: Run ceph-dashboard
