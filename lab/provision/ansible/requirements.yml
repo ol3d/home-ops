@@ -5,13 +5,15 @@ collections:
   - name: community.crypto
     version: 2.20.0
   - name: community.general
-    version: 9.0.1
+    version: 9.1.0
   - name: community.sops
     version: 1.6.7
   - name: cisco.ios
-    version: 8.0.0
+    version: 9.0.0
   - name: kubernetes.core
     version: 5.0.0
+  - name: hifis.toolkit
+    version: 4.3.0
 roles:
   - name: andrewrothstein.sops
     version: v2.0.0
@@ -31,7 +33,7 @@ roles:
   - name: xanmanning.k3s
     version: v3.4.4
   # - name: hifis.unattended_upgrades
-  #   version: v3.2.0
+  #   version: v3.3.0
   # - name: hifis.unattended_upgrades
   #   src: https://github.com/hifis-net/ansible-role-unattended-upgrades.git
   #   type: git
@@ -42,8 +44,8 @@ roles:
     version: 1.0.1
   - name: geerlingguy.docker
     version: 7.2.0
-  - name: jnv.unattended-upgrades
-    version: v1.12.2
+  # - name: jnv.unattended-upgrades
+  #   version: v1.12.2
   # - name: ceph-ansible.ceph-dashboard
   #   src: https://github.com/ceph/ceph-ansible.git
   #   type: git
