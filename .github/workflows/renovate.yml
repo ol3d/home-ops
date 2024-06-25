@@ -1,22 +1,25 @@
 ---
-name: Schedule - Renovate
+name: "Renovate"
 
-on: # yamllint disable-line rule:truthy
+on:
   workflow_dispatch:
     inputs:
       dryRun:
-        description: "Dry-Run"
+        description: "Dry Run"
         default: "false"
         required: false
       logLevel:
-        description: "Log-Level"
-        default: "debug"
+        description: "Log Level"
+        default: "Debug"
+        required: false
+      version:
+        description: "Renovate version"
+        default: "latest"
         required: false
   schedule:
-    - cron: "0 * * * *"
+    - cron: "0 * * * *" # Every hour
   push:
-    branches:
-      - main
+    branches: ["main"]
     paths:
       - ".github/renovate.json5"
       - ".github/renovate/**.json5"
@@ -29,7 +32,6 @@ env:
 jobs:
   renovate:
     name: Renovate
-    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

@@ -7,6 +7,7 @@ users:
 ansible_become: ENC[AES256_GCM,data:2+Ie9A==,iv:BrpnWYlATg6WGZOqiOlhycvB++aIpufYozOjWUrWg4M=,tag:0/z039BGr8pou2Qn/lPtPw==,type:bool]
 ansible_become_method: ENC[AES256_GCM,data:nQX/EA==,iv:4PKF5HyxjHOQ7T/sG9zAWrf2kD6vrh2M3CRzRWnrjTA=,tag:0kUDaLAvyQM4OI/uz2H9cg==,type:str]
 truenas_ip: ENC[AES256_GCM,data:KxdXKVtjt1ujQiY=,iv:PL/6xixSPqG5UcLwzA+8wYWTzh0vxHe60Sn7pMqc67s=,tag:7SNjOt7V6Cf/qAzfRTD/FQ==,type:str]
+bios_version: ENC[AES256_GCM,data:Ys2ayFnzBL4WRtnlG9DPwVtrWnHFoS+PTV/wpfN9iYw=,iv:BSs9iXORpbbTmyeUx5u8O7/O4r2O60kL04Gf+HyatAQ=,tag:pskabVetB9RhTcRc6t5hog==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -22,8 +23,8 @@ sops:
             SWNnekxqQWV1ZGowQ1FyY2pFM0J5TkUKmC7NKKlfdGT2AoQtMA25S7O9PD/YQNrK
             vlGGjbhNkO3oGBYgYMkdzjCYP/Ie5Tpx35sUxtYQzjBQv+Q7zJoykQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-03-18T20:41:29Z"
-    mac: ENC[AES256_GCM,data:OuixHbv/Jh7Sj2mjnDhNk5L3v9aogp0G4DWLz+O3CcKNuYwdMqb8HTKCicGEkH1UrYLhkRE0VDbIe8nh7pznBALn3PDji45VX62w3pOMmFqhQ8NrQ736yldQf6/q1LI7i2LEovGCxAztG9o4sMYfjd9r7KAunjG9IGDvZhexo+k=,iv:CDC/Ylib64ZVz3jmUWZJGuM0EpuvU5wH2O/++6ektQA=,tag:I+lcflpKwIWiT4AWJxa3fw==,type:str]
+    lastmodified: "2024-06-21T18:38:46Z"
+    mac: ENC[AES256_GCM,data:PEDJF3ud4BPbSazf+NN/ij2i8GP+r1FjQzHZhw53WzKxHfuKNolpJIrLkTBGVQs7r4/dSwVYgk8p8XXvMn9Qz+8YiOVNiFcH7mZHz3cOrLbelpCBeNKZgFMPPK1onvBUufK5WlOPTm3xqkeStzsNui/MT9Dqk19+uPyo74Afxr4=,iv:hJ7KlUfn0p1M2mQvs1f4+5OZRt717RAF/+fz8X0JkKM=,tag:fvg1q8kNfhkqJTKMN1KFFw==,type:str]
     pgp: []
     unencrypted_regex: ^(kind)$
     version: 3.7.3

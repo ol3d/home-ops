@@ -6,11 +6,18 @@
 
   tasks:
     - block:
-        - name: Register BIOS Information Var
+        - name: Register BIOS Version Var
           ansible.builtin.command:
             cmd: dmidecode -s bios-version
-          register: bios
+          register: bios_versions_list
+          changed_when: false
 
         - name: Output BIOS Information
           ansible.builtin.debug:
-            msg: "{{ bios }}"
+            msg: "BIOS Version: {{ bios_versions_list.stdout }}"
+
+        # - name: Compare BIOS versions between nodes
+        #   ansible.builtin.debug:
+        #     msg: "{{ item }}"
+        #   with_items: "{{ bios_versions_list.stdout }}"
+        #   when: bios_versions_list.stdout | version(bios_version, 'eq')

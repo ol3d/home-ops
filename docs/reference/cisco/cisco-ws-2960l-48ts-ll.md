@@ -1,6 +1,6 @@
 # Cisco WS-2960L-48TS-LL
 
-When working in proxmox, I ran into a few issues attempting to re-set up my ceph network. The issue was caused by Jumbo Frames. Since the network interfaces set up for the proxmox ceph cluster is using an MTU of 9000, this means that the interfaces on the networking switch also needed to be updated.
+When working in proxmox, I ran into a few issues attempting to re-initialize my ceph network. The issue was caused by a misconfiguration involving [Jumbo Frames](https://en.wikipedia.org/wiki/Jumbo_frame). Since the network interfaces that are set up for the proxmox ceph cluster are using an MTU of 9000, this means that the interfaces on the networking switch also needed to be updated to the same value.
 
 > ## [Catalyst 2970/2960 Series](https://www.cisco.com/c/en/us/support/docs/switches/catalyst-6000-series-switches/24048-148.html)
 >
