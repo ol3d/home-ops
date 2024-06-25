@@ -1,21 +1,26 @@
 ---
-name: Meta - Sync labels
+name: "Label Sync"
 
-on: # yamllint disable-line rule:truthy
+on:
   workflow_dispatch:
   push:
-    branches:
-      - main
-    paths:
-      - ".github/labels.yaml"
+    branches: ["main"]
+    paths: [".github/labels.yaml"]
+  schedule:
+    - cron: "0 0 * * *" # Every day at midnight
+
+permissions:
+  issues: write
 
 jobs:
-  labels:
-    name: Sync Labels
+  label-sync:
+    name: Label Sync
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github/labels.yaml
       - name: Generate Token
         uses: tibdex/github-app-token@v2
         id: generate-token

@@ -1,6 +1,3 @@
-# SOPS sopsdiffer
+* text=auto eol=lf
 *.sops.* diff=sopsdiffer
-
-# git diff NODIFF
-# lab/envs/prod/provision/ansible/proxmox/inventory/hosts.yml diff=nodiff
-# **/*.sops.* diff=nodiff
+*.yaml.j2 linguist-language=YAML

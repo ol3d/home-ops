@@ -3,7 +3,9 @@
         {
             "matchDatasources": ["docker"],
             "matchUpdateTypes": ["major"],
-            "commitMessagePrefix": "feat(container)!: "
+            "commitMessagePrefix": "feat(container)!: ",
+            "commitMessageTopic": "{{depName}}",
+            "commitMessageExtra": " ( {{currentVersion}} → {{newVersion}} )"
         },
         {
             "matchDatasources": ["docker"],
