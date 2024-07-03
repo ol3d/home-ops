@@ -16,6 +16,17 @@
           ansible.builtin.debug:
             msg: "BIOS Version: {{ bios_versions_list.stdout }}"
 
+        # - name: Register Proxmox Kernel Version
+        #   ansible.builtin.command:
+        #     cmd: pveversion
+        #   register: kernel_version
+        #   changed_when: false
+
+        # - name: Output registered kernel version
+        #   ansible.builtin.debug:
+        #     msg: "{{ kernel_version.stdout }}"
+        #   when: kernel_version | version('6','<')
+
         # - name: Compare BIOS versions between nodes
         #   ansible.builtin.debug:
         #     msg: "{{ item }}"

@@ -25,6 +25,8 @@ pip_packages:
     state: present
   - name: mkdocs-material
     state: present
+  - name: ansible-lint
+    state: present
 gitconfig:
   core:
     editor: vim
