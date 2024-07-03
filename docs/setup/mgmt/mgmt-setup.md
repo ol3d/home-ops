@@ -1,12 +1,12 @@
 # Management Node Setup
 
-## [Download and Install Debian](#download-and-install-debian)
+## Download and Install Debian
 
 Download [Debian 11](https://www.debian.org/distrib/netinst) and flash it to a bootable drive using a tool such as [Rufus](https://rufus.ie/en/) or [Balena Etcher](https://www.balena.io/etcher/).
 
 On the management node, boot from the newly created boot drive, and install Debain onto the system.
 
-## [Update and Install Packages](#update-and-install-packages)
+## Update and Install Packages
 
 To start the setup, run the [Task](https://taskfile.dev/) installation script from `hack/install-task.sh`:
 

@@ -106,5 +106,5 @@ pve_pcie_ignore_msrs: false
 pve_pcie_report_msrs: true
 pve_pci_device_ids:
   - id: "8086:5926"
-pve_vfio_drivers:
+pve_vfio_blacklist_drivers:
   - name: "i915"

@@ -131,16 +131,16 @@ pve_manage_hosts_enabled: false
 pve_manage_ssh: true
 
 pve_pcie_passthrough_enabled: true
-pve_iommu_unsafe_interrupts: true
-# pve_iommu_passthrough_mode: true
+pve_iommu_passthrough_mode: true
+pve_iommu_unsafe_interrupts: false
 pve_mediated_devices_enabled: false
 pve_pcie_ovmf_enabled: true
-pve_pcie_ignore_msrs: false
-pve_pcie_report_msrs: true
 pve_pci_device_ids:
   - id: "8086:3ea5"
-pve_vfio_drivers:
-  - name: "i915"
+pve_vfio_blacklist_drivers: []
+  # - name: "i915"
+pve_pcie_ignore_msrs: false
+pve_pcie_report_msrs: true
 
 
 # hifis.toolkit.unattended-upgrades

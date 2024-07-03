@@ -2,6 +2,8 @@
 
 The goal of this guide is to provide step-by-step instructions on how to install [Debian](https://www.debian.org/intro/about), as well as how to prepare the system to be integrated into a Proxmox Cluster.
 
+---
+
 To install Debian first download an **.iso** image from the Debian [download](https://www.debian.org/distrib/netinst) page.
 *(Version debian-12.5.0-amd64-netist.iso as of this documentation)*
 
