@@ -1,5 +1,6 @@
 ---
-- hosts:
+- name: Playbook to configure a Proxmox cluster
+  hosts:
     - pve-cluster
   gather_facts: true
   any_errors_fatal: true
@@ -9,11 +10,13 @@
       ansible.builtin.pause:
         seconds: 2
 
-  roles:
-    - role: geerlingguy.ntp
-
   tasks:
-    - block:
+    - name: Configure NTP settings
+      ansible.builtin.include_role:
+        name: geerlingguy.ntp
+
+    - name: Configure initial network settings
+      block:
         - name: Update /etc/hosts file to contain all valid ip addresses
           ansible.builtin.template:
             src: "hosts.yaml.j2"
@@ -26,19 +29,22 @@
             dest: /etc/network/interfaces
             mode: "0644"
 
-    - block:
-        - name: Run proxmox role
+    - name: Run Proxmox configuration roles
+      block:
+        - name: Configure proxmox cluster using proxmox role
           ansible.builtin.include_role:
-            name: proxmox
+            name: proxmox-lae
 
-        # - name: Run hifis.toolkit.unattended-upgrades role
-        #   ansible.builtin.include_role:
-        #     name: hifis.toolkit.unattended-upgrades
+        # To include the role from the collection, the naming cannot contain a hyphen '-', instead it must use an underscore '_'
+        # https://stackoverflow.com/questions/72814254/ansible-cant-find-roles-from-collection
+        # https://docs.ansible.com/ansible/latest/dev_guide/developing_collections_structure.html#roles-directory
+        - name: Configure unattended-upgrades using hifis.toolkit.unattended-upgrades role
+          ansible.builtin.include_role:
+            name: hifis.toolkit.unattended_upgrades
 
-    # - block:
-    #     - name: Run ceph-dashboard
-    #       ansible.builtin.include_role:
-    #         name: ceph-ansible.ceph-dashboard
+    # - name: Run ceph-dashboard
+    #   ansible.builtin.include_role:
+    #     name: ceph-ansible.ceph-dashboard
 
     # - block:
     #     - name: Install apt package for Ceph Dashboard
