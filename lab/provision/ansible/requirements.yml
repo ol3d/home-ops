@@ -16,7 +16,7 @@ collections:
     version: 4.5.0
 roles:
   - name: andrewrothstein.sops
-    version: v2.0.0
+    version: v2.0.1
   - name: buluma.hashicorp
     version: 24.3.31
   - name: buluma.git
