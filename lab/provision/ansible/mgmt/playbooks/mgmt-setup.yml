@@ -1,15 +1,15 @@
 ---
-- hosts:
+- name: Initial management node setup and configuration
+  hosts:
     - mgmt
   become: true
   gather_facts: true
   any_errors_fatal: true
 
   pre_tasks:
-    - block:
-        - name: Pausing for 2 seconds...
-          ansible.builtin.pause:
-            seconds: 2
+    - name: Pausing for 2 seconds...
+      ansible.builtin.pause:
+        seconds: 2
 
   roles:
     # - role: andrewrothstein.sops

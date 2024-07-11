@@ -75,6 +75,30 @@ pve_roles:
       - "Datastore.Audit"
       - "Sys.Audit"
       - "VM.Console"
+      - "SDN.Use"
+  - name: Terraform
+    privileges:
+      - "Datastore.AllocateSpace"
+      - "Datastore.Audit"
+      - "Pool.Allocate"
+      - "Sys.Audit"
+      - "Sys.Console"
+      - "Sys.Modify"
+      - "VM.Allocate"
+      - "VM.Audit"
+      - "VM.Clone"
+      - "VM.Config.CDROM"
+      - "VM.Config.Cloudinit"
+      - "VM.Config.CPU"
+      - "VM.Config.Disk"
+      - "VM.Config.HWType"
+      - "VM.Config.Memory"
+      - "VM.Config.Network"
+      - "VM.Config.Options"
+      - "VM.Migrate"
+      - "VM.Monitor"
+      - "VM.PowerMgmt"
+      - "SDN.Use"
 pve_acls:
   - path: /
     roles:
@@ -86,11 +110,18 @@ pve_acls:
       - Packer
     groups:
       - Packer
+  - path: /
+    roles:
+      - Terraform
+    groups:
+      - Terraform
 pve_groups:
   - name: Admin
     comment: Admin Group
   - name: Packer
     comment: Packer Group
+  - name: Terraform
+    comment: Terraform Group
 pve_users:
   - name: "{{ root_user }}@pam"
     email: "{{ personal.email }}"
@@ -108,7 +139,12 @@ pve_users:
     password: "{{ ansible_become_pass }}"
     groups:
       - Packer
-    comment: "Packer management user"
+    comment: "Terraform management user"
+  - name: "terraform@pve"
+    password: "{{ ansible_become_pass }}"
+    groups:
+      - Terraform
+    comment: "Terraform management user"
 pve_storages:
   - name: backups
     type: nfs
@@ -152,6 +188,11 @@ unattended_minimal_steps: true
 unattended_install_on_shutdown: false
 unattended_mail: false
 unattended_mail_only_on_error: false
+unattended_mail_report: always
+# unattended_mail: true
+# unattended_mail_sender: "{{  }}"
+# unattended_mail_only_on_error: false
+# unattended_mail_report: always
 unattended_remove_unused_dependencies: false
 unattended_remove_new_unused_dependencies: true
 unattended_automatic_reboot: false

@@ -1,5 +1,6 @@
 ---
-- hosts:
+- name: Manage and configure Cisco switches
+  hosts:
     - c2960l
     - c2960lp
   gather_facts: false
@@ -11,22 +12,24 @@
         seconds: 2
 
   tasks:
-    - block:
-        - name: run show version on the routers
-          ios_command:
+    - name: Register and output Cisco IOS version
+      block:
+        - name: Register Cisco IOS version from the switches
+          cisco.ios.ios_command:
             commands: show version | incl Version
           register: output
+          changed_when: false
 
-        - name: print output
-          debug:
+        - name: Output Cisco switches IOS versions
+          ansible.builtin.debug:
             var: output.stdout_lines
+          changed_when: false
 
-    - block:
-        - name: Configure Hostname
-          cisco.ios.ios_hostname:
-            config:
-              hostname: "{{ hostname }}"
-            state: merged
+    - name: Configure Switch Hostname
+      cisco.ios.ios_hostname:
+        config:
+          hostname: "{{ hostname }}"
+        state: merged
 
     # - block:
     #     - name: Configure System
@@ -34,7 +37,8 @@
     #         hostname: "{{ hostname }}"
     #         domain_name: "{{ public_domain }}"
 
-    - block:
+    - name: Cisco IOS Interface configuration
+      block:
         - name: Configure VLANs
           cisco.ios.ios_vlans:
             config:
@@ -46,7 +50,7 @@
             state: merged
           with_items: "{{ vlans }}"
 
-        - name: Configure Access Interfaces
+        - name: Configure Access interfaces
           cisco.ios.ios_l2_interfaces:
             config:
               - access:
@@ -56,7 +60,7 @@
             state: merged
           with_items: "{{ access_interfaces }}"
 
-        - name: Configure LAG Interfaces
+        - name: Configure LAG interfaces
           cisco.ios.ios_lag_interfaces:
             config:
               - name: "{{ item.0.name }}"
@@ -66,7 +70,7 @@
             state: merged
           loop: "{{ lag_interfaces | subelements('members') }}"
 
-        - name: Configure Trunk Interfaces
+        - name: Configure Trunk interfaces
           cisco.ios.ios_l2_interfaces:
             config:
               - trunk:
@@ -77,7 +81,6 @@
             state: merged
           with_items: "{{ trunk_interfaces }}"
 
-    - block:
-        - name: Save configuration to memory
-          ios_command:
-            commands: write memory
+    - name: Save configuration to memory
+      cisco.ios.ios_command:
+        commands: write memory
