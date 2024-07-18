@@ -14,6 +14,8 @@ collections:
     version: 5.0.0
   - name: hifis.toolkit
     version: 4.6.0
+  - name: prometheus.prometheus
+    version: 0.17.0
 roles:
   - name: andrewrothstein.sops
     version: v2.0.1
@@ -27,11 +29,9 @@ roles:
     version: v1.8.1
   - name: proxmox-lae
     src: git+https://github.com/lae/ansible-role-proxmox.git
-    type: git
     version: develop
   - name: proxmox
     src: git+https://github.com/ol3d/ansible-role-proxmox.git
-    type: git
     # version: homelab
     version: feature/vfio-support
   - name: xanmanning.k3s
@@ -44,5 +44,4 @@ roles:
     version: 7.3.0
   # - name: ceph-ansible.ceph-dashboard
   #   src: https://github.com/ceph/ceph-ansible.git
-  #   type: git
   #   version: v6.0.28
