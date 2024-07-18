@@ -1,10 +1,12 @@
 ---
 site_name: home-ops
+site_author: Adam Delo
 
 repo_url: https://github.com/ol3d/home-ops
 
 theme:
     name: material
+    locale: en
     palette:
         primary: black
     features:
@@ -36,12 +38,11 @@ nav:
                 - concepts/automation/ansible/ansible.md
             - Terraform:
                 - concepts/automation/terraform/terraform.md
-        - Cloud-init:
-            - concepts/cloud-init/cloud-init.md
+        - Documentation:
+            - concepts/documentation/documentation-methodology.md
+            - concepts/documentation/documentation-alternatives.md
         - SSH Certificate Authority:
             - concepts/ssh/ssh-certificate-authority.md
-        - Storage:
-            - concepts/storage/drive-health.md
         - Visual Studio Code:
             - concepts/.vscode/extensions.md
     - How-to:
@@ -49,15 +50,22 @@ nav:
         - Documentation:
             - how-to/documentation/creating-documentation.md
         - Storage:
+            - how-to/storage/drive-health.md
             - Backups:
                 - how-to/storage/backups/duplicacy-backups.md
     - Reference:
         - reference/index.md
-        - Documentation:
-            - reference/documentation/documentation-methodology.md
-            - reference/documentation/documentation-alternatives.md
-        - Network:
-            - reference/network/network-reference.md
+        - Homelab:
+            - reference/homelab/index.md
+            - Network:
+                - reference/homelab/network/network-reference.md
+            - Hardware:
+                - reference/homelab/hardware/server-rack-reference.md
+                - reference/homelab/hardware/hardware-reference.md
+            - Services:
+                - reference/homelab/services/index.md
+                - reference/homelab/services/cloud-services-reference.md
+                - reference/homelab/services/self-hosted-services-reference.md
         - Supermicro:
             - reference/supermicro/fan-control.md
             - reference/supermicro/X11SCL-iF.md
