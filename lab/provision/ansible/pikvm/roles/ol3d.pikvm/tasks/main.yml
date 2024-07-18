@@ -1,8 +1,1 @@
-# tasks file for ol3d.pikvm
 ---
-- block:
-    - name: Remount read-write to prepare for changes
-      ansible.builtin.command:
-        cmd: rw
-      tags:
-        - install
