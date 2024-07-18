@@ -1,10 +1,10 @@
 resource "proxmox_virtual_environment_vm" "k3s-master" {
-    for_each    = var.k3s-masters
+    for_each     = var.k3s-masters
 
-    name        = each.key
-    tags        = ["k3s", "master"]
-    node_name = each.value.node_name
-    description = "K3s Master Node: ${each.key}"
+    name         = each.key
+    tags         = ["k3s", "master"]
+    node_name    = each.value.node_name
+    description  = "K3s Master Node: ${each.key}"
     vm_id        = each.value.vm_id
 
     acpi = true
@@ -23,6 +23,7 @@ resource "proxmox_virtual_environment_vm" "k3s-master" {
         node_name = each.value.node_name
         retries = 3
         vm_id = each.value.clone_vmid
+        full = true
     }
 
     initialization {
@@ -83,7 +84,6 @@ resource "proxmox_virtual_environment_vm" "k3s-master" {
     vga {
         type = "qxl"
         memory = 16
-        enabled = true
     }
 
     # provisioner "local-exec" {

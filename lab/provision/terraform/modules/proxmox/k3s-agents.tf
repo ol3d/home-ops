@@ -1,10 +1,10 @@
 resource "proxmox_virtual_environment_vm" "k3s-agent" {
-    for_each    = var.k3s-agents
+    for_each     = var.k3s-agents
 
-    name        = each.key
-    tags        = ["k3s", "agent"]
-    node_name = each.value.node_name
-    description = "K3s Agent Node: ${each.key}"
+    name         = each.key
+    tags         = ["k3s", "agent"]
+    node_name    = each.value.node_name
+    description  = "K3s Agent Node: ${each.key}"
     vm_id        = each.value.vm_id
 
     acpi = true
@@ -23,6 +23,7 @@ resource "proxmox_virtual_environment_vm" "k3s-agent" {
         node_name = each.value.node_name
         retries = 3
         vm_id = each.value.clone_vmid
+        full = true
     }
 
     initialization {
@@ -89,16 +90,15 @@ resource "proxmox_virtual_environment_vm" "k3s-agent" {
     vga {
         type = "qxl"
         memory = 16
-        enabled = true
     }
 
-    hostpci {
-        device = each.value.hostpci_device
-        id = each.value.hostpci_id
-        pcie = false
-        rombar = true
-        xvga = false
-    }
+    # hostpci {
+    #     device = each.value.hostpci_device
+    #     id = each.value.hostpci_id
+    #     pcie = false
+    #     rombar = true
+    #     xvga = false
+    # }
 
     # provisioner "local-exec" {
     #     command = "cd ~/buildworkspace/home-ops/lab/provision/ansible/kubernetes/ && ansible-playbook playbooks/check-status.yml"
