@@ -7,7 +7,7 @@ packer {
     }
 }
 
-source "proxmox-iso" "ubuntu-server-jammy" {
+source "proxmox-iso" "ubuntu-server-noble" {
     # Proxmox connection settings
     username                 = "${var.pm_user}"
     password                 = "${var.pm_pass}"
@@ -15,11 +15,11 @@ source "proxmox-iso" "ubuntu-server-jammy" {
     task_timeout             = "5m"
 
     # VM General Settings
-    vm_name              = "ubuntu-server-jammy"
-    template_description = "Ubuntu Server 22.04.4 (Jammy Jellyfish)"
+    vm_name              = "ubuntu-server-noble"
+    template_description = "Ubuntu Server 24.04 (Noble Numbat)"
 
-    iso_url          = "https://releases.ubuntu.com/jammy/ubuntu-22.04.4-live-server-amd64.iso"
-    iso_checksum     = "45f873de9f8cb637345d6e66a583762730bbea30277ef7b32c9c3bd6700a32b2"
+    iso_url          = "https://releases.ubuntu.com/noble/ubuntu-24.04-live-server-amd64.iso"
+    iso_checksum     = "8762f7e74e4d64d72fceb5f70682e6b069932deedb4949c6975d0f0fe0a91be3"
     iso_storage_pool = "local"
     iso_download_pve = false
     unmount_iso      = true
@@ -96,7 +96,7 @@ source "proxmox-iso" "ubuntu-server-jammy" {
 build {
     dynamic "source" {
         for_each = "${var.nodes}"
-        labels   = ["proxmox-iso.ubuntu-server-jammy"]
+        labels   = ["proxmox-iso.ubuntu-server-noble"]
         content {
             node = source.key
             vm_id = source.value.vm_id
@@ -121,12 +121,12 @@ build {
 
     # Provisioning the VM Template for Cloud-Init Integration in Proxmox #2
     provisioner "file" {
-        source      = "files/ubuntu-server-jammy.cfg"
-        destination = "/tmp/ubuntu-server-jammy.cfg"
+        source      = "files/ubuntu-server-noble.cfg"
+        destination = "/tmp/ubuntu-server-noble.cfg"
     }
 
     # Provisioning the VM Template for Cloud-Init Integration in Proxmox #3
     provisioner "shell" {
-        inline = ["sudo cp /tmp/ubuntu-server-jammy.cfg /etc/cloud/cloud.cfg.d/ubuntu-server-jammy.cfg"]
+        inline = ["sudo cp /tmp/ubuntu-server-noble.cfg /etc/cloud/cloud.cfg.d/ubuntu-server-noble.cfg"]
     }
 }
