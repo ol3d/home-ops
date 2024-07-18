@@ -1,0 +1,70 @@
+---
+# geerlingguy.ntp
+ntp_manage_config: true
+# npm_servers:
+#   - 2.pfsense.pool.ntp.org
+
+
+# hifis.toolkit.unattended-upgrades
+unattended_cache_valid_time: 3600
+unattended_origins_patterns: ['origin=Debian,codename=${distro_codename},label=Debian-Security']
+unattended_package_blacklist: []
+unattended_autofix_interrupted_dpkg: true
+unattended_minimal_steps: true
+unattended_install_on_shutdown: false
+unattended_mail: false
+unattended_mail_only_on_error: false
+unattended_mail_report: always
+# unattended_mail: true
+# unattended_mail_sender: "{{  }}"
+# unattended_mail_only_on_error: false
+# unattended_mail_report: always
+unattended_remove_unused_dependencies: false
+unattended_remove_new_unused_dependencies: true
+unattended_automatic_reboot: false
+unattended_automatic_reboot_time: false
+# unattended_update_days:
+unattended_ignore_apps_require_restart: false
+unattended_syslog_enable: false
+unattended_syslog_facility: daemon
+unattended_verbose: 0
+unattended_update_package_list: 1
+unattended_download_upgradeable: 0
+unattended_autoclean_interval: 7
+unattended_clean_interval: 0
+unattended_random_sleep: 1800
+unattended_dpkg_options: []
+# unattended_dl_limit:
+unattended_only_on_ac_power: false
+
+
+# geerlingguy.docker
+docker_edition: 'ce'
+# docker_packages: []
+docker_packages_state: present
+# docker_obsolete_packages: []
+docker_service_manage: true
+docker_service_state: started
+docker_service_enabled: true
+docker_restart_handler_state: restarted
+docker_install_compose_plugin: false
+docker_compose_package: docker-compose-plugin
+docker_compose_package_state: present
+# docker_install_compose: true
+# docker_compose_version: "1.26.0"
+# docker_compose_arch: "{{ ansible_architecture }}"
+# docker_compose_path: /usr/local/bin/docker-compose
+docker_add_repo: true
+docker_repo_url: https://download.docker.com/linux
+# docker_apt_release_channel: stable
+# docker_apt_arch: "{{ 'arm64' if ansible_architecture == 'aarch64' else 'amd64' }}"
+# docker_apt_repository: "deb [arch={{ docker_apt_arch }}] {{ docker_repo_url }}/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} {{ docker_apt_release_channel }}"
+# docker_apt_ignore_key_error: True
+# docker_apt_gpg_key: "{{ docker_repo_url }}/{{ ansible_distribution | lower }}/gpg"
+# docker_apt_filename: "docker"
+docker_users:
+  - ol3d
+# docker_daemon_options:
+#   storage-driver: "devicemapper"
+#   log-opts:
+#     max-size: "100m"
