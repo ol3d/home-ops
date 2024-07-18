@@ -54,6 +54,7 @@ pve_roles:
       - "Datastore.Audit"
       - "Sys.Audit"
       - "VM.Console"
+      - "SDN.Use"
 pve_acls:
   - path: /
     roles:

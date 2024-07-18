@@ -15,6 +15,10 @@
       ansible.builtin.include_role:
         name: geerlingguy.ntp
 
+    - name: Configure Prometheus node_exporter
+      ansible.builtin.include_role:
+        name: prometheus.prometheus.node_exporter
+
     - name: Configure initial network settings
       block:
         - name: Update /etc/hosts file to contain all valid ip addresses
@@ -33,7 +37,8 @@
       block:
         - name: Configure proxmox cluster using proxmox role
           ansible.builtin.include_role:
-            name: proxmox-lae
+            name: proxmox
+            # name: proxmox-lae
 
         # To include the role from the collection, the naming cannot contain a hyphen '-', instead it must use an underscore '_'
         # https://stackoverflow.com/questions/72814254/ansible-cant-find-roles-from-collection
