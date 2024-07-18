@@ -1,4 +1,4 @@
-# Introduction to Terraform in Homelab Environments
+# Terraform in the Homelab
 
 ## What is Terraform?
 
