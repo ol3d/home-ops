@@ -1,0 +1,8 @@
+---
+- name: set_ro_filesystem
+  ansible.builtin.command:
+    cmd: /usr/local/bin/ro
+
+- name: set_rw_filesystem
+  ansible.builtin.command:
+    cmd: /usr/local/bin/rw
