@@ -1,16 +1,6 @@
 # Setup
 
-To begin utilizing this repository for a homelab setup, the following guides need to be followed and completed. Most of these guides are specific to my own homelab setup and are set up for my own use case, however, they can be modified as needed to better fit your own environment.
-
----
-
-## Configuring Git Repository
-
-Since this repository is a source of truth for my homelab, it is required to fork/download the repository and set up all required components. My repository is hosted on [Github](https://github.com/) but can be hosted on other version control platforms such as [Gitlab](https://about.gitlab.com/), [Bitbucket](https://bitbucket.org/product/), [AWS CodeCommit](https://aws.amazon.com/codecommit/), etc. Some of the functionality within my homelab relies on [Github Actions](https://docs.github.com/en/actions), so be aware that by utilizing a different hosting platform, some functionality may be different or may not be possible at all.
-
-Note that this guide will use Github as the version control platform. All other platforms may be slightly different and may require different solutions for the same result. It is recommended to follow along by using Github to avoid any issues.
-
-### [Github Respository Setup](# TODO)
+To begin utilizing this repository for a homelab setup, the following setup guides need to be followed and completed. Most of these guides are specific to my own homelab setup and are set up for my own use case, however, they can be modified as needed to better fit your own environment.
 
 ---
 

@@ -99,6 +99,24 @@ trunk_interfaces:
     trunk:
       native_vlan: 1
       allowed_vlans: 10,20,30,40,50,60,70
+  # # Cisco c2960lp
+  # - name: Port-channel3
+  #   mode: trunk
+  #   trunk:
+  #     native_vlan: 1
+  #     allowed_vlans: 60
+  # # Cisco c2960lp
+  # - name: Port-channel4
+  #   mode: trunk
+  #   trunk:
+  #     native_vlan: 1
+  #     allowed_vlans: 60
+  # # Cisco c2960lp
+  # - name: Port-channel5
+  #   mode: trunk
+  #   trunk:
+  #     native_vlan: 1
+  #     allowed_vlans: 60
 lag_interfaces:
   # OPNSense router
   - name: 1
@@ -135,3 +153,10 @@ lag_interfaces:
         mode: active
       - member: GigabitEthernet0/16
         mode: active
+# # truenas
+  # - name: 6
+  #   members:
+  #     - member: GigabitEthernet0/25
+  #       mode: active
+  #     - member: GigabitEthernet0/27
+  #       mode: active

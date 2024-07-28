@@ -2,7 +2,7 @@
 - name: Manage and configure Cisco switches
   hosts:
     - c2960l
-    - c2960lp
+    # - c2960lp
   gather_facts: false
   any_errors_fatal: true
 
@@ -25,11 +25,11 @@
             var: output.stdout_lines
           changed_when: false
 
-    - name: Configure Switch Hostname
-      cisco.ios.ios_hostname:
-        config:
-          hostname: "{{ hostname }}"
-        state: merged
+    # - name: Configure Switch Hostname
+    #   cisco.ios.ios_hostname:
+    #     config:
+    #       hostname: "{{ hostname }}"
+    #     state: merged
 
     # - block:
     #     - name: Configure System
@@ -37,50 +37,50 @@
     #         hostname: "{{ hostname }}"
     #         domain_name: "{{ public_domain }}"
 
-    - name: Cisco IOS Interface configuration
-      block:
-        - name: Configure VLANs
-          cisco.ios.ios_vlans:
-            config:
-              - name: "{{ item.name }}"
-                vlan_id: "{{ item.vlan_id }}"
-                state: "{{ item.state }}"
-                shutdown: "{{ item.shutdown }}"
-                remote_span: "{{ item.remote_span }}"
-            state: merged
-          with_items: "{{ vlans }}"
+    # - name: Cisco IOS Interface configuration
+    #   block:
+    #     - name: Configure VLANs
+    #       cisco.ios.ios_vlans:
+    #         config:
+    #           - name: "{{ item.name }}"
+    #             vlan_id: "{{ item.vlan_id }}"
+    #             state: "{{ item.state }}"
+    #             shutdown: "{{ item.shutdown }}"
+    #             remote_span: "{{ item.remote_span }}"
+    #         state: merged
+    #       with_items: "{{ vlans }}"
 
-        - name: Configure Access interfaces
-          cisco.ios.ios_l2_interfaces:
-            config:
-              - access:
-                  vlan: "{{ item.access.vlan }}"
-                mode: "{{ item.mode }}"
-                name: "{{ item.name }}"
-            state: merged
-          with_items: "{{ access_interfaces }}"
+    #     - name: Configure Access interfaces
+    #       cisco.ios.ios_l2_interfaces:
+    #         config:
+    #           - access:
+    #               vlan: "{{ item.access.vlan }}"
+    #             mode: "{{ item.mode }}"
+    #             name: "{{ item.name }}"
+    #         state: merged
+    #       with_items: "{{ access_interfaces }}"
 
-        - name: Configure LAG interfaces
-          cisco.ios.ios_lag_interfaces:
-            config:
-              - name: "{{ item.0.name }}"
-                members:
-                  - member: "{{ item.1.member }}"
-                    mode: "{{ item.1.mode }}"
-            state: merged
-          loop: "{{ lag_interfaces | subelements('members') }}"
+    #     - name: Configure LAG interfaces
+    #       cisco.ios.ios_lag_interfaces:
+    #         config:
+    #           - name: "{{ item.0.name }}"
+    #             members:
+    #               - member: "{{ item.1.member }}"
+    #                 mode: "{{ item.1.mode }}"
+    #         state: merged
+    #       loop: "{{ lag_interfaces | subelements('members') }}"
 
-        - name: Configure Trunk interfaces
-          cisco.ios.ios_l2_interfaces:
-            config:
-              - trunk:
-                  allowed_vlans: "{{ item.trunk.allowed_vlans }}"
-                  native_vlan: "{{ omit if item.trunk.native_vlan == 1 else item.trunk.native_vlan }}"
-                mode: "{{ item.mode }}"
-                name: "{{ item.name }}"
-            state: merged
-          with_items: "{{ trunk_interfaces }}"
+    - name: Configure Trunk interfaces
+      cisco.ios.ios_l2_interfaces:
+        config:
+          - trunk:
+              allowed_vlans: "{{ item.trunk.allowed_vlans }}"
+              native_vlan: "{{ omit if item.trunk.native_vlan == 1 else item.trunk.native_vlan }}"
+            mode: "{{ item.mode }}"
+            name: "{{ item.name }}"
+        state: merged
+      with_items: "{{ trunk_interfaces }}"
 
-    - name: Save configuration to memory
-      cisco.ios.ios_command:
-        commands: write memory
+    # - name: Save configuration to memory
+    #   cisco.ios.ios_command:
+    #     commands: write memory
