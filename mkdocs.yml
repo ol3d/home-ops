@@ -26,6 +26,7 @@ nav:
         - setup/index.md
         - Management Node:
             - setup/mgmt/mgmt-setup.md
+            - setup/mgmt/git-repository-setup.md
         - PiKVM:
             - setup/pikvm/pikvm-setup.md
         - Proxmox:

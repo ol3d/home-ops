@@ -15,3 +15,5 @@ To test that jumbo frames are working, ping using this command:
 ```yaml
 ping IP_ADDRESS -M do -s 8972
 ```
+
+Additionally, Cisco C2960L and C2960LP do not support native vlans on trunk interfaces (Native VLAN is always default VLAN 1).
