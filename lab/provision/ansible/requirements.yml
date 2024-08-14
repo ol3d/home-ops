@@ -7,7 +7,7 @@ collections:
   - name: community.general
     version: 9.3.0
   - name: community.sops
-    version: 1.8.1
+    version: 1.8.2
   - name: cisco.ios
     version: 9.0.1
   - name: kubernetes.core
