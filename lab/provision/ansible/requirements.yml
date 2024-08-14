@@ -13,7 +13,7 @@ collections:
   - name: kubernetes.core
     version: 5.0.0
   - name: hifis.toolkit
-    version: 4.6.0
+    version: 4.7.0
   - name: prometheus.prometheus
     version: 0.17.0
 roles:
