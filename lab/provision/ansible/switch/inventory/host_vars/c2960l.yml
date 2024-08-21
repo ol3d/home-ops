@@ -5,7 +5,7 @@ access_interfaces:
   - name: GigabitEthernet0/1
     mode: access
     access:
-      vlan: 10
+      vlan: 20
   # Work Laptop
   - name: GigabitEthernet0/3
     mode: access

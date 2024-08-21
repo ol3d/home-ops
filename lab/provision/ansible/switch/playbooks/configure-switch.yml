@@ -50,15 +50,15 @@
     #         state: merged
     #       with_items: "{{ vlans }}"
 
-    #     - name: Configure Access interfaces
-    #       cisco.ios.ios_l2_interfaces:
-    #         config:
-    #           - access:
-    #               vlan: "{{ item.access.vlan }}"
-    #             mode: "{{ item.mode }}"
-    #             name: "{{ item.name }}"
-    #         state: merged
-    #       with_items: "{{ access_interfaces }}"
+        - name: Configure Access interfaces
+          cisco.ios.ios_l2_interfaces:
+            config:
+              - access:
+                  vlan: "{{ item.access.vlan }}"
+                mode: "{{ item.mode }}"
+                name: "{{ item.name }}"
+            state: merged
+          with_items: "{{ access_interfaces }}"
 
     #     - name: Configure LAG interfaces
     #       cisco.ios.ios_lag_interfaces:
@@ -70,16 +70,16 @@
     #         state: merged
     #       loop: "{{ lag_interfaces | subelements('members') }}"
 
-    - name: Configure Trunk interfaces
-      cisco.ios.ios_l2_interfaces:
-        config:
-          - trunk:
-              allowed_vlans: "{{ item.trunk.allowed_vlans }}"
-              native_vlan: "{{ omit if item.trunk.native_vlan == 1 else item.trunk.native_vlan }}"
-            mode: "{{ item.mode }}"
-            name: "{{ item.name }}"
-        state: merged
-      with_items: "{{ trunk_interfaces }}"
+    # - name: Configure Trunk interfaces
+    #   cisco.ios.ios_l2_interfaces:
+    #     config:
+    #       - trunk:
+    #           allowed_vlans: "{{ item.trunk.allowed_vlans }}"
+    #           native_vlan: "{{ omit if item.trunk.native_vlan == 1 else item.trunk.native_vlan }}"
+    #         mode: "{{ item.mode }}"
+    #         name: "{{ item.name }}"
+    #     state: merged
+    #   with_items: "{{ trunk_interfaces }}"
 
     # - name: Save configuration to memory
     #   cisco.ios.ios_command:

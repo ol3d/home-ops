@@ -25,7 +25,7 @@ nav:
     - Setup:
         - setup/index.md
         - Management Node:
-            - setup/mgmt/mgmt-setup.md
+            - setup/mgmt/debian-installation.md
             - setup/mgmt/git-repository-setup.md
         - PiKVM:
             - setup/pikvm/pikvm-setup.md
@@ -72,3 +72,5 @@ nav:
             - reference/supermicro/X11SCL-iF.md
         - Cisco:
             - reference/cisco/cisco-ws-2960l-48ts-ll.md
+        - Debian:
+            - reference/debian/debian-installation.md
