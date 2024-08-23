@@ -1,6 +1,6 @@
 # Home-Ops
 
-The main goals of this repository is to be a source of truth for my homelab, and to automate as much of my homelab as possible. This project utilizes [Infrastructure as Code](https://en.wikipedia.org/wiki/Infrastructure_as_code) and [GitOps](https://codefresh.io/learn/gitops/) to simplify provisioning, operating, and updating self-hosted and cloud services in my homelab. The effort put into the various automation flows can make the ease of setup and teardown worth it.
+The main goals of this repository are to be a source of truth for my homelab, and to automate as much of it as possible. This project utilizes [Infrastructure as Code](https://en.wikipedia.org/wiki/Infrastructure_as_code) and [GitOps](https://codefresh.io/learn/gitops/) to simplify provisioning, operating, and updating self-hosted and cloud services in my homelab. The effort put into the various automation flows can make the ease of setup and teardown worth it.
 
 A large goal for my homelab is to be as fully automated as possible while allowing user intervention and control when necessary. However, the process of automation can be complex, and the effort to set up a well thought out automation flow may take more time than its worth in the end.
 
