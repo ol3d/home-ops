@@ -41,7 +41,7 @@ roles:
   - name: geerlingguy.helm
     version: 1.0.1
   - name: geerlingguy.docker
-    version: 7.4.0
+    version: 7.4.1
   # - name: ceph-ansible.ceph-dashboard
   #   src: https://github.com/ceph/ceph-ansible.git
   #   version: v6.0.28
