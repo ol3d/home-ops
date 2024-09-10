@@ -11,7 +11,7 @@ data "http" "ipv4" {
 resource "cloudflare_record" "apex_ipv4" {
     name    = data.sops_file.cloudflare_secrets.data["public_domain"]
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = chomp(data.http.ipv4.response_body)
+    content   = chomp(data.http.ipv4.response_body)
     proxied = true
     type    = "A"
     ttl     = 1
@@ -26,7 +26,7 @@ resource "cloudflare_record" "dns_record" {
     zone_id = data.sops_file.cloudflare_secrets.data["zone_id"]
 
     # Optional values
-    value   = each.value.value
+    content   = each.value.content
     proxied = each.value.proxied
     ttl     = each.value.ttl
     comment = each.value.comment
@@ -35,7 +35,7 @@ resource "cloudflare_record" "dns_record" {
 resource "cloudflare_record" "cname_email-mailgun" {
     name    = "email.mailgun"
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = "mailgun.org"
+    content   = "mailgun.org"
     proxied = false
     type    = "CNAME"
     ttl     = 1
@@ -45,7 +45,7 @@ resource "cloudflare_record" "cname_email-mailgun" {
 resource "cloudflare_record" "cname_mailgun" {
     name    = "mailgun"
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = "${data.sops_file.cloudflare_secrets.data["cloudflare_domain"]}"
+    content   = "${data.sops_file.cloudflare_secrets.data["cloudflare_domain"]}"
     proxied = true
     type    = "CNAME"
     ttl     = 1
@@ -54,7 +54,7 @@ resource "cloudflare_record" "cname_mailgun" {
 resource "cloudflare_record" "cname_www" {
     name    = "www"
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = "${data.sops_file.cloudflare_secrets.data["cloudflare_domain"]}"
+    content   = "${data.sops_file.cloudflare_secrets.data["cloudflare_domain"]}"
     proxied = true
     type    = "CNAME"
     ttl     = 1
@@ -63,7 +63,7 @@ resource "cloudflare_record" "cname_www" {
 resource "cloudflare_record" "mx_mxa" {
     name    = "mailgun"
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = data.sops_file.cloudflare_secrets.data["dns_records.mx_mxa"]
+    content   = data.sops_file.cloudflare_secrets.data["dns_records.mx_mxa"]
     proxied = false
     type    = "MX"
     ttl     = 1
@@ -74,7 +74,7 @@ resource "cloudflare_record" "mx_mxa" {
 resource "cloudflare_record" "mx_mxb" {
     name    = "mailgun"
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = data.sops_file.cloudflare_secrets.data["dns_records.mx_mxb"]
+    content   = data.sops_file.cloudflare_secrets.data["dns_records.mx_mxb"]
     proxied = false
     type    = "MX"
     ttl     = 1
@@ -85,7 +85,7 @@ resource "cloudflare_record" "mx_mxb" {
 resource "cloudflare_record" "txt_domainkey" {
     name    = "krs._domainkey.mailgun"
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = data.sops_file.cloudflare_secrets.data["dns_records.txt_mg-key"]
+    content   = data.sops_file.cloudflare_secrets.data["dns_records.txt_mg-key"]
     proxied = false
     type    = "TXT"
     ttl     = 1
@@ -95,7 +95,7 @@ resource "cloudflare_record" "txt_domainkey" {
 resource "cloudflare_record" "txt_mailgun" {
     name    = "mailgun"
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    value   = data.sops_file.cloudflare_secrets.data["dns_records.txt_mg"]
+    content   = data.sops_file.cloudflare_secrets.data["dns_records.txt_mg"]
     proxied = false
     type    = "TXT"
     ttl     = 1

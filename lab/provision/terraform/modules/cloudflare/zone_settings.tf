@@ -17,11 +17,12 @@ resource "cloudflare_zone_settings_override" "zone_settings" {
         security_level = "medium"
         # /speed/optimization
         brotli = "on"
-        minify {
-            css = "on"
-            js = "on"
-            html = "on"
-        }
+        // Deprecated
+        # minify {
+        #     css = "on"
+        #     js = "on"
+        #     html = "on"
+        # }
         early_hints = "off"
         rocket_loader = "on"
         # /caching/configuration

@@ -1,7 +1,7 @@
 variable "dns_records" {
     type = map(object({
         name    = string
-        value   = string
+        content   = string
         proxied = bool
         ttl     = number
         type    = string
@@ -10,7 +10,7 @@ variable "dns_records" {
     default = {
         dns1 = {
             name    = "_domainconnect"
-            value   = "connect.domains.google.com"
+            content   = "connect.domains.google.com"
             proxied = true
             ttl     = 1
             type    = "CNAME"
