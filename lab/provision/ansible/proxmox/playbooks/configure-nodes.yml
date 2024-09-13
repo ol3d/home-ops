@@ -37,8 +37,8 @@
       block:
         - name: Configure proxmox cluster using proxmox role
           ansible.builtin.include_role:
-            name: proxmox
-            # name: proxmox-lae
+            name: lae.proxmox
+            # name: proxmox-test
 
         # To include the role from the collection, the naming cannot contain a hyphen '-', instead it must use an underscore '_'
         # https://stackoverflow.com/questions/72814254/ansible-cant-find-roles-from-collection
