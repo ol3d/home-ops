@@ -15,20 +15,12 @@ tasks:
     dir: "{{.ANSIBLE_MGMT_DIR}}"
     cmds:
       - task: install-ansible
-      - task: install-openssh
       - task: ansible:init
-      - "ansible-playbook playbooks/mgmt-setup.yml"
-
-  install-openssh:
-    desk: Install OpenSSH onto the system
-    cmds:
-      - "apt install openssh-server"
-    status:
-      - command -v "ssh" &> /dev/null
+      - "ansible-playbook lab/provision/ansible/mgmt/playbooks/mgmt-setup.yml"
 
   install-ansible:
     desc: Install ansible onto the system
     cmds:
-      - "apt install ansible"
+      - "apt-get --assume-yes install ansible"
     status:
       - command -v "ansible" &> /dev/null
