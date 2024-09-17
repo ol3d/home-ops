@@ -11,25 +11,26 @@
       ansible.builtin.pause:
         seconds: 2
 
-  roles:
+  # roles:
     # - role: andrewrothstein.sops
-    - role: buluma.git
-    - role: buluma.hashicorp
+    # - role: buluma.git
+    # - role: buluma.hashicorp
 
   tasks:
-    - block:
+    - name: Update and Upgrade all default apt packages
+      block:
         - name: Update apt repository and cache
-          apt:
+          ansible.builtin.apt:
             update_cache: true
             force_apt_get: true
             cache_valid_time: 3600
-        - name: Upgrade all packages
-          apt:
+        - name: Upgrade all apt packages
+          ansible.builtin.apt:
             upgrade: dist
             force_apt_get: true
         - name: Check if reboot is required
           register: reboot_required_file
-          stat:
+          ansible.builtin.stat:
             path: /var/run/reboot-required
             get_md5: false
         - name: Output reboot request if reboot is required
@@ -37,7 +38,8 @@
             msg: "Reboot is required. Please restart the Management Node(s)."
           when: reboot_required_file.stat.exists
 
-    - block:
+    - name: Install all required apt and pip packages
+      block:
         - name: Install apt packages
           ansible.builtin.apt:
             name: "{{ item.name }}"
@@ -49,7 +51,8 @@
             state: "{{ item.state }}"
           with_items: "{{ pip_packages }}"
 
-    - block:
+    - name: Configure Git on system
+      block:
         - name: Modify gitconfig
           ansible.builtin.template:
             dest: /home/{{ ansible_user }}/.gitconfig
