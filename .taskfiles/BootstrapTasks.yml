@@ -1,0 +1,19 @@
+---
+version: "3"
+
+vars:
+  PROJECT_DIR:
+    sh: "git rev-parse --show-toplevel"
+  ANSIBLE_MGMT_DIR: "{{.PROJECT_DIR}}/lab/provision/ansible/mgmt"
+
+includes:
+  ansible: AnsibleTasks.yml
+
+tasks:
+  mgmt:
+    desc: Initialize local management server node
+    dir: "{{.ANSIBLE_MGMT_DIR}}"
+    cmds:
+      - task: ansible:install
+      - task: ansible:init
+      - "ansible-playbook playbooks/mgmt-setup.yml"

@@ -5,6 +5,6 @@ includes:
   ansible: .taskfiles/AnsibleTasks.yml
   precommit: .taskfiles/PreCommitTasks.yml
   terraform: .taskfiles/TerraformTasks.yml
-  mgmt: .taskfiles/MgmtTasks.yml
+  bootstrap: .taskfiles/BootstrapTasks.yml
   diff: .taskfiles/DiffTasks.yml
   packer: .taskfiles/PackerTasks.yml
