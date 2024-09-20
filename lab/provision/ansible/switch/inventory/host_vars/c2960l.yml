@@ -81,12 +81,18 @@ access_interfaces:
     mode: access
     access:
       vlan: 20
+  # # mgmt
+  # - name: GigabitEthernet0/44
+  #   mode: access
+  #   access:
+  #     vlan: 20
+trunk_interfaces:
   # mgmt
   - name: GigabitEthernet0/44
-    mode: access
-    access:
-      vlan: 20
-trunk_interfaces:
+    mode: trunk
+    trunk:
+      native_vlan: 1
+      allowed_vlans: 20
   # OPNSense router
   - name: Port-channel1
     mode: trunk
