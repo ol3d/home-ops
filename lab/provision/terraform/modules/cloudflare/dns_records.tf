@@ -32,26 +32,8 @@ resource "cloudflare_record" "dns_record" {
     comment = each.value.comment
 }
 
-resource "cloudflare_record" "cname_email-mailgun" {
-    name    = "email.mailgun"
-    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    content   = "mailgun.org"
-    proxied = false
-    type    = "CNAME"
-    ttl     = 1
-    comment = "Required by Mailgun to track opens, clicks, and unsubscribes"
-}
-
-resource "cloudflare_record" "cname_mailgun" {
-    name    = "mailgun"
-    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    content   = "${data.sops_file.cloudflare_secrets.data["cloudflare_domain"]}"
-    proxied = true
-    type    = "CNAME"
-    ttl     = 1
-}
-
-resource "cloudflare_record" "cname_www" {
+# CNAME 'www' Record
+resource "cloudflare_record" "base_cname_www" {
     name    = "www"
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
     content   = "${data.sops_file.cloudflare_secrets.data["cloudflare_domain"]}"
@@ -60,10 +42,26 @@ resource "cloudflare_record" "cname_www" {
     ttl     = 1
 }
 
-resource "cloudflare_record" "mx_mxa" {
+# # #
+# # # Mailgun Records
+# # #
+
+# Mailgun CNAME 'email.mailgun' Record
+resource "cloudflare_record" "mg_cname_email" {
+    name    = "email.mailgun"
+    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+    content   = data.sops_file.cloudflare_secrets.data["dns_records.mg.cname"]
+    proxied = false
+    type    = "CNAME"
+    ttl     = 1
+    comment = "Required by Mailgun to track opens, clicks, and unsubscribes"
+}
+
+# Mailgun MX 'mxa.mailgun' Record
+resource "cloudflare_record" "mg_mx_mxa" {
     name    = "mailgun"
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    content   = data.sops_file.cloudflare_secrets.data["dns_records.mx_mxa"]
+    content   = data.sops_file.cloudflare_secrets.data["dns_records.mg.mx_mxa"]
     proxied = false
     type    = "MX"
     ttl     = 1
@@ -71,10 +69,11 @@ resource "cloudflare_record" "mx_mxa" {
     comment = "Recommended by Mailgun for all domains"
 }
 
-resource "cloudflare_record" "mx_mxb" {
+# Mailgun MX 'mxb.mailgun' Record
+resource "cloudflare_record" "mg_mx_mxb" {
     name    = "mailgun"
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    content   = data.sops_file.cloudflare_secrets.data["dns_records.mx_mxb"]
+    content   = data.sops_file.cloudflare_secrets.data["dns_records.mg.mx_mxb"]
     proxied = false
     type    = "MX"
     ttl     = 1
@@ -82,22 +81,96 @@ resource "cloudflare_record" "mx_mxb" {
     comment = "Recommended by Mailgun for all domains"
 }
 
-resource "cloudflare_record" "txt_domainkey" {
+# Mailgun TXT 'krs._domainkey.mailgun' Record
+resource "cloudflare_record" "mg_txt_domainkey" {
     name    = "krs._domainkey.mailgun"
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    content   = data.sops_file.cloudflare_secrets.data["dns_records.txt_mg-key"]
+    content   = data.sops_file.cloudflare_secrets.data["dns_records.mg.txt_key"]
     proxied = false
     type    = "TXT"
     ttl     = 1
     comment = "Required by Mailgun to send and receive emails"
 }
 
-resource "cloudflare_record" "txt_mailgun" {
+# Mailgun TXT 'mailgun' Record
+resource "cloudflare_record" "mg_txt" {
     name    = "mailgun"
     zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-    content   = data.sops_file.cloudflare_secrets.data["dns_records.txt_mg"]
+    content   = data.sops_file.cloudflare_secrets.data["dns_records.mg.txt"]
     proxied = false
     type    = "TXT"
     ttl     = 1
     comment = "Required by Mailgun to send and receive emails"
+}
+
+# # #
+# # # Fastmail Records
+# # #
+
+# Fastmail MX '@' Record
+resource "cloudflare_record" "fm_mx_mxa" {
+    name    = "@"
+    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+    content   = data.sops_file.cloudflare_secrets.data["dns_records.fm.mx_1"]
+    proxied = false
+    type    = "MX"
+    ttl     = 1
+    priority = 10
+    comment = "Required by Fastmail for all custom domain"
+}
+
+# Fastmail MX '@' Record
+resource "cloudflare_record" "fm_mx_mxb" {
+    name    = "@"
+    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+    content   = data.sops_file.cloudflare_secrets.data["dns_records.fm.mx_2"]
+    proxied = false
+    type    = "MX"
+    ttl     = 1
+    priority = 20
+    comment = "Required by Fastmail for all custom domain"
+}
+
+# Fastmail CNAME 'fm1._domainkey' Record
+resource "cloudflare_record" "fm_cname_1" {
+    name    = "fm1._domainkey"
+    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+    content   = data.sops_file.cloudflare_secrets.data["dns_records.fm.fm1"]
+    proxied = false
+    type    = "CNAME"
+    ttl     = 1
+    comment = "Required by Fastmail to track opens, clicks, and unsubscribes"
+}
+
+# Fastmail CNAME 'fm2._domainkey' Record
+resource "cloudflare_record" "fm_cname_2" {
+    name    = "fm2._domainkey"
+    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+    content   = data.sops_file.cloudflare_secrets.data["dns_records.fm.fm2"]
+    proxied = false
+    type    = "CNAME"
+    ttl     = 1
+    comment = "Required by Fastmail to track opens, clicks, and unsubscribes"
+}
+
+# Fastmail CNAME 'fm3._domainkey' Record
+resource "cloudflare_record" "fm_cname_3" {
+    name    = "fm3._domainkey"
+    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+    content   = data.sops_file.cloudflare_secrets.data["dns_records.fm.fm3"]
+    proxied = false
+    type    = "CNAME"
+    ttl     = 1
+    comment = "Required by Fastmail to track opens, clicks, and unsubscribes"
+}
+
+# Fastmail TXT '@' Record
+resource "cloudflare_record" "fm_txt" {
+    name    = "@"
+    zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+    content   = data.sops_file.cloudflare_secrets.data["dns_records.fm.txt"]
+    proxied = false
+    type    = "TXT"
+    ttl     = 1
+    comment = "Required by Fastmail to send and receive emails"
 }
