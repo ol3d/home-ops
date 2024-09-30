@@ -11,3 +11,5 @@ To install Debian onto the management node, first download the latest version of
 On the management node, boot from the newly created Debian boot drive, to begin the installation process.
 
 ## Installation Configuration
+
+- Do not set root password
