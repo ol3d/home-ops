@@ -1,16 +1,16 @@
 terraform {
     backend "s3" {
         bucket = "home-ops.tfstate"
-        key = "mailgun/terraform.tfstate"
+        key = "aws/terraform.tfstate"
         region = "us-east-1"
         dynamodb_table = "home-ops.tfstate.lock"
         encrypt = true
     }
 
     required_providers {
-        mailgun = {
-            source  = "wgebis/mailgun"
-            version = "0.7.6"
+        aws = {
+            source  = "hashicorp/aws"
+            version = "5.68.0"
         }
         http = {
             source  = "hashicorp/http"
@@ -23,10 +23,12 @@ terraform {
     }
 }
 
-data "sops_file" "mailgun_secrets" {
+data "sops_file" "aws_secrets" {
     source_file = "secret.sops.yaml"
 }
 
-provider "mailgun" {
-    api_key = data.sops_file.mailgun_secrets.data["key"]
+provider "aws" {
+    region = data.sops_file.aws_secrets.data["aws.provider.region"]
+    access_key = data.sops_file.aws_secrets.data["aws.provider.access_key"]
+    secret_key = data.sops_file.aws_secrets.data["aws.provider.secret_key"]
 }

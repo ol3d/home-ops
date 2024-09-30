@@ -1,4 +1,11 @@
 terraform {
+    backend "s3" {
+        bucket = "home-ops.tfstate"
+        key = "cloudflare/terraform.tfstate"
+        region = "us-east-1"
+        dynamodb_table = "home-ops.tfstate.lock"
+        encrypt = true
+    }
 
     required_providers {
         cloudflare = {
