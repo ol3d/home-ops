@@ -25,40 +25,35 @@
             var: output.stdout_lines
           changed_when: false
 
-    # - name: Configure Switch Hostname
-    #   cisco.ios.ios_hostname:
-    #     config:
-    #       hostname: "{{ hostname }}"
-    #     state: merged
+    - name: Configure System parameters
+      cisco.ios.ios_system:
+        hostname: "{{ hostname }}"
+        domain_name: "{{ public_domain }}"
+        lookup_enabled: false
 
-    # - block:
-    #     - name: Configure System
-    #       cisco.ios.ios_system:
-    #         hostname: "{{ hostname }}"
-    #         domain_name: "{{ public_domain }}"
-
-    # - name: Cisco IOS Interface configuration
-    #   block:
-    #     - name: Configure VLANs
-    #       cisco.ios.ios_vlans:
-    #         config:
-    #           - name: "{{ item.name }}"
-    #             vlan_id: "{{ item.vlan_id }}"
-    #             state: "{{ item.state }}"
-    #             shutdown: "{{ item.shutdown }}"
-    #             remote_span: "{{ item.remote_span }}"
-    #         state: merged
-    #       with_items: "{{ vlans }}"
-
-        - name: Configure Access interfaces
-          cisco.ios.ios_l2_interfaces:
+    - name: Cisco IOS Interface configuration
+      block:
+        - name: Configure VLANs
+          cisco.ios.ios_vlans:
             config:
-              - access:
-                  vlan: "{{ item.access.vlan }}"
-                mode: "{{ item.mode }}"
-                name: "{{ item.name }}"
+              - name: "{{ item.name }}"
+                vlan_id: "{{ item.vlan_id }}"
+                state: "{{ item.state }}"
+                shutdown: "{{ item.shutdown }}"
+                remote_span: "{{ item.remote_span }}"
+                mtu: "{{ item.mtu }}"
             state: merged
-          with_items: "{{ access_interfaces }}"
+          with_items: "{{ vlans }}"
+
+        # - name: Configure Access interfaces
+        #   cisco.ios.ios_l2_interfaces:
+        #     config:
+        #       - access:
+        #           vlan: "{{ item.access.vlan }}"
+        #         mode: "{{ item.mode }}"
+        #         name: "{{ item.name }}"
+        #     state: merged
+        #   with_items: "{{ access_interfaces }}"
 
     #     - name: Configure LAG interfaces
     #       cisco.ios.ios_lag_interfaces:
@@ -70,16 +65,16 @@
     #         state: merged
     #       loop: "{{ lag_interfaces | subelements('members') }}"
 
-    # - name: Configure Trunk interfaces
-    #   cisco.ios.ios_l2_interfaces:
-    #     config:
-    #       - trunk:
-    #           allowed_vlans: "{{ item.trunk.allowed_vlans }}"
-    #           native_vlan: "{{ omit if item.trunk.native_vlan == 1 else item.trunk.native_vlan }}"
-    #         mode: "{{ item.mode }}"
-    #         name: "{{ item.name }}"
-    #     state: merged
-    #   with_items: "{{ trunk_interfaces }}"
+    - name: Configure Trunk interfaces
+      cisco.ios.ios_l2_interfaces:
+        config:
+          - trunk:
+              allowed_vlans: "{{ item.trunk.allowed_vlans }}"
+              native_vlan: "{{ omit if item.trunk.native_vlan == 1 else item.trunk.native_vlan }}"
+            mode: "{{ item.mode }}"
+            name: "{{ item.name }}"
+        state: merged
+      with_items: "{{ trunk_interfaces }}"
 
     # - name: Save configuration to memory
     #   cisco.ios.ios_command:
