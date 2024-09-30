@@ -24,7 +24,7 @@ tasks:
     cmds:
       - "bash install-sops.sh"
 
-  mgmt:
+  bootstrap:
     desc: Initialize local management server node
     dir: "{{.ANSIBLE_MGMT_DIR}}"
     cmds:
