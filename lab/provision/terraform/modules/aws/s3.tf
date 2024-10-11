@@ -46,6 +46,7 @@ resource "aws_s3_bucket_object_lock_configuration" "tfstate-s3-bucket-aws_s3_buc
 
 resource "aws_s3_bucket_lifecycle_configuration" "tfstate-s3-bucket-aws_s3_bucket_lifecycle_configuration" {
     bucket = "home-ops.tfstate"
+    # transition_default_minimum_object_size = "all_storage_classes_128K"
     rule {
         id = "home-ops-tfstate-lifecycle_rule-01"
         status = "Enabled"
