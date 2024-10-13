@@ -15,20 +15,19 @@ git_repositories:
     - repo: ENC[AES256_GCM,data:FiAyMFA7fdtN0vdhbeLqBlThcmVRitDsHPbbqxRqAw==,iv:5vnzEpUCPxCU8GBC2mBnNJjVtLYR4DmvHi16B+1ZIs8=,tag:DmqSKtaDSQOm8k58VRmq5A==,type:str]
       dest: ENC[AES256_GCM,data:+hmOnsDVCQ==,iv:YbOucTSXjqouBXcaaKIqm891YPO/M4KY5/TFVsHQ1+o=,tag:c7VICfXYg6C9EIuLpmIg8Q==,type:str]
 sops:
-    kms: []
+    kms:
+        - arn: arn:aws:kms:us-east-1:869935076354:key/4a38975b-065e-4cbc-b0d7-b6067418b38f
+          created_at: "2024-10-11T17:12:17Z"
+          enc: AQICAHjEXmBmWhTFPoI6sZz9xRf37CwVV0xZ3J51JBykh8WU6gH2jd0aFBbYFCi3IRiXCcT5AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMxmue7VZ5p0L0qW6YAgEQgDu/97JETO4O/oKwo1OMVKuPM+gYQGbbtt3XQ9qXYEvJqSO6AJUCR9cQBbln5d0QgZHr4PhcWdYUgJV+Vw==
+          aws_profile: ""
+        - arn: arn:aws:kms:us-east-1:869935076354:key/6baaa7c8-967a-4fc5-9923-c0a938edfcf4
+          created_at: "2024-10-11T17:12:17Z"
+          enc: AQICAHi4b7+9FI+voNyOntA45UFh2ygAmwOs2iw6TIerHZXspAHlJuTqI9zVK436qG+h9/viAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMZw76MHXHsoTVTRwHAgEQgDsyNd4mva0ZVdWffdLkHhNK4CYO5dObqSiWzDoOCZ/EiqAfAKQL6PTmMK8KzXEyGjl9kRwh7VkgYRFTpA==
+          aws_profile: ""
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    age:
-        - recipient: age1k6wldgwdcte6aq4cljv3rn5zdxwft4h6pksky0uwhf2z52d7cvtszhs0cv
-          enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAzTEpXSGFHWWNUSGdCc2h2
-            bVdWNWY1Tk5PaEF3QmFKeHhVWEI1RTRuNkU4ClVFVnU4M0hHenlqbFRCTlBaUzFN
-            dXBXcUdoUWRGWmJnS3Y5dU80Wi83ZGsKLS0tIEdhdGh3TldRcDdRNUVQcTNGWVUz
-            MFd4L3RYRWNvL253UDMyblJ4dzRidDQKRw+otwqPojYzjv0C6Y7LDDRMEWdbyf8m
-            izIgT9xfLxn9mPASHjhzjIniHZSb3eyr/bvBYnE7/nSFpbzMyylTfQ==
-            -----END AGE ENCRYPTED FILE-----
+    age: []
     lastmodified: "2024-09-18T01:52:55Z"
     mac: ENC[AES256_GCM,data:zRdu2lKVG39WUeziHKOXlV005skJ3w/SC9ND6VPgd0ATCSslAh+lVdK4sDb+MHJhNVl005sGyWBHBTgRY2g9U5KqvJ2fLEaTwHsCoH+LlT5XZO+yDxRZNl23isMv+WvQTMg1lLs9EGeXmkinzDkrErSF4NuBZ5j11cuRhkxEPZE=,iv:Dt8yvse+I/zOOVWtezrFwhlgrYyeGjQ/nsxGUtFSVbw=,tag:5o6yArNRjlTioNoc3LX8Gw==,type:str]
     pgp: []

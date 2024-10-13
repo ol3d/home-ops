@@ -2,20 +2,19 @@ kind: Secret
 ansible_user: ENC[AES256_GCM,data:C2Bn5w==,iv:Ef7WGO0ujlbYuJyoh4pUwI01i+JNfbkcZ6GiaxmLY40=,tag:29l0ewi9lH+f8/iAJsAWYQ==,type:str]
 ansible_ssh_pass: ENC[AES256_GCM,data:zWcM7QJCrHzcs3oX7MXc,iv:WnwCEf2mw10bQGWW5bjk+VxomG0U7T3VurQGPU3rIX0=,tag:Hbw0aawHHLBHUS/6C/tRRQ==,type:str]
 sops:
-    kms: []
+    kms:
+        - arn: arn:aws:kms:us-east-1:869935076354:key/4a38975b-065e-4cbc-b0d7-b6067418b38f
+          created_at: "2024-10-11T17:12:20Z"
+          enc: AQICAHjEXmBmWhTFPoI6sZz9xRf37CwVV0xZ3J51JBykh8WU6gHvCKDenv5Um8HH+FfVz0ZbAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMxtl8sCXR2M843v0nAgEQgDssI1HS6wgObY6qHam3db0/zogaVbXKPYeZTwJYcMrJJtIBzI0jngFL6ALzWFkpyGFxhSmbNKu9pObXUQ==
+          aws_profile: ""
+        - arn: arn:aws:kms:us-east-1:869935076354:key/6baaa7c8-967a-4fc5-9923-c0a938edfcf4
+          created_at: "2024-10-11T17:12:20Z"
+          enc: AQICAHi4b7+9FI+voNyOntA45UFh2ygAmwOs2iw6TIerHZXspAHLpw0fI6OIKwq+eLN6A/aGAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMyvl8j8WsXH/5hET9AgEQgDvXEVmaLRiN9/YwkN+bp4CFSQ6NBmedeazEMQDBfmYW5mRfn/gSW/hASZGgUftx52LCg/0dZyFRUkTgTQ==
+          aws_profile: ""
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    age:
-        - recipient: age1k6wldgwdcte6aq4cljv3rn5zdxwft4h6pksky0uwhf2z52d7cvtszhs0cv
-          enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBRSU9mc3Q0S1AwWXVWMGk2
-            N2Y1WTJDZ2ZuakhuK0dqVE9lR3pwU0xDVTNVCmZrdWlYeUNGVUlCK2NkQjJLcmNH
-            SWd3a0R5M3V1QnM5d2pIOWhrWWwxNm8KLS0tIGZyMWpaUk95ZXZQc0J1SjBWQVU1
-            dVAwcitnUFdNVGhTYncwQ1VSZVBYbzQK8NXwLwT1xzKC7BByb3pcnTcWz3z1pTrP
-            kIOZUbQmBmcgCwlJVzGTKrLHqpEZx0sSOXG0ES6/ezVtV1M7IdZ2wA==
-            -----END AGE ENCRYPTED FILE-----
+    age: []
     lastmodified: "2023-12-06T21:40:40Z"
     mac: ENC[AES256_GCM,data:hacUem9+L/PpvvVjvIyChgyhI9G8xOEBlElHlxCMD7KkJCeBFBLyS43v+XzcGSUiWIwcc4OJd6HOVd6y5WLn2wLizyQMd+blakPT3bQDRnxcwpD4EM4bhSPfBRRbhoVcLizjp2yBmd4cmNCDrsCNBDOigX1B73XF7zLxz5ldECs=,iv:vBx2Fa3MG8krtUVBshonKs7yqu+wXaEN0qV8a6pZYeI=,tag:Ce+HtPW0MQWhbmz4e1HsnA==,type:str]
     pgp: []

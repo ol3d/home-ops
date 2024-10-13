@@ -3,20 +3,19 @@ public_domain: ENC[AES256_GCM,data:U+MwpQpMyqc=,iv:1biUPm9qXfMV/iFgc8Puxra2iP9Fv
 ansible_become: ENC[AES256_GCM,data:qGBrxQ==,iv:VtfYfGEZTTkGqhWGDMSc4qng1X8nHVkGwMPf7iD9090=,tag:ubM+r34+ljbbeQwBlMYImQ==,type:bool]
 ansible_become_method: ENC[AES256_GCM,data:KF+x5g==,iv:S7t0LKxlvSt2mROy34LHDMzq5Hh7e/z4piCpRS6+rb0=,tag:ZFG0Koe2QoAs37BBuXa1Qg==,type:str]
 sops:
-    kms: []
+    kms:
+        - arn: arn:aws:kms:us-east-1:869935076354:key/4a38975b-065e-4cbc-b0d7-b6067418b38f
+          created_at: "2024-10-11T17:12:17Z"
+          enc: AQICAHjEXmBmWhTFPoI6sZz9xRf37CwVV0xZ3J51JBykh8WU6gG3OGnsTq7vBwoVtUjAxxldAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMZ8LEBoSp+SGsXnQOAgEQgDu0WYOIThzCti4uPjiKzCHoKsJRJo9uwRbdFF7QVajFHf9uYVKDhRczSDa01vfCHI3XxUWczwJkiGwd2Q==
+          aws_profile: ""
+        - arn: arn:aws:kms:us-east-1:869935076354:key/6baaa7c8-967a-4fc5-9923-c0a938edfcf4
+          created_at: "2024-10-11T17:12:17Z"
+          enc: AQICAHi4b7+9FI+voNyOntA45UFh2ygAmwOs2iw6TIerHZXspAHswtVrmNj5/lH2nJtpVZ3zAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMd6k7kZrc7SfGBK/NAgEQgDsnrtJKemQAcGYdC08JT+R8lktKqBR3U+x8b8rXg/SX7z2MmT+SAggXNoH80Qm4DS26RLYh1+OZ+IPVng==
+          aws_profile: ""
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    age:
-        - recipient: age1k6wldgwdcte6aq4cljv3rn5zdxwft4h6pksky0uwhf2z52d7cvtszhs0cv
-          enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBnRXIwajROK2lXKzA5OXdi
-            U29Id09Tc1RYNXVOQmZCSCtvWldCY0hEMlZ3CnVrcllubGhuZWZnQTJoNnNUT3ZL
-            Y1VTN3ZueDBsQ0YzdUpaYTE3c2lzQU0KLS0tIFM1VE40bWs3Q21RRmswOW1xR3VX
-            K3hhQjVVZGhUNTR5a0xTVTR6YlE5OUEKyVesASUAtoK8xw16YivZ/3RSjfwGA1oL
-            tm3SCBVlRx8TIpI6rHH31vsbI5OCyMm0Z1QvOCDh2s/HxcfsvLzh2w==
-            -----END AGE ENCRYPTED FILE-----
+    age: []
     lastmodified: "2023-08-29T00:08:00Z"
     mac: ENC[AES256_GCM,data:CYs85GgYMNRmQXYn/5qgvJyC1FRlMrhrpt5gTWwC5rwW9ZnTDPEe7a4T7v1YpEu5MiphQL3+q9OjyuR9v4h1An1JxcRlEnr2flAOz4awbOKOorG+XDYja6mx7Pu8t9fgQ1ueRWosjON8SQZUaoHgaDcCYijbuqP5uboZI/RujUY=,iv:Xawe7MnxEXYhhMhkHhF8nXHRYxdWoPpyvhGrM1n60k4=,tag:xteHXPX2Jo9qKveUUKshYA==,type:str]
     pgp: []

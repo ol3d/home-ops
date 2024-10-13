@@ -1,3 +1,12 @@
 * text=auto eol=lf
-*.sops.* diff=sopsdiffer
+
+# Ensure .sops.yaml is treated as plaintext (not decrypted)
+.sops.yaml diff=plaintext
+
+# Decrypt encrypted SOPS files with sopsdiffer during diffing
+# TODO remove .enc
+*.sops.yaml.enc diff=sopsdiffer
+*.sops.yml.enc diff=sopsdiffer
+
+# Treat templates differently for syntax highlighting
 *.yaml.j2 linguist-language=YAML

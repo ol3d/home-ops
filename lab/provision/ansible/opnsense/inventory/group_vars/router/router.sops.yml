@@ -1,20 +1,19 @@
 kind: Secret
 public_domain: ENC[AES256_GCM,data:Iw+o2HWS998=,iv:ij2NzGVcZnofFQ/6rzB+c0ezA2OvIuJdKd8oufPR/8Q=,tag:+qofHyqmkWRFAw2gzdLV/Q==,type:str]
 sops:
-    kms: []
+    kms:
+        - arn: arn:aws:kms:us-east-1:869935076354:key/4a38975b-065e-4cbc-b0d7-b6067418b38f
+          created_at: "2024-10-11T17:12:20Z"
+          enc: AQICAHjEXmBmWhTFPoI6sZz9xRf37CwVV0xZ3J51JBykh8WU6gFVh25S+aGdcB0jbpU/KnECAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMfhuu4RYTr4dLBhnZAgEQgDua4Riy8UNAqrFf/F5P+nJwMfUiUXL4gZs34mxf7GIh2Iz9qwDXkAzh7CT31DJ5eMctH61zcWotSzFM+w==
+          aws_profile: ""
+        - arn: arn:aws:kms:us-east-1:869935076354:key/6baaa7c8-967a-4fc5-9923-c0a938edfcf4
+          created_at: "2024-10-11T17:12:20Z"
+          enc: AQICAHi4b7+9FI+voNyOntA45UFh2ygAmwOs2iw6TIerHZXspAEPHhBkGiVSr+uJX6oyt9a5AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMqxBHcZDknF403xG1AgEQgDuIewXxg20r8gK5m2ly3VJIHh6fSGiL3VhAIs0+vn9yFuD271KuU33BR+PA/SfxBvaupfzUppxBreO5hg==
+          aws_profile: ""
     gcp_kms: []
     azure_kv: []
     hc_vault: []
-    age:
-        - recipient: age1k6wldgwdcte6aq4cljv3rn5zdxwft4h6pksky0uwhf2z52d7cvtszhs0cv
-          enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAzcUlVT1NiVHlzR0x1MGsr
-            YmNiTTNldFk3UUVhS24wQjNLSjZQODJYUVM4Ck1MOXFhcExLc2hpTDJ3TDNDQ0l1
-            S0o5VnV2cmJxWitLejBmbEUxcURxVTgKLS0tIFhGanBwUG56c0xCaDVCTzdkblMw
-            aXBUN2FwNHIyeDlWa0V4endRVFZTNzgKOTIAJG5llAQ9EpNfnkGyNg49a6f+Dn1M
-            Rt36FnGKpNlcKGmL73s2PS20hHsib79qnVfThs5n+wfQQq/4+ep0dg==
-            -----END AGE ENCRYPTED FILE-----
+    age: []
     lastmodified: "2023-12-06T21:39:06Z"
     mac: ENC[AES256_GCM,data:zwa5CFX0S7EtdjxuW/GCTLdy9xl0ddhUFo9K051KcZ8CN7cqHZRjsm05DZbKP7g3BarAeDsS6igorwm+0iT/glYAMOdiHgJ2GvhHqcnMjQ0l0ofvlSBm6XcrvE3K5eb5Mkj0pdvV+tMwf3dJHW5KimCB9nurqL43dsJu9N/kM0g=,iv:KIdMRxnBhJhgqX4y1tiyy3ZWfPocD5so27xTXHPlIzg=,tag:csY51WNmuqH8VzF7piepyg==,type:str]
     pgp: []
