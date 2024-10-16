@@ -21,7 +21,3 @@ trim_trailing_whitespace = false
 [{Dockerfile,*.bash,*.sh}]
 indent_style = space
 indent_size = 4
-
-[*.tf]
-indent_style = space
-indent_size = 2
