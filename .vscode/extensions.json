@@ -17,6 +17,7 @@
     "DavidAnson.vscode-markdownlint",
     "4ops.packer",
     "Gruntfuggly.todo-tree",
-    "rangav.vscode-thunder-client"
+    "rangav.vscode-thunder-client",
+    "editorconfig.editorconfig"
   ]
 }
