@@ -2,9 +2,7 @@
 version: "3"
 
 vars:
-  PROJECT_DIR:
-    sh: "git rev-parse --show-toplevel"
-  TERRAFORM_DIR: "{{.PROJECT_DIR}}/lab/provision/terraform/modules"
+  TERRAFORM_DIR: "{{.ROOT_DIR}}/lab/provision/terraform/modules"
 
 tasks:
   init:

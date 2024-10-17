@@ -2,9 +2,7 @@
 version: "3"
 
 vars:
-  PROJECT_DIR:
-    sh: "git rev-parse --show-toplevel"
-  PACKER_DIR: "{{.PROJECT_DIR}}/provision/packer"
+  PACKER_DIR: "{{.ROOT_DIR}}/lab/provision/packer"
 
 tasks:
   init:

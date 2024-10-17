@@ -5,7 +5,6 @@
 # This script checks for required dependencies (curl) and installs them if missing.
 # After the required tools are installed, it prompts the user to install Task (https://taskfile.dev/).
 
-# List of required dependencies
 REQUIRED_TOOLS=("curl")
 MISSING_TOOLS=()
 

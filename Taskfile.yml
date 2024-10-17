@@ -1,10 +1,17 @@
 ---
 version: "3"
 
+set: [pipefail]
+shopt: [globstar]
+
 includes:
-  ansible: .taskfiles/AnsibleTasks.yml
-  precommit: .taskfiles/PreCommitTasks.yml
-  terraform: .taskfiles/TerraformTasks.yml
-  mgmt: .taskfiles/MgmtTasks.yml
-  diff: .taskfiles/DiffTasks.yml
-  packer: .taskfiles/PackerTasks.yml
+  ansible: .taskfiles/ansible
+  aws: .taskfiles/aws
+  management: .taskfiles/management
+  packer: .taskfiles/packer
+  pre-commit: .taskfiles/pre-commit
+  sops: .taskfiles/sops
+  terraform: .taskfiles/terraform
+
+tasks:
+  default: task --list

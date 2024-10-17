@@ -2,17 +2,16 @@
 
 # Install AWS CLI v2 and Configure AWS Credentials Script
 # --------------------------------------------------------
-# The purpose of this script is to install the AWS CLI v2 (https://aws.amazon.com/cli/) 
+# The purpose of this script is to install the AWS CLI v2 (https://aws.amazon.com/cli/)
 # and configure the AWS config and credentials files with the provided user input.
 
-# AWS CLI install directory
 AWS_CLI_INSTALL_DIR="/usr/local/bin"
+
+REQUIRED_TOOLS=("curl" "unzip")
+MISSING_TOOLS=()
 
 # Function to check for missing tools (curl is required for AWS CLI installation)
 check_missing_tools() {
-    REQUIRED_TOOLS=("curl" "unzip")
-    MISSING_TOOLS=()
-    
     echo "Checking for required dependencies..."
     for tool in "${REQUIRED_TOOLS[@]}"
     do
