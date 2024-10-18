@@ -2,14 +2,14 @@
 version: "3"
 
 vars:
-  PRE_COMMIT_RESOURCES_DIR: '{{.ROOT_DIR}}/.taskfiles/pre-commit/resources'
+  PRE_COMMIT_TASLFILE_RESOURCES_DIR: '{{.ROOT_DIR}}/.taskfiles/pre-commit/resources'
 
 tasks:
 
   install:
     desc: Install pre-commit onto the system
     cmds:
-      - bash {{.PRE_COMMIT_RESOURCES_DIR}}/scripts/install_pre_commit.sh
+      - bash {{.PRE_COMMIT_TASLFILE_RESOURCES_DIR}}/scripts/install_pre_commit.sh
 
   init:
     desc: Install pre-commit hooks

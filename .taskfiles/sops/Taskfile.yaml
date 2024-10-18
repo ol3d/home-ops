@@ -2,11 +2,11 @@
 version: "3"
 
 vars:
-  SOPS_RESOURCES_DIR: '{{.ROOT_DIR}}/.taskfiles/sops/resources'
+  SOPS_TASKFILE_RESOURCES_DIR: '{{.ROOT_DIR}}/.taskfiles/sops/resources'
 
 tasks:
 
   install:
     desc: Install and Configure Mozilla SOPS
     cmds:
-      - bash {{.SOPS_RESOURCES_DIR}}/scripts/install_sops.sh
+      - bash {{.SOPS_TASKFILE_RESOURCES_DIR}}/scripts/install_sops.sh

@@ -2,7 +2,7 @@
 version: "3"
 
 vars:
-  MANAGEMENT_RESOURCES_DIR: '{{.ROOT_DIR}}/.taskfiles/management/resources'
+  MANAGEMENT_TASKFILE_RESOURCES_DIR: '{{.ROOT_DIR}}/.taskfiles/management/resources'
   ANSIBLE_DIR: '{{.ROOT_DIR}}/.taskfiles/ansible'
 
 tasks:
@@ -17,7 +17,7 @@ tasks:
   init-aws:
     desc: Install and Configure AWS CLI v2 as well as credentials
     cmds:
-      - bash {{.MANAGEMENT_RESOURCES_DIR}}/scripts/install_aws.sh
+      - bash {{.MANAGEMENT_TASKFILE_RESOURCES_DIR}}/scripts/install_aws.sh
 
   # bootstrap:
   #   desc: Initialize local management server node

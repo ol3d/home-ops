@@ -25,7 +25,10 @@ install_pre_commit() {
 # Function to get the latest version of pre-commit from PyPi
 get_latest_pre_commit_version() {
     pip3 install --upgrade pip &> /dev/null
-    latest_version=$(pip3 index versions pre-commit | grep -oP 'pre-commit \K[0-9.]+(?= )' | head -n 1)
+    latest_version=$(pip3 show pre-commit | grep -i 'version' | awk '{print $2}')
+    if [ -z "$latest_version" ]; then
+        latest_version=$(pip3 install pre-commit --dry-run | grep -oP '(?<=pre-commit )[0-9]+(\.[0-9]+)+')
+    fi
     echo "$latest_version"
 }
 
@@ -33,6 +36,11 @@ get_latest_pre_commit_version() {
 check_version() {
     installed_version=$(pre-commit --version | awk '{print $3}')
     latest_version=$(get_latest_pre_commit_version)
+
+    if [ -z "$latest_version" ]; then
+        echo "Could not retrieve the latest version."
+        return 1
+    fi
 
     if [ "$installed_version" != "$latest_version" ]; then
         echo "Pre-commit is out of date. Installed version: $installed_version, Latest version: $latest_version."

@@ -3,20 +3,23 @@ version: "3"
 
 vars:
   ANSIBLE_DIR: "{{.ROOT_DIR}}/lab/provision/ansible"
-  ANSIBLE_RESOURCES_DIR: '{{.ROOT_DIR}}/.taskfiles/ansible/resources'
+  ANSIBLE_TASKFILE_RESOURCES_DIR: '{{.ROOT_DIR}}/.taskfiles/ansible/resources'
 
 tasks:
 
   install:
     desc: Install Ansible onto the system
     vars:
-      ANSIBLE_VERSION: "2.17.5"
+      ANSIBLE_VERSION: "2.15.5"
     cmds:
-      - bash {{.ANSIBLE_RESOURCES_DIR}}/scripts/install_ansible.sh {{.ANSIBLE_VERSION}}
-    # status:
-    #   - command -v "ansible" &> /dev/null
+      - bash {{.ANSIBLE_TASKFILE_RESOURCES_DIR}}/scripts/install_ansible.sh {{.ANSIBLE_VERSION}}
 
-  init:
+  version:
+    desc: Output the installed Ansible version
+    cmds:
+      - ansible --version
+
+  dependencies:
     desc: Install/Upgrade Ansible Galaxy dependencies
     dir: "{{.ANSIBLE_DIR}}"
     cmds:

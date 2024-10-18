@@ -2,11 +2,11 @@
 version: "3"
 
 vars:
-  AWS_RESOURCES_DIR: '{{.ROOT_DIR}}/.taskfiles/management/resources'
+  AWS_TASKFILE_RESOURCES_DIR: '{{.ROOT_DIR}}/.taskfiles/management/resources'
 
 tasks:
 
   install:
     desc: Install and Configure AWS CLI v2 as well as credentials
     cmds:
-      - bash {{.AWS_RESOURCES_DIR}}/scripts/install_aws.sh
+      - bash {{.AWS_TASKFILE_RESOURCES_DIR}}/scripts/install_aws.sh
