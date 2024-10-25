@@ -54,6 +54,8 @@ nav:
             - how-to/storage/drive-health.md
             - Backups:
                 - how-to/storage/backups/duplicacy-backups.md
+        - Debian:
+            - how-to/debian/debian-installation.md
     - Reference:
         - reference/index.md
         - Homelab:
@@ -72,5 +74,3 @@ nav:
             - reference/supermicro/X11SCL-iF.md
         - Cisco:
             - reference/cisco/cisco-ws-2960l-48ts-ll.md
-        - Debian:
-            - reference/debian/debian-installation.md
