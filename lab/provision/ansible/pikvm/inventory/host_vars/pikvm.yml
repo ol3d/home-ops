@@ -27,5 +27,17 @@ hdmi:
       00000000000000000000000000000000
       00000000000000000000000000000000
       00000000000000000000000000000045
-  # passthrough:
-  #   enabled: true
+  passthrough:
+    enabled: false
+validate:
+  validators:
+    system: true
+    prometheus: true
+  fail_on_validate: false
+hid:
+  mouse:
+    jiggler:
+      enabled: false
+      on_after_reboot: false
+kvmd_override:
+  enabled: false
