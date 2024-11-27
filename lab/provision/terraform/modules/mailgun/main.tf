@@ -10,7 +10,7 @@ terraform {
   required_providers {
     mailgun = {
       source  = "wgebis/mailgun"
-      version = "0.7.6"
+      version = "0.7.7"
     }
     http = {
       source  = "hashicorp/http"
