@@ -26,7 +26,7 @@ roles:
   - name: geerlingguy.ntp
     version: 2.5.0
   - name: lae.proxmox
-    version: v1.9.0
+    version: v1.9.1
   - name: proxmox-test
     src: git+https://github.com/ol3d/ansible-role-proxmox.git
     # version: homelab
