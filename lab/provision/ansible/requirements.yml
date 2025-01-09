@@ -38,7 +38,7 @@ roles:
   - name: geerlingguy.helm
     version: 1.0.1
   - name: geerlingguy.docker
-    version: 7.4.3
+    version: 7.4.4
   - name: ol3d.pikvm
     version: v1.2.0
   # - name: ceph-ansible.ceph-dashboard
