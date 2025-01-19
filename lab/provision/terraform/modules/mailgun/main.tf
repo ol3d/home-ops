@@ -1,12 +1,4 @@
 terraform {
-  backend "s3" {
-    bucket = "home-ops.tfstate"
-    key = "mailgun/terraform.tfstate"
-    region = "us-east-1"
-    dynamodb_table = "home-ops.tfstate.lock"
-    encrypt = true
-  }
-
   required_providers {
     mailgun = {
       source  = "wgebis/mailgun"
