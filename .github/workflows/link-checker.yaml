@@ -34,7 +34,7 @@ jobs:
       - name: Update Issue
         uses: peter-evans/create-issue-from-file@v5
         with:
-          title: Broken links detected in docs
+          title: Link Checker
           issue-number: "${{ steps.link-checker-issue.outputs.issue-number }}"
           content-filepath: ./lychee/out.md
           token: "${{ steps.generate-token.outputs.token }}"
