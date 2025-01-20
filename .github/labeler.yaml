@@ -2,28 +2,28 @@
 # Areas
 area/docs:
   - changed-files:
-    - any-glob-to-any-file:
-      - "docs/**/*"
-      - "mkdocs.yml"
-      - "README.md"
+      - any-glob-to-any-file:
+          - "docs/**/*"
+          - "mkdocs.yml"
+          - "README.md"
 area/ansible:
   - changed-files:
-    - any-glob-to-any-file:
-      - "lab/provision/ansible/**/*"
-area/terraform:
+      - any-glob-to-any-file:
+          - "lab/provision/ansible/**/*"
+area/opentofu:
   - changed-files:
-    - any-glob-to-any-file:
-      - "lab/provision/terraform/**/*"
+      - any-glob-to-any-file:
+          - "lab/provision/opentofu/**/*"
 area/packer:
   - changed-files:
-    - any-glob-to-any-file:
-      - "lab/provision/packer/**/*"
+      - any-glob-to-any-file:
+          - "lab/provision/packer/**/*"
 area/github:
   - changed-files:
-    - any-glob-to-any-file:
-      - ".github/**/*"
+      - any-glob-to-any-file:
+          - ".github/**/*"
 # Clusters
 cluster/main:
   - changed-files:
-    - any-glob-to-any-file:
-      - "lab/cluster/**/*"
+      - any-glob-to-any-file:
+          - "lab/cluster/**/*"

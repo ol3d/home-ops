@@ -1,0 +1,32 @@
+---
+version: "3"
+
+vars:
+  OPENTOFU_DIR: "{{.ROOT_DIR}}/lab/provision/opentofu/modules"
+
+tasks:
+  init:
+    desc: Initialize opentofu dependencies
+    dir: "{{.OPENTOFU_DIR}}"
+    cmds:
+      - find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && tofu init {{.CLI_ARGS}}" \;
+
+  validate:
+    desc: Validate the opentofu changes
+    dir: "{{.OPENTOFU_DIR}}"
+    interactive: true
+    cmds:
+      - find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && tofu validate {{.CLI_ARGS}}" \;
+
+  plan:
+    desc: Show the opentofu plan
+    dir: "{{.OPENTOFU_DIR}}"
+    cmds:
+      - find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && tofu plan {{.CLI_ARGS}}" \;
+
+  apply:
+    desc: Apply the opentofu changes
+    dir: "{{.OPENTOFU_DIR}}"
+    interactive: true
+    cmds:
+      - find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && tofu apply {{.CLI_ARGS}}" \;

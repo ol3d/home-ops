@@ -56,21 +56,21 @@
             "semanticCommitScope": "ansible"
         },
         {
-            "matchDatasources": ["terraform-provider"],
+            "matchDatasources": ["opentofu-provider"],
             "matchUpdateTypes": ["major"],
-            "commitMessagePrefix": "feat(terraform)!: "
+            "commitMessagePrefix": "feat(opentofu)!: "
         },
         {
-            "matchDatasources": ["terraform-provider"],
+            "matchDatasources": ["opentofu-provider"],
             "matchUpdateTypes": ["minor"],
             "semanticCommitType": "feat",
-            "semanticCommitScope": "terraform"
+            "semanticCommitScope": "opentofu"
         },
         {
-            "matchDatasources": ["terraform-provider"],
+            "matchDatasources": ["opentofu-provider"],
             "matchUpdateTypes": ["patch"],
             "semanticCommitType": "fix",
-            "semanticCommitScope": "terraform"
+            "semanticCommitScope": "opentofu"
         },
         {
             "matchDatasources": ["github-releases", "github-tags"],

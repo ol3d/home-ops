@@ -102,7 +102,7 @@ pve_roles:
       - "Sys.Audit"
       - "VM.Console"
       - "SDN.Use"
-  - name: Terraform
+  - name: OpenTofu
     privileges:
       - "Datastore.AllocateSpace"
       - "Datastore.Audit"
@@ -138,16 +138,16 @@ pve_acls:
       - Packer
   - path: /
     roles:
-      - Terraform
+      - OpenTofu
     groups:
-      - Terraform
+      - OpenTofu
 pve_groups:
   - name: Admin
     comment: Admin Group
   - name: Packer
     comment: Packer Group
-  - name: Terraform
-    comment: Terraform Group
+  - name: OpenTofu
+    comment: OpenTofu Group
 pve_users:
   - name: "{{ root_user }}@pam"
     email: "{{ personal.email }}"
@@ -165,12 +165,12 @@ pve_users:
     password: "{{ ansible_become_pass }}"
     groups:
       - Packer
-    comment: "Terraform management user"
-  - name: "terraform@pve"
+    comment: "OpenTofu management user"
+  - name: "opentofu@pve"
     password: "{{ ansible_become_pass }}"
     groups:
-      - Terraform
-    comment: "Terraform management user"
+      - OpenTofu
+    comment: "OpenTofu management user"
 pve_storages:
   - name: backups
     type: nfs

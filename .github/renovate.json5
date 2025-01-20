@@ -28,7 +28,7 @@
     "pre-commit": {
         "enabled": true
     },
-    "terraform": {
+    "opentofu": {
         "fileMatch": ["cluster/.+\\.tf$"]
     },
     "flux": {
