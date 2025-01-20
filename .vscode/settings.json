@@ -5,7 +5,7 @@
     "**/provision/ansible/**/*.yml": "ansible",
     "**/provision/ansible/**/*.sops.yml": "yaml",
     "**/provision/ansible/**/inventory/**/*.yml": "yaml",
-    "**/provision/opentofu/**/*.tf": "terraform"
+    "**/provision/opentofu/**/*.tofu": "terraform"
   },
   "prettier.configPath": ".github/linters/.prettierrc.yaml",
   "prettier.ignorePath": ".github/linters/.prettierignore",

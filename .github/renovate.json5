@@ -29,7 +29,7 @@
         "enabled": true
     },
     "opentofu": {
-        "fileMatch": ["cluster/.+\\.tf$"]
+        "fileMatch": ["cluster/.+\\.tofu$"]
     },
     "flux": {
         "fileMatch": ["cluster/.+\\.ya?ml$"]
