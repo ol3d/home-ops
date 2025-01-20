@@ -14,7 +14,7 @@ A large goal for my homelab is to be as fully automated as possible while allowi
 
 ## Overview
 
-This is a mono respository for my home infrastructure and other self hosted services. The repository is constantly changing and adapting to new technologies being released and updated. Currently, tools such as [Ansible](https://www.ansible.com/), [Terraform](https://www.terraform.io/), and [GitHub Actions](https://github.com/features/actions) are being used to improve the workflow and adhere to IaC and GitOps practices. A list of all additional tools and services being used within this project can be found [here](reference/homelab/services/).
+This is a mono respository for my home infrastructure and other self hosted services. The repository is constantly changing and adapting to new technologies being released and updated. Currently, tools such as [Ansible](https://www.ansible.com/), [OpenTofu](https://opentofu.org/), and [GitHub Actions](https://github.com/features/actions) are being used to improve the workflow and adhere to IaC and GitOps practices. A list of all additional tools and services being used within this project can be found [here](reference/homelab/services/).
 
 All of the homelab references down below can be found within the [**Reference**](reference/) navigation tab.
 
