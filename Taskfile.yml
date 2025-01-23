@@ -11,7 +11,7 @@ includes:
   packer: .taskfiles/packer
   pre-commit: .taskfiles/pre-commit
   sops: .taskfiles/sops
-  opentofu: .taskfiles/opentofu
+  terraform: .taskfiles/terraform
 
 tasks:
   default: task --list

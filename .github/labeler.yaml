@@ -10,10 +10,10 @@ area/ansible:
   - changed-files:
       - any-glob-to-any-file:
           - "lab/provision/ansible/**/*"
-area/opentofu:
+area/terraform:
   - changed-files:
       - any-glob-to-any-file:
-          - "lab/provision/opentofu/**/*"
+          - "lab/provision/terraform/**/*"
 area/packer:
   - changed-files:
       - any-glob-to-any-file:

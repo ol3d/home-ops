@@ -30,7 +30,7 @@
         },
         {
             "matchDatasources": ["terraform-provider"],
-            "addLabels": ["renovate/opentofu"]
+            "addLabels": ["renovate/terraform"]
         },
         {
             "matchDatasources": ["github-releases", "github-tags"],
