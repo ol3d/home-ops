@@ -6,7 +6,7 @@ To begin utilizing this repository for a homelab setup, the following setup guid
 
 ## Management Node Setup
 
-The management node is used *solely* to manage and configure my entire homelab; It only runs services used for homelab management and configuration. The management node utilizes ansible, opentofu, packer, and other tools to help setup, teardown, and modify various components within the homelab. By separating the management node from other devices, it allows me to remotely connect to the node from any device to be able to perform tasks consistently and repeatably.
+The management node is used *solely* to manage and configure my entire homelab; It only runs services used for homelab management and configuration. The management node utilizes ansible, terraform, packer, and other tools to help setup, teardown, and modify various components within the homelab. By separating the management node from other devices, it allows me to remotely connect to the node from any device to be able to perform tasks consistently and repeatably.
 
 Since this node will not have many services running on it, the compute power can remain less than the other nodes within the homelab. A less powerful device such as a Raspberry Pi will suffice.
 

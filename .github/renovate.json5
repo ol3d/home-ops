@@ -29,7 +29,7 @@
         "enabled": true
     },
     "terraform": {
-        "fileMatch": ["cluster/.+\\.tofu$"]
+        "fileMatch": ["cluster/.+\\.tf$"]
     },
     "flux": {
         "fileMatch": ["cluster/.+\\.ya?ml$"]
