@@ -29,7 +29,7 @@
             "addLabels": ["renovate/ansible"]
         },
         {
-            "matchDatasources": ["opentofu-provider"],
+            "matchDatasources": ["terraform-provider"],
             "addLabels": ["renovate/opentofu"]
         },
         {
