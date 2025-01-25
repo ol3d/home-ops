@@ -1,7 +1,7 @@
-# This file is maintained automatically by "tofu init".
+# This file is maintained automatically by "terraform init".
 # Manual edits may be lost in future updates.
 
-provider "registry.opentofu.org/bpg/proxmox" {
+provider "registry.terraform.io/bpg/proxmox" {
   version     = "0.70.0"
   constraints = "0.70.0"
   hashes = [
@@ -24,7 +24,7 @@ provider "registry.opentofu.org/bpg/proxmox" {
   ]
 }
 
-provider "registry.opentofu.org/carlpett/sops" {
+provider "registry.terraform.io/carlpett/sops" {
   version     = "1.1.1"
   constraints = "1.1.1"
   hashes = [
