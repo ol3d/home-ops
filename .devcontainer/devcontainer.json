@@ -3,7 +3,8 @@
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
-      "_DEV_CONTAINERS_BASE_IMAGE": "debian:bullseye-slim"    }
+      "_DEV_CONTAINERS_BASE_IMAGE": "debian:bullseye-slim"
+    }
   },
   "remoteUser": "vscode",
   "customizations": {

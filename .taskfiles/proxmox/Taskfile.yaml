@@ -1,20 +1,9 @@
 ---
 version: "3"
 
-vars:
-  PROXMOX_TASKFILE_RESOURCES_DIR: '{{.ROOT_DIR}}/.taskfiles/proxmox/resources'
-  ANSIBLE_DIR: '{{.ROOT_DIR}}/.taskfiles/ansible'
-
 tasks:
 
-  bootstrap:
-    desc: Initialize local managment sever node
+  todo:
+    desc: "" # TODO
     cmds:
-      - task: init-aws
-      - task: ansible:install
-      - task: init-sops
-
-  init-aws:
-    desc: Install and Configure AWS CLI v2 as well as credentials
-    cmds:
-      - bash {{.PROXMOX_TASKFILE_RESOURCES_DIR}}/scripts/install_aws.sh
+      - task: "" # TODO

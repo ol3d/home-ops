@@ -3,16 +3,8 @@ version: "3"
 
 vars:
   ANSIBLE_DIR: "{{.ROOT_DIR}}/lab/provision/ansible"
-  ANSIBLE_TASKFILE_RESOURCES_DIR: '{{.ROOT_DIR}}/.taskfiles/ansible/resources'
 
 tasks:
-
-  install:
-    desc: Install Ansible onto the system
-    vars:
-      ANSIBLE_VERSION: "2.15.5"
-    cmds:
-      - bash {{.ANSIBLE_TASKFILE_RESOURCES_DIR}}/scripts/install_ansible.sh {{.ANSIBLE_VERSION}}
 
   version:
     desc: Output the installed Ansible version
