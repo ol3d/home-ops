@@ -6,11 +6,6 @@ vars:
 
 tasks:
 
-  version:
-    desc: Output the installed Ansible version
-    cmds:
-      - ansible --version
-
   dependencies:
     desc: Install/Upgrade Ansible Galaxy dependencies
     dir: "{{.ANSIBLE_DIR}}"

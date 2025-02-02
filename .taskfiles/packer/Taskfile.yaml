@@ -5,7 +5,7 @@ vars:
   PACKER_DIR: "{{.ROOT_DIR}}/lab/provision/packer"
 
 tasks:
-  init:
+  format:
     desc: Format packer files
     dir: "{{.PACKER_DIR}}"
     cmds:

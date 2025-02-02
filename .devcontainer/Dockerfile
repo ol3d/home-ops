@@ -49,6 +49,9 @@ RUN apt-get update && apt-get install -y python3-pip && \
     pip3 install --no-cache-dir pre-commit && \
     rm -rf /var/lib/apt/lists/*
 
+# Install Task (Taskfile)
+RUN sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
+
 # Set up a non-root user for VSCode (user "vscode" is commonly used for containers)
 RUN useradd -m vscode && \
     echo "vscode ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/vscode && \
