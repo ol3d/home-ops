@@ -1,0 +1,57 @@
+{
+  "name": "dev-container",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "_DEV_CONTAINERS_BASE_IMAGE": "debian:bullseye-slim"    }
+  },
+  "remoteUser": "vscode",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "ansible.ansibleLint.arguments": "-c .github/linters/.ansible-lint",
+        "files.associations": {
+          "*.json5": "jsonc",
+          "**/provision/ansible/**/*.yml": "ansible",
+          "**/provision/ansible/**/*.sops.yml": "yaml",
+          "**/provision/ansible/**/inventory/**/*.yml": "yaml",
+          "**/provision/terraform/**/*.tf": "terraform"
+        },
+        "prettier.configPath": ".github/linters/.prettierrc.yaml",
+        "prettier.ignorePath": ".github/linters/.prettierignore",
+        "yaml.schemas": {
+          "Kubernetes": "cluster/*.yaml"
+        },
+        "editor.bracketPairColorization.enabled": true,
+        "editor.guides.bracketPairs": "active",
+        "editor.hover.delay": 1500,
+        "ansible.python.interpreterPath": "/bin/python3"
+      },
+      "extensions": [
+        "albert.TabOut",
+        "britesnow.vscode-toggle-quotes",
+        "mitchdenny.ecdc",
+        "oderwat.indent-rainbow",
+        "redhat.ansible",
+        "redhat.vscode-yaml",
+        "signageos.signageos-vscode-sops",
+        "usernamehw.errorlens",
+        "fcrespo82.markdown-table-formatter",
+        "zhuangtongfa.material-theme",
+        "ms-vscode-remote.remote-ssh",
+        "ms-vscode-remote.remote-ssh-edit",
+        "DavidAnson.vscode-markdownlint",
+        "4ops.packer",
+        "Gruntfuggly.todo-tree",
+        "rangav.vscode-thunder-client",
+        "editorconfig.editorconfig"
+      ]
+    }
+  },
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/buildworkspace,type=bind",
+    "source=${localEnv:HOME}/.aws,target=/home/vscode/.aws,type=bind"
+  ],
+  "workspaceFolder": "/buildworkspace"
+}
