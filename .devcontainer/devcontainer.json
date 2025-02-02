@@ -51,7 +51,8 @@
   },
   "mounts": [
     "source=${localWorkspaceFolder},target=/buildworkspace,type=bind",
-    "source=${localEnv:HOME}/.aws,target=/home/vscode/.aws,type=bind"
+    "source=${localEnv:HOME}/.aws,target=/home/vscode/.aws,type=bind",
+    "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind"
   ],
   "workspaceFolder": "/buildworkspace"
 }
