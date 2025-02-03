@@ -23,6 +23,12 @@ RUN apt-get update && \
     ansible \
     && rm -rf /var/lib/apt/lists/*
 
+# Set up a non-root user for VSCode (user "vscode" is commonly used for containers)
+RUN useradd -m vscode && \
+    echo "vscode ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/vscode && \
+    chmod 0440 /etc/sudoers.d/vscode && \
+    chsh -s /bin/bash vscode
+
 # Install yq for YAML processing
 RUN curl -L https://github.com/mikefarah/yq/releases/download/v4.15.1/yq_linux_amd64 -o /usr/local/bin/yq \
     && chmod +x /usr/local/bin/yq
@@ -44,6 +50,15 @@ RUN curl -fsSL "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "/t
     /tmp/aws/install && \
     rm -rf /tmp/aws /tmp/awscliv2.zip
 
+# Ensure the home directory for vscode exists
+RUN mkdir -p /home/vscode/.aws
+
+# Copy AWS configuration files from .devcontainer/.aws to the container
+COPY .devcontainer/.aws /home/vscode/.aws/
+
+# Ensure the correct ownership and permissions
+RUN chown -R vscode:vscode /home/vscode/.aws && chmod -R 600 /home/vscode/.aws/*
+
 # Install pre-commit
 RUN apt-get update && apt-get install -y python3-pip && \
     pip3 install --no-cache-dir pre-commit && \
@@ -52,15 +67,9 @@ RUN apt-get update && apt-get install -y python3-pip && \
 # Install Task (Taskfile)
 RUN sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
 
-# Set up a non-root user for VSCode (user "vscode" is commonly used for containers)
-RUN useradd -m vscode && \
-    echo "vscode ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/vscode && \
-    chmod 0440 /etc/sudoers.d/vscode && \
-    chsh -s /bin/bash vscode
-
-# Set working directory to /buildworkspace and give the vscode user permissions
-WORKDIR /buildworkspace
-RUN chown -R vscode:vscode /buildworkspace
+# Set working directory to /workspace and give the vscode user permissions
+WORKDIR /workspace
+RUN chown -R vscode:vscode /workspace
 
 # Switch to the vscode user for container runtime
 USER vscode

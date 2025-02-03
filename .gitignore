@@ -20,3 +20,4 @@ config.xml
 node_modules
 package-lock.json
 .vscode
+.devcontainer/.aws
