@@ -64,6 +64,9 @@ RUN apt-get update && apt-get install -y python3-pip && \
     pip3 install --no-cache-dir pre-commit && \
     rm -rf /var/lib/apt/lists/*
 
+# Install MkDocs with the Material theme
+RUN pip3 install --no-cache-dir mkdocs-material
+
 # Install Task (Taskfile)
 RUN sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
 

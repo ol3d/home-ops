@@ -5,7 +5,6 @@
     "dockerfile": "Dockerfile",
     "args": {
       "_DEV_CONTAINERS_BASE_IMAGE": "debian:bullseye-slim"
-      // "DOCKER_BUILDKIT": "1"
     }
   },
   "runArgs": [
