@@ -5,6 +5,7 @@
     "dockerfile": "Dockerfile",
     "args": {
       "_DEV_CONTAINERS_BASE_IMAGE": "debian:bullseye-slim"
+      // "DOCKER_BUILDKIT": "1"
     }
   },
   "runArgs": [
@@ -26,7 +27,10 @@
         "prettier.configPath": ".github/linters/.prettierrc.yaml",
         "prettier.ignorePath": ".github/linters/.prettierignore",
         "yaml.schemas": {
-          "Kubernetes": "cluster/*.yaml"
+          "Kubernetes": "cluster/*.yaml",
+          "https://taskfile.dev/schema.json": [
+            "**/Taskfile.yml"
+          ]
         },
         "editor.bracketPairColorization.enabled": true,
         "editor.guides.bracketPairs": "active",
@@ -56,7 +60,10 @@
   },
   "mounts": [
     "source=${localWorkspaceFolder},target=/workspace,type=bind",
-    "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind"
+    // HOME used for Linux - USERPROFILE used for Windows
+    // "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind"
+    "source=${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind"
   ],
   "workspaceFolder": "/workspace"
+  // "postCreateCommand": "task devcontainer:bootstrap"
 }
