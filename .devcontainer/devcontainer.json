@@ -39,6 +39,7 @@
       "extensions": [
         "albert.TabOut",
         "britesnow.vscode-toggle-quotes",
+        "hashicorp.terraform",
         "mitchdenny.ecdc",
         "oderwat.indent-rainbow",
         "redhat.ansible",
@@ -58,11 +59,11 @@
     }
   },
   "mounts": [
-    "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    "source=${localWorkspaceFolder},target=/home/vscode/workspace,type=bind",
     // HOME used for Linux - USERPROFILE used for Windows
     // "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind"
     "source=${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind"
   ],
-  "workspaceFolder": "/workspace"
-  // "postCreateCommand": "task devcontainer:bootstrap"
+  "workspaceFolder": "/home/vscode/workspace",
+  "postStartCommand": "task devcontainer:bootstrap"
 }
