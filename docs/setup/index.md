@@ -12,7 +12,6 @@ Since this node will not have many services running on it, the compute power can
 
 The initial setup of the management node is mostly automated, however, there are a few preliminary steps that need to be completed before the automation can begin. Follow each step below to begin setting up the management node.
 
-- [Debian Installation](mgmt/debian-installation.md)
 - [Git Repository Setup](mgmt/git-repository-setup.md)
 
 ---
