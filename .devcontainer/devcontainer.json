@@ -65,5 +65,8 @@
     "source=${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind"
   ],
   "workspaceFolder": "/home/vscode/workspace",
-  "postStartCommand": "task devcontainer:bootstrap"
+  "postStartCommand": {
+    "bootstrap": "task devcontainer:bootstrap",
+    "mkdocs": "mkdocs serve"
+  }
 }
