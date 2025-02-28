@@ -6,9 +6,9 @@
   color: "72ccf3"
 - name: area/github
   color: "72ccf3"
-- name: area/cluster
-  color: "72ccf3"
 - name: area/terraform
+  color: "72ccf3"
+- name: cluster/main
   color: "72ccf3"
 # Renovate Types
 - name: renovate/ansible

@@ -13,4 +13,6 @@ includes:
   terraform: .taskfiles/terraform
 
 tasks:
-  default: task --list
+  default:
+    cmd: task --list
+    silent: true
