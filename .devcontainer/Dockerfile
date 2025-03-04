@@ -21,6 +21,13 @@ RUN apt-get update && \
     vim \
     nano \
     ansible \
+    sshpass \
+    python3-jmespath \
+    age \
+    mkdocs \
+    markdown \
+    # ansible-pylibssh \
+    ansible-lint \
     && rm -rf /var/lib/apt/lists/*
 
 # Set up a non-root user for VSCode (user "vscode" is commonly used for containers)
@@ -64,11 +71,24 @@ RUN apt-get update && apt-get install -y python3-pip && \
     pip3 install --no-cache-dir pre-commit && \
     rm -rf /var/lib/apt/lists/*
 
+# Fix permissions for pre-commit cache
+RUN mkdir -p /home/vscode/.cache/pre-commit && chown -R vscode:vscode /home/vscode/.cache/pre-commit
+
 # Install MkDocs with the Material theme
 RUN pip3 install --no-cache-dir mkdocs-material
 
 # Install Task (Taskfile)
 RUN sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
+
+# Install oh-my-posh
+RUN curl -s https://ohmyposh.dev/install.sh | bash -s -- -d /usr/local/bin
+
+# Download the atomicBit theme
+RUN mkdir -p /usr/local/share/oh-my-posh/themes && \
+    curl -s https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/atomicBit.omp.json -o /usr/local/share/oh-my-posh/themes/atomicBit.omp.json
+
+# Set oh-my-posh as the default prompt for all users and vscode user
+RUN echo 'eval "$(oh-my-posh init bash --config /usr/local/share/oh-my-posh/themes/atomicBit.omp.json)"' >> /home/vscode/.bashrc
 
 # Set working directory to /workspace and give the vscode user permissions
 WORKDIR /workspace

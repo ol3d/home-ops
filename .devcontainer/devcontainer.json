@@ -34,8 +34,16 @@
         "editor.bracketPairColorization.enabled": true,
         "editor.guides.bracketPairs": "active",
         "editor.hover.delay": 1500,
-        "ansible.python.interpreterPath": "/bin/python3"
+        "ansible.python.interpreterPath": "/bin/python3" // ,
+        // "material-icon-theme.files.associations": {
+        //   // TODO: https://github.com/PKief/vscode-material-icon-theme/issues/330
+        //   "*.sops.env": "lock",
+        //   "*.sops.yaml": "lock"
+        // }
       },
+      "dev.containers.defaultExtensions": [
+        "mutantdino.resourcemonitor"
+      ],
       "extensions": [
         "albert.TabOut",
         "britesnow.vscode-toggle-quotes",
@@ -54,7 +62,9 @@
         "4ops.packer",
         "Gruntfuggly.todo-tree",
         "rangav.vscode-thunder-client",
-        "editorconfig.editorconfig"
+        "editorconfig.editorconfig",
+        "ms-azuretools.vscode-docker" // ,
+        // "PKief.material-icon-theme"
       ]
     }
   },
@@ -64,9 +74,9 @@
     // "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind"
     "source=${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind"
   ],
-  "workspaceFolder": "/home/vscode/workspace",
-  "postStartCommand": {
-    "bootstrap": "task devcontainer:bootstrap",
-    "mkdocs": "mkdocs serve"
-  }
+  "workspaceFolder": "/home/vscode/workspace" // ,
+  // "postStartCommand": {
+  //   "bootstrap": "task devcontainer:bootstrap", // Convert bootstrap to a postCreate command so it only triggers once
+  //   "mkdocs": "mkdocs serve"
+  // }
 }
