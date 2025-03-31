@@ -11,7 +11,7 @@ collections:
   - name: cisco.ios
     version: 9.2.0
   - name: kubernetes.core
-    version: 5.1.0
+    version: 5.2.0
   - name: hifis.toolkit
     version: 5.3.0
   - name: prometheus.prometheus
