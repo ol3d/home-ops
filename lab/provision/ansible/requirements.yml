@@ -15,7 +15,7 @@ collections:
   - name: hifis.toolkit
     version: 5.3.0
   - name: prometheus.prometheus
-    version: 0.26.1
+    version: 0.26.2
 roles:
   - name: andrewrothstein.sops
     version: v2.0.8
