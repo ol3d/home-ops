@@ -5,7 +5,7 @@ collections:
   - name: community.crypto
     version: 2.26.3
   - name: community.general
-    version: 10.7.0
+    version: 10.7.2
   - name: community.sops
     version: 2.1.0
   - name: cisco.ios
