@@ -9,7 +9,7 @@ collections:
   - name: community.sops
     version: 2.2.1
   - name: cisco.ios
-    version: 10.1.1
+    version: 11.0.0
   - name: kubernetes.core
     version: 6.1.0
   - name: hifis.toolkit
