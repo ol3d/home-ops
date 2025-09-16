@@ -6,7 +6,7 @@
     "ansible@2.18.7",
     "sops@3.10.2",
     "yq@3.4.3",
-    "go-task@3.43.3",
+    "go-task@3.44.1",
     "mkdocs@1.6.1",
     "python313Packages.mkdocs-material@9.6.4",
     "awscli2@2.27.2",
