@@ -1,7 +1,7 @@
 {
   "packages": [
     "git@2.50.1",
-    "terraform@1.12.0",
+    "terraform@1.12.2",
     "packer@1.14.1",
     "ansible@2.18.7",
     "sops@3.10.2",
