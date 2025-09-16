@@ -1,0 +1,23 @@
+{
+  "recommendations": [
+    "albert.TabOut",
+    "britesnow.vscode-toggle-quotes",
+    "hashicorp.terraform",
+    "mitchdenny.ecdc",
+    "oderwat.indent-rainbow",
+    "redhat.ansible",
+    "redhat.vscode-yaml",
+    "signageos.signageos-vscode-sops",
+    "usernamehw.errorlens",
+    "fcrespo82.markdown-table-formatter",
+    "zhuangtongfa.material-theme",
+    "ms-vscode-remote.remote-ssh",
+    "ms-vscode-remote.remote-ssh-edit",
+    "DavidAnson.vscode-markdownlint",
+    "4ops.packer",
+    "Gruntfuggly.todo-tree",
+    "rangav.vscode-thunder-client",
+    "editorconfig.editorconfig",
+    "ms-azuretools.vscode-docker"
+  ]
+}

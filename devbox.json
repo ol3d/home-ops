@@ -1,0 +1,21 @@
+{
+  "packages": [
+    "git@2.50.1",
+    "terraform@1.12.0",
+    "packer@1.12.0",
+    "ansible@2.18.7",
+    "sops@3.10.2",
+    "yq@3.4.3",
+    "go-task@3.43.3",
+    "mkdocs@1.6.1",
+    "python313Packages.mkdocs-material@9.6.4",
+    "awscli2@2.27.2",
+    "pre-commit@4.0.1",
+    "nodePackages.prettier@3.5.3"
+  ],
+  "shell": {
+    "init_hook": [
+      "echo 'Homelab Devbox shell loaded'"
+    ]
+  }
+}

@@ -6,7 +6,6 @@ shopt: [globstar]
 
 includes:
   ansible: .taskfiles/ansible
-  devcontainer: .taskfiles/devcontainer
   packer: .taskfiles/packer
   pre-commit: .taskfiles/pre-commit
   sops: .taskfiles/sops
