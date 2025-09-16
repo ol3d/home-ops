@@ -10,7 +10,7 @@
     "mkdocs@1.6.1",
     "python313Packages.mkdocs-material@9.6.4",
     "awscli2@2.27.2",
-    "pre-commit@4.0.1",
+    "pre-commit@4.2.0",
     "nodePackages.prettier@3.5.3"
   ],
   "shell": {
