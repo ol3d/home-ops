@@ -365,51 +365,51 @@
         }
       }
     },
-    "packer@1.12.0": {
-      "last_modified": "2025-05-16T20:19:48Z",
-      "resolved": "github:NixOS/nixpkgs/12a55407652e04dcf2309436eb06fef0d3713ef3#packer",
+    "packer@1.14.1": {
+      "last_modified": "2025-08-09T03:53:37Z",
+      "resolved": "github:NixOS/nixpkgs/00b574b1ba8a352f0601c4dde4faff4b534ebb1e#packer",
       "source": "devbox-search",
-      "version": "1.12.0",
+      "version": "1.14.1",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/bxdp5sjyg182nlil77dvx4nvd6ky27zs-packer-1.12.0",
+              "path": "/nix/store/7a5ip9255gxd2rc862dia7zpwvf8jy35-packer-1.14.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/bxdp5sjyg182nlil77dvx4nvd6ky27zs-packer-1.12.0"
+          "store_path": "/nix/store/7a5ip9255gxd2rc862dia7zpwvf8jy35-packer-1.14.1"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/6q4ifkml98w4h61dqb725ggrac1wwmj3-packer-1.12.0",
+              "path": "/nix/store/dw884frlabhjlmmcar56hvi3j22gzsnd-packer-1.14.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/6q4ifkml98w4h61dqb725ggrac1wwmj3-packer-1.12.0"
+          "store_path": "/nix/store/dw884frlabhjlmmcar56hvi3j22gzsnd-packer-1.14.1"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/gvzq137jnwd3j6xqnbpr2s8clw0zj6k3-packer-1.12.0",
+              "path": "/nix/store/l0fx763c061is16j2w7w6dxh7x2p63am-packer-1.14.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/gvzq137jnwd3j6xqnbpr2s8clw0zj6k3-packer-1.12.0"
+          "store_path": "/nix/store/l0fx763c061is16j2w7w6dxh7x2p63am-packer-1.14.1"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/96npfv48pw16ls9qgif3zsak6gdkazv8-packer-1.12.0",
+              "path": "/nix/store/p2kh0n8pdnaizml8p0gxbjj0p4vgkkdg-packer-1.14.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/96npfv48pw16ls9qgif3zsak6gdkazv8-packer-1.12.0"
+          "store_path": "/nix/store/p2kh0n8pdnaizml8p0gxbjj0p4vgkkdg-packer-1.14.1"
         }
       }
     },
