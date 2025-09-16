@@ -477,67 +477,67 @@
         }
       }
     },
-    "python313Packages.mkdocs-material@9.6.4": {
-      "last_modified": "2025-07-13T22:45:35Z",
-      "resolved": "github:NixOS/nixpkgs/a421ac6595024edcfbb1ef950a3712b89161c359#python313Packages.mkdocs-material",
+    "python313Packages.mkdocs-material@9.6.15": {
+      "last_modified": "2025-08-05T11:35:34Z",
+      "resolved": "github:NixOS/nixpkgs/a683adc19ff5228af548c6539dbc3440509bfed3#python313Packages.mkdocs-material",
       "source": "devbox-search",
-      "version": "9.6.4",
+      "version": "9.6.15",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/csj1skb32w31in7g9y0sjx61l64a1v25-python3.13-mkdocs-material-9.6.4",
+              "path": "/nix/store/yzlf7zfdip77kahx2xadr4xgz865bk2s-python3.13-mkdocs-material-9.6.15",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/hqbg0yv6k34wr392kfw2vc77lczm06si-python3.13-mkdocs-material-9.6.4-dist"
+              "path": "/nix/store/cv6smw9vsd48d2gff577kcz3anqk4xnk-python3.13-mkdocs-material-9.6.15-dist"
             }
           ],
-          "store_path": "/nix/store/csj1skb32w31in7g9y0sjx61l64a1v25-python3.13-mkdocs-material-9.6.4"
+          "store_path": "/nix/store/yzlf7zfdip77kahx2xadr4xgz865bk2s-python3.13-mkdocs-material-9.6.15"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/r4rmx30lw0y4dlsph1zybhsf816c3lnm-python3.13-mkdocs-material-9.6.4",
+              "path": "/nix/store/yr9d4ix38zz4clwplxjcda0sqlqsra9s-python3.13-mkdocs-material-9.6.15",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/spvk6biqgxamyjy9nqlgiaa6xzvvyrfz-python3.13-mkdocs-material-9.6.4-dist"
+              "path": "/nix/store/6hmxdnigpl16wx4nhn36h1vsfqv46qhg-python3.13-mkdocs-material-9.6.15-dist"
             }
           ],
-          "store_path": "/nix/store/r4rmx30lw0y4dlsph1zybhsf816c3lnm-python3.13-mkdocs-material-9.6.4"
+          "store_path": "/nix/store/yr9d4ix38zz4clwplxjcda0sqlqsra9s-python3.13-mkdocs-material-9.6.15"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/g96klc0z9sgrhzvlyqpcy6v4ksglii9k-python3.13-mkdocs-material-9.6.4",
+              "path": "/nix/store/1knwznx68lpnvd44s99drbwc903m4zpp-python3.13-mkdocs-material-9.6.15",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/clmzn8kgpb3fmh1n0df2w8vn8jgzs9hn-python3.13-mkdocs-material-9.6.4-dist"
+              "path": "/nix/store/l12dab0wra7cvniag193qp45x51zqcwn-python3.13-mkdocs-material-9.6.15-dist"
             }
           ],
-          "store_path": "/nix/store/g96klc0z9sgrhzvlyqpcy6v4ksglii9k-python3.13-mkdocs-material-9.6.4"
+          "store_path": "/nix/store/1knwznx68lpnvd44s99drbwc903m4zpp-python3.13-mkdocs-material-9.6.15"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/qf0q7ngd250qiay48a8ba1gv0r34kv2r-python3.13-mkdocs-material-9.6.4",
+              "path": "/nix/store/dl5qjiwi1nq0rg3nnpsmvaiw56kj7qd5-python3.13-mkdocs-material-9.6.15",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/3wcc6vcpl5ch5si5r6a79b73vcnfaalb-python3.13-mkdocs-material-9.6.4-dist"
+              "path": "/nix/store/yzms1h2bw24rjg151kyzr2mdszrwr37z-python3.13-mkdocs-material-9.6.15-dist"
             }
           ],
-          "store_path": "/nix/store/qf0q7ngd250qiay48a8ba1gv0r34kv2r-python3.13-mkdocs-material-9.6.4"
+          "store_path": "/nix/store/dl5qjiwi1nq0rg3nnpsmvaiw56kj7qd5-python3.13-mkdocs-material-9.6.15"
         }
       }
     },
