@@ -1,6 +1,6 @@
 {
   "packages": [
-    "git@2.50.1",
+    "git@2.51.0",
     "terraform@1.12.2",
     "packer@1.14.1",
     "ansible@2.18.7",
