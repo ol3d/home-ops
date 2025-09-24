@@ -8,7 +8,7 @@
     "yq@3.4.3",
     "go-task@3.44.1",
     "mkdocs@1.6.1",
-    "python313Packages.mkdocs-material@9.6.15",
+    "python313Packages.mkdocs-material@9.6.17",
     "awscli2@2.28.1",
     "pre-commit@4.2.0",
     "nodePackages.prettier@3.5.3"
