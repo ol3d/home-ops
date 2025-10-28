@@ -1,30 +1,66 @@
 ---
 fail_fast: false
 repos:
-  - repo: https://github.com/adrienverge/yamllint
-    rev: v1.37.1
+  - repo: local
+    stages: [pre-commit]
     hooks:
-      - args:
-          - --config-file
-          - .github/linters/.yamllint.yaml
-        id: yamllint
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v6.0.0
-    hooks:
-      - id: check-merge-conflict
-      - id: trailing-whitespace
-      - id: end-of-file-fixer
-      - id: mixed-line-ending
-  - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.5.5
-    hooks:
-      - id: remove-crlf
-      - id: remove-tabs
-  - repo: https://github.com/sirosen/texthooks
-    rev: 0.7.1
-    hooks:
-      - id: fix-smartquotes
-  - repo: https://github.com/k8s-at-home/sops-pre-commit
-    rev: v2.1.1
-    hooks:
-      - id: forbid-secrets
+      - id: prettier
+        name: Prettier
+        entry: prettier
+        language: system
+        pass_filenames: true
+        args:
+          - "--write"
+          - "--config"
+          - ".github/linters/.prettierrc.yaml"
+  # - repo: local
+  #   hooks:
+  #     - id: lint
+  #       name: task-lint
+  #       entry: task lint:lint
+  #       language: system
+  #       always_run: true
+  #       verbose: false
+  #       pass_filenames: false
+  #       require_serial: false
+  #       description: Run Taskfile lint:lint task on all files
+  #       language_version: default
+  # - repo: https://github.com/adrienverge/yamllint
+  #   rev: v1.37.1
+  #   hooks:
+  #     - args:
+  #         - --config-file
+  #         - .github/linters/.yamllint.yaml
+  #       id: yamllint
+  # - repo: https://github.com/pre-commit/pre-commit-hooks
+  #   rev: v6.0.0
+  #   hooks:
+  #     - id: check-merge-conflict
+  #     - id: trailing-whitespace
+  #     - id: end-of-file-fixer
+  #     - id: mixed-line-ending
+  #     - id: check-json
+  #     - id: check-yaml
+  #       args:
+  #         - --allow-multiple-documents
+  #     - id: check-xml
+  #     - id: detect-aws-credentials
+  #       args:
+  #         - --allow-missing-credentials
+  #     - id: double-quote-string-fixer
+  # - repo: https://github.com/Lucas-C/pre-commit-hooks
+  #   rev: v1.5.5
+  #   hooks:
+  #     - id: remove-crlf
+  #     - id: remove-tabs
+  # - repo: https://github.com/sirosen/texthooks
+  #   rev: 0.7.1
+  #   hooks:
+  #     - id: fix-smartquotes
+  #     - id: alphabetize-codeowners
+  #     - id: fix-spaces
+  # TODO find new Mozilla SOPS pre-commit alternative to prevent unencrypted sops being commited
+  # - repo: https://github.com/k8s-at-home/sops-pre-commit
+  #   rev: v2.1.1
+  #   hooks:
+  #     - id: forbid-secrets
