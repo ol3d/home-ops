@@ -1,66 +1,78 @@
 ---
+# Pre-commit hooks using devbox-installed tools (language: system)
+# Config files in .github/linters/ remain the single source of truth
+# For manual runs, use: task lint:fix:all or task lint:check:all
 fail_fast: false
 repos:
   - repo: local
-    stages: [pre-commit]
     hooks:
+      # Prettier - formatting for JSON, YAML, Markdown, etc.
       - id: prettier
         name: Prettier
-        entry: prettier
+        entry: prettier --write --config .github/linters/.prettierrc.yaml --ignore-path .github/linters/.prettierignore
         language: system
-        pass_filenames: true
-        args:
-          - "--write"
-          - "--config"
-          - ".github/linters/.prettierrc.yaml"
-  # - repo: local
+        types_or: [json, yaml, markdown, javascript, css, html]
+        exclude: ^(.devbox|.cache|node_modules|docs)/|\.ansible-lint$|\.tflint\.hcl$
+
+      # Terraform formatting
+      - id: terraform-fmt
+        name: Terraform Format
+        entry: terraform fmt -recursive lab/provision/terraform/
+        language: system
+        files: \.tf$
+        pass_filenames: false
+
+      # Packer formatting
+      - id: packer-fmt
+        name: Packer Format
+        entry: packer fmt -recursive lab/provision/packer/
+        language: system
+        files: \.pkr\.hcl$
+        pass_filenames: false
+
+      # Shell formatting
+      - id: shfmt
+        name: Shell Format
+        entry: shfmt -w -i 2 -ci -bn
+        language: system
+        types: [shell]
+
+      # Markdown linting
+      - id: markdownlint
+        name: Markdown Lint
+        entry: markdownlint-cli2 --config .github/linters/.markdownlint.yaml
+        language: system
+        types: [markdown]
+        exclude: ^(docs|node_modules|\.devbox)/|^\.github/(ISSUE_TEMPLATE|PULL_REQUEST_TEMPLATE)
+
+  # YAML linting (Python-based, works in isolated env)
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.37.1
+    hooks:
+      - id: yamllint
+        args: [-c=.github/linters/.yamllint.yaml]
+
+  # # Ansible linting (Python-based)
+  # - repo: https://github.com/ansible/ansible-lint
+  #   rev: v25.9.2
   #   hooks:
-  #     - id: lint
-  #       name: task-lint
-  #       entry: task lint:lint
-  #       language: system
-  #       always_run: true
-  #       verbose: false
-  #       pass_filenames: false
-  #       require_serial: false
-  #       description: Run Taskfile lint:lint task on all files
-  #       language_version: default
-  # - repo: https://github.com/adrienverge/yamllint
-  #   rev: v1.37.1
-  #   hooks:
-  #     - args:
-  #         - --config-file
-  #         - .github/linters/.yamllint.yaml
-  #       id: yamllint
-  # - repo: https://github.com/pre-commit/pre-commit-hooks
-  #   rev: v6.0.0
-  #   hooks:
-  #     - id: check-merge-conflict
-  #     - id: trailing-whitespace
-  #     - id: end-of-file-fixer
-  #     - id: mixed-line-ending
-  #     - id: check-json
-  #     - id: check-yaml
-  #       args:
-  #         - --allow-multiple-documents
-  #     - id: check-xml
-  #     - id: detect-aws-credentials
-  #       args:
-  #         - --allow-missing-credentials
-  #     - id: double-quote-string-fixer
-  # - repo: https://github.com/Lucas-C/pre-commit-hooks
-  #   rev: v1.5.5
-  #   hooks:
-  #     - id: remove-crlf
-  #     - id: remove-tabs
-  # - repo: https://github.com/sirosen/texthooks
-  #   rev: 0.7.1
-  #   hooks:
-  #     - id: fix-smartquotes
-  #     - id: alphabetize-codeowners
-  #     - id: fix-spaces
-  # TODO find new Mozilla SOPS pre-commit alternative to prevent unencrypted sops being commited
-  # - repo: https://github.com/k8s-at-home/sops-pre-commit
-  #   rev: v2.1.1
-  #   hooks:
-  #     - id: forbid-secrets
+  #     - id: ansible-lint
+  #       args: [-c=.github/linters/.ansible-lint]
+  #       files: ^lab/provision/ansible/
+
+  # Shell script checks (Python wrapper)
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.11.0.1
+    hooks:
+      - id: shellcheck
+
+  # Security checks for secrets
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: detect-aws-credentials
+        args: ["--allow-missing-credentials"]
+      - id: detect-private-key
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: ["--maxkb=1024"]
