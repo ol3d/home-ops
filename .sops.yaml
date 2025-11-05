@@ -4,14 +4,14 @@ creation_rules:
     encrypted_regex: "^(data|stringData)$"
     key_groups:
       - kms:
-        - arn: arn:aws:kms:us-east-1:869935076354:key/4a38975b-065e-4cbc-b0d7-b6067418b38f
-        - arn: arn:aws:kms:us-east-1:869935076354:key/6baaa7c8-967a-4fc5-9923-c0a938edfcf4
+          - arn: arn:aws:kms:us-east-1:869935076354:key/4a38975b-065e-4cbc-b0d7-b6067418b38f
+          - arn: arn:aws:kms:us-east-1:869935076354:key/6baaa7c8-967a-4fc5-9923-c0a938edfcf4
   - path_regex: provision/.*\.sops\.ya?ml
     unencrypted_regex: "^(kind)$"
     key_groups:
       - kms:
-        - arn: arn:aws:kms:us-east-1:869935076354:key/4a38975b-065e-4cbc-b0d7-b6067418b38f
-        - arn: arn:aws:kms:us-east-1:869935076354:key/6baaa7c8-967a-4fc5-9923-c0a938edfcf4
+          - arn: arn:aws:kms:us-east-1:869935076354:key/4a38975b-065e-4cbc-b0d7-b6067418b38f
+          - arn: arn:aws:kms:us-east-1:869935076354:key/6baaa7c8-967a-4fc5-9923-c0a938edfcf4
 stores:
   yaml:
     indent: 2

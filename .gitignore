@@ -21,3 +21,11 @@ node_modules
 package-lock.json
 # Devbox
 .devbox/
+# Ansible-lint
+.ansible/
+# NodeJs
+.node_modules/
+# Material for MkDocs
+.cache
+# Environment Config
+.env
