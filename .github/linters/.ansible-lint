@@ -1,3 +1,25 @@
-# .ansible-lint
+---
+# See https://ansible.readthedocs.io/projects/lint/configuring/
+
+profile: production
+
+# Exclude paths
+exclude_paths:
+  - .ansible/
+  - .devbox/
+  - node_modules/
+  - .vscode/
+  - "**/*.sops.yml"
+  - "**/*.sops.yaml"
+
+# Skip specific rules (only if necessary)
+skip_list:
+  - yaml[line-length]  # Handled by yamllint
+
+# Warnings instead of errors
 warn_list:
-  - unnamed-task
+  - unnamed-task  # Warn but don't fail on unnamed tasks
+  - role-name  # Warn on role naming issues
+
+# Enable offline mode (no internet required)
+offline: false

@@ -1,4 +1,31 @@
+# Documentation
 docs/
+
+# IDE
 .vscode/
+.idea/
+
+# Linter configs (non-YAML/JSON formats)
+.github/linters/.ansible-lint
+.github/linters/.tflint.hcl
+
+# SOPS encrypted files
 *.sops.*
-.provision/terraform
+
+# Dependencies
+node_modules/
+.devbox/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+
+# Ansible
+.ansible/
+
+# Build artifacts
+dist/
+build/
+*.log
