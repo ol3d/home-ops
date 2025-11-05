@@ -1,40 +1,40 @@
 {
-    "packageRules": [
-        {
-            "description": ["Actions Runner Controller Group"],
-            "groupName": "Actions Runner Controller",
-            "matchPackagePatterns": ["gha-runner-scale-set"],
-            "matchDatasources": ["docker", "helm"],
-            "group": {
-                "commitMessageTopic": "{{{groupName}}} group"
-            },
-            "separateMinorPatch": true
-        },
-        {
-            "description": "Rook-Ceph image and chart",
-            "groupName": "Rook-Ceph",
-            "matchPackagePatterns": ["rook.ceph"],
-            "matchDatasources": ["docker", "helm"],
-            "group": { "commitMessageTopic": "{{{groupName}}} group" },
-            "separateMinorPatch": true
-        },
-        {
-            "description": "Thanos image and chart - mismatched versions",
-            "groupName": "Thanos",
-            "matchPackagePatterns": ["thanos"],
-            "matchDatasources": ["docker", "github-releases", "helm"],
-            "matchUpdateTypes": ["minor", "patch"],
-            "group": { "commitMessageTopic": "{{{groupName}}} group" },
-            "separateMinorPatch": false
-        },
-        {
-            "description": "Vector image and chart - mismatched versions",
-            "groupName": "Vector",
-            "matchPackagePatterns": ["vector"],
-            "matchDatasources": ["docker", "github-releases", "helm"],
-            "matchUpdateTypes": ["minor", "patch"],
-            "group": { "commitMessageTopic": "{{{groupName}}} group" },
-            "separateMinorPatch": false
-        }
-    ]
+  packageRules: [
+    {
+      description: ["Actions Runner Controller Group"],
+      groupName: "Actions Runner Controller",
+      matchPackagePatterns: ["gha-runner-scale-set"],
+      matchDatasources: ["docker", "helm"],
+      group: {
+        commitMessageTopic: "{{{groupName}}} group",
+      },
+      separateMinorPatch: true,
+    },
+    {
+      description: "Rook-Ceph image and chart",
+      groupName: "Rook-Ceph",
+      matchPackagePatterns: ["rook.ceph"],
+      matchDatasources: ["docker", "helm"],
+      group: {commitMessageTopic: "{{{groupName}}} group"},
+      separateMinorPatch: true,
+    },
+    {
+      description: "Thanos image and chart - mismatched versions",
+      groupName: "Thanos",
+      matchPackagePatterns: ["thanos"],
+      matchDatasources: ["docker", "github-releases", "helm"],
+      matchUpdateTypes: ["minor", "patch"],
+      group: {commitMessageTopic: "{{{groupName}}} group"},
+      separateMinorPatch: false,
+    },
+    {
+      description: "Vector image and chart - mismatched versions",
+      groupName: "Vector",
+      matchPackagePatterns: ["vector"],
+      matchDatasources: ["docker", "github-releases", "helm"],
+      matchUpdateTypes: ["minor", "patch"],
+      group: {commitMessageTopic: "{{{groupName}}} group"},
+      separateMinorPatch: false,
+    },
+  ],
 }
