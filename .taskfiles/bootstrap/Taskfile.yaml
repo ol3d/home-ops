@@ -5,8 +5,8 @@ vars:
   ANSIBLE_DIR: "{{.ROOT_DIR}}/lab/provision/ansible"
 
 tasks:
-  install-dependencies:
-    desc: Install/Upgrade Ansible Galaxy dependencies
+  workspace:
+    desc: Bootstrap local workspace
     dir: "{{.ANSIBLE_DIR}}"
     cmds:
       - ansible-galaxy install -r requirements.yml --force

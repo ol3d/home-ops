@@ -1,0 +1,128 @@
+---
+version: "3"
+
+vars:
+  LINTER_CONFIG_DIR: "{{.ROOT_DIR}}/.github/linters"
+
+tasks:
+  # ============================================================================
+  # Check tasks (for CI/pre-commit - fail on issues)
+  # ============================================================================
+
+  check:yaml:
+    desc: Check YAML files with yamllint
+    dir: "{{.ROOT_DIR}}"
+    cmds:
+      - yamllint -c {{.LINTER_CONFIG_DIR}}/.yamllint.yaml .
+
+  check:ansible:
+    desc: Check Ansible files with ansible-lint
+    dir: "{{.ROOT_DIR}}/lab/provision/ansible"
+    cmds:
+      - ansible-lint -c {{.LINTER_CONFIG_DIR}}/.ansible-lint
+
+  check:terraform:
+    desc: Check Terraform formatting and lint
+    dir: "{{.ROOT_DIR}}"
+    cmds:
+      - |
+        echo "Checking Terraform formatting..."
+        terraform fmt -check -recursive lab/provision/terraform/
+      - |
+        echo "Running tflint on Terraform modules..."
+        cd lab/provision/terraform/modules/aws && tflint --config {{.LINTER_CONFIG_DIR}}/.tflint.hcl
+        cd lab/provision/terraform/modules/backblaze && tflint --config {{.LINTER_CONFIG_DIR}}/.tflint.hcl
+        cd lab/provision/terraform/modules/cloudflare && tflint --config {{.LINTER_CONFIG_DIR}}/.tflint.hcl
+        cd lab/provision/terraform/modules/github && tflint --config {{.LINTER_CONFIG_DIR}}/.tflint.hcl
+        cd lab/provision/terraform/modules/mailgun && tflint --config {{.LINTER_CONFIG_DIR}}/.tflint.hcl
+        cd lab/provision/terraform/modules/proxmox && tflint --config {{.LINTER_CONFIG_DIR}}/.tflint.hcl
+
+  check:packer:
+    desc: Check Packer HCL formatting
+    dir: "{{.ROOT_DIR}}"
+    cmds:
+      - packer fmt -check -recursive lab/provision/packer/
+
+  check:shell:
+    desc: Check shell scripts with shellcheck and shfmt
+    dir: "{{.ROOT_DIR}}"
+    cmds:
+      - |
+        echo "Running shellcheck..."
+        find . -type f -name "*.sh" -not -path "./.devbox/*" -not -path "./node_modules/*" | xargs shellcheck
+      - |
+        echo "Checking shell script formatting..."
+        find . -type f -name "*.sh" -not -path "./.devbox/*" -not -path "./node_modules/*" | xargs shfmt -d -i 2 -ci -bn
+
+  check:markdown:
+    desc: Check Markdown files with markdownlint
+    dir: "{{.ROOT_DIR}}"
+    cmds:
+      - markdownlint-cli2 --config {{.LINTER_CONFIG_DIR}}/.markdownlint.yaml "**/*.md"
+
+  check:prettier:
+    desc: Check formatting with Prettier
+    dir: "{{.ROOT_DIR}}"
+    cmds:
+      - prettier --check . --config {{.LINTER_CONFIG_DIR}}/.prettierrc.yaml --ignore-path {{.LINTER_CONFIG_DIR}}/.prettierignore
+
+  check:all:
+    desc: Run all linting checks
+    cmds:
+      - task: check:prettier
+      - task: check:yaml
+      - task: check:ansible
+      - task: check:terraform
+      - task: check:packer
+      - task: check:shell
+      - task: check:markdown
+
+  # ============================================================================
+  # Fix/Format tasks (for local development - auto-fix issues)
+  # ============================================================================
+
+  fix:prettier:
+    desc: Auto-fix formatting with Prettier
+    dir: "{{.ROOT_DIR}}"
+    cmds:
+      - prettier --write . --config {{.LINTER_CONFIG_DIR}}/.prettierrc.yaml --ignore-path {{.LINTER_CONFIG_DIR}}/.prettierignore
+
+  fix:terraform:
+    desc: Auto-fix Terraform formatting
+    dir: "{{.ROOT_DIR}}"
+    cmds:
+      - terraform fmt -recursive lab/provision/terraform/
+
+  fix:packer:
+    desc: Auto-fix Packer HCL formatting
+    dir: "{{.ROOT_DIR}}"
+    cmds:
+      - packer fmt -recursive lab/provision/packer/
+
+  fix:shell:
+    desc: Auto-fix shell script formatting with shfmt
+    dir: "{{.ROOT_DIR}}"
+    cmds:
+      - find . -type f -name "*.sh" -not -path "./.devbox/*" -not -path "./node_modules/*" | xargs shfmt -w -i 2 -ci -bn
+
+  fix:all:
+    desc: Auto-fix all formatting issues
+    cmds:
+      - task: fix:prettier
+      - task: fix:terraform
+      - task: fix:packer
+      - task: fix:shell
+
+  # ============================================================================
+  # Convenience aliases
+  # ============================================================================
+
+  lint:
+    desc: Alias for check:all
+    cmds:
+      - task: check:all
+
+  format:
+    desc: Alias for fix:all
+    cmds:
+      - task: fix:all
