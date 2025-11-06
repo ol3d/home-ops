@@ -21,21 +21,54 @@ jobs:
   lint:
     name: Lint and Format Check
     runs-on: ubuntu-latest
+    if: github.actor != 'renovate[bot]' && github.actor != 'beelze-bot[bot]'
     steps:
       - name: Checkout
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
-      - name: Setup Devbox
-        uses: jetify-com/devbox-install-action@v0.14.0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          enable-cache: true
-          project-path: .github/ci
+          node-version: "20"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.13.3"
+
+      - name: Setup Packer
+        uses: hashicorp/setup-packer@v1
+        with:
+          packer_version: "1.14.2"
 
       - name: Install Task
         run: |
           sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
+
+      - name: Install tflint
+        run: |
+          curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+
+      - name: Install Python linters
+        run: |
+          pip install ansible-lint==25.7.0 yamllint==1.37.1
+
+      - name: Install Node.js linters
+        run: |
+          npm install -g markdownlint-cli2@0.17.2 prettier@3.5.3
+
+      - name: Install shellcheck and shfmt
+        run: |
+          sudo apt-get update && sudo apt-get install -y shellcheck
+          go install mvdan.cc/sh/v3/cmd/shfmt@v3.12.0
+          echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
 
       - name: Run All Linting Checks
         run: task lint:check:all
