@@ -3,68 +3,118 @@ site_name: ol3d's Homelab
 site_author: Adam Delo
 
 repo_url: https://github.com/ol3d/home-ops
+repo_name: ol3d/home-ops
 
 theme:
-    name: material
-    locale: en
-    palette:
-        primary: black
-    features:
-        - navigation.indexes
-        - navigation.sections
-        - search.highlight
-        - search.share
+  icon:
+    repo: fontawesome/brands/git-alt
+  name: material
+  locale: en
+  language: en
+  font:
+    # Must be a valid Google Font (fonts.google.com)
+    text: Roboto
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      primary: black
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  features:
+    # - navigation.top
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.sections
+    - toc.integrate
+    - toc.follow
+    - search.highlight
+    - search.share
+    - navigation.indexes
+    # - navigation.path
 
 markdown_extensions:
-    - pymdownx.snippets:
-        check_paths: true
+  - pymdownx.snippets:
+      check_paths: true
+
+plugins:
+  - privacy
+  - search:
+      enabled: true
+      lang: en
+  - offline
+  # - optimize
+  # - search.suggest
+  # - search.highlight
+  # - search.share
+
+# extra:
+#   consent:
+#     title: Cookie consent
+#     description: >-
+#       We use cookies to recognize your repeated visits and preferences, as well
+#       as to measure the effectiveness of our documentation and whether users
+#       find what they're searching for. With your consent, you're helping us to
+#       make our documentation better.
 
 nav:
-    - Home:
-        - index.md
-    - Setup:
-        - setup/index.md
-        - Management Node:
-            - setup/mgmt/git-repository-setup.md
-        - PiKVM:
-            - setup/pikvm/pikvm-setup.md
-        - Proxmox:
-            - setup/proxmox/debian-setup.md
-            - setup/proxmox/proxmox-cluster-setup.md
-    - Concepts:
-        - concepts/index.md
-        - Documentation:
-            - concepts/documentation/documentation-methodology.md
-            - concepts/documentation/documentation-alternatives.md
-        - SSH Certificate Authority:
-            - concepts/ssh/ssh-certificate-authority.md
-        - Visual Studio Code:
-            - concepts/.vscode/extensions.md
-    - How-to:
-        - how-to/index.md
-        - Documentation:
-            - how-to/documentation/creating-documentation.md
-        - Storage:
-            - how-to/storage/drive-health.md
-            - Backups:
-                - how-to/storage/backups/duplicacy-backups.md
-    - Reference:
-        - reference/index.md
-        - Homelab:
-            - reference/homelab/index.md
-            - Network:
-                - reference/homelab/network/network-reference.md
-            - Hardware:
-                - reference/homelab/hardware/server-rack-reference.md
-                - reference/homelab/hardware/hardware-reference.md
-            - Services:
-                - reference/homelab/services/index.md
-                - reference/homelab/services/cloud-services-reference.md
-                - reference/homelab/services/self-hosted-services-reference.md
-        - Supermicro:
-            - reference/supermicro/fan-control.md
-            - reference/supermicro/X11SCL-iF.md
-        - Cisco:
-            - reference/cisco/cisco-ws-2960l-48ts-ll.md
-    - Archive:
-        - archive/index.md
+  - Home:
+      - index.md
+  - Setup:
+      - setup/index.md
+      - Management Node:
+          - setup/mgmt/git-repository-setup.md
+      - PiKVM:
+          - setup/pikvm/pikvm-setup.md
+      - Proxmox:
+          - setup/proxmox/debian-setup.md
+          - setup/proxmox/proxmox-cluster-setup.md
+  - Concepts:
+      - concepts/index.md
+      - Documentation:
+          - concepts/documentation/documentation-methodology.md
+          - concepts/documentation/documentation-alternatives.md
+      - SSH Certificate Authority:
+          - concepts/ssh/ssh-certificate-authority.md
+      - Visual Studio Code:
+          - concepts/.vscode/extensions.md
+  - How-to:
+      - how-to/index.md
+      - Documentation:
+          - how-to/documentation/creating-documentation.md
+      - Storage:
+          - how-to/storage/drive-health.md
+          - Backups:
+              - how-to/storage/backups/duplicacy-backups.md
+  - Reference:
+      - reference/index.md
+      - Homelab:
+          - reference/homelab/index.md
+          - Network:
+              - reference/homelab/network/network-reference.md
+          - Hardware:
+              - reference/homelab/hardware/server-rack-reference.md
+              - reference/homelab/hardware/hardware-reference.md
+          - Services:
+              - reference/homelab/services/index.md
+              - reference/homelab/services/cloud-services-reference.md
+              - reference/homelab/services/self-hosted-services-reference.md
+      - Supermicro:
+          - reference/supermicro/fan-control.md
+          - reference/supermicro/X11SCL-iF.md
+      - Cisco:
+          - reference/cisco/cisco-ws-2960l-48ts-ll.md
