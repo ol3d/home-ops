@@ -3,7 +3,7 @@
     {
       description: "Group devbox package updates across all devbox files",
       groupName: "devbox-{{depName}}",
-      matchFileNames: ["devbox.json", "devbox-ci.json"],
+      matchFileNames: ["devbox.json", ".github/ci/devbox.json"],
       matchManagers: ["devbox"],
       groupSlug: "devbox-{{depName}}",
       additionalBranchPrefix: "",

@@ -31,7 +31,7 @@ jobs:
         uses: jetify-com/devbox-install-action@v0.11.0
         with:
           enable-cache: true
-          devbox-config-file: devbox-ci.json
+          project-path: .github/ci
 
       - name: Install Task
         run: |
