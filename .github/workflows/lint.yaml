@@ -28,53 +28,20 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Install devbox
+        uses: jetify-com/devbox-install-action@v0.11.0
         with:
-          node-version: "20"
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: "1.13.3"
-
-      - name: Install HashiCorp tools
-        run: |
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
-          echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-          sudo apt-get update
-          sudo apt-get install -y packer=1.14.2*
+          project-path: .github
+          devbox-json: devbox-ci.json
+          enable-cache: true
 
       - name: Install Task
         run: |
           sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
 
-      - name: Install tflint
-        run: |
-          curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
-
       - name: Initialize tflint plugins
         run: |
-          tflint --init --config .github/linters/.tflint.hcl
-
-      - name: Install Python linters
-        run: |
-          pip install ansible-lint==25.7.0 yamllint==1.37.1
-
-      - name: Install Node.js linters
-        run: |
-          npm install -g markdownlint-cli2@0.17.2 prettier@3.5.3
-
-      - name: Install shellcheck and shfmt
-        run: |
-          sudo apt-get update && sudo apt-get install -y shellcheck
-          go install mvdan.cc/sh/v3/cmd/shfmt@v3.12.0
-          echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
+          devbox run -- tflint --init --config .github/linters/.tflint.hcl
 
       - name: Run All Linting Checks
-        run: task lint:check:all
+        run: devbox run --config .github/devbox-ci.json -- task lint:check:all

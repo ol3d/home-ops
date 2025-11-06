@@ -1,6 +1,16 @@
 {
   packageRules: [
     {
+      description: "Group devbox package updates across all devbox.json files",
+      groupName: "Devbox Packages",
+      matchManagers: ["devbox"],
+      matchFiles: ["devbox.json", ".github/devbox-ci.json"],
+      group: {
+        commitMessageTopic: "{{{groupName}}} group",
+      },
+      separateMinorPatch: false,
+    },
+    {
       description: ["Actions Runner Controller Group"],
       groupName: "Actions Runner Controller",
       matchPackagePatterns: ["gha-runner-scale-set"],
