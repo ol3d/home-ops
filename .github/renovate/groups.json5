@@ -4,7 +4,7 @@
       description: "Group devbox package updates across all devbox.json files",
       groupName: "Devbox Packages",
       matchManagers: ["devbox"],
-      matchFiles: ["devbox.json", ".github/devbox-ci.json"],
+      matchFiles: ["devbox.json", ".github/devbox.json"],
       group: {
         commitMessageTopic: "{{{groupName}}} group",
       },

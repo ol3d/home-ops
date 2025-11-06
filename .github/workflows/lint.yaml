@@ -32,7 +32,6 @@ jobs:
         uses: jetify-com/devbox-install-action@v0.11.0
         with:
           project-path: .github
-          devbox-json: devbox-ci.json
           enable-cache: true
 
       - name: Install Task
@@ -41,7 +40,7 @@ jobs:
 
       - name: Initialize tflint plugins
         run: |
-          devbox run -- tflint --init --config .github/linters/.tflint.hcl
+          cd .github && devbox run -- tflint --init --config linters/.tflint.hcl
 
       - name: Run All Linting Checks
-        run: devbox run --config .github/devbox-ci.json -- task lint:check:all
+        run: cd .github && devbox run -- task -d .. lint:check:all
