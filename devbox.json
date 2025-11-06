@@ -1,21 +1,27 @@
 {
   "packages": [
-    "git@2.51.0",
-    "terraform@1.13.3",
-    "packer@1.14.2",
     "ansible@2.19.2",
-    "sops@3.10.2",
-    "yq@3.4.3",
-    "go-task@3.44.1",
-    "mkdocs@1.6.1",
-    "python313Packages.mkdocs-material@9.6.17",
+    "ansible-lint@25.7.0",
     "awscli2@2.28.1",
+    "claude-code@2.0.31",
+    "git@2.51.0",
+    "go-task@3.44.1",
+    "markdownlint-cli2@0.17.2",
+    "mkdocs@1.6.1",
+    "nodePackages.prettier@3.5.3",
+    "packer@1.14.2",
     "pre-commit@4.3.0",
-    "nodePackages.prettier@3.5.3"
+    "python313Packages.mkdocs-material@9.6.17",
+    "shellcheck@0.11.0",
+    "shfmt@3.12.0",
+    "sops@3.10.2",
+    "terraform@1.13.3",
+    "tflint@0.59.1",
+    "yamllint@1.37.1",
+    "yq@3.4.3"
   ],
+  "env-files": [".env"],
   "shell": {
-    "init_hook": [
-      "echo 'Homelab Devbox shell loaded'"
-    ]
+    "init_hook": ["echo 'Devbox ready shell ready.'"]
   }
 }
