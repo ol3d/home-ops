@@ -160,9 +160,9 @@ lag_interfaces:
       - member: GigabitEthernet0/16
         mode: active
 # # truenas
-  # - name: 6
-  #   members:
-  #     - member: GigabitEthernet0/25
-  #       mode: active
-  #     - member: GigabitEthernet0/27
-  #       mode: active
+# - name: 6
+#   members:
+#     - member: GigabitEthernet0/25
+#       mode: active
+#     - member: GigabitEthernet0/27
+#       mode: active

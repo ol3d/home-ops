@@ -5,21 +5,21 @@ ansible_become_pass: ENC[AES256_GCM,data:laFhMg6oBQIiQQCUNmDI,iv:3t410LPclSNf6bM
 hostname: ENC[AES256_GCM,data:oLpomjXPsYLrYOzm,iv:Z0p+7MPiNEFyfM5eBdvTrcUQyMJEELInWbD2MYtFRwU=,tag:5z919EK8l4zDyGAjDQmBYg==,type:str]
 k3s_ip: ENC[AES256_GCM,data:GDynUYbeQ0KTzBk=,iv:SXzxQQMve3kkuf21bN5znisIOccm3Wo9Pl0jofvyRHk=,tag:Yx5RzA9FVBPFSS4BTVMjBw==,type:str]
 sops:
-    kms:
-        - arn: arn:aws:kms:us-east-1:869935076354:key/4a38975b-065e-4cbc-b0d7-b6067418b38f
-          created_at: "2024-10-11T17:12:18Z"
-          enc: AQICAHjEXmBmWhTFPoI6sZz9xRf37CwVV0xZ3J51JBykh8WU6gHfE/Ut69lQg8LB2CmZGq6yAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMdES5VHhKRn+VFP7HAgEQgDuRiXnURSlq2EZX89j6k/WUbLhTd+owSYV3QY6r2RNwYHYw3z+1jP8A4ETMYI5oWWD0U70hcSq1LltY+Q==
-          aws_profile: ""
-        - arn: arn:aws:kms:us-east-1:869935076354:key/6baaa7c8-967a-4fc5-9923-c0a938edfcf4
-          created_at: "2024-10-11T17:12:18Z"
-          enc: AQICAHi4b7+9FI+voNyOntA45UFh2ygAmwOs2iw6TIerHZXspAGZMr09jxmNCwcJyYHylvGIAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMzNyWIsdQKRClQaD+AgEQgDvLRKh2rZWWD+NGIC+1GODZ15g0GMigxkV1RkOGM8TWTEeNCG360TegW0egzLs5AL5QlzB66S5Hz/X6lg==
-          aws_profile: ""
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
-    age: []
-    lastmodified: "2023-08-29T00:08:01Z"
-    mac: ENC[AES256_GCM,data:x2DMyhImMYqaO6bRt3kA5ObPRVMj6fdrSPcgNRzUWphPGN5v2Hg//ny8TYYxYLkeY2CwfOkOEEmLl6ueXpsS87E/d8V+vSyuITSXRxcozJDUzCmSeDAKoSojUfCRK49Gm/e+yNF2zvhwx7EAjKpB+BLe4+Ji0VOFizAtkXzsboo=,iv:ic8/wszPU9S2ROaBYlG5CUShqbS//wwT+mukRb2y3hU=,tag:k4bqXP3qRgYfQU3gOTzmkg==,type:str]
-    pgp: []
-    unencrypted_regex: ^(kind)$
-    version: 3.7.3
+  kms:
+    - arn: arn:aws:kms:us-east-1:869935076354:key/4a38975b-065e-4cbc-b0d7-b6067418b38f
+      created_at: "2024-10-11T17:12:18Z"
+      enc: AQICAHjEXmBmWhTFPoI6sZz9xRf37CwVV0xZ3J51JBykh8WU6gHfE/Ut69lQg8LB2CmZGq6yAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMdES5VHhKRn+VFP7HAgEQgDuRiXnURSlq2EZX89j6k/WUbLhTd+owSYV3QY6r2RNwYHYw3z+1jP8A4ETMYI5oWWD0U70hcSq1LltY+Q==
+      aws_profile: ""
+    - arn: arn:aws:kms:us-east-1:869935076354:key/6baaa7c8-967a-4fc5-9923-c0a938edfcf4
+      created_at: "2024-10-11T17:12:18Z"
+      enc: AQICAHi4b7+9FI+voNyOntA45UFh2ygAmwOs2iw6TIerHZXspAGZMr09jxmNCwcJyYHylvGIAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMzNyWIsdQKRClQaD+AgEQgDvLRKh2rZWWD+NGIC+1GODZ15g0GMigxkV1RkOGM8TWTEeNCG360TegW0egzLs5AL5QlzB66S5Hz/X6lg==
+      aws_profile: ""
+  gcp_kms: []
+  azure_kv: []
+  hc_vault: []
+  age: []
+  lastmodified: "2023-08-29T00:08:01Z"
+  mac: ENC[AES256_GCM,data:x2DMyhImMYqaO6bRt3kA5ObPRVMj6fdrSPcgNRzUWphPGN5v2Hg//ny8TYYxYLkeY2CwfOkOEEmLl6ueXpsS87E/d8V+vSyuITSXRxcozJDUzCmSeDAKoSojUfCRK49Gm/e+yNF2zvhwx7EAjKpB+BLe4+Ji0VOFizAtkXzsboo=,iv:ic8/wszPU9S2ROaBYlG5CUShqbS//wwT+mukRb2y3hU=,tag:k4bqXP3qRgYfQU3gOTzmkg==,type:str]
+  pgp: []
+  unencrypted_regex: ^(kind)$
+  version: 3.7.3

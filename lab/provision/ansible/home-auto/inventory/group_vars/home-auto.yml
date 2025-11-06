@@ -4,10 +4,10 @@ ntp_manage_config: true
 # npm_servers:
 #   - 2.pfsense.pool.ntp.org
 
-
 # hifis.toolkit.unattended-upgrades
 unattended_cache_valid_time: 3600
-unattended_origins_patterns: ['origin=Debian,codename=${distro_codename},label=Debian-Security']
+unattended_origins_patterns:
+  ["origin=Debian,codename=${distro_codename},label=Debian-Security"]
 unattended_package_blacklist: []
 unattended_autofix_interrupted_dpkg: true
 unattended_minimal_steps: true
@@ -37,9 +37,8 @@ unattended_dpkg_options: []
 # unattended_dl_limit:
 unattended_only_on_ac_power: false
 
-
 # geerlingguy.docker
-docker_edition: 'ce'
+docker_edition: "ce"
 # docker_packages: []
 docker_packages_state: present
 # docker_obsolete_packages: []

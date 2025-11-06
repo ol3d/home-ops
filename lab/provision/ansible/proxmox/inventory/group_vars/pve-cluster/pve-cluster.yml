@@ -199,15 +199,16 @@ pve_mediated_devices_enabled: false
 pve_pcie_ovmf_enabled: true
 pve_pci_device_ids:
   - id: "8086:3ea5"
-pve_vfio_blacklist_drivers: []
+pve_vfio_blacklist_drivers:
+  []
   # - name: "i915"
 pve_pcie_ignore_msrs: false
 pve_pcie_report_msrs: true
 
-
 # hifis.toolkit.unattended-upgrades
 unattended_cache_valid_time: 3600
-unattended_origins_patterns: ['origin=Debian,codename=${distro_codename},label=Debian-Security']
+unattended_origins_patterns:
+  ["origin=Debian,codename=${distro_codename},label=Debian-Security"]
 unattended_package_blacklist: []
 unattended_autofix_interrupted_dpkg: true
 unattended_minimal_steps: true
@@ -236,8 +237,6 @@ unattended_random_sleep: 1800
 unattended_dpkg_options: []
 # unattended_dl_limit:
 unattended_only_on_ac_power: false
-
-
 # # ceph-ansible.ceph-dashboard
 # mds_group_name: "{{ pve_ceph_mds_group }}"
 # rolling_update: false

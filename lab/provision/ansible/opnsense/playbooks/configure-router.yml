@@ -1,5 +1,6 @@
 ---
-- hosts:
+- name: Configure OPNSense Router
+  hosts:
     - opnsense
   gather_facts: false
   any_errors_fatal: true
@@ -11,5 +12,5 @@
 
   tasks:
     - block:
-        - name: run show version on the routers
+        - name: Run show version on the routers
           ansible.builtin.ping:

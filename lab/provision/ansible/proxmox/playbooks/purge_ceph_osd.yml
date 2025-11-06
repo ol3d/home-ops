@@ -1,5 +1,6 @@
 ---
-- hosts:
+- name: Purge Ceph OSDs
+  hosts:
     - pve-cluster
   gather_facts: true
   any_errors_fatal: true
@@ -14,6 +15,7 @@
         - name: Get a list of all Ceph OSD's
           ansible.builtin.command:
             cmd: "ceph osd ls"
+          changed_when: false
           register: osd_list_string
 
         - name: Convert stringVar to intVar
@@ -27,17 +29,19 @@
             msg: "{{ item }}"
           with_items: "{{ osd_list_int.results }}"
 
-
         - name: Stop OSD's
           ansible.builtin.command:
             cmd: "ceph osd out {{ item }}"
+          changed_when: true
           when: (osd_list | length > 0)
           with_items: "{{ osd_list }}"
 
         - name: Stop OSD Service
-          ansible.builtin.command:
-            cmd: "systemctl stop ceph-osd@{{ osd_id }}.service"
+          ansible.builtin.systemd:
+            name: "ceph-osd@{{ osd_id }}.service"
+            state: stopped
 
         - name: Destroy OSD
           ansible.builtin.command:
             cmd: "pveceph osd destroy {{ osd_id }}"
+          changed_when: true

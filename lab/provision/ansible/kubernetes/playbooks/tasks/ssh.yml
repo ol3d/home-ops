@@ -4,8 +4,8 @@
     - name: SSH | Modify SSH config file
       ansible.builtin.lineinfile:
         path: "/etc/ssh/sshd_config"
-        regex: "^(#)?{{item.key}}"
-        line: "{{item.key}} {{item.value}}"
+        regex: "^(#)?{{ item.key }}"
+        line: "{{ item.key }} {{ item.value }}"
         state: present
       notify:
         - restart sshd

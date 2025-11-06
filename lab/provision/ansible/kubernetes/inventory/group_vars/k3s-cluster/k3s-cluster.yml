@@ -21,9 +21,8 @@ ntp_cron_handler_enabled: false
 
 # hifis.unattended_upgrades
 unattended_cache_valid_time: 3600
-unattended_origins_patterns: [
-  'origin=Ubuntu,archive=${distro_codename}-security,label=Ubuntu'
-]
+unattended_origins_patterns:
+  ["origin=Ubuntu,archive=${distro_codename}-security,label=Ubuntu"]
 unattended_package_blacklist: []
 unattended_autofix_interrupted_dpkg: true
 unattended_minimal_steps: true
@@ -76,7 +75,7 @@ k3s_debug: false
 k3s_start_on_boot: true
 
 # geerlingguy.helm
-helm_version: 'v3.13.1'
+helm_version: "v3.13.1"
 helm_platform: linux
 helm_arch: amd64
 

@@ -1,5 +1,6 @@
 ---
-- hosts:
+- name: Purge Ceph Disks
+  hosts:
     - pve-cluster
   gather_facts: true
   any_errors_fatal: true
@@ -17,12 +18,15 @@
             state: unmounted
           with_items: "{{ ceph_devices }}"
         - name: Zap the drives
-          ansible.builtin.shell: >
-            sgdisk --zap-all {{ item }} || true
+          ansible.builtin.command:
+            cmd: "sgdisk --zap-all {{ item }}"
+          changed_when: true
+          failed_when: false
           loop:
             - "{{ ceph_devices | default([]) }}"
-        - name: Remove lvm partitions
+        - name: Remove lvm partitions # noqa: command-instead-of-shell
           ansible.builtin.shell: "{{ item }}"
+          changed_when: true
           loop:
             - ls /dev/mapper/ceph--* | xargs -I% -- fuser --kill %
             - ls /dev/mapper/ceph--* | xargs -I% -- dmsetup clear %
@@ -31,5 +35,6 @@
         - name: Wipe the block device
           ansible.builtin.command:
             cmd: "wipefs -af {{ item }}"
+          changed_when: true
           with_items:
             - "{{ ceph_devices | default([]) }}"
