@@ -27,12 +27,11 @@ autoinstall:
     users:
       - name: ol3d
         groups: [adm, sudo]
-        lock-passwd: false
+        lock-passwd: true
         sudo: ALL=(ALL) NOPASSWD:ALL
         shell: /bin/bash
-        # OpenSSL SHA-512 Encrypted Default Password
-        passwd: $6$rNiTflwh3k5kJ79H$pimha0veFLU8lFM.pc2NAAREQmyZd0vMLBvfpFapeWdnFuAhKoN2g/cw0DrV3QIQvoOdy1V2PasKvK0veGsSc0
-        # ssh_authorized_keys:
-        #   -
-        # TODO switch lock_passwd to True to disable password authentication
-        lock_passwd: False
+        # SSH public keys should be added here
+        # Generate hash with: mkpasswd -m sha-512
+        ssh_authorized_keys:
+          # Add your SSH public key here during provisioning
+          - ssh-rsa PLACEHOLDER_KEY_REPLACE_BEFORE_BUILD
