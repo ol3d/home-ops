@@ -2,7 +2,7 @@
   "packages": [
     "ansible@2.19.2",
     "ansible-lint@25.7.0",
-    "awscli2@2.28.1",
+    "awscli2@2.31.11",
     "claude-code@2.0.31",
     "git@2.51.0",
     "go-task@3.44.1",
