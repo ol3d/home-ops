@@ -1,7 +1,7 @@
 {
   "packages": [
     "ansible@2.19.2",
-    "ansible-lint@25.7.0",
+    "ansible-lint@25.8.2",
     "awscli2@2.28.1",
     "claude-code@2.0.31",
     "git@2.51.0",
