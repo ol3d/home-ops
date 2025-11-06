@@ -6,7 +6,7 @@
     "claude-code@2.0.31",
     "git@2.51.0",
     "go-task@3.44.1",
-    "markdownlint-cli2@0.17.2",
+    "markdownlint-cli2@0.18.1",
     "mkdocs@1.6.1",
     "nodePackages.prettier@3.5.3",
     "packer@1.14.2",
