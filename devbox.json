@@ -5,7 +5,7 @@
     "awscli2@2.28.1",
     "claude-code@2.0.31",
     "git@2.51.0",
-    "go-task@3.44.1",
+    "go-task@3.45.4",
     "markdownlint-cli2@0.17.2",
     "mkdocs@1.6.1",
     "nodePackages.prettier@3.5.3",
