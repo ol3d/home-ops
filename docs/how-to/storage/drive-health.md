@@ -9,29 +9,35 @@ Before placing the drives into your NAS, perform the following tests:
 ### Test Procedure
 
 1. **CrystalDiskInfo Check:**
-    - Download and install CrystalDiskInfo on your computer.
-    - Connect the new drive externally if needed.
-    - Check the drive's SMART status for any initial issues or warnings.
+
+   - Download and install CrystalDiskInfo on your computer.
+   - Connect the new drive externally if needed.
+   - Check the drive's SMART status for any initial issues or warnings.
 
 2. **Full Format:**
-    - Use your operating system's tools to perform a full format of the drive.
-    - This will identify and mark bad sectors, improving drive reliability.
+
+   - Use your operating system's tools to perform a full format of the drive.
+   - This will identify and mark bad sectors, improving drive reliability.
 
 3. **CrystalDiskInfo Check (Post-Format):**
-    - Run CrystalDiskInfo again to verify that the formatting process did not introduce any new errors.
+
+   - Run CrystalDiskInfo again to verify that the formatting process did not introduce any new errors.
 
 4. **CrystalDiskMark (Read/Write/Verify):**
-    - Download and install CrystalDiskMark.
-    - Perform a full benchmark test (read, write, and verify) to assess drive performance.
+
+   - Download and install CrystalDiskMark.
+   - Perform a full benchmark test (read, write, and verify) to assess drive performance.
 
 5. **CrystalDiskInfo Check (Post-Benchmark):**
-    - Run CrystalDiskInfo once more to ensure there are no issues after the intensive benchmark.
+
+   - Run CrystalDiskInfo once more to ensure there are no issues after the intensive benchmark.
 
 6. **Quick Format:**
-    - Perform a quick format of the drive using your operating system's tools.
+
+   - Perform a quick format of the drive using your operating system's tools.
 
 7. **CrystalDiskInfo Check (Post-Quick Format):**
-    - Run CrystalDiskInfo again to verify that the quick format did not introduce any issues.
+   - Run CrystalDiskInfo again to verify that the quick format did not introduce any issues.
 
 ## Final Considerations
 

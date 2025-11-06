@@ -8,7 +8,7 @@ This website and all of my technical documentation for my homelab is generated u
 
 Everything should already be installed from the management node setup process. But if the management node has not yet been configured, run the ansible playbook found in the guide [here](Link goes here) to install the needed resources for Material for MkDocs and set up the management node.
 
-If unable to use ansible to insitall Material for MkDocs, the current installation instructions can be found [here](https://squidfunk.github.io/mkdocs-material/getting-started/#installation) *(As of 2024-03-25)*.
+If unable to use ansible to insitall Material for MkDocs, the current installation instructions can be found [here](https://squidfunk.github.io/mkdocs-material/getting-started/#installation) _(As of 2024-03-25)_.
 
 ---
 

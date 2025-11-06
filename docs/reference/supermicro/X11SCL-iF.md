@@ -1,6 +1,6 @@
 # Supermicro X11SCL-iF
 
-When building a computer or server, it is usually fairly straight forward without many issues along the way. However, sometimes you run into little problems that are difficult to debug. This material is meant to be a reference of issues encountered with my Supermicro X11SCL-iF motherboard currently being used in my NAS *(As of 04-03-2024)*.
+When building a computer or server, it is usually fairly straight forward without many issues along the way. However, sometimes you run into little problems that are difficult to debug. This material is meant to be a reference of issues encountered with my Supermicro X11SCL-iF motherboard currently being used in my NAS _(As of 04-03-2024)_.
 
 ---
 

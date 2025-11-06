@@ -8,7 +8,7 @@ When working in proxmox, I ran into a few issues attempting to re-initialize my 
 
 This means that ALL of the interfaces are switched to jumbo frames due to the nature of the switch structure and Cisco IOS software implementation. Additionally this was not able to be set within the ansible playbook due to differences between switches. Instead the setting needs to be done manually.
 
-Follow the official [Cisco Instructions](https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst2960l/software/15-2_5_e/config-guide/b_1525e_consolidated_2960l_cg/b_1525e_consolidated_2960l_cg_chapter_0110.html) to set the system MTU to the correct value *(As of 2024/04/14)*.
+Follow the official [Cisco Instructions](https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst2960l/software/15-2_5_e/config-guide/b_1525e_consolidated_2960l_cg/b_1525e_consolidated_2960l_cg_chapter_0110.html) to set the system MTU to the correct value _(As of 2024/04/14)_.
 
 To test that jumbo frames are working, ping using this command:
 
