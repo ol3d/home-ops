@@ -1,15 +1,19 @@
 {
   "recommendations": [
+    "anthropic.claude-code",
     "hashicorp.terraform",
-    "oderwat.indent-rainbow",
+    "hashicorp.hcl",
     "redhat.ansible",
     "redhat.vscode-yaml",
     "signageos.signageos-vscode-sops",
     "usernamehw.errorlens",
-    "fcrespo82.markdown-table-formatter",
+    "yzhang.markdown-all-in-one",
     "DavidAnson.vscode-markdownlint",
     "Gruntfuggly.todo-tree",
     "editorconfig.editorconfig",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "task.vscode-task",
+    "streetsidesoftware.code-spell-checker",
+    "oderwat.indent-rainbow"
   ]
 }
