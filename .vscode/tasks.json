@@ -11,12 +11,22 @@
     {
       "label": "Claude",
       "type": "shell",
-      "command": "bash",
-      "args": ["-c", "claude"],
+      "command": "claude",
       "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^\\s*\\*\\s*Executing task: claude",
+          "endsPattern": "^>\\s"
+        }
+      },
       "presentation": {
         "reveal": "always",
-        "panel": "new"
+        "panel": "new",
+        "focus": false
       }
     },
     {
@@ -25,7 +35,16 @@
       "command": "mkdocs",
       "args": ["serve"],
       "isBackground": true,
-      "problemMatcher": [],
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^INFO\\s+-\\s+Building documentation",
+          "endsPattern": "^INFO\\s+-\\s+.*Serving on"
+        }
+      },
       "presentation": {
         "reveal": "always",
         "panel": "new"
