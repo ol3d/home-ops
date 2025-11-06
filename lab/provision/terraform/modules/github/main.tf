@@ -22,9 +22,9 @@ data "sops_file" "github_secrets" {
 provider "github" {
   alias = "beelze-bot"
   app_auth {
-    id = data.sops_file.github_secrets.data["beelze-bot.id"]
+    id              = data.sops_file.github_secrets.data["beelze-bot.id"]
     installation_id = data.sops_file.github_secrets.data["beelze-bot.installation_id"]
-    pem_file = data.sops_file.github_secrets.data["beelze-bot.pem_file"]
+    pem_file        = data.sops_file.github_secrets.data["beelze-bot.pem_file"]
   }
 }
 

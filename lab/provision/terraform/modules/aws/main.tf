@@ -20,7 +20,7 @@ data "sops_file" "aws_secrets" {
 }
 
 provider "aws" {
-  region = data.sops_file.aws_secrets.data["aws.provider.region"]
+  region     = data.sops_file.aws_secrets.data["aws.provider.region"]
   access_key = data.sops_file.aws_secrets.data["aws.provider.access_key"]
   secret_key = data.sops_file.aws_secrets.data["aws.provider.secret_key"]
 }

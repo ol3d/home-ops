@@ -21,7 +21,7 @@ resource "cloudflare_record" "apex_ipv4" {
 resource "cloudflare_record" "base_cname_www" {
   name    = "www"
   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  content = "${data.sops_file.cloudflare_secrets.data["cloudflare_domain"]}"
+  content = data.sops_file.cloudflare_secrets.data["cloudflare_domain"]
   proxied = true
   type    = "CNAME"
   ttl     = 1
@@ -44,26 +44,26 @@ resource "cloudflare_record" "mg_cname_email" {
 
 # Mailgun MX 'mxa.mailgun' Record
 resource "cloudflare_record" "mg_mx_mxa" {
-  name    = "mailgun"
-  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  content = data.sops_file.cloudflare_secrets.data["dns_records.mg.mx_mxa"]
-  proxied = false
-  type    = "MX"
-  ttl     = 1
+  name     = "mailgun"
+  zone_id  = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  content  = data.sops_file.cloudflare_secrets.data["dns_records.mg.mx_mxa"]
+  proxied  = false
+  type     = "MX"
+  ttl      = 1
   priority = 10
-  comment = "Recommended by Mailgun for all domains"
+  comment  = "Recommended by Mailgun for all domains"
 }
 
 # Mailgun MX 'mxb.mailgun' Record
 resource "cloudflare_record" "mg_mx_mxb" {
-  name    = "mailgun"
-  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  content = data.sops_file.cloudflare_secrets.data["dns_records.mg.mx_mxb"]
-  proxied = false
-  type    = "MX"
-  ttl     = 1
+  name     = "mailgun"
+  zone_id  = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  content  = data.sops_file.cloudflare_secrets.data["dns_records.mg.mx_mxb"]
+  proxied  = false
+  type     = "MX"
+  ttl      = 1
   priority = 10
-  comment = "Recommended by Mailgun for all domains"
+  comment  = "Recommended by Mailgun for all domains"
 }
 
 # Mailgun TXT 'krs._domainkey.mailgun' Record
@@ -105,26 +105,26 @@ resource "cloudflare_record" "pm_txt" {
 
 # Proton Mail MX '@' Record 1
 resource "cloudflare_record" "pm_mx_mx_1" {
-  name    = "@"
-  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  content = data.sops_file.cloudflare_secrets.data["dns_records.pm.mx_1"]
-  proxied = false
-  type    = "MX"
-  ttl     = 1
+  name     = "@"
+  zone_id  = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  content  = data.sops_file.cloudflare_secrets.data["dns_records.pm.mx_1"]
+  proxied  = false
+  type     = "MX"
+  ttl      = 1
   priority = 10
-  comment = "Required by Proton Mail to recieve emails for all custom domains"
+  comment  = "Required by Proton Mail to recieve emails for all custom domains"
 }
 
 # Proton Mail MX '@' Record 2
 resource "cloudflare_record" "pm_mx_mx_2" {
-  name    = "@"
-  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  content = data.sops_file.cloudflare_secrets.data["dns_records.pm.mx_2"]
-  proxied = false
-  type    = "MX"
-  ttl     = 1
+  name     = "@"
+  zone_id  = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  content  = data.sops_file.cloudflare_secrets.data["dns_records.pm.mx_2"]
+  proxied  = false
+  type     = "MX"
+  ttl      = 1
   priority = 20
-  comment = "Required by Proton Mail to recieve emails for all custom domains"
+  comment  = "Required by Proton Mail to recieve emails for all custom domains"
 }
 
 # Proton Mail TXT '@' SPF Record

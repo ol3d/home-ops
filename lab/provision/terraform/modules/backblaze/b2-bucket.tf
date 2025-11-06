@@ -7,13 +7,13 @@ resource "b2_bucket" "homeops-backups" {
       mode = "governance"
       period {
         duration = 7
-        unit = "days"
+        unit     = "days"
       }
     }
     is_file_lock_enabled = true
   }
   lifecycle_rules {
-    file_name_prefix = ""
+    file_name_prefix             = ""
     days_from_hiding_to_deleting = 28
   }
 }

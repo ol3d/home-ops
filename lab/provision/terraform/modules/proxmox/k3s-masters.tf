@@ -1,29 +1,29 @@
 resource "proxmox_virtual_environment_vm" "k3s-master" {
   for_each = var.k3s-masters
 
-  name = each.key
-  tags = ["k3s", "master"]
-  node_name = each.value.node_name
+  name        = each.key
+  tags        = ["k3s", "master"]
+  node_name   = each.value.node_name
   description = "K3s Master Node: ${each.key}"
-  vm_id = each.value.vm_id
+  vm_id       = each.value.vm_id
 
   acpi = true
 
   agent {
     enabled = true
     timeout = "10m"
-    trim = false
-    type = "virtio"
+    trim    = false
+    type    = "virtio"
   }
 
   bios = "seabios"
 
   clone {
     datastore_id = each.value.datastore_id
-    node_name = each.value.node_name
-    retries = 3
-    vm_id = each.value.clone_vmid
-    full = true
+    node_name    = each.value.node_name
+    retries      = 3
+    vm_id        = each.value.clone_vmid
+    full         = true
   }
 
   initialization {
@@ -37,20 +37,20 @@ resource "proxmox_virtual_environment_vm" "k3s-master" {
 
   cpu {
     architecture = "x86_64"
-    sockets = each.value.sockets
-    cores = each.value.cores
-    numa = false
-    type = "kvm64"
+    sockets      = each.value.sockets
+    cores        = each.value.cores
+    numa         = false
+    type         = "kvm64"
   }
 
   disk {
     datastore_id = each.value.datastore_id
-    file_format = "raw"
-    interface = "scsi0"
-    iothread = true
-    size = 128
-    discard = "on"
-    ssd = true
+    file_format  = "raw"
+    interface    = "scsi0"
+    iothread     = true
+    size         = 128
+    discard      = "on"
+    ssd          = true
   }
 
   memory {
@@ -58,12 +58,12 @@ resource "proxmox_virtual_environment_vm" "k3s-master" {
   }
 
   network_device {
-    bridge = "vmbr0"
-    enabled = true
-    firewall = true
-    model = "virtio"
-    mtu = 1
-    vlan_id = 30
+    bridge      = "vmbr0"
+    enabled     = true
+    firewall    = true
+    model       = "virtio"
+    mtu         = 1
+    vlan_id     = 30
     mac_address = each.value.macaddr
   }
 
@@ -73,16 +73,16 @@ resource "proxmox_virtual_environment_vm" "k3s-master" {
     type = "l26"
   }
 
-  reboot = false
-  timeout_reboot = 1800
-  scsi_hardware = "virtio-scsi-single"
-  started = true
-  migrate = false
+  reboot          = false
+  timeout_reboot  = 1800
+  scsi_hardware   = "virtio-scsi-single"
+  started         = true
+  migrate         = false
   timeout_migrate = 1800
 
   tablet_device = true
   vga {
-    type = "qxl"
+    type   = "qxl"
     memory = 16
   }
 
