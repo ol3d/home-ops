@@ -1,6 +1,6 @@
 {
   "packages": [
-    "ansible-lint@25.7.0",
+    "ansible-lint@25.8.2",
     "markdownlint-cli2@0.17.2",
     "nodePackages.prettier@3.5.3",
     "packer@1.14.2",
