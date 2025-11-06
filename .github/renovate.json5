@@ -1,126 +1,120 @@
 {
-    "extends": [
-        "config:base",
-        "docker:enableMajor",
-        ":disableRateLimiting",
-        ":dependencyDashboard",
-        ":semanticCommits",
-        ":automergeBranch",
-        ":enablePreCommit",
-        ":automergeDigest",
-        "github>ol3d/home-ops//.github/renovate/allowedVersions.json5",
-        "github>ol3d/home-ops//.github/renovate/autoMerge.json5",
-        "github>ol3d/home-ops//.github/renovate/commitMessage.json5",
-        "github>ol3d/home-ops//.github/renovate/groups.json5",
-        "github>ol3d/home-ops//.github/renovate/labels.json5",
-        "github>ol3d/home-ops//.github/renovate/semanticCommits.json5"
-    ],
-    "platform": "github",
-    "username": "beelze-bot[bot]",
-    "repositories": ["ol3d/home-ops"],
-    "onboarding": false,
-    "requireConfig": false,
-    "gitAuthor": "beelze-bot <111891439+beelze-bot[bot]@users.noreply.github.com>",
-    "dependencyDashboardTitle": "Renovate Dashboard",
-    "suppressNotifications": ["prIgnoreNotification"],
-    "rebaseWhen": "conflicted",
-    "commitBodyTable": true,
-    "pre-commit": {
-        "enabled": true
+  extends: [
+    "config:base",
+    "docker:enableMajor",
+    ":disableRateLimiting",
+    ":dependencyDashboard",
+    ":semanticCommits",
+    ":automergeBranch",
+    ":enablePreCommit",
+    ":automergeDigest",
+    "github>ol3d/home-ops//.github/renovate/allowedVersions.json5",
+    "github>ol3d/home-ops//.github/renovate/autoMerge.json5",
+    "github>ol3d/home-ops//.github/renovate/commitMessage.json5",
+    "github>ol3d/home-ops//.github/renovate/groups.json5",
+    "github>ol3d/home-ops//.github/renovate/labels.json5",
+    "github>ol3d/home-ops//.github/renovate/semanticCommits.json5",
+  ],
+  platform: "github",
+  username: "beelze-bot[bot]",
+  repositories: ["ol3d/home-ops"],
+  onboarding: false,
+  requireConfig: false,
+  gitAuthor: "beelze-bot <111891439+beelze-bot[bot]@users.noreply.github.com>",
+  dependencyDashboardTitle: "Renovate Dashboard",
+  suppressNotifications: ["prIgnoreNotification"],
+  rebaseWhen: "conflicted",
+  commitBodyTable: true,
+  "pre-commit": {
+    enabled: true,
+  },
+  terraform: {
+    fileMatch: ["cluster/.+\\.tf$"],
+  },
+  flux: {
+    fileMatch: ["cluster/.+\\.ya?ml$"],
+  },
+  "helm-values": {
+    fileMatch: ["cluster/.+\\.ya?ml$"],
+  },
+  kubernetes: {
+    fileMatch: ["cluster/.+\\.ya?ml$", "provision/ansible/.+\\.ya?ml.j2$"],
+  },
+  regexManagers: [
+    {
+      description: "Process CRD dependencies",
+      fileMatch: ["cluster/crds/.+\\.ya?ml$"],
+      matchStrings: [
+        // GitRepository and Flux Kustomization where 'Git release/tag' matches 'Helm' version
+        "registryUrl=(?<registryUrl>\\S+) chart=(?<depName>\\S+)\n.*?(?<currentValue>[^-\\s]*)\n",
+        // Kustomization where 'GitHub release artifact URL' matches 'Docker image' version
+        "datasource=(?<datasource>\\S+) image=(?<depName>\\S+)\n.*?-\\s(.*?)\/(?<currentValue>[^/]+)\/[^/]+\n",
+      ],
+      datasourceTemplate: "{{#if datasource}}{{{datasource}}}{{else}}helm{{/if}}",
     },
-    "terraform": {
-        "fileMatch": ["cluster/.+\\.tf$"]
+    {
+      description: "Process various other dependencies",
+      fileMatch: ["provision/ansible/.+\\.ya?ml$", "cluster/.+\\.ya?ml$"],
+      matchStrings: [
+        'datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>\\S+))?\n.*?"(?<currentValue>.*)"\n',
+      ],
+      datasourceTemplate: "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
+      versioningTemplate: "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
     },
-    "flux": {
-        "fileMatch": ["cluster/.+\\.ya?ml$"]
+  ],
+  packageRules: [
+    // setup datasources
+    {
+      matchDatasources: ["helm"],
+      separateMinorPatch: true,
+      ignoreDeprecated: true,
     },
-    "helm-values": {
-        "fileMatch": ["cluster/.+\\.ya?ml$"]
+    // global docker datasource settings
+    {
+      matchDatasources: ["docker"],
+      enabled: true,
+      commitMessageTopic: "container image {{depName}}",
+      commitMessageExtra: "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
+      matchUpdateTypes: ["major", "minor", "patch"],
     },
-    "kubernetes": {
-        "fileMatch": [
-            "cluster/.+\\.ya?ml$",
-            "provision/ansible/.+\\.ya?ml.j2$"
-        ]
+    {
+      description: "Group Cert-Manager image (for CRDs) and chart",
+      groupName: "Cert-Manager",
+      matchPackagePatterns: ["cert-manager"],
+      matchDatasources: ["docker", "helm"],
+      group: {commitMessageTopic: "{{{groupName}}} group"},
+      separateMinorPatch: true,
     },
-    "regexManagers": [
-        {
-            "description": "Process CRD dependencies",
-            "fileMatch": ["cluster/crds/.+\\.ya?ml$"],
-            "matchStrings": [
-            // GitRepository and Flux Kustomization where 'Git release/tag' matches 'Helm' version
-            "registryUrl=(?<registryUrl>\\S+) chart=(?<depName>\\S+)\n.*?(?<currentValue>[^-\\s]*)\n",
-            // Kustomization where 'GitHub release artifact URL' matches 'Docker image' version
-            "datasource=(?<datasource>\\S+) image=(?<depName>\\S+)\n.*?-\\s(.*?)\/(?<currentValue>[^/]+)\/[^/]+\n"
-            ],
-            "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}helm{{/if}}"
-        },
-        {
-            "description": "Process various other dependencies",
-            "fileMatch": [
-            "provision/ansible/.+\\.ya?ml$",
-            "cluster/.+\\.ya?ml$"
-            ],
-            "matchStrings": [
-            "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>\\S+))?\n.*?\"(?<currentValue>.*)\"\n"
-            ],
-            "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
-            "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
-        }
-    ],
-    "packageRules": [
-        // setup datasources
-        {
-            "matchDatasources": ["helm"],
-            "separateMinorPatch": true,
-            "ignoreDeprecated": true
-        },
-        // global docker datasource settings
-        {
-            "matchDatasources": ["docker"],
-            "enabled": true,
-            "commitMessageTopic": "container image {{depName}}",
-            "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
-            "matchUpdateTypes": ["major", "minor", "patch"]
-        },
-        {
-            "description": "Group Cert-Manager image (for CRDs) and chart",
-            "groupName": "Cert-Manager",
-            "matchPackagePatterns": ["cert-manager"],
-            "matchDatasources": ["docker", "helm"],
-            "group": { "commitMessageTopic": "{{{groupName}}} group" },
-            "separateMinorPatch": true
-        },
-        // add labels according to package and update types
-        {
-            "matchDatasources": ["docker"],
-            "matchUpdateTypes": ["major"],
-            "labels": ["renovate/image", "dep/major"]
-        },
-        {
-            "matchDatasources": ["docker"],
-            "matchUpdateTypes": ["minor"],
-            "labels": ["renovate/image", "dep/minor"]
-        },
-        {
-            "matchDatasources": ["docker"],
-            "matchUpdateTypes": ["patch"],
-            "labels": ["renovate/image", "dep/patch"]
-        },
-        {
-            "matchDatasources": ["helm"],
-            "matchUpdateTypes": ["major"],
-            "labels": ["renovate/helm", "dep/major"]
-        },
-        {
-            "matchDatasources": ["helm"],
-            "matchUpdateTypes": ["minor"],
-            "labels": ["renovate/helm", "dep/minor"]
-        },
-        {
-            "matchDatasources": ["helm"],
-            "matchUpdateTypes": ["patch"],
-            "labels": ["renovate/helm", "dep/patch"]
-        }
-    ]
+    // add labels according to package and update types
+    {
+      matchDatasources: ["docker"],
+      matchUpdateTypes: ["major"],
+      labels: ["renovate/image", "dep/major"],
+    },
+    {
+      matchDatasources: ["docker"],
+      matchUpdateTypes: ["minor"],
+      labels: ["renovate/image", "dep/minor"],
+    },
+    {
+      matchDatasources: ["docker"],
+      matchUpdateTypes: ["patch"],
+      labels: ["renovate/image", "dep/patch"],
+    },
+    {
+      matchDatasources: ["helm"],
+      matchUpdateTypes: ["major"],
+      labels: ["renovate/helm", "dep/major"],
+    },
+    {
+      matchDatasources: ["helm"],
+      matchUpdateTypes: ["minor"],
+      labels: ["renovate/helm", "dep/minor"],
+    },
+    {
+      matchDatasources: ["helm"],
+      matchUpdateTypes: ["patch"],
+      labels: ["renovate/helm", "dep/patch"],
+    },
+  ],
 }
