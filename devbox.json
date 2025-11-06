@@ -11,7 +11,7 @@
     "nodePackages.prettier@3.5.3",
     "packer@1.14.2",
     "pre-commit@4.3.0",
-    "python313Packages.mkdocs-material@9.6.17",
+    "python313Packages.mkdocs-material@9.6.22",
     "shellcheck@0.11.0",
     "shfmt@3.12.0",
     "sops@3.10.2",
