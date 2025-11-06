@@ -58,6 +58,10 @@ jobs:
         run: |
           curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
 
+      - name: Initialize tflint plugins
+        run: |
+          tflint --init --config .github/linters/.tflint.hcl
+
       - name: Install Python linters
         run: |
           pip install ansible-lint==25.7.0 yamllint==1.37.1
