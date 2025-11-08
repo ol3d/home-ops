@@ -29,3 +29,6 @@ package-lock.json
 .cache
 # Environment Config
 .env
+# Claude Code session history (private work log)
+.claude/sessions/*.md
+!.claude/sessions/README.md
