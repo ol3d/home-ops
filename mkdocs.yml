@@ -78,20 +78,24 @@ nav:
       - setup/index.md
       - Management Node:
           - setup/mgmt/git-repository-setup.md
+          - setup/mgmt/configure-node.md
       - PiKVM:
           - setup/pikvm/pikvm-setup.md
+          - setup/pikvm/pikvm-issues.md
       - Proxmox:
           - setup/proxmox/debian-setup.md
           - setup/proxmox/proxmox-cluster-setup.md
   - Concepts:
       - concepts/index.md
+      - Infrastructure Organization:
+          - concepts/naming-conventions.md
       - Documentation:
           - concepts/documentation/documentation-methodology.md
           - concepts/documentation/documentation-alternatives.md
       - SSH Certificate Authority:
           - concepts/ssh/ssh-certificate-authority.md
       - Visual Studio Code:
-          - concepts/.vscode/extensions.md
+          - concepts/vscode/extensions.md
   - How-to:
       - how-to/index.md
       - Documentation:

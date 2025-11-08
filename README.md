@@ -22,14 +22,14 @@ This is a **monorespository** for my home infrastructure and other self-hosted s
 The repository is constantly changing and adapting to new technologies being released and updated.
 Currently, tools such as [Ansible](https://www.ansible.com/), [Terraform](https://www.terraform.io/), and [GitHub Actions](https://github.com/features/actions)
 are being used to improve the workflow and adhere to IaC and GitOps practices.
-A list of all additional tools and services being used within this project can be found [here](reference/homelab/services/).
+A list of all additional tools and services being used within this project can be found in the [services reference](reference/homelab/services/index.md).
 
-All of the homelab references down below can be found within the [**Reference**](reference/) navigation tab.
+All of the homelab references down below can be found within the [**Reference**](reference/index.md) navigation tab.
 
 ---
 
 ## Initial Setup
 
 Although this repository is very personalized to my own homelab, it can be used as a generalized template for setting up your own homelab.
-To begin the initial setup, follow the guides/steps within the [**Setup**](setup/) portion of this documentation.
+To begin the initial setup, follow the guides/steps within the [**Setup**](setup/index.md) portion of this documentation.
 Each section is critical to be able to progress into more advanced topics.
