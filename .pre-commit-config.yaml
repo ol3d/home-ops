@@ -1,66 +1,56 @@
 ---
-# Pre-commit hooks using devbox-installed tools (language: system)
-# Config files in .github/linters/ remain the single source of truth
-# For manual runs, use: task lint:fix:all or task lint:check:all
+# Pre-commit hooks delegating to Taskfile tasks (single source of truth)
+# Taskfile tasks in .taskfiles/lint/Taskfile.yaml contain all tool configurations
+# Config files in .github/linters/ remain the single source of truth for tool settings
 fail_fast: false
 repos:
   - repo: local
     hooks:
-      # Prettier - formatting for JSON, YAML, Markdown, etc.
-      - id: prettier
-        name: Prettier
-        entry: prettier --write --config .github/linters/.prettierrc.yaml --ignore-path .github/linters/.prettierignore
+      # Formatting tasks (auto-fix on commit)
+      - id: task-lint-fix-prettier
+        name: Task - Fix Prettier Formatting
+        entry: task lint:fix:prettier
         language: system
         types_or: [json, yaml, markdown, javascript, css, html]
-        exclude: ^(.devbox|.cache|node_modules|docs)/|\.ansible-lint$|\.tflint\.hcl$
+        pass_filenames: false
 
-      # Terraform formatting
-      - id: terraform-fmt
-        name: Terraform Format
-        entry: terraform fmt -recursive lab/provision/terraform/
+      - id: task-lint-fix-terraform
+        name: Task - Fix Terraform Formatting
+        entry: task lint:fix:terraform
         language: system
         files: \.tf$
         pass_filenames: false
 
-      # Packer formatting
-      - id: packer-fmt
-        name: Packer Format
-        entry: packer fmt -recursive lab/provision/packer/
+      - id: task-lint-fix-packer
+        name: Task - Fix Packer Formatting
+        entry: task lint:fix:packer
         language: system
         files: \.pkr\.hcl$
         pass_filenames: false
 
-      # Shell formatting
-      - id: shfmt
-        name: Shell Format
-        entry: shfmt -w -i 2 -ci -bn
+      - id: task-lint-fix-shell
+        name: Task - Fix Shell Formatting
+        entry: task lint:fix:shell
         language: system
         types: [shell]
+        pass_filenames: false
 
-      # Markdown linting
-      - id: markdownlint
-        name: Markdown Lint
-        entry: markdownlint-cli2 --config .github/linters/.markdownlint.yaml
+      # Linting checks (fail on issues)
+      - id: task-lint-check-yaml
+        name: Task - Check YAML Linting
+        entry: task lint:check:yaml
+        language: system
+        types: [yaml]
+        pass_filenames: false
+
+      - id: task-lint-check-markdown
+        name: Task - Check Markdown Linting
+        entry: task lint:check:markdown
         language: system
         types: [markdown]
-        exclude: ^(docs|node_modules|\.devbox)/|^\.github/(ISSUE_TEMPLATE|PULL_REQUEST_TEMPLATE)
+        pass_filenames: false
 
-  # YAML linting (Python-based, works in isolated env)
-  - repo: https://github.com/adrienverge/yamllint
-    rev: v1.37.1
-    hooks:
-      - id: yamllint
-        args: [-c=.github/linters/.yamllint.yaml]
-
-  # # Ansible linting (Python-based)
-  # - repo: https://github.com/ansible/ansible-lint
-  #   rev: v25.9.2
-  #   hooks:
-  #     - id: ansible-lint
-  #       args: [-c=.github/linters/.ansible-lint]
-  #       files: ^lab/provision/ansible/
-
-  # Shell script checks (Python wrapper)
+  # Shell script checks (Python wrapper for portability)
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.11.0.1
     hooks:

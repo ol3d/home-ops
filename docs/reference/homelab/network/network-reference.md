@@ -1,6 +1,8 @@
 # Homelab Network
 
-My homelab network is divided into different VLANS to separate certain devices from one another. This is mainly used for security purposes but can sometimes be for convenience as well.
+My homelab network is divided into different VLANS to separate certain devices
+from one another. This is mainly used for security purposes but can sometimes be
+for convenience as well.
 
 ## Network Diagram
 

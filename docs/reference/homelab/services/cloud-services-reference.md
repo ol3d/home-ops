@@ -1,6 +1,11 @@
 # Cloud Services
 
-Not everything in a homelab _should_ nor _can_ be self-hosted. Along with the free self-hosted services currently hosted on my homelab, I also utilize various cloud services or need specific licencing to use certain products. Due to this, here is a list of all of the free as well as paid cloud products/services that I am currently using in my homelab. Additionally, there is a rough breakdown of how much I pay per month with each of these services.
+Not everything in a homelab _should_ nor _can_ be self-hosted. Along with the
+free self-hosted services currently hosted on my homelab, I also utilize various
+cloud services or need specific licencing to use certain products. Due to this,
+here is a list of all of the free as well as paid cloud products/services that I
+am currently using in my homelab. Additionally, there is a rough breakdown of
+how much I pay per month with each of these services.
 
 | Service                                                 | Use                                                            | Cost           |
 | ------------------------------------------------------- | -------------------------------------------------------------- | -------------- |

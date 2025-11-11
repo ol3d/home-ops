@@ -19,3 +19,6 @@ MD013:
   strict: false
   # Stern length checking
   stern: false
+
+# MD041/first-line-heading - Disable for files using MkDocs snippet includes (--8<--)
+MD041: false

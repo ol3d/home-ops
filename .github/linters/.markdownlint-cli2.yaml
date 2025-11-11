@@ -1,0 +1,30 @@
+# markdownlint-cli2 configuration
+# References: rules config and ignore patterns
+
+# Import rule configuration
+config:
+  extends: .markdownlint.yaml
+
+# Glob patterns to ignore (gitignore-style)
+ignores:
+  # Build artifacts and caches
+  - node_modules/**
+  - .devbox/**
+  - .cache/**
+
+  # Terraform providers (vendored dependencies)
+  - .terraform/**
+  - "**/.terraform/**"
+
+  # Claude Code internal files
+  - .claude/**
+
+  # GitHub templates (special formatting)
+  - .github/ISSUE_TEMPLATE/**
+  - .github/PULL_REQUEST_TEMPLATE.md
+
+  # Ansible Galaxy roles (external dependencies)
+  - "lab/provision/ansible/.ansible/roles/**"
+
+  # Custom Ansible role templates (uses special formatting for GitHub)
+  - "lab/provision/ansible/pikvm/roles/*/.github/**"

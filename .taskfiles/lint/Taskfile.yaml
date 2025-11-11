@@ -58,7 +58,7 @@ tasks:
     desc: Check Markdown files with markdownlint
     dir: "{{.ROOT_DIR}}"
     cmds:
-      - markdownlint-cli2 --config {{.LINTER_CONFIG_DIR}}/.markdownlint.yaml "**/*.md"
+      - markdownlint-cli2 --config {{.LINTER_CONFIG_DIR}}/.markdownlint-cli2.yaml "**/*.md"
 
   check:prettier:
     desc: Check formatting with Prettier

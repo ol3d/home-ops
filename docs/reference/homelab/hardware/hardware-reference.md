@@ -1,6 +1,8 @@
 # Homelab Hardware
 
-This is a list of all of my current homelab hardware. This includes hardware mounted inside of my server rack, but also external hardware such as wireless access points, essential home assistant devices, etc.
+This is a list of all of my current homelab hardware. This includes hardware
+mounted inside of my server rack, but also external hardware such as wireless
+access points, essential home assistant devices, etc.
 
 | Device                 | Count | OS Disk Size | Data Disk Size       | Ram  | Operating System | Purpose                   |
 | ---------------------- | ----- | ------------ | -------------------- | ---- | ---------------- | ------------------------- |
