@@ -193,51 +193,51 @@
         }
       }
     },
-    "claude-code@2.0.31": {
-      "last_modified": "2025-11-03T07:53:02Z",
-      "resolved": "github:NixOS/nixpkgs/7241bcbb4f099a66aafca120d37c65e8dda32717#claude-code",
+    "claude-code@2.0.34": {
+      "last_modified": "2025-11-07T02:32:13Z",
+      "resolved": "github:NixOS/nixpkgs/e1ebeec86b771e9d387dd02d82ffdc77ac753abc#claude-code",
       "source": "devbox-search",
-      "version": "2.0.31",
+      "version": "2.0.34",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/8yh29q919z9jvay4vw5ykpkc5na6331l-claude-code-2.0.31",
+              "path": "/nix/store/yv7fnzizzj655a9ncdk8wj15rmqnin5i-claude-code-2.0.34",
               "default": true
             }
           ],
-          "store_path": "/nix/store/8yh29q919z9jvay4vw5ykpkc5na6331l-claude-code-2.0.31"
+          "store_path": "/nix/store/yv7fnzizzj655a9ncdk8wj15rmqnin5i-claude-code-2.0.34"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/aj6aik3xh0hb6nip0az2q3hwrx640k8g-claude-code-2.0.31",
+              "path": "/nix/store/9jvjnzdk7q4pzpiwra7blvslr97yamwb-claude-code-2.0.34",
               "default": true
             }
           ],
-          "store_path": "/nix/store/aj6aik3xh0hb6nip0az2q3hwrx640k8g-claude-code-2.0.31"
+          "store_path": "/nix/store/9jvjnzdk7q4pzpiwra7blvslr97yamwb-claude-code-2.0.34"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/flbfbz9sxlldwhfvkdd07x41qza444bn-claude-code-2.0.31",
+              "path": "/nix/store/xvg01kqnh32nwnbksg6nxyq17lk6pzfi-claude-code-2.0.34",
               "default": true
             }
           ],
-          "store_path": "/nix/store/flbfbz9sxlldwhfvkdd07x41qza444bn-claude-code-2.0.31"
+          "store_path": "/nix/store/xvg01kqnh32nwnbksg6nxyq17lk6pzfi-claude-code-2.0.34"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/z399ylvyk64mkbnmdspj7bpg74d7msc6-claude-code-2.0.31",
+              "path": "/nix/store/d4k2jc08rjy2kv2wvdmnv3csg7fwscyp-claude-code-2.0.34",
               "default": true
             }
           ],
-          "store_path": "/nix/store/z399ylvyk64mkbnmdspj7bpg74d7msc6-claude-code-2.0.31"
+          "store_path": "/nix/store/d4k2jc08rjy2kv2wvdmnv3csg7fwscyp-claude-code-2.0.34"
         }
       }
     },
@@ -901,51 +901,51 @@
         }
       }
     },
-    "terraform@1.13.4": {
-      "last_modified": "2025-10-22T20:59:19Z",
-      "resolved": "github:NixOS/nixpkgs/01b6809f7f9d1183a2b3e081f0a1e6f8f415cb09#terraform",
+    "terraform@1.13.5": {
+      "last_modified": "2025-11-07T02:32:13Z",
+      "resolved": "github:NixOS/nixpkgs/e1ebeec86b771e9d387dd02d82ffdc77ac753abc#terraform",
       "source": "devbox-search",
-      "version": "1.13.4",
+      "version": "1.13.5",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/962132zwxzm78igjmhkzbggqb16wnr0q-terraform-1.13.4",
+              "path": "/nix/store/6qkwk9dw5hg6irmypv3814hh1f7janwl-terraform-1.13.5",
               "default": true
             }
           ],
-          "store_path": "/nix/store/962132zwxzm78igjmhkzbggqb16wnr0q-terraform-1.13.4"
+          "store_path": "/nix/store/6qkwk9dw5hg6irmypv3814hh1f7janwl-terraform-1.13.5"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/4m118wirscay8rsgk5ifn1lak9hnpm2s-terraform-1.13.4",
+              "path": "/nix/store/zyycqw3ww1b7ccas9xna70lgw6gps2c6-terraform-1.13.5",
               "default": true
             }
           ],
-          "store_path": "/nix/store/4m118wirscay8rsgk5ifn1lak9hnpm2s-terraform-1.13.4"
+          "store_path": "/nix/store/zyycqw3ww1b7ccas9xna70lgw6gps2c6-terraform-1.13.5"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/lr0j0zkczx4zg92nry2phh8vs4y4c4zy-terraform-1.13.4",
+              "path": "/nix/store/ynhgdl9ggs4qlwzjj2clz0v0sqwk995h-terraform-1.13.5",
               "default": true
             }
           ],
-          "store_path": "/nix/store/lr0j0zkczx4zg92nry2phh8vs4y4c4zy-terraform-1.13.4"
+          "store_path": "/nix/store/ynhgdl9ggs4qlwzjj2clz0v0sqwk995h-terraform-1.13.5"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/sjbyjd98xm8k1q9mq5js7pv1g43660d9-terraform-1.13.4",
+              "path": "/nix/store/ga38kiqdn3v6crwwnrxhi15zybaq7jds-terraform-1.13.5",
               "default": true
             }
           ],
-          "store_path": "/nix/store/sjbyjd98xm8k1q9mq5js7pv1g43660d9-terraform-1.13.4"
+          "store_path": "/nix/store/ga38kiqdn3v6crwwnrxhi15zybaq7jds-terraform-1.13.5"
         }
       }
     },
