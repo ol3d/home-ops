@@ -1,0 +1,162 @@
+# ============================================
+# SECRETS & ENCRYPTED FILES - DO NOT READ
+# ============================================
+
+# SOPS encrypted files (CRITICAL - contains secrets)
+**/*.sops.yaml
+**/*.sops.yml
+**/*.enc
+.sops.yaml
+
+# Environment and secret files
+.env
+.env.*
+.secrets
+secrets.yaml
+secrets.yml
+**/secrets/**
+**/*secret*
+**/*password*
+**/*credentials*
+
+# SSH keys and certificates
+*.key
+*.pem
+*.crt
+*.cer
+*.p12
+*.pfx
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+**/.ssh/**
+
+# Age encryption keys (used with SOPS)
+keys.txt
+age.key
+*.age
+
+# GPG/PGP keys
+*.gpg
+*.asc
+*.pgp
+
+# Kubeconfig files (may contain cluster credentials)
+**/kubeconfig
+kubeconfig.*
+*.kubeconfig
+
+# Vault files
+**/*vault*
+ansible-vault.*
+
+# ============================================
+# BUILD ARTIFACTS & DEPENDENCIES
+# ============================================
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.npm/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+.terraform.lock.hcl
+terraform.tfvars
+terraform.tfvars.json
+**/.terraform.lock.hcl
+
+# Packer
+packer_cache/
+*.box
+output-*/
+
+# VM/Container Images
+*.iso
+*.img
+*.qcow2
+*.ova
+*.ovf
+
+# Ansible
+*.retry
+.ansible/
+
+# Task/Make
+.task/
+.cache/
+
+# ============================================
+# LOGS & TEMPORARY FILES
+# ============================================
+
+*.log
+logs/
+**/*.log
+crash.log
+*.tmp
+*.temp
+
+# Tool-specific logs
+ansible*.log
+terraform*.log
+packer*.log
+
+# ============================================
+# OS & EDITOR FILES
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+.directory
+
+# IDE/Editor
+.idea/
+*.swp
+*.swo
+*~
+
+# ============================================
+# GIT & VERSION CONTROL
+# ============================================
+
+.git/
+.gitignore
+
+# ============================================
+# GENERATED/COMPILED DOCUMENTATION
+# ============================================
+
+docs/generated/
+site/
+_site/
+.mkdocs-cache/
+
+# ============================================
+# DEVBOX CACHE
+# ============================================
+
+.devbox/
