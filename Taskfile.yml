@@ -9,7 +9,6 @@ includes:
   lint: .taskfiles/lint
   packer: .taskfiles/packer
   pre-commit: .taskfiles/pre-commit
-  sops: .taskfiles/sops
   terraform: .taskfiles/terraform
 
 tasks:
