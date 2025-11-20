@@ -29,6 +29,13 @@ package-lock.json
 .cache
 # Environment Config
 .env
-# Claude Code session history (private work log)
-.claude/sessions/*.md
-!.claude/sessions/README.md
+
+# OpenCode session history (private work log)
+.opencode/sessions/*.md
+!.opencode/sessions/README.md
+.opencode/node_modules/
+
+# Opencode packages
+node_modules
+package.json
+bun.lock

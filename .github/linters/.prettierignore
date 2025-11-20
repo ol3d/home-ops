@@ -1,6 +1,9 @@
 # Documentation
 docs/
 
+# OpenCode
+.opencode/
+
 # IDE
 .vscode/
 .idea/

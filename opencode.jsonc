@@ -1,0 +1,25 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "opencode",
+  "share": "disabled",
+  "model": "anthropic/claude-sonnet-4-5-20250929",
+  "instructions": ["OPENCODE.md"],
+  "permission": {
+    "edit": "ask",
+    "bash": "ask",
+  },
+  "agent": {
+    "session-closer": {
+      "permission": {
+        "edit": "allow",
+        "write": "allow",
+      },
+    },
+    "session-initializer": {
+      "permission": {
+        "edit": "allow",
+        "write": "allow",
+      },
+    },
+  },
+}

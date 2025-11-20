@@ -3,29 +3,20 @@
   "tasks": [
     {
       "label": "startup",
-      "dependsOn": ["Claude", "MkDocs"],
+      "dependsOn": ["OpenCode", "MkDocs"],
       "runOptions": {
         "runOn": "folderOpen"
       }
     },
     {
-      "label": "Claude",
+      "label": "OpenCode",
       "type": "shell",
-      "command": "claude",
+      "command": "opencode",
       "isBackground": true,
-      "problemMatcher": {
-        "pattern": {
-          "regexp": "^$"
-        },
-        "background": {
-          "activeOnStart": true,
-          "beginsPattern": "^\\s*\\*\\s*Executing task: claude",
-          "endsPattern": "^>\\s"
-        }
-      },
+      "problemMatcher": [],
       "presentation": {
         "reveal": "always",
-        "panel": "new",
+        "panel": "dedicated",
         "focus": false
       }
     },
@@ -47,7 +38,7 @@
       },
       "presentation": {
         "reveal": "always",
-        "panel": "new"
+        "panel": "dedicated"
       }
     }
   ]

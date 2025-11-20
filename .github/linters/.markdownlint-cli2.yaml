@@ -16,8 +16,9 @@ ignores:
   - .terraform/**
   - "**/.terraform/**"
 
-  # Claude Code internal files
-  - .claude/**
+  # OpenCode internal files
+  - .opencode/**
+  - OPENCODE.md
 
   # GitHub templates (special formatting)
   - .github/ISSUE_TEMPLATE/**

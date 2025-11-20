@@ -1,6 +1,5 @@
 {
   "recommendations": [
-    "anthropic.claude-code",
     "hashicorp.terraform",
     "hashicorp.hcl",
     "redhat.ansible",
@@ -14,6 +13,7 @@
     "esbenp.prettier-vscode",
     "task.vscode-task",
     "streetsidesoftware.code-spell-checker",
-    "oderwat.indent-rainbow"
+    "oderwat.indent-rainbow",
+    "sst-dev.opencode"
   ]
 }
