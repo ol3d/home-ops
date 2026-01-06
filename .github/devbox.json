@@ -4,11 +4,11 @@
     "ansible-lint@25.8.2",
     "markdownlint-cli2@0.18.1",
     "nodePackages.prettier@3.5.3",
-    "packer@1.14.2",
+    "packer@1.14.3",
     "shellcheck@0.11.0",
     "shfmt@3.12.0",
-    "terraform@1.13.5",
-    "tflint@0.59.1",
+    "terraform@1.14.3",
+    "tflint@0.60.0",
     "yamllint@1.37.1"
   ],
   "shell": {
