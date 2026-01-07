@@ -2,7 +2,8 @@
   "$schema": "https://opencode.ai/config.json",
   "theme": "opencode",
   "share": "disabled",
-  "model": "anthropic/claude-sonnet-4-5-20250929",
+  // "model": "anthropic/claude-sonnet-4-5-20250929",
+  "model": "anthropic/claude-opus-4-5-20251101",
   "small_model": "anthropic/claude-haiku-4-5-20251001",
   "instructions": ["OPENCODE.md"],
 
@@ -15,14 +16,14 @@
       "url": "https://mcp.tavily.com/mcp/",
       "oauth": false,
       "headers": {
-        "Authorization": "Bearer {env:TAVILY_API_KEY}",
-      },
-    },
+        "Authorization": "Bearer {env:TAVILY_API_KEY}"
+      }
+    }
   },
 
   // Disable MCP tools globally to save context - enable per-agent as needed
   "tools": {
-    "tavily_*": false,
+    "tavily_*": false
   },
 
   "permission": {
@@ -86,8 +87,8 @@
       "terraform.tfvars.json": "deny",
 
       // Private directories
-      ".private/**": "deny",
-    },
+      ".private/**": "deny"
+    }
   },
   "agent": {
     // Session Management - use Haiku for lightweight context loading
@@ -97,8 +98,8 @@
       "temperature": 0.2,
       "permission": {
         "edit": "allow",
-        "write": "allow",
-      },
+        "write": "allow"
+      }
     },
     "session-closer": {
       "description": "Wraps up sessions by updating CURRENT.md with accomplishments, decisions, and next steps. Invoke when user signals session end or work complete.",
@@ -106,24 +107,24 @@
       "temperature": 0.2,
       "permission": {
         "edit": "allow",
-        "write": "allow",
-      },
+        "write": "allow"
+      }
     },
 
     // Code Review & Quality - low temperature for consistent, deterministic reviews
     "pre-commit-reviewer": {
       "description": "Reviews staged changes for security vulnerabilities, secrets, code quality, and linting compliance. Invoke before commits, when user requests code review, security scan, or quality check. Has 200+ secret detection patterns.",
-      "temperature": 0.1,
+      "temperature": 0.1
     },
     "security-reviewer": {
       "description": "Scans for secrets, credentials, API keys, and infrastructure disclosure before public repository commits. Invoke when committing to public repos, reviewing documentation for sensitive info, or user requests security review.",
-      "temperature": 0.1,
+      "temperature": 0.1
     },
 
     // Analyzers - balanced temperature for thorough analysis
     "history-analyzer": {
       "description": "Extracts context from past sessions for historical decisions and patterns. Invoke when user asks about previous work, references past decisions, or needs context from session history.",
-      "temperature": 0.2,
+      "temperature": 0.2
     },
 
     // Infrastructure - read-only analysis, deny edits
@@ -132,8 +133,8 @@
       "temperature": 0.2,
       "permission": {
         "edit": "deny",
-        "bash": "ask",
-      },
+        "bash": "ask"
+      }
     },
 
     // Documentation - slightly higher temperature for creative writing, allow bash for mkdocs build
@@ -142,23 +143,23 @@
       "temperature": 0.3,
       "permission": {
         "edit": "ask",
-        "bash": "allow",
-      },
+        "bash": "allow"
+      }
     },
 
     // Meta-Agents - Opus for complex agent design, Haiku for simple optimization
     "agent-builder": {
       "description": "Meta-agent that designs and creates new OpenCode agents with proper frontmatter, descriptions, and tool configurations. Invoke to expand agent ecosystem or create specialized workflow agents.",
-      "temperature": 0.3,
+      "temperature": 0.3
     },
     "ecosystem-analyzer": {
       "description": "Performs comprehensive audit of OpenCode setup including agents, permissions, and workflow integration. Invoke for periodic health checks or when optimizing OpenCode effectiveness.",
-      "temperature": 0.2,
+      "temperature": 0.2
     },
     "md-optimizer": {
       "description": "Optimizes OPENCODE.md structure, orchestration clarity, and delegation patterns. Invoke to improve agent coordination messaging.",
       "model": "anthropic/claude-haiku-4-5-20251001",
-      "temperature": 0.3,
+      "temperature": 0.3
     },
 
     // Web Research - uses Tavily MCP for real-time web search
@@ -167,8 +168,8 @@
       "model": "anthropic/claude-haiku-4-5-20251001",
       "temperature": 0.1,
       "tools": {
-        "tavily_*": true,
-      },
-    },
-  },
+        "tavily_*": true
+      }
+    }
+  }
 }
