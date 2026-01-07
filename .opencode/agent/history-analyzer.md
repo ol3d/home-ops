@@ -109,6 +109,30 @@ Search `.opencode/sessions/` to find relevant past work, extract key context, an
 - Older sessions for architectural decisions
 - Full history for pattern analysis
 
+**Temporal search patterns:**
+
+```bash
+# Recent work (last 7 days)
+grep -l "GPU passthrough" .opencode/sessions/2026-01-*.md | tail -7
+
+# Specific date range
+grep -l "Terraform" .opencode/sessions/2025-12-*.md
+
+# Find when decision was made
+grep -B5 -A5 "Decision:" .opencode/sessions/*.md | grep "VM ID"
+
+# Search by file path pattern
+grep -l "lab/provision/terraform/modules/proxmox" .opencode/sessions/*.md
+
+# Find blockers and solutions
+grep -A10 "Blocker:" .opencode/sessions/*.md
+```
+
+**Date-based context:**
+- Today: Check `<env>Today's date: YYYY-MM-DD</env>` from environment
+- Recent: Last 7 days from today
+- Historical: Older than 30 days
+
 ## Special Cases
 
 **No relevant history:**

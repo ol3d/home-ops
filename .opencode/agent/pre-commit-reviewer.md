@@ -284,6 +284,34 @@ Scan for these regex patterns:
 - Kubernetes manifests should be validated for production impact
 - VM/container changes should note which services will be affected
 
+## Pre-Commit Hook Integration
+
+This repository uses `.pre-commit-config.yaml` for automated checks:
+
+**Automated hooks (run on commit):**
+- Formatting: prettier, terraform fmt, packer fmt, shell fmt
+- Linting: yamllint, markdownlint-cli2
+- Security: detect-aws-credentials, detect-private-key, check-merge-conflict
+- Validation: check-added-large-files, end-of-file-fixer, trailing-whitespace
+
+**Manual execution:**
+
+```bash
+pre-commit run --all-files        # Run all hooks
+pre-commit install                # Install git hooks
+task pre-commit:update           # Update hook versions
+```
+
+**Agent's Role:** This agent provides deeper semantic analysis beyond automated hooks:
+- Homelab-specific patterns (SOPS usage, VM naming, network topology)
+- Logic errors and idempotence issues (Ansible, Terraform)
+- Production impact assessment
+- Context-aware security analysis (200+ patterns)
+
+Pre-commit hooks handle formatting and basic checks; this agent handles architecture and security review.
+
+---
+
 ## Interaction Guidelines
 
 - Be direct and technical - skip pleasantries

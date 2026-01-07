@@ -86,6 +86,21 @@ Critical fields:
 - "Creates/updates MkDocs docs with build validation. Invoke for docs work."
 - "Analyzes session history for context. Invoke when referencing past work."
 
+**Temperature selection guidance:**
+
+- **0.1-0.2**: Deterministic tasks (security scanning, linting, validation)
+  - Examples: pre-commit-reviewer, security-reviewer, web-researcher
+- **0.2-0.3**: Balanced analysis (code review, history analysis, orchestration)
+  - Examples: history-analyzer, commit-orchestrator, session-initializer
+- **0.3-0.4**: Implementation and building (docs, infrastructure, agents)
+  - Examples: docs-maintainer, agent-builder
+- **0.4-0.5**: Creative work (rarely needed, most agents use 0.1-0.3)
+
+**Model selection:**
+- **Haiku**: Lightweight tasks (session management, web search, optimization)
+- **Sonnet**: Standard agents (most use cases)
+- **Opus**: Complex reasoning (not currently used, Sonnet sufficient)
+
 **7. Validate Before Writing**
 
 - ✅ Single focused responsibility (50-200 lines)

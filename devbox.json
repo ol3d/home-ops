@@ -22,6 +22,9 @@
   ],
   "env-files": [".env"],
   "shell": {
-    "init_hook": ["echo 'Devbox ready shell ready.'"]
+    "init_hook": [
+      "echo 'Devbox ready shell ready.'",
+      "set -a; [ -f .env ] && source .env; set +a"
+    ]
   }
 }

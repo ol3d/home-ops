@@ -1,5 +1,5 @@
 ---
-description: This subagent should only be called manually by the user.
+description: Performs comprehensive audit of OpenCode setup including agents, permissions, and workflow integration. Invoke manually for periodic health checks or when optimizing OpenCode effectiveness.
 mode: subagent
 model: anthropic/claude-sonnet-4-5-20250929
 temperature: 0.3

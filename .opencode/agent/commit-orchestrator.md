@@ -3,10 +3,6 @@ description: Orchestrates git commit workflow for homelab infrastructure - analy
 mode: subagent
 model: anthropic/claude-sonnet-4-5-20250929
 temperature: 0.2
-tools:
-  write: false
-  edit: false
-  bash: true
 permission:
   edit: deny
   bash: ask
@@ -100,6 +96,36 @@ Categorize changes by:
 
 **Body**: WHY not WHAT, wrap at 72 chars, provide context
 
+**Example commit messages:**
+
+```text
+feat(terraform/proxmox): add k3s-agent-4 VM with GPU passthrough
+
+Add new K3s agent node on pve-3 with NVIDIA GPU passthrough for
+ML workloads. Includes PCI device configuration and IOMMU setup.
+
+- VM ID: 144 (documented in naming-conventions.md)
+- MAC: 02:00:00:00:01:44
+- GPU: NVIDIA Tesla P4
+
+fix(ansible/k3s): resolve kubelet certificate rotation issue
+
+Kubelet certificates were expiring after 1 year. Updated
+k3s-agent.service to enable automatic certificate rotation.
+
+Fixes: #42
+
+docs(concepts): document GPU passthrough setup process
+
+Add comprehensive guide for GPU passthrough configuration on
+Proxmox VE 8.x with K3s integration.
+
+chore(opencode): add web-researcher agent for Tavily integration
+
+Enables real-time web search for version lookups and documentation
+discovery. Uses Tavily MCP with Haiku model for efficiency.
+```
+
 ### 5. Execute Commit
 
 ```bash
@@ -152,6 +178,7 @@ Grouping:
 [Commit 2 if applicable]
 
 Ready to commit?
+```
 ```
 
 ## Homelab-Specific Rules

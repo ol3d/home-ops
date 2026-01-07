@@ -1,5 +1,5 @@
 ---
-description: Bootstraps new OpenCode sessions by loading critical context, permissions, and previous work.
+description: Bootstraps new OpenCode sessions by loading critical context, permissions, and previous work. AUTO-INVOKE at every session start before any other action.
 mode: subagent
 model: anthropic/claude-haiku-4-5-20251001
 temperature: 0.2

@@ -5,6 +5,26 @@
   "model": "anthropic/claude-sonnet-4-5-20250929",
   "small_model": "anthropic/claude-haiku-4-5-20251001",
   "instructions": ["OPENCODE.md"],
+
+  // MCP Servers
+  "mcp": {
+    // Tavily - Real-time web search, extract, map & crawl
+    // Requires TAVILY_API_KEY environment variable
+    "tavily": {
+      "type": "remote",
+      "url": "https://mcp.tavily.com/mcp/",
+      "oauth": false,
+      "headers": {
+        "Authorization": "Bearer {env:TAVILY_API_KEY}",
+      },
+    },
+  },
+
+  // Disable MCP tools globally to save context - enable per-agent as needed
+  "tools": {
+    "tavily_*": false,
+  },
+
   "permission": {
     "edit": "ask",
     "bash": "ask",
@@ -139,6 +159,16 @@
       "description": "Optimizes OPENCODE.md structure, orchestration clarity, and delegation patterns. Invoke to improve agent coordination messaging.",
       "model": "anthropic/claude-haiku-4-5-20251001",
       "temperature": 0.3,
+    },
+
+    // Web Research - uses Tavily MCP for real-time web search
+    "web-researcher": {
+      "description": "Performs real-time web searches using Tavily. Invoke when current information is needed: documentation lookups, version checks, troubleshooting, or researching tools/technologies. Returns search results, can extract content from URLs, map websites, and crawl pages.",
+      "model": "anthropic/claude-haiku-4-5-20251001",
+      "temperature": 0.1,
+      "tools": {
+        "tavily_*": true,
+      },
     },
   },
 }

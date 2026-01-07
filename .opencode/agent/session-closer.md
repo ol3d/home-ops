@@ -166,6 +166,23 @@ After updating CURRENT.md:
 **Context saved to**: `.opencode/sessions/CURRENT.md`
 ```
 
+## Orchestration Coordination
+
+**Before closing session:**
+
+If staged changes exist, suggest:
+- **@pre-commit-reviewer**: Scan for security issues before commit
+- **@commit-orchestrator**: Help with commit workflow
+
+**After closing session:**
+
+Remind user to:
+- Commit changes if work is complete
+- Push to remote if appropriate
+- Create PR if feature branch
+
+---
+
 ## Writing Guidelines
 
 **Be Specific:**

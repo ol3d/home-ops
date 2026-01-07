@@ -100,6 +100,13 @@ Present findings in this structure:
 ## Summary
 **Edits**: [count] | **Line Reduction**: ~[count] | **Clarity Gain**: [High/Medium/Low]
 
+**Optimization Metrics:**
+- **Conciseness**: Target 10-20% line reduction
+- **Clarity**: Delegation patterns unambiguous (yes/no)
+- **Completeness**: All 11 agents listed with @ mention examples (count/11)
+- **Structure**: Orchestration in top 3 sections (yes/no)
+- **Redundancy**: Zero duplicate content across sections (yes/no)
+
 **Benefits**:
 - [Key improvement 1]
 - [Key improvement 2]

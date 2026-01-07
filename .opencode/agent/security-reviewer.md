@@ -30,14 +30,15 @@ Act as the final security gate before code becomes public. Scan for secrets, cre
 
 **Credentials & Secrets:**
 
-- Passwords, API keys, tokens, OAuth secrets
-- AWS keys: `AKIA[0-9A-Z]{16}`, `ASIA[0-9A-Z]{16}`
-- GitHub tokens: `ghp_*`, `gho_*`, `ghs_*`, `ghu_*`, `github_pat_*`
-- Cloud provider keys (Azure, GCP, Cloudflare, Backblaze, Terraform Cloud)
-- SSH/TLS/PGP private keys, certificates with private keys
-- SOPS age keys (keys.txt, *.age), Ansible Vault passwords
-- Database connection strings with passwords
-- Service webhooks (Slack, Discord), communication API keys (Twilio, SendGrid, Mailgun)
+All secret patterns detected by @pre-commit-reviewer (200+ patterns) PLUS:
+
+**Public Disclosure Risks:**
+- External IP addresses or public hostnames
+- VPN endpoints and access methods
+- Specific vulnerable software versions
+- Admin panel URLs or management interfaces
+
+**Workflow:** Invoke @pre-commit-reviewer first for comprehensive secret scanning, then this agent for public disclosure risks specific to public repositories.
 
 ### ⚠️ HIGH - Infrastructure Disclosure
 
@@ -171,6 +172,14 @@ Act as the final security gate before code becomes public. Scan for secrets, cre
 - VM IDs and naming - OK if no external access
 - Network VLANs - OK if isolated
 - Service versions - OK if patched, risky if vulnerable
+
+## Integration
+
+Works with:
+
+- **@pre-commit-reviewer**: Invoke first for secret detection (200+ patterns)
+- **@commit-orchestrator**: Integrates into commit workflow for public repos
+- **@docs-maintainer**: Reviews documentation for infrastructure disclosure
 
 ## Success Criteria
 

@@ -4,33 +4,53 @@
 
 ---
 
-## ⚠️ MANDATORY SESSION INITIALIZATION ⚠️
+## ⚠️ CRITICAL: MANDATORY SESSION INITIALIZATION ⚠️
 
-**BEFORE DOING ANYTHING ELSE, YOU MUST:**
+**AT THE START OF EVERY SESSION - SELF-ENFORCING PROTOCOL:**
 
-Invoke the **session-initializer agent** to load critical context:
+**STEP 1: Check if this is a new session**
+
+- Is this the first user message?
+- Do I have memory of @session-initializer output in this conversation?
+- Can I recall what's in CURRENT.md?
+
+**STEP 2: If new session OR cannot recall CURRENT.md contents**
+
+**STOP.** Do not respond to user request yet.
+
+Invoke **@session-initializer** FIRST:
 
 ```text
 @session-initializer
 ```
 
-**This agent will automatically:**
+**STEP 3: After @session-initializer completes**
 
-1. Load `.opencode/sessions/CURRENT.md` - Previous work and current state
-2. Load `opencode.jsonc` - Agent registry and `permission.read` security rules
-3. Validate repository structure and security configuration
-4. Surface relevant history and recommended next steps
+Read the output carefully and note:
 
-**This is NOT optional. Invoke this agent IMMEDIATELY at session start.**
+- **Ongoing work** - What's in progress from CURRENT.md
+- **Recent decisions** - What was decided previously
+- **Known blockers** - What's preventing progress
+- **Orchestrator reminders** - Available agents and delegation patterns
+
+**STEP 4: Keep this context in working memory throughout the session**
+
+Reference CURRENT.md context when:
+
+- User asks about previous work
+- Making decisions that might conflict with prior choices
+- Choosing which agent to delegate to
 
 **Why this matters:**
 
 - CURRENT.md contains critical context about ongoing work and blockers
+- Skipping initialization = forgetting user's previous requests and decisions
 - `permission.read` deny rules in `opencode.jsonc` prevent accidental secret exposure
-- Automated validation ensures nothing is missed
 - Orchestrator reminders keep delegation patterns fresh
 
-**DO THIS NOW if you haven't already.**
+**This is NOT optional. Initialize FIRST, respond to user SECOND.**
+
+**If user says "you forgot X" - this protocol failed. Re-initialize immediately.**
 
 ---
 
@@ -106,6 +126,10 @@ You orchestrate all work in this homelab. Your primary responsibilities:
 
 - **@commit-orchestrator**: Complex git commit workflows (invoke for multi-file commits with security validation)
 
+**Research & Web Search:**
+
+- **@web-researcher**: Real-time web search via Tavily MCP (invoke when current docs, versions, or external info needed)
+
 **Meta-Agents (Agents about Agents):**
 
 - **@agent-builder**: Create new specialized agents (invoke to expand agent ecosystem)
@@ -134,6 +158,7 @@ OpenCode automatically invokes agents when task descriptions match agent descrip
 - User: "Add documentation for GPU passthrough" → Invoke: @docs-maintainer
 - User: "What did we decide about VM IDs last week?" → Invoke: @history-analyzer
 - User: "Help me commit these changes" → Invoke: @commit-orchestrator
+- User: "What's the latest Terraform provider version for Proxmox?" → Invoke: @web-researcher
 
 **Proactive Suggestions:**
 
@@ -199,7 +224,17 @@ User: "Deploy new K3s agent VM with GPU passthrough on pve-3"
 5. Proactively suggest: "Should I invoke @pre-commit-reviewer before committing?"
 6. After commit, invoke @session-closer to document work
 
-#### Example 5: Session Start (Automatic)
+#### Example 5: Web Search for Current Information
+
+User: "What's the latest version of the Proxmox Terraform provider?"
+
+**Action:**
+
+1. Invoke: `@web-researcher search for latest bpg/proxmox Terraform provider version`
+2. Agent uses Tavily to search and returns current version info
+3. Synthesize results for user with version number and release notes link
+
+#### Example 6: Session Start (Automatic)
 
 Every session start:
 

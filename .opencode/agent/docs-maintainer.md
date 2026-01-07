@@ -111,6 +111,20 @@ mkdocs build --strict
 - Directory links (use `directory/index.md`, not `directory/`)
 - Missing nav entries
 
+**Available lint tasks** (from `.taskfiles/lint/Taskfile.yaml`):
+
+```bash
+task lint:markdown     # Run markdownlint on docs/
+task lint:yaml         # Run yamllint (validates mkdocs.yml)
+task lint:all          # Run all linters
+```
+
+**Recommended validation workflow:**
+
+1. `mkdocs build --strict` - Validate docs build
+2. `task lint:markdown` - Check markdown quality
+3. `task lint:yaml` - Validate YAML files (mkdocs.yml)
+
 ### Step 5: Check Related Updates
 
 - Does `concepts/index.md` or `reference/index.md` need updating?
