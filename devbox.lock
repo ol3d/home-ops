@@ -193,75 +193,75 @@
         }
       }
     },
-    "git@2.51.2": {
-      "last_modified": "2025-12-26T11:10:58Z",
-      "resolved": "github:NixOS/nixpkgs/c633f572eded8c4f3c75b8010129854ed404a6ce#git",
+    "git@2.52.0": {
+      "last_modified": "2026-01-12T00:44:08Z",
+      "resolved": "github:NixOS/nixpkgs/3fbab70c6e69c87ea2b6e48aa6629da2aa6a23b0#git",
       "source": "devbox-search",
-      "version": "2.51.2",
+      "version": "2.52.0",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/x34bh6s6ighg7lb74nkjbx3nx52zj0j9-git-2.51.2",
+              "path": "/nix/store/1xy62wrp3m91snd3cazxgg0yrplb6sav-git-2.52.0",
               "default": true
             },
             {
               "name": "doc",
-              "path": "/nix/store/6wnscv0364r6430qmx33nn927dlw2vnf-git-2.51.2-doc"
+              "path": "/nix/store/1518yqnr4z0p65jfv8skw2qwc30ad5la-git-2.52.0-doc"
             }
           ],
-          "store_path": "/nix/store/x34bh6s6ighg7lb74nkjbx3nx52zj0j9-git-2.51.2"
+          "store_path": "/nix/store/1xy62wrp3m91snd3cazxgg0yrplb6sav-git-2.52.0"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/gzdcfmx2p9nvd4z21b6ns00cp4sv1d2h-git-2.51.2",
+              "path": "/nix/store/mfbr42w740arf759n51nhki221lang5z-git-2.52.0",
               "default": true
             },
             {
               "name": "debug",
-              "path": "/nix/store/5l5ln59lpi4qv2qm59aqchlz32j9zcm9-git-2.51.2-debug"
+              "path": "/nix/store/q0lq2fczq1y9q9028k4ripf38mfy3n42-git-2.52.0-debug"
             },
             {
               "name": "doc",
-              "path": "/nix/store/w28mqxb1bd51f5rwh5127pvbp31lnqmv-git-2.51.2-doc"
+              "path": "/nix/store/lm1plgvh8qlv0amm8wiz8l00ky298hws-git-2.52.0-doc"
             }
           ],
-          "store_path": "/nix/store/gzdcfmx2p9nvd4z21b6ns00cp4sv1d2h-git-2.51.2"
+          "store_path": "/nix/store/mfbr42w740arf759n51nhki221lang5z-git-2.52.0"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/zz5xiyzpnn06cdgw1xnlvs1sbly5247r-git-2.51.2",
+              "path": "/nix/store/0lxp1s4hb0xb0di1a5jg08rr8hk0cvz8-git-2.52.0",
               "default": true
             },
             {
               "name": "doc",
-              "path": "/nix/store/vrisnm56c5v8mzbv55yrq28wgkvga8nm-git-2.51.2-doc"
+              "path": "/nix/store/a9903b6q3clvx61l8drkpr262fb5qmik-git-2.52.0-doc"
             }
           ],
-          "store_path": "/nix/store/zz5xiyzpnn06cdgw1xnlvs1sbly5247r-git-2.51.2"
+          "store_path": "/nix/store/0lxp1s4hb0xb0di1a5jg08rr8hk0cvz8-git-2.52.0"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/4qhdhmi7pzgad0zfd7c5lsg235mbf9hv-git-2.51.2",
+              "path": "/nix/store/fryiyyhhilpqhx2wc4b6l5gnxc8w18rg-git-2.52.0",
               "default": true
             },
             {
               "name": "debug",
-              "path": "/nix/store/pjr2vd588sxa47glfg0ky0df3vk79dcs-git-2.51.2-debug"
+              "path": "/nix/store/q6m51s4q8kddlh9b9rb63v1yqvlv3xgp-git-2.52.0-debug"
             },
             {
               "name": "doc",
-              "path": "/nix/store/9k6ivrdddy9s3z1hiwgavl0kfr2czgav-git-2.51.2-doc"
+              "path": "/nix/store/n4zq81winwf8d5y2ra7fjznwl6cnhggz-git-2.52.0-doc"
             }
           ],
-          "store_path": "/nix/store/4qhdhmi7pzgad0zfd7c5lsg235mbf9hv-git-2.51.2"
+          "store_path": "/nix/store/fryiyyhhilpqhx2wc4b6l5gnxc8w18rg-git-2.52.0"
         }
       }
     },
@@ -477,51 +477,51 @@
         }
       }
     },
-    "opencode@1.0.184": {
-      "last_modified": "2025-12-25T00:54:45Z",
-      "resolved": "github:NixOS/nixpkgs/b72f284b1be41575c3e36cd777a191c29a7adf6a#opencode",
+    "opencode@1.1.14": {
+      "last_modified": "2026-01-13T11:13:53Z",
+      "resolved": "github:NixOS/nixpkgs/61db79b0c6b838d9894923920b612048e1201926#opencode",
       "source": "devbox-search",
-      "version": "1.0.184",
+      "version": "1.1.14",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/zyyz9ibys2xx7wxai817vns68afz77yq-opencode-1.0.184",
+              "path": "/nix/store/7pw2d3m4wjw4dh328gdyk4mhqhnfgj3i-opencode-1.1.14",
               "default": true
             }
           ],
-          "store_path": "/nix/store/zyyz9ibys2xx7wxai817vns68afz77yq-opencode-1.0.184"
+          "store_path": "/nix/store/7pw2d3m4wjw4dh328gdyk4mhqhnfgj3i-opencode-1.1.14"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/v8nx9xvr0kbkz5y9nwa897db3w626nw2-opencode-1.0.184",
+              "path": "/nix/store/cvjkbbsrdhyvgjxi8cdy6rmrw6a58pkk-opencode-1.1.14",
               "default": true
             }
           ],
-          "store_path": "/nix/store/v8nx9xvr0kbkz5y9nwa897db3w626nw2-opencode-1.0.184"
+          "store_path": "/nix/store/cvjkbbsrdhyvgjxi8cdy6rmrw6a58pkk-opencode-1.1.14"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/cnzrzy6sfclygjdq0rvbai0929l6772l-opencode-1.0.184",
+              "path": "/nix/store/iwrr05gqwhb46s72gqpzj0klhll6x5ij-opencode-1.1.14",
               "default": true
             }
           ],
-          "store_path": "/nix/store/cnzrzy6sfclygjdq0rvbai0929l6772l-opencode-1.0.184"
+          "store_path": "/nix/store/iwrr05gqwhb46s72gqpzj0klhll6x5ij-opencode-1.1.14"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/00hvgd8pl4yff0m519pzsb9ik4slw0in-opencode-1.0.184",
+              "path": "/nix/store/2r5zcdmpyw1jhdvfsf6mjaj6p2frs99p-opencode-1.1.14",
               "default": true
             }
           ],
-          "store_path": "/nix/store/00hvgd8pl4yff0m519pzsb9ik4slw0in-opencode-1.0.184"
+          "store_path": "/nix/store/2r5zcdmpyw1jhdvfsf6mjaj6p2frs99p-opencode-1.1.14"
         }
       }
     },
