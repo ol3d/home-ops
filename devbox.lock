@@ -129,67 +129,67 @@
         }
       }
     },
-    "awscli2@2.32.15": {
-      "last_modified": "2025-12-16T16:49:59Z",
-      "resolved": "github:NixOS/nixpkgs/e8d16d2186d6ed9f047eb30948e97e7e01886d10#awscli2",
+    "awscli2@2.33.2": {
+      "last_modified": "2026-01-20T02:11:35Z",
+      "resolved": "github:NixOS/nixpkgs/ed142ab1b3a092c4d149245d0c4126a5d7ea00b0#awscli2",
       "source": "devbox-search",
-      "version": "2.32.15",
+      "version": "2.33.2",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/6f7p1z11mkpyr14w0sqa4pp0abzsxf1i-awscli2-2.32.15",
+              "path": "/nix/store/r2yk7zc2xifqnm9896w3x9prl7qn0bap-awscli2-2.33.2",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/pghfh6i3j1a51qklqbx2vv4hsh1k4nix-awscli2-2.32.15-dist"
+              "path": "/nix/store/08j6bp7zicqyfkyix1q2f0j6aj21qbdr-awscli2-2.33.2-dist"
             }
           ],
-          "store_path": "/nix/store/6f7p1z11mkpyr14w0sqa4pp0abzsxf1i-awscli2-2.32.15"
+          "store_path": "/nix/store/r2yk7zc2xifqnm9896w3x9prl7qn0bap-awscli2-2.33.2"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/3yb7mw8ky7iqvwl9j7qj1y571vx6nj4w-awscli2-2.32.15",
+              "path": "/nix/store/6a6n6hsm4fnbry8gicm9s5hxb3b0rfa7-awscli2-2.33.2",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/216lkwwawal144x1mlkawxsgr92hz02g-awscli2-2.32.15-dist"
+              "path": "/nix/store/43qf8hil6j5knhr3502ivz8vip4j4jwp-awscli2-2.33.2-dist"
             }
           ],
-          "store_path": "/nix/store/3yb7mw8ky7iqvwl9j7qj1y571vx6nj4w-awscli2-2.32.15"
+          "store_path": "/nix/store/6a6n6hsm4fnbry8gicm9s5hxb3b0rfa7-awscli2-2.33.2"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/di1h7fnh74hyg8ym3z6xjff4rgr4rmxa-awscli2-2.32.15",
+              "path": "/nix/store/l825ps8nrli237ihhhw5m9jnlnd5gks6-awscli2-2.33.2",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/ynjbq246aza1qvlrdi637s4ylqdrypxl-awscli2-2.32.15-dist"
+              "path": "/nix/store/j0da5brcy1ixadd728q8nyrimj3mpizz-awscli2-2.33.2-dist"
             }
           ],
-          "store_path": "/nix/store/di1h7fnh74hyg8ym3z6xjff4rgr4rmxa-awscli2-2.32.15"
+          "store_path": "/nix/store/l825ps8nrli237ihhhw5m9jnlnd5gks6-awscli2-2.33.2"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/7kasqynx7rv1imipzwm29k67rfjg0y88-awscli2-2.32.15",
+              "path": "/nix/store/479n9idsddpjd983xfx1bfblyqvq9myc-awscli2-2.33.2",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/54zpz7s35bgh5pz8f05ml5w74fizqdv7-awscli2-2.32.15-dist"
+              "path": "/nix/store/7qxkqd429bwhbd9m7jqkp760xli47msd-awscli2-2.33.2-dist"
             }
           ],
-          "store_path": "/nix/store/7kasqynx7rv1imipzwm29k67rfjg0y88-awscli2-2.32.15"
+          "store_path": "/nix/store/479n9idsddpjd983xfx1bfblyqvq9myc-awscli2-2.33.2"
         }
       }
     },
@@ -317,51 +317,51 @@
         }
       }
     },
-    "markdownlint-cli2@0.18.1": {
-      "last_modified": "2025-10-22T20:59:19Z",
-      "resolved": "github:NixOS/nixpkgs/01b6809f7f9d1183a2b3e081f0a1e6f8f415cb09#markdownlint-cli2",
+    "markdownlint-cli2@0.20.0": {
+      "last_modified": "2026-01-20T02:11:35Z",
+      "resolved": "github:NixOS/nixpkgs/ed142ab1b3a092c4d149245d0c4126a5d7ea00b0#markdownlint-cli2",
       "source": "devbox-search",
-      "version": "0.18.1",
+      "version": "0.20.0",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/46qh02vhjqkb2i839s6v2z0d1f99gsnl-markdownlint-cli2-0.18.1",
+              "path": "/nix/store/pn75mvy495ibm5pslqrsa0fgn7kns0kw-markdownlint-cli2-0.20.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/46qh02vhjqkb2i839s6v2z0d1f99gsnl-markdownlint-cli2-0.18.1"
+          "store_path": "/nix/store/pn75mvy495ibm5pslqrsa0fgn7kns0kw-markdownlint-cli2-0.20.0"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/206vy6qg4zs38hcl731zvry2w3kkni0w-markdownlint-cli2-0.18.1",
+              "path": "/nix/store/3w1yw7fs5vl5dw3s7wgm1z5k3bpqg2a5-markdownlint-cli2-0.20.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/206vy6qg4zs38hcl731zvry2w3kkni0w-markdownlint-cli2-0.18.1"
+          "store_path": "/nix/store/3w1yw7fs5vl5dw3s7wgm1z5k3bpqg2a5-markdownlint-cli2-0.20.0"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/hf82jhsfv0ci6vxqnk1mdf3mjf40jp7m-markdownlint-cli2-0.18.1",
+              "path": "/nix/store/5yl50ghp8bizlv2v6qmczcxbwwdvwb00-markdownlint-cli2-0.20.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/hf82jhsfv0ci6vxqnk1mdf3mjf40jp7m-markdownlint-cli2-0.18.1"
+          "store_path": "/nix/store/5yl50ghp8bizlv2v6qmczcxbwwdvwb00-markdownlint-cli2-0.20.0"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/xz81ifvjxaccay9g46fx7nga2avhf814-markdownlint-cli2-0.18.1",
+              "path": "/nix/store/0n0fy1dicg722hn9dmq1i4jscg6b7c84-markdownlint-cli2-0.20.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/xz81ifvjxaccay9g46fx7nga2avhf814-markdownlint-cli2-0.18.1"
+          "store_path": "/nix/store/0n0fy1dicg722hn9dmq1i4jscg6b7c84-markdownlint-cli2-0.20.0"
         }
       }
     },
@@ -477,51 +477,41 @@
         }
       }
     },
-    "opencode@1.1.14": {
-      "last_modified": "2026-01-13T11:13:53Z",
-      "resolved": "github:NixOS/nixpkgs/61db79b0c6b838d9894923920b612048e1201926#opencode",
+    "opencode@1.1.25": {
+      "last_modified": "2026-01-19T00:39:23Z",
+      "resolved": "github:NixOS/nixpkgs/bde09022887110deb780067364a0818e89258968#opencode",
       "source": "devbox-search",
-      "version": "1.1.14",
+      "version": "1.1.25",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/7pw2d3m4wjw4dh328gdyk4mhqhnfgj3i-opencode-1.1.14",
+              "path": "/nix/store/7ylqkslcpwfmkqxq18gfzwc40i9kr2fx-opencode-1.1.25",
               "default": true
             }
           ],
-          "store_path": "/nix/store/7pw2d3m4wjw4dh328gdyk4mhqhnfgj3i-opencode-1.1.14"
+          "store_path": "/nix/store/7ylqkslcpwfmkqxq18gfzwc40i9kr2fx-opencode-1.1.25"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/cvjkbbsrdhyvgjxi8cdy6rmrw6a58pkk-opencode-1.1.14",
+              "path": "/nix/store/b9b2dcj33i0ixhr8hk92k6w0ry8vjrwr-opencode-1.1.25",
               "default": true
             }
           ],
-          "store_path": "/nix/store/cvjkbbsrdhyvgjxi8cdy6rmrw6a58pkk-opencode-1.1.14"
-        },
-        "x86_64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/iwrr05gqwhb46s72gqpzj0klhll6x5ij-opencode-1.1.14",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/iwrr05gqwhb46s72gqpzj0klhll6x5ij-opencode-1.1.14"
+          "store_path": "/nix/store/b9b2dcj33i0ixhr8hk92k6w0ry8vjrwr-opencode-1.1.25"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/2r5zcdmpyw1jhdvfsf6mjaj6p2frs99p-opencode-1.1.14",
+              "path": "/nix/store/cfmvafjn2ydvvjmrgxxz96j3cv7zix93-opencode-1.1.25",
               "default": true
             }
           ],
-          "store_path": "/nix/store/2r5zcdmpyw1jhdvfsf6mjaj6p2frs99p-opencode-1.1.14"
+          "store_path": "/nix/store/cfmvafjn2ydvvjmrgxxz96j3cv7zix93-opencode-1.1.25"
         }
       }
     },
