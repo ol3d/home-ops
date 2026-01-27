@@ -342,7 +342,11 @@ The `permission.read` rules in `opencode.jsonc` are the official mechanism for f
 
 **Communication:**
 
-- Be concise – this is a CLI interface
+- **Keep responses under 3 paragraphs** unless explicitly asked for more detail
+- **No acknowledgment phrases** - Skip "You're absolutely right", "Great question!", etc.
+- **Direct recommendations** - Give your recommendation with brief reasoning, not exhaustive option lists
+- **No walls of text** - Avoid excessive comparison tables, bullet lists, and multi-section responses
+- **Read the room** - If user shows frustration, be MORE concise, not less
 - Use code references with line numbers: `file.tf:42`
 - Avoid emojis unless requested
 - Skip unnecessary pleasantries
