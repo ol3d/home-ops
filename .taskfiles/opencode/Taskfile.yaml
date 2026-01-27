@@ -1,0 +1,142 @@
+---
+version: "3"
+
+vars:
+  OPENCODE_DIR: "{{.HOME}}/.local/share/opencode"
+
+tasks:
+  purge-sessions:
+    desc: Purge all OpenCode session data
+    prompt: This will delete all stored sessions. Continue?
+    cmds:
+      - rm -rf {{.OPENCODE_DIR}}/storage/session/*
+      - rm -rf {{.OPENCODE_DIR}}/storage/message/*
+      - rm -rf {{.OPENCODE_DIR}}/storage/session_diff/*
+      - rm -rf {{.OPENCODE_DIR}}/storage/todo/*
+      - echo "Purged all session data"
+
+  purge-logs:
+    desc: Purge all OpenCode logs
+    prompt: This will delete all log files. Continue?
+    cmds:
+      - rm -rf {{.OPENCODE_DIR}}/log/*
+      - echo "Purged all logs"
+
+  purge-exports:
+    desc: Purge all OpenCode session exports
+    prompt: This will delete all exported sessions. Continue?
+    cmds:
+      - rm -rf {{.OPENCODE_DIR}}/exports/*
+      - echo "Purged all exports"
+
+  purge-all:
+    desc: Purge all OpenCode data (sessions, logs, exports)
+    prompt: This will delete ALL OpenCode local data. Continue?
+    cmds:
+      - task: purge-sessions
+      - task: purge-logs
+      - task: purge-exports
+      - echo "Purged all OpenCode data"
+
+  status:
+    desc: Show OpenCode storage usage
+    cmds:
+      - echo "OpenCode Storage Usage"
+      - echo "======================"
+      - du -sh {{.OPENCODE_DIR}} 2>/dev/null || echo "OpenCode directory not found"
+      - echo ""
+      - echo "Sessions"
+      - find {{.OPENCODE_DIR}}/storage/session -type f 2>/dev/null | wc -l | xargs -I {} echo "  Files:" {}
+      - du -sh {{.OPENCODE_DIR}}/storage/session 2>/dev/null | cut -f1 | xargs -I {} echo "  Size:" {}
+      - echo ""
+      - echo "Logs"
+      - find {{.OPENCODE_DIR}}/log -type f 2>/dev/null | wc -l | xargs -I {} echo "  Files:" {}
+      - du -sh {{.OPENCODE_DIR}}/log 2>/dev/null | cut -f1 | xargs -I {} echo "  Size:" {}
+      - echo ""
+      - echo "Exports"
+      - find {{.OPENCODE_DIR}}/exports -type f 2>/dev/null | wc -l | xargs -I {} echo "  Files:" {}
+      - du -sh {{.OPENCODE_DIR}}/exports 2>/dev/null | cut -f1 | xargs -I {} echo "  Size:" {}
+
+  clean-old:
+    desc: Clean sessions and logs older than 30 days
+    prompt: This will delete sessions and logs older than 30 days. Continue?
+    cmds:
+      - find {{.OPENCODE_DIR}}/storage/session -type f -mtime +30 -delete 2>/dev/null || true
+      - find {{.OPENCODE_DIR}}/storage/message -type f -mtime +30 -delete 2>/dev/null || true
+      - find {{.OPENCODE_DIR}}/storage/session_diff -type f -mtime +30 -delete 2>/dev/null || true
+      - find {{.OPENCODE_DIR}}/storage/todo -type f -mtime +30 -delete 2>/dev/null || true
+      - find {{.OPENCODE_DIR}}/log -type f -mtime +30 -delete 2>/dev/null || true
+      - echo "Cleaned data older than 30 days"
+
+  check-bloat:
+    desc: Check for bloated sessions (messages >100KB)
+    cmds:
+      - |
+        echo "Checking for bloated sessions..."
+        echo "================================"
+        echo ""
+        BLOAT_THRESHOLD=100  # KB
+        TOTAL_SIZE=0
+        BLOAT_COUNT=0
+
+        # Check message directories
+        for SESSION_DIR in {{.OPENCODE_DIR}}/storage/message/*/; do
+          if [ -d "$SESSION_DIR" ]; then
+            SESSION_ID=$(basename "$SESSION_DIR")
+            SIZE_KB=$(du -sk "$SESSION_DIR" 2>/dev/null | cut -f1)
+            if [ "$SIZE_KB" -gt "$BLOAT_THRESHOLD" ]; then
+              SIZE_MB=$(echo "scale=2; $SIZE_KB / 1024" | bc)
+              echo "⚠ $SESSION_ID: ${SIZE_MB}MB"
+              BLOAT_COUNT=$((BLOAT_COUNT + 1))
+              TOTAL_SIZE=$((TOTAL_SIZE + SIZE_KB))
+            fi
+          fi
+        done
+
+        if [ "$BLOAT_COUNT" -eq 0 ]; then
+          echo "✓ No bloated sessions found"
+        else
+          TOTAL_MB=$(echo "scale=2; $TOTAL_SIZE / 1024" | bc)
+          echo ""
+          echo "Found $BLOAT_COUNT bloated sessions totaling ${TOTAL_MB}MB"
+          echo ""
+          echo "Recommendation:"
+          echo "  - Run 'task opencode:clean-bloated' to remove sessions >100KB"
+          echo "  - Or run 'task opencode:purge-sessions' to remove all sessions"
+          exit 1
+        fi
+
+  clean-bloated:
+    desc: Remove bloated sessions (messages >100KB)
+    prompt: This will delete sessions with messages larger than 100KB. Continue?
+    cmds:
+      - |
+        echo "Removing bloated sessions..."
+        BLOAT_THRESHOLD=100  # KB
+        REMOVED_COUNT=0
+
+        for SESSION_DIR in {{.OPENCODE_DIR}}/storage/message/*/; do
+          if [ -d "$SESSION_DIR" ]; then
+            SESSION_ID=$(basename "$SESSION_DIR")
+            SIZE_KB=$(du -sk "$SESSION_DIR" 2>/dev/null | cut -f1)
+
+            if [ "$SIZE_KB" -gt "$BLOAT_THRESHOLD" ]; then
+              SIZE_MB=$(echo "scale=2; $SIZE_KB / 1024" | bc)
+              echo "Removing $SESSION_ID (${SIZE_MB}MB)..."
+
+              # Remove from all storage locations
+              rm -rf "{{.OPENCODE_DIR}}/storage/message/$SESSION_ID" 2>/dev/null || true
+              find {{.OPENCODE_DIR}}/storage/session -type f -name "$SESSION_ID.json" -delete 2>/dev/null || true
+              rm -rf "{{.OPENCODE_DIR}}/storage/session_diff/$SESSION_ID.json" 2>/dev/null || true
+              rm -rf "{{.OPENCODE_DIR}}/storage/todo/$SESSION_ID.json" 2>/dev/null || true
+
+              REMOVED_COUNT=$((REMOVED_COUNT + 1))
+            fi
+          fi
+        done
+
+        if [ "$REMOVED_COUNT" -eq 0 ]; then
+          echo "No bloated sessions found"
+        else
+          echo "Removed $REMOVED_COUNT bloated sessions"
+        fi
