@@ -1,11 +1,10 @@
 ---
-description: Creates and updates MkDocs documentation, validates build with strict mode, updates navigation, and ensures docs stay in sync with infrastructure.
+description: Creates and updates MkDocs documentation with strict build validation. Invoke for ANY documentation work.
 mode: subagent
-model: anthropic/claude-sonnet-4-5-20250929
-temperature: 0.2
+model: github-copilot/claude-sonnet-4.5
+temperature: 0.5
 tools:
   write: true
-  edit: true
   bash: true
 permission:
   edit: ask

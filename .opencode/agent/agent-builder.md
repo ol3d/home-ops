@@ -1,11 +1,10 @@
 ---
-description: Meta-agent that designs and creates new OpenCode agents.
+description: Meta-agent that designs and creates new OpenCode agents with proper frontmatter and configurations.
 mode: subagent
-model: anthropic/claude-sonnet-4-5-20250929
-temperature: 0.3
+model: github-copilot/claude-sonnet-4.5
+temperature: 0.4
 tools:
   write: true
-  edit: true
   bash: false
 permission:
   edit: ask

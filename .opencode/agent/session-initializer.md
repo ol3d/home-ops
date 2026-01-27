@@ -1,12 +1,12 @@
 ---
-description: Bootstraps new OpenCode sessions by loading critical context, permissions, and previous work. AUTO-INVOKE at every session start before any other action.
+description: Bootstraps new OpenCode sessions by loading critical context, permissions, and previous work. Invoke at EVERY session start.
 mode: subagent
-model: anthropic/claude-haiku-4-5-20251001
-temperature: 0.2
+model: github-copilot/claude-haiku-4.5
+temperature: 0.0
 tools:
-  write: false
-  edit: false
-  bash: false
+  write: true
+permission:
+  edit: allow
 ---
 
 <!-- cspell:ignore sops kubeconfig tfstate -->

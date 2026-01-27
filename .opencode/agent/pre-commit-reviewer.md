@@ -1,12 +1,15 @@
 ---
-description: Reviews code before commits, PRs, or quality checks on staged changes.
+description: Reviews staged changes for security vulnerabilities, secrets, code quality, and linting compliance. Invoke before commits. Has 200+ secret detection patterns.
 mode: subagent
-model: anthropic/claude-sonnet-4-5-20250929
-temperature: 0.2
+model: github-copilot/claude-sonnet-4.5
+temperature: 0.0
 tools:
   write: false
   edit: false
   bash: false
+permission:
+  edit: deny
+  bash: deny
 ---
 
 <!-- cspell:ignore AKIA ASIA ghp gho ghs ghu kubeconfig tfstate yamllint ansible markdownlint tflint editorconfig -->

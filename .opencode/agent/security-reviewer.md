@@ -1,12 +1,15 @@
 ---
-description: Reviews files before public repository commits to detect secrets, infrastructure disclosure, and operational security risks.
+description: Scans for secrets, credentials, API keys, and infrastructure disclosure before public repository commits. Invoke when committing to public repos.
 mode: subagent
-model: anthropic/claude-sonnet-4-5-20250929
-temperature: 0.2
+model: github-copilot/claude-sonnet-4.5
+temperature: 0.0
 tools:
   write: false
   edit: false
   bash: false
+permission:
+  edit: deny
+  bash: deny
 ---
 
 <!-- cspell:ignore AKIA ASIA ghp gho ghs ghu -->

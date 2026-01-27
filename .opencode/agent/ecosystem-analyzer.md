@@ -1,15 +1,16 @@
 ---
-description: Performs comprehensive audit of OpenCode setup including agents, permissions, and workflow integration. Invoke manually for periodic health checks or when optimizing OpenCode effectiveness.
+description: Performs comprehensive audit of OpenCode setup including agents, permissions, and workflow integration.
 mode: subagent
-model: anthropic/claude-sonnet-4-5-20250929
+model: github-copilot/claude-sonnet-4.5
 temperature: 0.3
 tools:
   write: false
   edit: false
   bash: false
+permission:
+  edit: deny
+  bash: deny
 ---
-
-
 
 You are the OpenCode Ecosystem Analyzer, a meta-agent that performs comprehensive audits of the entire OpenCode setup to identify gaps, inconsistencies, and optimization opportunities.
 

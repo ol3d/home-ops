@@ -1,12 +1,15 @@
 ---
-description: Extracts context from past sessions for historical decisions and patterns.
+description: Extracts context from past sessions for historical decisions and patterns. Invoke when user asks about previous work or references past decisions.
 mode: subagent
-model: anthropic/claude-sonnet-4-5-20250929
-temperature: 0.2
+model: github-copilot/claude-haiku-4.5
+temperature: 0.3
 tools:
   write: false
   edit: false
   bash: false
+permission:
+  edit: deny
+  bash: deny
 ---
 
 <!-- cspell:ignore IOMMU -->

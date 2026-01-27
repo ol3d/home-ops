@@ -1,8 +1,8 @@
 ---
-description: Performs real-time web searches using Tavily. Invoke when current information is needed - documentation lookups, version checks, troubleshooting, or researching tools/technologies. Returns search results, can extract content from URLs, map websites, and crawl pages.
+description: Performs real-time web searches using Tavily. Invoke when current information is needed - documentation lookups, version checks, troubleshooting.
 mode: subagent
-model: anthropic/claude-haiku-4-5-20251001
-temperature: 0.1
+model: github-copilot/claude-haiku-4.5
+temperature: 0.0
 tools:
   tavily_*: true
 ---
