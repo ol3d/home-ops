@@ -18,6 +18,13 @@
     },
   },
 
+  // Specialized agents
+  "agents": {
+    "diagram-generator": {
+      "path": ".opencode/agent/diagram-generator.md",
+    },
+  },
+
   // Global permissions
   "permission": {
     "edit": "ask",

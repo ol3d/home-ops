@@ -50,6 +50,11 @@ theme:
 markdown_extensions:
   - pymdownx.snippets:
       check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
 plugins:
   - privacy
@@ -112,6 +117,7 @@ nav:
           - reference/homelab/index.md
           - Network:
               - reference/homelab/network/network-reference.md
+              - reference/homelab/network/network-topology.md
           - Hardware:
               - reference/homelab/hardware/server-rack-reference.md
               - reference/homelab/hardware/hardware-reference.md
