@@ -1,6 +1,7 @@
 ---
 site_name: ol3d's Homelab
 site_author: Adam Delo
+site_dir: /tmp/mkdocs-build
 
 repo_url: https://github.com/ol3d/home-ops
 repo_name: ol3d/home-ops

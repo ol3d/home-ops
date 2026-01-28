@@ -27,6 +27,7 @@ package-lock.json
 .node_modules/
 # Material for MkDocs
 .cache
+site/
 # Environment Config
 .env
 
