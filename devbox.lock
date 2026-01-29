@@ -477,41 +477,41 @@
         }
       }
     },
-    "opencode@1.1.25": {
-      "last_modified": "2026-01-19T00:39:23Z",
-      "resolved": "github:NixOS/nixpkgs/bde09022887110deb780067364a0818e89258968#opencode",
+    "opencode@1.1.30": {
+      "last_modified": "2026-01-24T15:20:28Z",
+      "resolved": "github:NixOS/nixpkgs/ab9fbbcf4858bd6d40ba2bbec37ceb4ab6e1f562#opencode",
       "source": "devbox-search",
-      "version": "1.1.25",
+      "version": "1.1.30",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/7ylqkslcpwfmkqxq18gfzwc40i9kr2fx-opencode-1.1.25",
+              "path": "/nix/store/k34vzclfg3lj5ycybw8m3dawk866fpyv-opencode-1.1.30",
               "default": true
             }
           ],
-          "store_path": "/nix/store/7ylqkslcpwfmkqxq18gfzwc40i9kr2fx-opencode-1.1.25"
+          "store_path": "/nix/store/k34vzclfg3lj5ycybw8m3dawk866fpyv-opencode-1.1.30"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/b9b2dcj33i0ixhr8hk92k6w0ry8vjrwr-opencode-1.1.25",
+              "path": "/nix/store/lwv3m3157mhi3m84l20wqjsr0xwdw1ii-opencode-1.1.30",
               "default": true
             }
           ],
-          "store_path": "/nix/store/b9b2dcj33i0ixhr8hk92k6w0ry8vjrwr-opencode-1.1.25"
+          "store_path": "/nix/store/lwv3m3157mhi3m84l20wqjsr0xwdw1ii-opencode-1.1.30"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/cfmvafjn2ydvvjmrgxxz96j3cv7zix93-opencode-1.1.25",
+              "path": "/nix/store/yknd6znsdncqzcpa42xsgvvcxx34n58n-opencode-1.1.30",
               "default": true
             }
           ],
-          "store_path": "/nix/store/cfmvafjn2ydvvjmrgxxz96j3cv7zix93-opencode-1.1.25"
+          "store_path": "/nix/store/yknd6znsdncqzcpa42xsgvvcxx34n58n-opencode-1.1.30"
         }
       }
     },
