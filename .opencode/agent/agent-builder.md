@@ -1,7 +1,8 @@
 ---
 description: Meta-agent that designs and creates new OpenCode agents with proper frontmatter and configurations.
 mode: subagent
-model: github-copilot/claude-sonnet-4.5
+# model: github-copilot/claude-sonnet-4.5
+model: opencode/kimi-k2.5-free
 temperature: 0.4
 tools:
   write: true

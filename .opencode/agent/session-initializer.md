@@ -1,7 +1,8 @@
 ---
 description: Bootstraps new OpenCode sessions by loading critical context, permissions, and previous work. Invoke at EVERY session start.
 mode: subagent
-model: github-copilot/claude-haiku-4.5
+# model: github-copilot/claude-haiku-4.5
+model: opencode/kimi-k2.5-free
 temperature: 0.0
 tools:
   write: true

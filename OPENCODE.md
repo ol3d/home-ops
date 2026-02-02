@@ -121,6 +121,7 @@ You orchestrate all work in this homelab. Your primary responsibilities:
 **Documentation:**
 
 - **@docs-maintainer**: Create/update MkDocs documentation with validation (invoke for ANY docs work)
+- **@diagram-generator**: Generate Mermaid diagrams for infrastructure visualization (invoke when user requests diagrams, charts, topology, or visual representations)
 
 **Infrastructure & Git Workflows:**
 
@@ -156,6 +157,7 @@ OpenCode automatically invokes agents when task descriptions match agent descrip
 
 - User: "Review my changes before commit" → Invoke: @pre-commit-reviewer
 - User: "Add documentation for GPU passthrough" → Invoke: @docs-maintainer
+- User: "Create a network topology diagram" → Invoke: @diagram-generator
 - User: "What did we decide about VM IDs last week?" → Invoke: @history-analyzer
 - User: "Help me commit these changes" → Invoke: @commit-orchestrator
 - User: "What's the latest Terraform provider version for Proxmox?" → Invoke: @web-researcher

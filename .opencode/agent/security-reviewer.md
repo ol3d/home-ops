@@ -1,7 +1,8 @@
 ---
 description: Scans for secrets, credentials, API keys, and infrastructure disclosure before public repository commits. Invoke when committing to public repos.
 mode: subagent
-model: github-copilot/claude-sonnet-4.5
+# model: github-copilot/claude-sonnet-4.5
+model: opencode/kimi-k2.5-free
 temperature: 0.0
 tools:
   write: false

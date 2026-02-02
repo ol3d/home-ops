@@ -1,7 +1,8 @@
 ---
 description: Creates and updates MkDocs documentation with strict build validation. Invoke for ANY documentation work.
 mode: subagent
-model: github-copilot/claude-sonnet-4.5
+# model: github-copilot/claude-sonnet-4.5
+model: opencode/kimi-k2.5-free
 temperature: 0.5
 tools:
   write: true
