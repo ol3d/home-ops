@@ -269,51 +269,51 @@
       "last_modified": "2025-11-16T17:00:02Z",
       "resolved": "github:NixOS/nixpkgs/85a6c4a07faa12aaccd81b36ba9bfc2bec974fa1?lastModified=1763312402&narHash=sha256-3YJkOBrFpmcusnh7i8GXXEyh7qZG%2F8F5z5%2B717550Hk%3D"
     },
-    "go-task@3.45.5": {
-      "last_modified": "2025-11-23T21:50:36Z",
-      "resolved": "github:NixOS/nixpkgs/ee09932cedcef15aaf476f9343d1dea2cb77e261#go-task",
+    "go-task@3.48.0": {
+      "last_modified": "2026-02-02T23:09:17Z",
+      "resolved": "github:NixOS/nixpkgs/47472570b1e607482890801aeaf29bfb749884f6#go-task",
       "source": "devbox-search",
-      "version": "3.45.5",
+      "version": "3.48.0",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/hq2nfh8sndri3x4z4k1j9g9wk6l0kp5q-go-task-3.45.5",
+              "path": "/nix/store/xcbnv9rgpbrrbjc9rhcryn29fkapyy7a-go-task-3.48.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/hq2nfh8sndri3x4z4k1j9g9wk6l0kp5q-go-task-3.45.5"
+          "store_path": "/nix/store/xcbnv9rgpbrrbjc9rhcryn29fkapyy7a-go-task-3.48.0"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/4ac3xjjbvapdifhzqn3cj012b685bysi-go-task-3.45.5",
+              "path": "/nix/store/ncpxzr2h6wmbw3x1rk64wbpdrdk7hnc5-go-task-3.48.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/4ac3xjjbvapdifhzqn3cj012b685bysi-go-task-3.45.5"
+          "store_path": "/nix/store/ncpxzr2h6wmbw3x1rk64wbpdrdk7hnc5-go-task-3.48.0"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/57gnc0hahiawf2dmiiy6z6kxmaq2a41m-go-task-3.45.5",
+              "path": "/nix/store/xvrsali850p07x38l7vg337nfmy8sf4d-go-task-3.48.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/57gnc0hahiawf2dmiiy6z6kxmaq2a41m-go-task-3.45.5"
+          "store_path": "/nix/store/xvrsali850p07x38l7vg337nfmy8sf4d-go-task-3.48.0"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/8j7jr4fpjlmbcyb1crr8gy00z8d768vm-go-task-3.45.5",
+              "path": "/nix/store/5aa1yhiq2vx8widj750xb8b7rp21xrwn-go-task-3.48.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/8j7jr4fpjlmbcyb1crr8gy00z8d768vm-go-task-3.45.5"
+          "store_path": "/nix/store/5aa1yhiq2vx8widj750xb8b7rp21xrwn-go-task-3.48.0"
         }
       }
     },
@@ -477,41 +477,51 @@
         }
       }
     },
-    "opencode@1.1.41": {
-      "last_modified": "2026-01-30T02:32:49Z",
-      "resolved": "github:NixOS/nixpkgs/6308c3b21396534d8aaeac46179c14c439a89b8a#opencode",
+    "opencode@1.1.47": {
+      "last_modified": "2026-02-01T05:13:08Z",
+      "resolved": "github:NixOS/nixpkgs/207d15f1a6603226e1e223dc79ac29c7846da32e#opencode",
       "source": "devbox-search",
-      "version": "1.1.41",
+      "version": "1.1.47",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/a5wimj0ghni17mp0iij4sa4xgi4yvq26-opencode-1.1.41",
+              "path": "/nix/store/cvxyvyqbp9hxxasxxn8kkhm192n19n4d-opencode-1.1.47",
               "default": true
             }
           ],
-          "store_path": "/nix/store/a5wimj0ghni17mp0iij4sa4xgi4yvq26-opencode-1.1.41"
+          "store_path": "/nix/store/cvxyvyqbp9hxxasxxn8kkhm192n19n4d-opencode-1.1.47"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/vbxjcdky4r3davr1ysrhy4b7rfl3cgcj-opencode-1.1.41",
+              "path": "/nix/store/8498wd6fi6cajfyvjhc6v1jjl1y01fxi-opencode-1.1.47",
               "default": true
             }
           ],
-          "store_path": "/nix/store/vbxjcdky4r3davr1ysrhy4b7rfl3cgcj-opencode-1.1.41"
+          "store_path": "/nix/store/8498wd6fi6cajfyvjhc6v1jjl1y01fxi-opencode-1.1.47"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/0qnm402khbj31mrr15jd48f6s9bjrci8-opencode-1.1.47",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/0qnm402khbj31mrr15jd48f6s9bjrci8-opencode-1.1.47"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/p4i4cc3xhk72zf5spyg0kl30qzzzdmqc-opencode-1.1.41",
+              "path": "/nix/store/46b04rqj2kn31qmjw4awjw00hwawlypv-opencode-1.1.47",
               "default": true
             }
           ],
-          "store_path": "/nix/store/p4i4cc3xhk72zf5spyg0kl30qzzzdmqc-opencode-1.1.41"
+          "store_path": "/nix/store/46b04rqj2kn31qmjw4awjw00hwawlypv-opencode-1.1.47"
         }
       }
     },
