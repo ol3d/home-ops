@@ -2,7 +2,7 @@
 description: Reviews staged changes for security vulnerabilities, secrets, code quality, and linting compliance. Invoke before commits. Has 200+ secret detection patterns.
 mode: subagent
 # model: github-copilot/claude-sonnet-4.5
-model: opencode/kimi-k2.5-free
+model: opencode/minimax-m2.5-free
 temperature: 0.0
 tools:
   write: false

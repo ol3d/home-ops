@@ -2,7 +2,7 @@
 description: Orchestrates git commit workflows with security validation, conventional commit messages, and logical grouping. Invoke for multi-file commits.
 mode: subagent
 # model: github-copilot/claude-haiku-4.5
-model: opencode/kimi-k2.5-free
+model: opencode/minimax-m2.5-free
 temperature: 0.1
 permission:
   edit: deny

@@ -2,7 +2,7 @@
 description: Generates Mermaid diagrams for homelab infrastructure documentation. Invoke when user requests diagrams, charts, topology, or visual representations.
 mode: subagent
 # model: github-copilot/claude-sonnet-4.5
-model: opencode/kimi-k2.5-free
+model: opencode/minimax-m2.5-free
 temperature: 0.3
 tools:
   write: true

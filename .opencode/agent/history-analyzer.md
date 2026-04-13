@@ -2,7 +2,7 @@
 description: Extracts context from past sessions for historical decisions and patterns. Invoke when user asks about previous work or references past decisions.
 mode: subagent
 # model: github-copilot/claude-haiku-4.5
-model: opencode/kimi-k2.5-free
+model: opencode/minimax-m2.5-free
 temperature: 0.3
 tools:
   write: false

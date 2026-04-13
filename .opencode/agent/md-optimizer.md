@@ -2,7 +2,7 @@
 description: Optimizes OPENCODE.md structure, orchestration clarity, and delegation patterns.
 mode: subagent
 # model: github-copilot/claude-haiku-4.5
-model: opencode/kimi-k2.5-free
+model: opencode/minimax-m2.5-free
 temperature: 0.2
 tools:
   write: false

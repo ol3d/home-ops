@@ -2,7 +2,7 @@
 description: Performs real-time web searches using Tavily. Invoke when current information is needed - documentation lookups, version checks, troubleshooting.
 mode: subagent
 # model: github-copilot/claude-haiku-4.5
-model: opencode/kimi-k2.5-free
+model: opencode/minimax-m2.5-free
 temperature: 0.0
 tools:
   tavily_*: true

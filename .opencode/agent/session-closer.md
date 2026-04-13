@@ -2,7 +2,7 @@
 description: Wraps up sessions by updating CURRENT.md with accomplishments, decisions, and next steps. Invoke when user signals session end or work complete.
 mode: subagent
 # model: github-copilot/claude-haiku-4.5
-model: opencode/kimi-k2.5-free
+model: opencode/minimax-m2.5-free
 temperature: 0.1
 tools:
   write: true
