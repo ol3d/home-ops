@@ -22,7 +22,7 @@ roles:
   - name: buluma.hashicorp
     version: 24.3.31
   - name: buluma.git
-    version: 24.3.31
+    version: 26.6.1
   - name: geerlingguy.ntp
     version: 4.0.0
   - name: lae.proxmox
