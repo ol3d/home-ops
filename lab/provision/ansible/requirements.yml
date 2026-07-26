@@ -20,7 +20,7 @@ roles:
   - name: andrewrothstein.sops
     version: v2.0.8
   - name: buluma.hashicorp
-    version: 26.6.1
+    version: 26.6.2
   - name: buluma.git
     version: 26.6.1
   - name: geerlingguy.ntp
