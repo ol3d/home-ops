@@ -24,7 +24,7 @@ roles:
   - name: buluma.git
     version: 26.6.1
   - name: geerlingguy.ntp
-    version: 4.0.0
+    version: 4.0.1
   - name: lae.proxmox
     version: v1.10.1
   - name: proxmox-test
