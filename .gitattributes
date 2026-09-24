@@ -1,12 +1,11 @@
 * text=auto eol=lf
 
-# Ensure .sops.yaml is treated as plaintext (not decrypted)
+# .sops.yaml is the SOPS creation-rule config, plaintext by design
 .sops.yaml diff=plaintext
 
-# Decrypt encrypted SOPS files with sopsdiffer during diffing
-# TODO remove .enc
-*.sops.yaml.enc diff=sopsdiffer
-*.sops.yml.enc diff=sopsdiffer
+# Encrypted SOPS files: readable diffs via sopsdiffer textconv driver
+config/**/*.sops.yaml diff=sopsdiffer
+config/**/*.sops.yml diff=sopsdiffer
 
-# Treat templates differently for syntax highlighting
+# Templates for syntax highlighting
 *.yaml.j2 linguist-language=YAML

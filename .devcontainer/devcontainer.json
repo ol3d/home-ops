@@ -1,0 +1,131 @@
+{
+  "name": "Homelab Devcontainer",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=consistent",
+
+  // Docker-in-Docker Feature (moby: false for Debian Trixie compat).
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:4.1.0": {
+      "moby": false
+    }
+  },
+
+  // Host mounts: credentials and config from the host (readonly).
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,readonly",
+    "type=volume,source=aws,target=/home/vscode/.aws",
+    "type=volume,source=opencode,target=/home/vscode/.local/share/opencode"
+  ],
+
+  "containerEnv": {
+    "GIT_CONFIG_GLOBAL": "/home/vscode/.config/git/config",
+    "OPENCODE_CONFIG": "/workspace/.opencode/opencode.jsonc"
+  },
+  "forwardPorts": [8000],
+  "runArgs": ["--hostname", "homelab"],
+
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "DavidAnson.vscode-markdownlint",
+        "editorconfig.editorconfig",
+        "esbenp.prettier-vscode",
+        "fabiospampinato.vscode-terminals",
+        "Gruntfuggly.todo-tree",
+        "hashicorp.terraform",
+        "ms-azuretools.vscode-docker",
+        "oderwat.indent-rainbow",
+        "redhat.ansible",
+        "redhat.vscode-yaml",
+        "signageos.signageos-vscode-sops",
+        "sst-dev.opencode",
+        "streetsidesoftware.code-spell-checker",
+
+        "usernamehw.errorlens",
+        "yzhang.markdown-all-in-one"
+      ],
+      "settings": {
+        "[markdown]": {
+          "editor.wordWrap": "on",
+          "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+          }
+        },
+        "ansible.ansibleLint.arguments": "-c .github/linters/.ansible-lint",
+        "ansible.python.interpreterPath": "/usr/local/venv/bin/python3",
+        "cSpell.enableFiletypes": ["markdown", "terraform", "yaml", "hcl"],
+        "cSpell.language": "en",
+        "cSpell.words": [
+          "ansible",
+          "homelab",
+          "kubernetes",
+          "mkdocs",
+          "noninteractive",
+          "ollama",
+          "opencode",
+          "opnsense",
+          "packer",
+          "pikvm",
+          "proxmox",
+          "renovate",
+          "sops",
+          "tavily",
+          "terraform",
+          "tflint",
+          "venv"
+        ],
+        "chat.disableAIFeatures": true,
+        "editor.bracketPairColorization.enabled": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.guides.bracketPairs": "active",
+        "editor.hover.delay": 1500,
+        "extensions.ignoreRecommendations": true,
+        "files.associations": {
+          "*.json5": "jsonc",
+          "**/provision/ansible/**/inventory/**/*.yml": "yaml",
+          "**/provision/ansible/**/*.sops.yml": "yaml",
+          "**/provision/ansible/**/*.yml": "ansible",
+          "**/provision/terraform/**/*.tf": "terraform"
+        },
+        "files.autoSave": "afterDelay",
+        "files.exclude": {
+          "**/.ansible": true,
+          "**/.terraform": true,
+          "**/__pycache__": true,
+          "**/node_modules": true
+        },
+        "git.autofetch": false,
+        "prettier.configPath": ".github/linters/.prettierrc.yaml",
+        "prettier.ignorePath": ".github/linters/.prettierignore",
+        "telemetry.telemetryLevel": "off",
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.revealOnStartup": "never",
+        "terminals.autorun": true,
+        "terminals.terminals": [
+          {
+            "name": "MkDocs",
+            "command": "WATCHDOG_USE_POLLING=1 mkdocs serve --dev-addr=0.0.0.0:8000",
+            "focus": false
+          },
+          {
+            "name": "OpenCode",
+            "command": "opencode",
+            "focus": true
+          }
+        ],
+        "workbench.colorTheme": "Default Dark Modern"
+      }
+    }
+  },
+
+  "remoteUser": "vscode"
+}

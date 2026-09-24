@@ -1,62 +1,56 @@
 ---
-# Pre-commit hooks delegating to Taskfile tasks (single source of truth)
-# Taskfile tasks in .taskfiles/lint/Taskfile.yaml contain all tool configurations
-# Config files in .github/linters/ remain the single source of truth for tool settings
 fail_fast: false
 repos:
   - repo: local
     hooks:
-      # Formatting tasks (auto-fix on commit)
-      - id: task-lint-fix-prettier
-        name: Task - Fix Prettier Formatting
-        entry: task lint:fix:prettier
+      - id: prettier
+        name: Fix Prettier Formatting
+        entry: prettier --write --config .github/linters/.prettierrc.yaml --ignore-path .github/linters/.prettierignore
         language: system
         types_or: [json, yaml, markdown, javascript, css, html]
-        pass_filenames: false
+        pass_filenames: true
 
-      - id: task-lint-fix-terraform
-        name: Task - Fix Terraform Formatting
-        entry: task lint:fix:terraform
+      - id: terraform-fmt
+        name: Fix Terraform Formatting
+        entry: terraform fmt -recursive
         language: system
         files: \.tf$
         pass_filenames: false
 
-      - id: task-lint-fix-packer
-        name: Task - Fix Packer Formatting
-        entry: task lint:fix:packer
-        language: system
-        files: \.pkr\.hcl$
-        pass_filenames: false
+      # - id: packer-fmt
+      #   name: Fix Packer Formatting
+      #   entry: packer fmt lab/provision/packer
+      #   language: system
+      #   files: \.pkr\.hcl$
+      #   pass_filenames: false
 
-      - id: task-lint-fix-shell
-        name: Task - Fix Shell Formatting
-        entry: task lint:fix:shell
+      - id: shfmt
+        name: Fix Shell Formatting
+        entry: shfmt -w
         language: system
         types: [shell]
-        pass_filenames: false
+        pass_filenames: true
 
-      # Linting checks (fail on issues)
-      - id: task-lint-check-yaml
-        name: Task - Check YAML Linting
-        entry: task lint:check:yaml
+      - id: yamllint
+        name: Check YAML Linting
+        entry: yamllint -c .github/linters/.yamllint.yaml
         language: system
         types: [yaml]
-        pass_filenames: false
+        pass_filenames: true
+        exclude: ^\.opencode/.*|^\.pre-commit-config\.yaml$
 
-      - id: task-lint-check-markdown
-        name: Task - Check Markdown Linting
-        entry: task lint:check:markdown
+      - id: markdownlint
+        name: Check Markdown Linting
+        entry: markdownlint-cli2 --config .github/linters/.markdownlint-cli2.yaml
         language: system
         types: [markdown]
-        pass_filenames: false
+        pass_filenames: true
 
-  # Shell script checks (Python wrapper for portability)
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.11.0.1
     hooks:
       - id: shellcheck
 
-  # Security checks for secrets
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:

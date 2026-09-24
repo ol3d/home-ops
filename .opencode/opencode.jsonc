@@ -1,12 +1,12 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "opencode",
   "share": "disabled",
-  "model": "opencode/minimax-m2.5-free",
-  // "model": "github-copilot/claude-sonnet-4.5",
-  "small_model": "opencode/minimax-m2.5-free",
-  // "small_model": "github-copilot/claude-haiku-4.5",
-  "instructions": ["OPENCODE.md"],
+  "model": "ollama-cloud/glm-5.3",
+  // "model": "zai-coding-plan/glm-5.3",
+  "small_model": "ollama-cloud/glm-5.3",
+  // "small_model": "zai-coding-plan/glm-5.3",
+  "instructions": [".opencode/OPENCODE.md", "ROADMAP.md"],
+  "enabled_providers": ["ollama-cloud", "zai-coding-plan"],
 
   // MCP Servers
   "mcp": {
@@ -15,20 +15,15 @@
       "url": "https://mcp.tavily.com/mcp/",
       "oauth": false,
       "headers": {
-        "Authorization": "Bearer {env:TAVILY_API_KEY}",
-      },
-    },
+        "Authorization": "Bearer {file:~/.local/share/opencode/tavily.key}"
+      }
+    }
   },
 
   // Global permissions
   "permission": {
     "edit": "ask",
     "bash": "ask",
-
-    // Disable MCP tools globally - agents enable as needed
-    "tools": {
-      "tavily_*": "deny",
-    },
 
     "read": {
       "*": "allow",
@@ -88,7 +83,7 @@
       "terraform.tfvars.json": "deny",
 
       // Private directories
-      ".private/**": "deny",
-    },
-  },
+      ".private/**": "deny"
+    }
+  }
 }

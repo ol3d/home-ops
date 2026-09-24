@@ -1,42 +1,31 @@
-# Binaries
-bin
-*.iso
-# Temp folders
-.temp*
-.private/
-.logs/
-.task/
 # Terraform
-.terraform
+.terraform/
 *.tfstate*
-terraform.tfstate*
+*.tfplan
+*.tfvars
 terraform-plugin-proxmox.log
-# Sops
+
+# SOPS
 .decrypted~*
-# Extras
-config.xml
-*.pid
-# Node
-node_modules
-package-lock.json
-# Devbox
-.devbox/
-# Ansible-lint
+
+# Ansible
 .ansible/
-# NodeJs
-.node_modules/
-# Material for MkDocs
+
+# Python
+__pycache__/
+
+# MkDocs
 .cache
 site/
-# Environment Config
+
+# Environment config (mechanism eliminated; kept as accident protection)
 .env
 
-# OpenCode session history (private work log)
-.opencode/sessions/*.md
-!.opencode/sessions/README.md
+# OpenCode (regenerates its package files on startup)
 .opencode/node_modules/
+.opencode/package.json
+.opencode/package-lock.json
+.opencode/bun.lock
 
-# Opencode packages
-node_modules
-package.json
-bun.lock
+# Hardware phase artifacts
+*.iso
