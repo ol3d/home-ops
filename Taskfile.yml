@@ -1,18 +1,27 @@
 ---
 version: "3"
 
-set: [pipefail]
-shopt: [globstar]
-
 includes:
-  ansible: .taskfiles/ansible
-  lint: .taskfiles/lint
-  opencode: .taskfiles/opencode
-  packer: .taskfiles/packer
-  pre-commit: .taskfiles/pre-commit
+  config: .taskfiles/config
   terraform: .taskfiles/terraform
+  workspace: .taskfiles/workspace
 
 tasks:
   default:
     cmd: task --list
     silent: true
+
+  bootstrap:
+    desc: "Bootstrap the workspace and infrastructure"
+    cmds:
+      # Order matters: credentials first (everything needs them), then the
+      # workspace (config render needs only the KMS keys, which the remote
+      # KMS module state already covers), then the state backend (the
+      # bucket apply is independent of the workspace half).
+      - task: workspace:aws:auth
+      - task: workspace:bootstrap
+      - task: terraform:bootstrap
+      # Later phases: add each module's terraform:<module>:apply as it
+      # comes online (backblaze, cloudflare, mailgun, github). The live
+      # KMS module (terraform:aws:*) stays on-demand - remote state means
+      # machines inherit it via init, never via this chain.
