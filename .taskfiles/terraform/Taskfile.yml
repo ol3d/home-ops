@@ -6,6 +6,7 @@ vars:
 
 includes:
   aws: ./aws
+  cloudflare: ./cloudflare
 
 tasks:
   bootstrap:
