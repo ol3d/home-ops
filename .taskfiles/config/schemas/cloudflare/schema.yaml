@@ -1,0 +1,22 @@
+---
+cloudflare_email:
+cloudflare_apikey:
+cloudflare_domain:
+public_domain:
+zone_id:
+dns_records:
+  mg:
+    cname:
+    mx_mxa:
+    mx_mxb:
+    txt_key:
+    txt:
+  pm:
+    txt:
+    mx_1:
+    mx_2:
+    txt_spf:
+    cname_pm1:
+    cname_pm2:
+    cname_pm3:
+    txt_dmarc:

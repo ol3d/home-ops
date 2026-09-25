@@ -3,13 +3,13 @@ version: "3"
 
 vars:
   CONFIG_DIR: "{{.ROOT_DIR}}/config"
-  SCHEMA: "{{.TASKFILE_DIR}}/resources/schema.yaml"
+  SCHEMAS_DIR: "{{.TASKFILE_DIR}}/schemas"
 
 tasks:
   render:
     desc: "Render config values into their runtime locations"
     cmds:
-      - python3 {{.TASKFILE_DIR}}/scripts/configure.py --schema {{.SCHEMA}} --config-dir {{.CONFIG_DIR}} render
+      - python3 {{.TASKFILE_DIR}}/scripts/configure.py --schema-dir {{.SCHEMAS_DIR}} --config-dir {{.CONFIG_DIR}} render
     preconditions:
       - sh: command -v sops &>/dev/null
         msg: "sops is required"

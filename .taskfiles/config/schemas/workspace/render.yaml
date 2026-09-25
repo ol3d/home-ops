@@ -1,0 +1,16 @@
+---
+git.user_name:
+  type: git_config
+  path: ~/.config/git/config
+  config_key: user.name
+git.user_email:
+  type: git_config
+  path: ~/.config/git/config
+  config_key: user.email
+opencode.ollama_api_key:
+  type: opencode_auth
+  path: ~/.local/share/opencode/auth.json
+  provider: ollama-cloud
+opencode.tavily_api_key:
+  type: key_file
+  path: ~/.local/share/opencode/tavily.key

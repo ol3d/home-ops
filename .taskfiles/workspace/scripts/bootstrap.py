@@ -20,7 +20,7 @@ SCRIPTS_DIR = Path(__file__).resolve().parent
 TASKFILES_DIR = SCRIPTS_DIR.parent.parent
 REPO_ROOT = TASKFILES_DIR.parent
 CONFIG_SCRIPT = TASKFILES_DIR / "config" / "scripts" / "configure.py"
-SCHEMA_PATH = TASKFILES_DIR / "config" / "resources" / "schema.yaml"
+SCHEMAS_DIR = TASKFILES_DIR / "config" / "schemas"
 CONFIG_DIR = REPO_ROOT / "config"
 
 AWS_CONFIG_FILE = Path.home() / ".aws" / "config"
@@ -60,13 +60,13 @@ def main() -> None:
 
     config = load_config_module()
 
-    added = config.cmd_create(str(SCHEMA_PATH), str(CONFIG_DIR))
+    added = config.cmd_create(str(SCHEMAS_DIR), str(CONFIG_DIR))
     if added:
         print("Repaired missing config fields with schema defaults:")
         for item in added:
             print(f"  - {item}")
 
-    missing = config.cmd_render(str(SCHEMA_PATH), str(CONFIG_DIR))
+    missing = config.cmd_render(str(SCHEMAS_DIR), str(CONFIG_DIR))
     print("Rendered credentials from config/.")
 
     if missing and sys.stdin.isatty():
@@ -77,7 +77,7 @@ def main() -> None:
             for name in sorted({item.split(" (config/")[1].rstrip(")") for item in missing}):
                 print(f"Editing config/{name} ...")
                 subprocess.run(["sops", "edit", str(CONFIG_DIR / name)], check=False)
-            missing = config.cmd_render(str(SCHEMA_PATH), str(CONFIG_DIR))
+            missing = config.cmd_render(str(SCHEMAS_DIR), str(CONFIG_DIR))
             print("Re-rendered credentials after edit.")
 
     if missing:

@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Configuration manager for homelab.
 
-Creates config/*.sops.yaml files from the schema, validates them, and
-renders values into their runtime locations. The schema is the single
-source of truth: every field, default, and render target is declared
-there. Day-2 value edits happen via 'sops edit', not here.
+Creates config/*.sops.yaml files from the schemas, and renders values
+into their runtime locations. Each schema directory under schemas/
+mirrors one config file: schema.yaml holds keys with their defaults in
+the same shape as the config itself; render.yaml (optional) maps dotted
+key paths to render directives. Day-2 value edits happen via 'sops
+edit', not here.
 """
 
 import argparse
@@ -17,9 +19,35 @@ from pathlib import Path
 import yaml
 
 
-def load_schema(schema_path: str) -> dict:
-    with open(schema_path) as f:
-        return yaml.safe_load(f)
+def flatten_defaults(data: dict, prefix: str = "") -> dict:
+    fields = {}
+    for key, value in data.items():
+        dotted = f"{prefix}{key}"
+        if isinstance(value, dict):
+            fields.update(flatten_defaults(value, f"{dotted}."))
+        else:
+            fields[dotted] = "" if value is None else value
+    return fields
+
+
+def load_schemas(schema_dir: str) -> list[dict]:
+    schemas = []
+    for schema_path in sorted(Path(schema_dir).glob("*/schema.yaml")):
+        name = schema_path.parent.name
+        with open(schema_path) as f:
+            defaults = flatten_defaults(yaml.safe_load(f) or {})
+        render_path = schema_path.parent / "render.yaml"
+        render = {}
+        if render_path.exists():
+            with open(render_path) as f:
+                render = yaml.safe_load(f) or {}
+            for dotted in render:
+                if dotted not in defaults:
+                    sys.exit(f"Render directive for unknown key '{dotted}' in {name} schema")
+        schemas.append({"name": name, "fields": defaults, "render": render})
+    if not schemas:
+        sys.exit(f"No schemas found in {schema_dir}")
+    return schemas
 
 
 def get_nested(data: dict, dotted_key: str) -> object:
@@ -76,20 +104,20 @@ def write_config(config_dir: Path, name: str, values: dict) -> None:
     print(f"  Written: {output_path}")
 
 
-def cmd_create(schema_path: str, config_dir: str) -> list[str]:
-    """Create or repair config files from the schema.
+def cmd_create(schema_dir: str, config_dir: str) -> list[str]:
+    """Create or repair config files from the schemas.
 
     Missing files are created and missing fields are re-added with their
     schema defaults; existing values are always preserved. Files that
     need no changes are left untouched. Returns the added field keys.
     """
-    schema = load_schema(schema_path)
+    schemas = load_schemas(schema_dir)
     config_path = Path(config_dir)
     config_path.mkdir(parents=True, exist_ok=True)
     added = []
 
-    for file_def in schema["files"]:
-        name = file_def["name"]
+    for schema in schemas:
+        name = schema["name"]
         existing = read_existing(config_path / f"{name}.sops.yaml")
         if existing is UNDECRYPTABLE:
             print(
@@ -100,48 +128,18 @@ def cmd_create(schema_path: str, config_dir: str) -> list[str]:
             sys.exit(1)
         values = existing if isinstance(existing, dict) else {}
         file_added = [
-            field["key"]
-            for field in file_def["fields"]
-            if get_nested(values, field["key"]) is None
+            dotted
+            for dotted in schema["fields"]
+            if get_nested(values, dotted) is None
         ]
         if file_added:
-            for field in file_def["fields"]:
-                if get_nested(values, field["key"]) is None:
-                    set_nested(values, field["key"], field.get("default", ""))
+            for dotted, default in schema["fields"].items():
+                if get_nested(values, dotted) is None:
+                    set_nested(values, dotted, default)
             write_config(config_path, name, values)
         added.extend(f"{key} (config/{name}.sops.yaml)" for key in file_added)
 
     return added
-
-
-def cmd_validate(schema_path: str, config_dir: str) -> None:
-    schema = load_schema(schema_path)
-    config_path = Path(config_dir)
-    errors = []
-
-    for file_def in schema["files"]:
-        name = file_def["name"]
-        file_path = config_path / f"{name}.sops.yaml"
-
-        if not file_path.exists():
-            errors.append(f"{name}.sops.yaml: missing (run 'task bootstrap')")
-            continue
-
-        existing = read_existing(file_path)
-        if existing is UNDECRYPTABLE:
-            errors.append(f"{name}.sops.yaml: cannot decrypt (check AWS credentials / KMS access)")
-            continue
-
-        for field in file_def["fields"]:
-            if get_nested(existing, field["key"]) is None:
-                errors.append(f"{name}.sops.yaml: missing key '{field['key']}'")
-
-    if errors:
-        print("Validation errors:")
-        for e in errors:
-            print(f"  - {e}")
-        sys.exit(1)
-    print("All config files valid.")
 
 
 def expand_path(path: str) -> Path:
@@ -174,22 +172,19 @@ def write_opencode_auth(path: Path, provider: str, value: str) -> None:
     os.chmod(path, 0o600)
 
 
-def cmd_render(schema_path: str, config_dir: str) -> list[str]:
-    schema = load_schema(schema_path)
+def cmd_render(schema_dir: str, config_dir: str) -> list[str]:
+    schemas = load_schemas(schema_dir)
     config_path = Path(config_dir)
     missing = []
 
-    for file_def in schema["files"]:
-        name = file_def["name"]
+    for schema in schemas:
+        name = schema["name"]
         existing = read_existing(config_path / f"{name}.sops.yaml")
         if not isinstance(existing, dict):
             continue
 
-        for field in file_def["fields"]:
-            render = field.get("render")
-            if not render:
-                continue
-            value = str(get_nested(existing, field["key"]) or "")
+        for dotted, render in schema["render"].items():
+            value = str(get_nested(existing, dotted) or "")
 
             if render["type"] == "git_config":
                 target = expand_path(render["path"])
@@ -197,14 +192,14 @@ def cmd_render(schema_path: str, config_dir: str) -> list[str]:
                     set_git_config(target, render["config_key"], value)
                 else:
                     set_git_config(target, render["config_key"], "")
-                    missing.append(f"{field['key']} (config/{name}.sops.yaml)")
+                    missing.append(f"{dotted} (config/{name}.sops.yaml)")
             elif render["type"] == "key_file":
                 target = expand_path(render["path"])
                 if value:
                     write_key_file(target, value)
                 elif not target.exists() or not target.read_text().strip():
                     write_key_file(target, "")
-                    missing.append(f"{field['key']} (config/{name}.sops.yaml)")
+                    missing.append(f"{dotted} (config/{name}.sops.yaml)")
             elif render["type"] == "opencode_auth":
                 target = expand_path(render["path"])
                 if value:
@@ -217,13 +212,13 @@ def cmd_render(schema_path: str, config_dir: str) -> list[str]:
                         except json.JSONDecodeError:
                             pass
                     if not has_key:
-                        missing.append(f"{field['key']} (config/{name}.sops.yaml)")
+                        missing.append(f"{dotted} (config/{name}.sops.yaml)")
     return missing
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Homelab configuration manager")
-    parser.add_argument("--schema", required=True, help="Path to schema.yaml")
+    parser.add_argument("--schema-dir", required=True, help="Path to schemas/ directory")
     parser.add_argument("--config-dir", required=True, help="Path to config/ directory")
 
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -233,7 +228,7 @@ def main() -> None:
     args = parser.parse_args()
 
     if args.command == "create":
-        added = cmd_create(args.schema, args.config_dir)
+        added = cmd_create(args.schema_dir, args.config_dir)
         if added:
             print("Added missing config fields with schema defaults:")
             for item in added:
@@ -242,7 +237,7 @@ def main() -> None:
         else:
             print("Config files complete; nothing added.")
     elif args.command == "render":
-        missing = cmd_render(args.schema, args.config_dir)
+        missing = cmd_render(args.schema_dir, args.config_dir)
         if missing:
             print("Some values are still blank:")
             for item in missing:
