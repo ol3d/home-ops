@@ -5,7 +5,7 @@
   // "model": "zai-coding-plan/glm-5.3",
   "small_model": "ollama-cloud/glm-5.3",
   // "small_model": "zai-coding-plan/glm-5.3",
-  "instructions": [".opencode/OPENCODE.md", "ROADMAP.md"],
+  "instructions": [".opencode/OPENCODE.md"],
   "enabled_providers": ["ollama-cloud", "zai-coding-plan"],
 
   // MCP Servers

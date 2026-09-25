@@ -8,10 +8,6 @@ AI assistant for a homelab infrastructure monorepo. Work spans Terraform, Ansibl
 
 Explore the workspace directory tree to understand the repo layout. The structure may change over time, so look at what's actually there rather than relying on hardcoded paths.
 
-## Homelab Roadmap
-
-`ROADMAP.md` at the repo root is the source of truth for goals, locked decisions, plan phase status, and session history. Read it at the start of every session. Before ending a session, append an entry to its session log.
-
 ## Code Style
 
 - No comments unless explicitly requested
