@@ -6,6 +6,7 @@ vars:
 
 includes:
   aws: ./aws
+  backblaze: ./backblaze
   cloudflare: ./cloudflare
 
 tasks:

@@ -1,0 +1,19 @@
+b2:
+    application_keys:
+        master-key:
+            application_key: ENC[AES256_GCM,data:YRWW36yZGXYVnoDnLHC9GW4RKLIMzVyoiL3preJNHyb4fv8gjGGxItsx,iv:x3Pcl6yRU/WUSuWJwsK5+EUhioL80SxmokRvzNAZ6FE=,tag:Wlp5xnVkR4/WPtjipVTJxA==,type:str]
+            application_key_id: ENC[AES256_GCM,data:DZDPSdgzVGdwYniw,iv:oaD8/kQujvlVeuKHAaR4P2Ufrp9LUCYCwgqyMxrF+98=,tag:WSfBqu81EBfWwNG6wm6PDw==,type:str]
+sops:
+    kms:
+        - arn: arn:aws:kms:us-east-1:869935076354:key/4a38975b-065e-4cbc-b0d7-b6067418b38f
+          aws_profile: ""
+          created_at: "2026-09-17T20:16:46Z"
+          enc: AQICAHjMndIHCKr7pRd37eUa7X1g6mIumN/SYrphsSwjA2dH0gHIKLQO7N6RwMihDoNSZ95JAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM/CSJB0FjACqoM+79AgEQgDsT+L6M1hHOn4BBp6pqdyFIGZmncTI06K/5V9BYjaT0REdpvD4nlNmj0nC09AC6mglK6RQ4VAJHkhrKhQ==
+        - arn: arn:aws:kms:us-east-1:869935076354:key/6baaa7c8-967a-4fc5-9923-c0a938edfcf4
+          aws_profile: ""
+          created_at: "2026-09-17T20:16:46Z"
+          enc: AQICAHgjUNKMaPux1uxpzA404YO6nLUQpxO4lmvQoubvdE3tKQHEEcItf00K54jWn6j/DUPPAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMkPb9mqtC0LTNM3RwAgEQgDuawwuncujtn5gSRaLzkMxP+MmeFpsrc/Bv+JM5KBIq2Lm1UPofQjBX8Jhvgt5e5XhmfEhTnfcTXeoErA==
+    lastmodified: "2026-09-25T18:23:26Z"
+    mac: ENC[AES256_GCM,data:GRRbQQHHGUOn3fnXpSQ1pemhkrJDLo0xfBHwlPxtTGSJa/zBjy56qgxJXm7fD+mJ+ICh9cpFxT8qBMt3RCxwasvH774qehjhf5pS4lKG6AtC0Dt9NRqZWy0TFqtZroHTHmrOdJ2buEF9IRNoMs6nMx9xM+Lcn2440Psdz3GwqE4=,iv:8HC//5EuWIFLbHL1IuccETyfgXzM8BkqjbqBuwiK/QU=,tag:aD86HBcb3DVI2xgkwCs5Lg==,type:str]
+    unencrypted_suffix: _unencrypted
+    version: 3.13.3

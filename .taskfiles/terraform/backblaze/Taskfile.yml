@@ -1,0 +1,33 @@
+---
+version: "3"
+
+vars:
+  BACKBLAZE_MODULE: "{{.ROOT_DIR}}/lab/provision/terraform/modules/backblaze"
+
+tasks:
+  init:
+    desc: "Initialize the Backblaze module"
+    dir: "{{.BACKBLAZE_MODULE}}"
+    cmds:
+      - terraform init {{.CLI_ARGS}}
+    preconditions:
+      - sh: command -v terraform &>/dev/null
+        msg: "terraform is required"
+
+  plan:
+    desc: "Plan Backblaze module changes"
+    dir: "{{.BACKBLAZE_MODULE}}"
+    cmds:
+      - terraform plan {{.CLI_ARGS}}
+    preconditions:
+      - sh: command -v terraform &>/dev/null
+        msg: "terraform is required"
+
+  apply:
+    desc: "Apply Backblaze module changes"
+    dir: "{{.BACKBLAZE_MODULE}}"
+    cmds:
+      - terraform apply {{.CLI_ARGS}}
+    preconditions:
+      - sh: command -v terraform &>/dev/null
+        msg: "terraform is required"

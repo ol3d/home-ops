@@ -17,3 +17,10 @@ resource "b2_bucket" "homeops-backups" {
     days_from_hiding_to_deleting = 28
   }
 }
+
+import {
+  for_each = var.import_existing ? toset(["enabled"]) : toset([])
+
+  to = b2_bucket.homeops-backups
+  id = "dd3572a27cb1e39481b4041b"
+}

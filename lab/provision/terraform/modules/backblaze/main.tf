@@ -1,22 +1,27 @@
 terraform {
+  required_version = "1.16.2"
+
   required_providers {
     b2 = {
       source  = "Backblaze/b2"
-      version = "0.12.1"
-    }
-    http = {
-      source  = "hashicorp/http"
-      version = "3.5.0"
+      version = "0.14.0"
     }
     sops = {
       source  = "carlpett/sops"
       version = "1.4.1"
     }
   }
+
+  backend "s3" {
+    bucket       = "ol3d-dev.homelab.tfstate"
+    key          = "backblaze/terraform.tfstate"
+    region       = "us-east-1"
+    use_lockfile = true
+  }
 }
 
 data "sops_file" "backblaze_secrets" {
-  source_file = "secret.sops.yaml"
+  source_file = "${path.module}/../../../../../config/backblaze.sops.yaml"
 }
 
 provider "b2" {
