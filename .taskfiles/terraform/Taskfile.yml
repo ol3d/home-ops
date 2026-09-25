@@ -1,0 +1,31 @@
+---
+version: "3"
+
+vars:
+  TERRAFORM_DIR: "{{.ROOT_DIR}}/lab/provision/terraform"
+
+includes:
+  aws: ./aws
+
+tasks:
+  bootstrap:
+    desc: "Provision the AWS state backend (state-backend stack, local state)"
+    dir: "{{.TERRAFORM_DIR}}/state-backend"
+    cmds:
+      - terraform init -backend=false
+      - |
+        IMPORT_ARGS=""
+        [ -n "$(terraform state list)" ] || IMPORT_ARGS="-var import_existing=true"
+        terraform apply $IMPORT_ARGS
+    preconditions:
+      - sh: command -v terraform &>/dev/null
+        msg: "terraform is required"
+
+  format:
+    desc: "Format all Terraform files"
+    dir: "{{.TERRAFORM_DIR}}"
+    cmds:
+      - terraform fmt -recursive {{.TERRAFORM_DIR}}
+    preconditions:
+      - sh: command -v terraform &>/dev/null
+        msg: "terraform is required"

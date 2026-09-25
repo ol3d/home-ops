@@ -1,0 +1,20 @@
+git:
+  user_name: ENC[AES256_GCM,data:PdBX1Y+FlAUV,iv:SH1nN3ng37BYLcTqVDFrCUFs4YVXKcrquSyd56PU1SI=,tag:WyjMAERvCMTV8P6NI/PAKw==,type:str]
+  user_email: ENC[AES256_GCM,data:3x71kknQhS/qLLVyFVPoINA=,iv:JuomPhs9JF9RHTVbTgm1uPT7A7MWKT+B7gZ+IEPre2Y=,tag:V14x481Pdewna0GTyT5mOw==,type:str]
+opencode:
+  ollama_api_key: ENC[AES256_GCM,data:lAJ0uCq4mhl/e1NFqSVlpOjwifDLNMEfMyrub5z6mtH7jlKShDHtqNkTIcsO/jNcBa3HIFl6LYbD,iv:5sJO2wWlb+/2pdQAw6IQ4+KXYVoJ0oc7qMKI5D2FXhs=,tag:glgzaDjQUtlbD6SL6Xovgw==,type:str]
+  tavily_api_key: ENC[AES256_GCM,data:tqx7e3lLfLGOIouOxTZUEh3DhAnBUHEtXN3r7WhaI9lAHUy66zBdAaI=,iv:MuZM787brma2Z6yYzPGQSSwvFQyfOxK9yJe1EVuphNs=,tag:bHNq3aAKpC4erX4K3sjBAA==,type:str]
+sops:
+  kms:
+    - arn: arn:aws:kms:us-east-1:869935076354:key/4a38975b-065e-4cbc-b0d7-b6067418b38f
+      aws_profile: ""
+      created_at: "2026-09-22T02:06:26Z"
+      enc: AQICAHh/rz75/nKbwI0RXq7iMBJYL7hlipIj6OLAOxfUHnkEVAFHXHi9UQhPH2VZf76tPbDgAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMPM1yUqIPfL4QKPE/AgEQgDspA+xFjk1H1RrV2FUta9FwiEYcyYSMZAqhEY+tUIoV+oHtiI15auEoUbfj24COLjoG9BxRSQwhgVA5jg==
+    - arn: arn:aws:kms:us-east-1:869935076354:key/6baaa7c8-967a-4fc5-9923-c0a938edfcf4
+      aws_profile: ""
+      created_at: "2026-09-22T02:06:26Z"
+      enc: AQICAHiZo+cPAuO73jcHgXPcqIFyok2ddbznmCZaW01nCrJH5QHvDhVGqx8dL3qWv+v3ks+YAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMpkvGp8aQCmqRVna0AgEQgDvP7bbzkddpO696afiud+CxNXJj6XP9oxOOSAIAbe3mnSfF7iWCFxFZcJHbLf5ad+s9rbMbgVeVTVFYkQ==
+  lastmodified: "2026-09-22T02:15:49Z"
+  mac: ENC[AES256_GCM,data:l8i3hVWLXtVJOia1xRcwmJS/KBk0UvJnM3/ZAs4suoOlavfHhtuFqfpWlMPh6+BtxOrdUuXD7zEVpaKIMw1Q0ohHNG3/l2G5S4pMhEkiNuos6VpqFQeGoTMsElwmH+Ir0NIxwPvZoHhGr/Pny3JlUH/0GdlgQRMvWCisqhi9vKU=,iv:sFZ4NCLgg0Uz038jwBPZK7JMr6q7Mawnp8NZBwhhvC4=,tag:o79yxHPGKyvUZeu2EXfM5Q==,type:str]
+  unencrypted_suffix: _unencrypted
+  version: 3.13.3

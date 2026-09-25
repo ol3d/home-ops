@@ -1,0 +1,33 @@
+---
+version: "3"
+
+vars:
+  AWS_MODULE: "{{.ROOT_DIR}}/lab/provision/terraform/modules/aws"
+
+tasks:
+  init:
+    desc: "Initialize the AWS module (S3 backend)"
+    dir: "{{.AWS_MODULE}}"
+    cmds:
+      - terraform init {{.CLI_ARGS}}
+    preconditions:
+      - sh: command -v terraform &>/dev/null
+        msg: "terraform is required"
+
+  plan:
+    desc: "Plan AWS module changes"
+    dir: "{{.AWS_MODULE}}"
+    cmds:
+      - terraform plan {{.CLI_ARGS}}
+    preconditions:
+      - sh: command -v terraform &>/dev/null
+        msg: "terraform is required"
+
+  apply:
+    desc: "Apply AWS module changes"
+    dir: "{{.AWS_MODULE}}"
+    cmds:
+      - terraform apply {{.CLI_ARGS}}
+    preconditions:
+      - sh: command -v terraform &>/dev/null
+        msg: "terraform is required"

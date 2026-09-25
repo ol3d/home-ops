@@ -1,0 +1,38 @@
+---
+files:
+  - name: workspace
+    description: Values rendered into the developer workspace by bootstrap
+    fields:
+      - key: git.user_name
+        default: ""
+        render:
+          type: git_config
+          path: ~/.config/git/config
+          config_key: user.name
+      - key: git.user_email
+        default: ""
+        render:
+          type: git_config
+          path: ~/.config/git/config
+          config_key: user.email
+      - key: opencode.ollama_api_key
+        default: ""
+        render:
+          type: opencode_auth
+          path: ~/.local/share/opencode/auth.json
+          provider: ollama-cloud
+      - key: opencode.tavily_api_key
+        default: ""
+        render:
+          type: key_file
+          path: ~/.local/share/opencode/tavily.key
+
+  - name: homelab
+    description: Shared homelab values used across multiple modules
+    fields:
+      - key: domain
+        default: ol3d.dev
+      - key: timezone
+        default: America/Chicago
+      - key: github_repo
+        default: ol3d/home-ops

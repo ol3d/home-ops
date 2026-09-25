@@ -1,0 +1,16 @@
+---
+version: "3"
+
+includes:
+  aws: ./aws
+
+tasks:
+  bootstrap:
+    desc: "Bootstrap the devcontainer workspace: KMS gate, config creation, credential render"
+    cmds:
+      - python3 {{.TASKFILE_DIR}}/scripts/bootstrap.py
+    preconditions:
+      - sh: command -v sops &>/dev/null
+        msg: "sops is required"
+      - sh: python3 -c "import boto3" &>/dev/null
+        msg: "boto3 is required"

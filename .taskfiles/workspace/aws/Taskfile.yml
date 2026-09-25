@@ -1,0 +1,19 @@
+---
+version: "3"
+
+tasks:
+  auth:
+    desc: "Verify AWS credentials (prompt on first run)"
+    cmds:
+      - python3 {{.TASKFILE_DIR}}/scripts/auth.py
+    preconditions:
+      - sh: python3 -c "import boto3" &>/dev/null
+        msg: "boto3 is required"
+
+  auth:rotate:
+    desc: "Force AWS credential re-entry (e.g. after a key rotation)"
+    cmds:
+      - python3 {{.TASKFILE_DIR}}/scripts/auth.py rotate
+    preconditions:
+      - sh: python3 -c "import boto3" &>/dev/null
+        msg: "boto3 is required"
