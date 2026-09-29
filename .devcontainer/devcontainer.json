@@ -9,7 +9,7 @@
 
   // Docker-in-Docker Feature (moby: false for Debian Trixie compat).
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:4.1.1": {
+    "ghcr.io/devcontainers/features/docker-in-docker:4.1.2": {
       "moby": false
     }
   },
