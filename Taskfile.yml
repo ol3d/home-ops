@@ -22,6 +22,6 @@ tasks:
       - task: workspace:bootstrap
       - task: terraform:bootstrap
       # Later phases: add each module's terraform:<module>:apply as it
-      # comes online (backblaze, cloudflare, mailgun, github). The live
+      # comes online (backblaze, cloudflare, github). The live
       # KMS module (terraform:aws:*) stays on-demand - remote state means
       # machines inherit it via init, never via this chain.

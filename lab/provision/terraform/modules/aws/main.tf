@@ -6,6 +6,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "6.66.0"
     }
+    sops = {
+      source  = "carlpett/sops"
+      version = "1.4.1"
+    }
   }
 
   backend "s3" {

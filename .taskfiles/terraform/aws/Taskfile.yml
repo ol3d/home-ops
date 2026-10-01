@@ -31,3 +31,16 @@ tasks:
     preconditions:
       - sh: command -v terraform &>/dev/null
         msg: "terraform is required"
+
+  smtp-credentials:
+    desc: "Print the SES SMTP credentials for device notification senders"
+    dir: "{{.AWS_MODULE}}"
+    cmds:
+      - |
+        echo "Host:     $(terraform output -raw ses_smtp_host)"
+        echo "Port:     587 (STARTTLS)"
+        echo "Username: $(terraform output -raw ses_smtp_username)"
+        echo "Password: $(terraform output -raw ses_smtp_password)"
+    preconditions:
+      - sh: command -v terraform &>/dev/null
+        msg: "terraform is required"

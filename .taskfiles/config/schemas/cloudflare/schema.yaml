@@ -5,12 +5,6 @@ cloudflare_domain:
 public_domain:
 zone_id:
 dns_records:
-  mg:
-    cname:
-    mx_mxa:
-    mx_mxb:
-    txt_key:
-    txt:
   pm:
     txt:
     mx_1:
