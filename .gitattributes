@@ -1,8 +1,5 @@
 * text=auto eol=lf
 
-# .sops.yaml is the SOPS creation-rule config, plaintext by design
-.sops.yaml diff=plaintext
-
 # Encrypted SOPS files: readable diffs via sopsdiffer textconv driver
 config/**/*.sops.yaml diff=sopsdiffer
 config/**/*.sops.yml diff=sopsdiffer
