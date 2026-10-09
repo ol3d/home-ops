@@ -46,6 +46,7 @@ repos:
         types: [markdown]
         pass_filenames: true
 
+      # TODO look into https://github.com/yuvipanda/pre-commit-hook-ensure-sops and https://github.com/tacto-ai/ensure-sops
       - id: sops-encryption
         name: Check SOPS files are encrypted
         entry: >-
