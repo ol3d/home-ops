@@ -67,11 +67,10 @@
         "editor.hover.delay": 1500,
         "extensions.ignoreRecommendations": true,
         "files.associations": {
-          "*.json5": "jsonc",
-          "**/provision/ansible/**/inventory/**/*.yml": "yaml",
-          "**/provision/ansible/**/*.sops.yml": "yaml",
-          "**/provision/ansible/**/*.yml": "ansible",
-          "**/provision/terraform/**/*.tf": "terraform"
+          "**/lab/provision/ansible/**/inventory/**/*.yml": "yaml",
+          "**/lab/provision/ansible/**/*.sops.yml": "yaml",
+          "**/lab/provision/ansible/**/*.yml": "ansible",
+          "**/lab/provision/terraform/**/*.tf": "terraform"
         },
         "files.autoSave": "afterDelay",
         "files.exclude": {
