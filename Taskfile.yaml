@@ -2,6 +2,7 @@
 version: "3"
 
 includes:
+  ansible: .taskfiles/ansible
   config: .taskfiles/config
   terraform: .taskfiles/terraform
   workspace: .taskfiles/workspace
@@ -18,10 +19,12 @@ tasks:
       # Order matters: credentials first (everything needs them), then the
       # workspace (config render needs only the KMS keys, which the remote
       # KMS module state already covers), then the state backend (the
-      # bucket apply is independent of the workspace half).
+      # bucket apply is independent of the workspace half). The ansible
+      # role install is credential-independent and closes the chain.
       - task: workspace:aws:auth
       - task: workspace:bootstrap
       - task: terraform:bootstrap
+      - task: ansible:install-dependencies
       # Later phases: add each module's terraform:<module>:apply as it
       # comes online (backblaze, cloudflare, github). The live
       # KMS module (terraform:aws:*) stays on-demand - remote state means
