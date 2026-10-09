@@ -5,6 +5,7 @@ includes:
   config: .taskfiles/config
   terraform: .taskfiles/terraform
   workspace: .taskfiles/workspace
+  lint: .taskfiles/lint
 
 tasks:
   default:
