@@ -3,22 +3,15 @@ default: true
 
 # MD013/line-length - Line length
 MD013:
-  # Number of characters
   line_length: 240
-  # Number of characters for headings
   heading_line_length: 80
-  # Number of characters for code blocks
   code_block_line_length: 80
-  # Include code blocks
   code_blocks: true
-  # Include tables
   tables: true
-  # Include headings
   headings: true
-  # Strict length checking
-  strict: false
-  # Stern length checking
-  stern: false
 
 # MD041/first-line-heading - Disable for files using MkDocs snippet includes (--8<--)
 MD041: false
+
+# MD025/single-title - Frontmatter title + body H1 is the MkDocs convention for all docs
+MD025: false

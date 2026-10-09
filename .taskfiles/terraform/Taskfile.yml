@@ -22,12 +22,3 @@ tasks:
     preconditions:
       - sh: command -v terraform &>/dev/null
         msg: "terraform is required"
-
-  format:
-    desc: "Format all Terraform files"
-    dir: "{{.TERRAFORM_DIR}}"
-    cmds:
-      - terraform fmt -recursive {{.TERRAFORM_DIR}}
-    preconditions:
-      - sh: command -v terraform &>/dev/null
-        msg: "terraform is required"

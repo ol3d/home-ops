@@ -1,8 +1,6 @@
 ---
 # markdownlint-cli2 configuration
-# References: rules config and ignore patterns
 
-# Import rule configuration
 config:
   extends: .markdownlint.yaml
 
@@ -10,23 +8,15 @@ config:
 ignores:
   # Build artifacts and caches
   - node_modules/**
-  - .devbox/**
   - .cache/**
 
-  # Terraform providers (vendored dependencies)
+  # Vendored dependencies
   - .terraform/**
   - "**/.terraform/**"
-
-  # OpenCode internal files
+  - "**/.ansible/**"
   - .opencode/**
-  - OPENCODE.md
 
-  # GitHub templates (special formatting)
-  - .github/ISSUE_TEMPLATE/**
-  - .github/PULL_REQUEST_TEMPLATE.md
-
-  # Ansible Galaxy roles (external dependencies)
-  - "lab/provision/ansible/.ansible/roles/**"
-
-  # Custom Ansible role templates (uses special formatting for GitHub)
-  - "lab/provision/ansible/pikvm/roles/*/.github/**"
+  # Dormant trees (tmp/ mirrors in-tree locations; restored at phase
+  # activation, linters re-adjusted then)
+  # TODO: remove when tmp/ docs are restored to docs/
+  - tmp/**

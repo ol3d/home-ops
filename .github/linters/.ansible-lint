@@ -6,7 +6,6 @@ profile: production
 # Exclude paths
 exclude_paths:
   - .ansible/
-  - .devbox/
   - node_modules/
   - .vscode/
   - "**/*.sops.yml"
@@ -20,6 +19,3 @@ skip_list:
 warn_list:
   - unnamed-task  # Warn but don't fail on unnamed tasks
   - role-name  # Warn on role naming issues
-
-# Enable offline mode (no internet required)
-offline: false

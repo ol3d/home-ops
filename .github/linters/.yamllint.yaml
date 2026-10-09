@@ -1,11 +1,10 @@
 ---
 ignore: |
-  docs/
-  .vscode/
   *.sops.*
   mkdocs.yml
   .ansible/
-  .devbox/
+  .opencode/
+  .vscode/
   node_modules/
 extends: default
 rules:
@@ -21,4 +20,3 @@ rules:
   brackets:
     min-spaces-inside: 0
     max-spaces-inside: 0
-  indentation: enable

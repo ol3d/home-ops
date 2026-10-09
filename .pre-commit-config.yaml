@@ -5,7 +5,7 @@ repos:
     hooks:
       - id: prettier
         name: Fix Prettier Formatting
-        entry: prettier --write --config .github/linters/.prettierrc.yaml --ignore-path .github/linters/.prettierignore
+        entry: prettier --write --ignore-unknown --config .github/linters/.prettierrc.yaml --ignore-path .github/linters/.prettierignore
         language: system
         types_or: [json, yaml, markdown, javascript, css, html]
         pass_filenames: true
@@ -17,16 +17,16 @@ repos:
         files: \.tf$
         pass_filenames: false
 
-      # - id: packer-fmt
-      #   name: Fix Packer Formatting
-      #   entry: packer fmt lab/provision/packer
-      #   language: system
-      #   files: \.pkr\.hcl$
-      #   pass_filenames: false
+      - id: packer-fmt
+        name: Fix Packer Formatting
+        entry: packer fmt -recursive lab/provision/packer
+        language: system
+        files: \.pkr\.hcl$
+        pass_filenames: false
 
       - id: shfmt
         name: Fix Shell Formatting
-        entry: shfmt -w
+        entry: shfmt -w -i 2 -ci -bn
         language: system
         types: [shell]
         pass_filenames: true
@@ -37,13 +37,23 @@ repos:
         language: system
         types: [yaml]
         pass_filenames: true
-        exclude: ^\.opencode/.*|^\.pre-commit-config\.yaml$
+        exclude: ^\.opencode/.*
 
       - id: markdownlint
         name: Check Markdown Linting
         entry: markdownlint-cli2 --config .github/linters/.markdownlint-cli2.yaml
         language: system
         types: [markdown]
+        pass_filenames: true
+
+      - id: sops-encryption
+        name: Check SOPS files are encrypted
+        entry: >-
+          bash -c 'for f in "$@"; do sops filestatus "$f" | yq -p=json .encrypted
+          | grep -qx true || { echo "$f: not SOPS-encrypted"; exit 1; }; done' --
+        language: system
+        files: \.sops\.ya?ml$
+        exclude: ^\.sops\.yaml$
         pass_filenames: true
 
   - repo: https://github.com/shellcheck-py/shellcheck-py

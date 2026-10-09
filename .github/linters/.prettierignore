@@ -1,34 +1,26 @@
-# Documentation
-docs/
-
-# OpenCode
-.opencode/
-
-# IDE
-.vscode/
-.idea/
-
-# Linter configs (non-YAML/JSON formats)
-.github/linters/.ansible-lint
-.github/linters/.tflint.hcl
-
 # SOPS encrypted files
 *.sops.*
 
-# Dependencies
-node_modules/
-.devbox/
-
-# Terraform
-.terraform/
-*.tfstate
-*.tfstate.backup
-.terraform.lock.hcl
-
-# Ansible
+# Vendored dependencies
 .ansible/
+.terraform/
+node_modules/
 
-# Build artifacts
-dist/
-build/
-*.log
+# Linter configs (unparseable by prettier)
+.github/linters/.ansible-lint
+.github/linters/.tflint.hcl
+
+# MkDocs build cache
+.cache/
+
+# Local-only
+.opencode/
+.vscode/
+
+# Dormant trees (tmp/ mirrors in-tree locations; restored at phase
+# activation, linters re-adjusted then)
+# TODO: remove when tmp/ docs are restored to docs/
+tmp/
+
+# Terraform state (generated, never formatted)
+*.tfstate*
