@@ -8,10 +8,13 @@ vars:
 tasks:
   check:
     desc: "Run all linting checks (pre-commit, ansible-lint, tflint, packer fmt)"
+    env:
+      ANSIBLE_ROLES_PATH: "{{.ROOT_DIR}}/lab/provision/ansible/.ansible/roles"
     cmds:
       - pre-commit run --all-files
-      - cmd: ANSIBLE_ROLES_PATH={{.ROOT_DIR}}/lab/provision/ansible/.ansible/roles ansible-lint -c {{.LINTER_CONFIG_DIR}}/.ansible-lint
-        dir: "{{.ROOT_DIR}}/lab/provision/ansible"
+      - cmd: >-
+          cd {{.ROOT_DIR}}/lab/provision/ansible &&
+          ansible-lint -c {{.LINTER_CONFIG_DIR}}/.ansible-lint
       - terraform fmt -check -recursive {{.TERRAFORM_DIR}}
       - |
         cd {{.TERRAFORM_DIR}}
