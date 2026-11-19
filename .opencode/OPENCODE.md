@@ -17,6 +17,7 @@ Explore the workspace directory tree to understand the repo layout. The structur
 - Commit `.terraform.lock.hcl` files
 - Terraform files go in a `terraform/` subdir
 - `.gitignore` should ignore `.env`, `*.tfstate*`, `terraform.tfvars`, and other sensitive/generated files
+- Every file ends with a trailing newline, always; verify before handing off any file change
 
 ## Git Conventions
 
@@ -40,3 +41,6 @@ Explore the workspace directory tree to understand the repo layout. The structur
 - Direct recommendations with brief reasoning, not exhaustive option lists
 - Use code references with line numbers: `file.tf:42`
 - If user shows frustration, be more concise, not less
+- Never use em dashes
+- Never splice sentences with " - " hyphen connectors; use semicolons or restructure
+- Multi-command instructions use sub-bullet lists, not run-on lines
