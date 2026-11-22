@@ -2,7 +2,7 @@
 # all other tools not available as Features.
 # ZSH + oh-my-zsh are included in the base image.
 # Check: https://mcr.microsoft.com/v2/devcontainers/base/manifests/debian
-FROM mcr.microsoft.com/devcontainers/base@sha256:38f9e6c291f054e3c868d95a5477cbfcf76c0fa7c218dda65dc6aa3fbfe06871
+FROM mcr.microsoft.com/devcontainers/base@sha256:41ff7ce12ec45f2704f27a6e091831186ad922ec8112e6339425bfefdf5a70f9
 
 ARG DEBIAN_FRONTEND=noninteractive
 
